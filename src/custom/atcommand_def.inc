@@ -9,3 +9,10 @@
  **/
 
 //ACMD_DEF(newcommand),
+
+ACMD_DEF(gepard_block_nick),
+ACMD_DEF(gepard_block_account_id),
+ACMD_DEF(gepard_block_unique_id),
+ACMD_DEF(gepard_unblock_nick),
+ACMD_DEF(gepard_unblock_account_id),
+ACMD_DEF(gepard_unblock_unique_id),

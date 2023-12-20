@@ -1,0 +1,3 @@
+new_2-1,52,109,5	script	test	100,{
+    debugmes "" + get_unique_id();
+}

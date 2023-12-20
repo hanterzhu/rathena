@@ -9,3 +9,5 @@
  **/
 
 //BUILDIN_DEF(example,""),
+
+BUILDIN_DEF(get_unique_id,""),
