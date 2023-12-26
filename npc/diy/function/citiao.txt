@@ -1,0 +1,31 @@
+function	script	获取装备3	{
+    .@id = getarg(0);
+    .@amount = getarg(1,1);
+    .@identify = getarg(2,1);
+    .@refine = getarg(3,0);
+    .@attribute = getarg(4,0);
+    .@card1 = getarg(5,0);
+    .@card2 = getarg(6,0);
+    .@card3 = getarg(7,0);
+    .@card4 = getarg(8,0);
+    .@param9 = getarg(9,0);
+    if (.@param9) {
+        for (.@i = 0; .@i < 5; .@i++) {
+            .@value = getelementofarray(getarg(9),.@i);
+            setarray .@RandomIDArray[.@i],.@value;
+        }
+        for (.@i = 0; .@i < 5; .@i++) {
+            .@value = getelementofarray(getarg(10),.@i);
+            setarray .@RandomValueArray[.@i],.@value;
+        }
+        for (.@i = 0; .@i < 5; .@i++) {
+            .@value = getelementofarray(getarg(11),.@i);
+            setarray .@RandomParamArray[.@i],.@value;
+        }
+    }
+    if (.@id) {
+        getitem3 .@id,.@amount,.@identify,.@refine,.@attribute,.@card1,.@card2,.@card3,.@card4,.@RandomIDArray,.@RandomValueArray,.@RandomParamArray;
+    }
+    return;
+}
+

@@ -1,0 +1,32 @@
+
+function	script	set_multi_array	{
+    .array_name$ = getarg(0); // 数组名
+    .row = getarg(1);         // 行索引
+    .col = getarg(2);         // 列索引
+    .value = getarg(3);       // 要设置的值
+    .numCols = getarg(4);     // 数组的列数
+
+    // 计算一维数组的索引
+    .index = .row * .numCols + .col;
+
+    // 设置数组值
+    .index$ = .array_name$ + "[" + .index + "]";
+    setd(.index$, .value);
+
+    return;
+}
+
+function	script	get_multi_array	{
+    .array_name$ = getarg(0); // 数组名
+    .row = getarg(1);         // 行索引
+    .col = getarg(2);         // 列索引
+    .numCols = getarg(3);     // 数组的列数
+
+    // 计算一维数组的索引
+    .index = .row * .numCols + .col;
+
+    // 获取并返回数组值
+    .index$ = .array_name$ + "[" + .index + "]";
+    return getd(.index$);
+}
+
