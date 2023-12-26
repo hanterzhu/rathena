@@ -89,6 +89,18 @@ Header:
   Version: 3
 
 Body:
+  - Id: 100001
+    AegisName: test1
+    Name: 护身符1
+    Type: Amulet
+    Buy: 20
+    Weight: 300
+    Script: |
+      bonus bAllStats,3;
+    EquipScript: |
+      sc_start SC_BLESSING,1200000,10;
+    UnEquipScript: |
+      sc_end SC_BLESSING;
   - Id: 100002
     AegisName: test2
     Name: 测试
@@ -97,30 +109,22 @@ Body:
     Weight: 300
     Script: |
       rentitem 100001,604800;
-  - Id: 100001
-    AegisName: test1
-    Name: 护身符1
-    Type: Amulet
-    Buy: 20
-    Weight: 300
-    Defense: 3
-    Script: |
-      bonus bAllStats,3;
-    EquipScript: |
-      sc_start SC_BLESSING,1200000,10;
-    UnEquipScript: |
-      sc_end SC_BLESSING;
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
   - Id: 100003
     AegisName: test3
     Name: 护身符3
-    Type: Armor
-    Locations:
-      Armor: true
+    Type: Amulet
     Buy: 20
     Weight: 300
     Script: |
-      bonus bAllStats,300;
+      bonus bDef,1;
     EquipScript: |
-      sc_start SC_ATKPOTION,60000,10;
+      sc_start SC_ATKPOTION,60000,30;
     UnEquipScript: |
       sc_end SC_ATKPOTION;

@@ -3,6 +3,11 @@
 
 #include "itemamulet.hpp"
 
+#include <unordered_map>
+#include <vector>
+#include <algorithm>
+#include <memory>
+
 #include "pc.hpp"
 #include "itemdb.hpp"
 
@@ -177,7 +182,7 @@ void amulet_status_calc(map_session_data *sd, uint8 opt) {
 
 	short save_current_equip_item_index = current_equip_item_index;
 
-    std::unordered_map<t_itemid, int> countMap;
+    std::unordered_map<t_itemid, std::vector<std::shared_ptr<s_amulet_cal>>> amulet_map;
 
 	for (uint32 i = 0; i < MAX_INVENTORY; i++) {
         if (!sd || !sd->inventory_data[i])
@@ -195,29 +200,41 @@ void amulet_status_calc(map_session_data *sd, uint8 opt) {
 		}
 
 		if (sd->inventory_data[i]->script) {
-            countMap[sd->inventory_data[i]->nameid] += sd->inventory.u.items_inventory[i].amount;
+            uint32 maxstack = sd->inventory_data[i]->extend.amulet_max_stack;
+            uint32 priority = sd->inventory_data[i]->extend.amulet_priority;
+            amulet_map[sd->inventory_data[i]->extend.amulet_group].push_back(std::make_shared<s_amulet_cal>(s_amulet_cal{priority, maxstack, sd->inventory.u.items_inventory[i].amount, i, sd->inventory_data[i]->script}));
 		}
 	}
 
-    for (const auto& pair : countMap) {
-        for (uint32 i = 0; i < MAX_INVENTORY; i++) {
-            if (!sd || !sd->inventory_data[i])
-                continue;
+    for (const auto& pair : amulet_map) {
+        std::vector<std::shared_ptr<s_amulet_cal>> amulets = pair.second;
 
-            if (pair.first != sd->inventory_data[i]->nameid)
-                continue;
+        uint32 maxstack = amulets.at(0)->maxstack;
+        short tmp = 0;
+        std::sort(amulets.begin(), amulets.end(),
+                  [](const std::shared_ptr<s_amulet_cal> & a, const std::shared_ptr<s_amulet_cal> & b) {
+                      return a->priority < b->priority;
+                  });
 
-            current_equip_item_index = i;
-            std::shared_ptr<item_data> id = item_db.find(sd->inventory_data[i]->nameid);
-            int amount = id->extend.amulet_max_stack < pair.second ? id->extend.amulet_max_stack : pair.second;
+        for (const auto &amulet: amulets) {
+            if (tmp >= maxstack)
+                break;
+            short amount;
+            if ((tmp + amulet->amount) <= maxstack) {
+                amount = amulet->amount;
+            } else {
+                amount = maxstack - tmp;
+            }
+            tmp += amulet->amount;
+            current_equip_item_index = amulet->index;
             for (uint16 k = 0; k < amount; k++) {
-                run_script(sd->inventory_data[i]->script, 0, sd->bl.id, 0);
+                run_script(amulet->script, 0, sd->bl.id, 0);
                 if (!sd->extend.amulet_calculating) {
                     current_equip_item_index = save_current_equip_item_index;
                     return;
                 }
             }
-            break; //触发一次就行
+
         }
     }
 	current_equip_item_index = save_current_equip_item_index;
@@ -259,15 +276,35 @@ uint64 AmuletProperties::parseBodyNode(const ryml::NodeRef& node) {
         properties_item->nameid = nameid;
     }
 
-    properties_item->maxstack = 1;
-
     if (this->nodeExists(node, "MaxStack")) {
         uint32 maxstack;
 
         if (!this->asUInt32(node, "MaxStack", maxstack)) {
             this->invalidWarning(node["MaxStack"], "ItemId \"%d\" maxstack set default to 1\n", nameid);
+            properties_item->maxstack = 1;
         } else {
             properties_item->maxstack = maxstack;
+        }
+    }
+
+    if (this->nodeExists(node, "Group")) {
+        uint32 group;
+
+        if (!this->asUInt32(node, "Group", group)) {
+            this->invalidWarning(node["Group"], "ItemId \"%d\" group set default to 1\n", nameid);
+            properties_item->group = 1;
+        } else {
+            properties_item->group = group;
+        }
+    }
+
+    if (this->nodeExists(node, "Priority")) {
+        uint32 priority;
+        if (!this->asUInt32(node, "Priority", priority)) {
+            this->invalidWarning(node["Priority"], "ItemId \"%d\" priority set default to 1\n", nameid);
+            properties_item->priority = 1;
+        } else {
+            properties_item->priority = priority;
         }
     }
 
@@ -291,6 +328,8 @@ void AmuletProperties::parsePropertiesToItemDB(ItemDatabase& item_db) {
         auto item = it.second;
 
         if (value) {
+            item->extend.amulet_group = value->group;
+            item->extend.amulet_priority = value->priority;
             item->extend.amulet_max_stack = value->maxstack;
         }
 
