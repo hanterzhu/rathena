@@ -1,0 +1,13 @@
+Header:
+  Type: AMULET_PROPERTIES_DB
+  Version: 2
+
+#MaxStackÄ¬ÈÏÎª1
+
+Body:
+#  - ItemID: 2207
+#    MaxStack: 1
+
+Footer:
+  Imports:
+    - Path: db/import/amulet_properties.yml

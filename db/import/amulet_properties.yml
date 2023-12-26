@@ -1,0 +1,9 @@
+Header:
+  Type: AMULET_PROPERTIES_DB
+  Version: 2
+
+#MaxStackÄ¬ÈÏÎª1
+
+Body:
+  - ItemID: 100001
+    MaxStack: 10

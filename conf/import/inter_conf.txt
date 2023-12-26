@@ -1,0 +1,28 @@
+login_server_id: root
+login_server_pw: 19890129.ro
+login_server_db: ro_new
+
+ipban_db_id: root
+ipban_db_pw: 19890129.ro
+ipban_db_db: ro_new
+
+char_server_id: root
+char_server_pw: 19890129.ro
+char_server_db: ro_new
+
+map_server_id: root
+map_server_pw: 19890129.ro
+map_server_db: ro_new
+
+log_db_id: root
+log_db_pw: 19890129.ro
+log_db_db: ro_log_new
+
+web_server_ip: 127.0.0.1
+web_server_port: 3306
+web_server_id: root
+web_server_pw: 19890129.ro
+web_server_db: ro_web_new
+
+default_codepage: gbk
+log_codepage: gbk
