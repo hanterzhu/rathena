@@ -58,6 +58,8 @@
 #include "trade.hpp"
 #include "unit.hpp"
 #include "vending.hpp"
+#include "clif.hpp"
+#include "itemamulet.hpp"
 
 using namespace rathena;
 
@@ -171,6 +173,9 @@ enum e_inventory_type{
 static inline int itemtype(t_itemid nameid) {
 	struct item_data* id = itemdb_search(nameid); //Use itemdb_search, so non-existance item will use dummy data and won't crash the server. bugreport:8468
 	int type = id->type;
+    // 若是护身符道具, 在这里全部把它当做 IT_ETC 类型返回
+    if (amulet_is(nameid))
+        return IT_ETC;
 	if( type == IT_SHADOWGEAR ) {
 		if( id->equip&EQP_SHADOW_WEAPON )
 			return IT_WEAPON;
@@ -7485,6 +7490,10 @@ void clif_cart_additem( map_session_data *sd, int n, int amount ){
 #if PACKETVER >= 5
 	p.itemType = itemdb_type( sd->cart.u.items_cart[n].nameid );
 #endif
+    // 若是护身符道具, 那么发送给客户端的道具类型直接从 IT_AMULET 换成 IT_ETC
+    if (amulet_is(sd->cart.u.items_cart[n].nameid)) {
+        p.itemType = amulet_type(sd->cart.u.items_cart[n].nameid);
+    }
 	p.identified = sd->cart.u.items_cart[n].identify;
 	p.damaged  = sd->cart.u.items_cart[n].attribute;
 	p.refine = sd->cart.u.items_cart[n].refine;

@@ -2299,6 +2299,11 @@ struct item_data
 		sc_type sc; ///< Use delay group if any instead using player's item_delay data [Cydh]
 	} delay;
 
+    //ÔöÇ¿:
+    struct s_extend {
+        uint16 amulet_max_stack;
+    } extend;
+
 	~item_data() {
 		if (this->script){
 			script_free_code(this->script);

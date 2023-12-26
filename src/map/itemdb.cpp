@@ -26,6 +26,7 @@
 #include "mob.hpp"
 #include "pc.hpp"
 #include "status.hpp"
+#include "itemamulet.hpp"
 
 using namespace rathena;
 
@@ -3059,6 +3060,7 @@ const char* itemdb_typename(enum item_types type)
 		case IT_DELAYCONSUME:   return "Delay-Consume Usable";
 		case IT_SHADOWGEAR:     return "Shadow Equipment";
 		case IT_CASH:           return "Cash Usable";
+		case IT_AMULET:         return "Amulet";
 	}
 	return "Unknown Type";
 }
@@ -4710,6 +4712,11 @@ static void itemdb_read(void) {
 
 	if (battle_config.feature_roulette)
 		itemdb_parse_roulette_db();
+
+    // 加载 amulet_properties.yml 必须在 item_db.load(); 之后进行
+    // 因此加载过程中需要判断物品编号是否有效, 这需要依赖 itemdb_read 的执行结果
+    amulet_properties_db.load();
+    amulet_properties_db.parsePropertiesToItemDB(item_db);
 }
 
 /*==========================================

@@ -64,6 +64,7 @@
 #include "storage.hpp"
 #include "unit.hpp" // unit_stop_attack(), unit_stop_walking()
 #include "vending.hpp" // struct s_vending
+#include "itemamulet.hpp"
 
 using namespace rathena;
 
@@ -5899,6 +5900,8 @@ enum e_additem_result pc_additem(map_session_data *sd,struct item *item,int amou
 	if (id->flag.guid && !item->unique_id)
 		item->unique_id = pc_generate_unique_id(sd);
 
+    bool is_first_amulet = amulet_is_firstone(sd, item, amount); //增强
+
 	// Stackable | Non Rental
 	if( itemdb_isstackable2(id) && item->expire_time == 0 ) {
 		for( i = 0; i < MAX_INVENTORY; i++ ) {
@@ -5957,6 +5960,8 @@ enum e_additem_result pc_additem(map_session_data *sd,struct item *item,int amou
 	if(id->flag.autoequip)
 		pc_equipitem(sd, i, id->equip);
 
+    amulet_apply_additem(sd, i, is_first_amulet); //增强
+
 	/* rental item check */
 	if( item->expire_time ) {
 		if( time(NULL) > item->expire_time ) {
@@ -5994,14 +5999,21 @@ char pc_delitem(map_session_data *sd,int n,int amount,int type, short reason, e_
 
 	log_pick_pc(sd, log_type, -amount, &sd->inventory.u.items_inventory[n]);
 
+    bool is_last_amulet = amulet_is_lastone(sd, n, amount); //增强
+
 	sd->inventory.u.items_inventory[n].amount -= amount;
 	sd->weight -= sd->inventory_data[n]->weight*amount ;
 	if( sd->inventory.u.items_inventory[n].amount <= 0 ){
 		if(sd->inventory.u.items_inventory[n].equip)
 			pc_unequipitem(sd,n,2|(!(type&4) ? 1 : 0));
-		memset(&sd->inventory.u.items_inventory[n],0,sizeof(sd->inventory.u.items_inventory[0]));
+        // 在这里必须触发一下"卸装脚本", 再往下的话物品数据会被清零
+        amulet_apply_delitem(sd, n, is_last_amulet);
+        memset(&sd->inventory.u.items_inventory[n],0,sizeof(sd->inventory.u.items_inventory[0]));
 		sd->inventory_data[n] = NULL;
-	}
+	} else {
+        // 在这里同类护身符还没被全部清理干净, 需要触发一下"使用脚本"
+        amulet_apply_delitem(sd, n, is_last_amulet);
+    }
 	if(!(type&1))
 		clif_delitem(sd,n,amount,reason);
 	if(!(type&2))

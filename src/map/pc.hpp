@@ -938,6 +938,10 @@ public:
 		uint16 upload_size;
 	} captcha_upload;
 
+    struct s_extend {
+        bool amulet_calculating = false;	// 当前角色是否正在进行护身符能力计算
+    } extend;
+
 	s_macro_detect macro_detect;
 
 	std::vector<uint32> party_booking_requests;

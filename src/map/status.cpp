@@ -35,6 +35,7 @@
 #include "pc_groups.hpp"
 #include "pet.hpp"
 #include "script.hpp"
+#include "itemamulet.hpp"
 
 using namespace rathena;
 
@@ -4074,6 +4075,8 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		sd->right_weapon.atkmods[SZ_MEDIUM] = sd->right_weapon.atkmods[SZ_BIG];
 		sd->left_weapon.atkmods[SZ_MEDIUM] = sd->left_weapon.atkmods[SZ_BIG];
 	}
+
+    amulet_status_calc(sd, opt); //ÔöÇ¿
 
 // ----- STATS CALCULATION -----
 
