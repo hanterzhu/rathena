@@ -6052,11 +6052,10 @@ bool pc_dropitem(map_session_data *sd,int n,int amount)
 	if( sd->inventory.u.items_inventory[n].equipSwitch )
 		return false;
 
-	if( map_getmapflag(sd->bl.m, MF_NODROP) )
-	{
-		clif_displaymessage (sd->fd, msg_txt(sd,271));
-		return false; //Can't drop items in nodrop mapflag maps.
-	}
+    if( map_getmapflag(sd->bl.m, MF_NODROP) && pc_get_group_id(sd) < 90) {//增强：GM无视
+        clif_displaymessage (sd->fd, msg_txt(sd,271));
+        return false; //Can't drop items in nodrop mapflag maps.
+    }
 
 	if( !pc_candrop(sd,&sd->inventory.u.items_inventory[n]) )
 	{
@@ -11164,7 +11163,7 @@ void pc_setmadogear(map_session_data *sd, bool flag, e_mado_type type)
  *------------------------------------------*/
 bool pc_candrop(map_session_data *sd, struct item *item)
 {
-	if( item && ((item->expire_time || (item->bound && !pc_can_give_bounded_items(sd))) || (itemdb_ishatched_egg(item))) )
+	if( item && (((item->expire_time && pc_get_group_id(sd) < 90) || (item->bound && !pc_can_give_bounded_items(sd))) || (itemdb_ishatched_egg(item))) ) //增强：GM无视
 		return false;
 	if( !pc_can_give_items(sd) || sd->sc.cant.drop) //check if this GM level can drop items
 		return false;

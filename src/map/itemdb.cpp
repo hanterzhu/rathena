@@ -933,7 +933,7 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			item->gm_lv_trade_override = override;
 		} else {
 			if (!exists)
-				item->gm_lv_trade_override = 100;
+				item->gm_lv_trade_override = 90; //增强：默认90
 		}
 
 		if (this->nodeExists(tradeNode, "NoDrop")) {
@@ -1045,7 +1045,7 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	} else {
 		if (!exists) {
-			item->gm_lv_trade_override = 100;
+			item->gm_lv_trade_override = 90; //增强:默认90
 			item->flag.trade_restriction.drop = false;
 			item->flag.trade_restriction.trade = false;
 			item->flag.trade_restriction.trade_partner = false;
