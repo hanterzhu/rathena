@@ -2,11 +2,18 @@ Header:
   Type: AMULET_PROPERTIES_DB
   Version: 2
 
-#MaxStack默认为1
+#MaxStack,Priority默认为1
 
 Body:
-#  - ItemID: 2207
-#    MaxStack: 1
+#  - Group: 1
+#    MaxStack: 10
+#    Items:
+#      - ItemID: 100001
+#        MaxStack: 6
+#        Priority: 1
+#      - ItemID: 100003
+#        MaxStack: 6
+#        Priority: 2
 
 Footer:
   Imports:

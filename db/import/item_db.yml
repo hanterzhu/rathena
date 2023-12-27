@@ -128,3 +128,18 @@ Body:
       sc_start SC_ATKPOTION,60000,30;
     UnEquipScript: |
       sc_end SC_ATKPOTION;
+  - Id: 100004
+    AegisName: test4
+    Name: ≤‚ ‘4
+    Type: Usable
+    Buy: 20
+    Weight: 300
+    Script: |
+      rentitem 100003,60480;
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true

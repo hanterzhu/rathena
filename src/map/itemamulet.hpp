@@ -10,12 +10,15 @@
 struct s_amulet_properties {
     uint32 nameid;
     uint32 group;
+    uint32 group_maxstack;
     uint32 maxstack;
     uint32 priority;
 };
 
 struct s_amulet_cal {
+    uint32 nameid;
     uint32 priority;
+    uint32 group_maxstack;
     uint32 maxstack;
     short amount;
     uint32 index;

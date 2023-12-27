@@ -2302,6 +2302,7 @@ struct item_data
     //ÔöÇ¿:
     struct s_extend {
         uint32 amulet_group;
+        uint32 amulet_group_max_stack;
         uint32 amulet_priority;
         uint32 amulet_max_stack;
     } extend;

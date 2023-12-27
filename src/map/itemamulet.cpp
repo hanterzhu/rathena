@@ -63,9 +63,8 @@ bool amulet_is_firstone(map_session_data *sd, struct item *item, int amount) {
 	if (!amulet_is(item->nameid))
 		return false;
 
-	uint32 i = MAX_INVENTORY;
 	bool is_firstone = true;
-	for (i = 0; i < MAX_INVENTORY; i++) {
+	for (int i = 0; i < MAX_INVENTORY; i++) {
 		if (sd->inventory.u.items_inventory[i].nameid == item->nameid) {
 			is_firstone = false;
 		}
@@ -200,41 +199,58 @@ void amulet_status_calc(map_session_data *sd, uint8 opt) {
 		}
 
 		if (sd->inventory_data[i]->script) {
+            uint32 nameid = sd->inventory_data[i]->nameid;
             uint32 maxstack = sd->inventory_data[i]->extend.amulet_max_stack;
             uint32 priority = sd->inventory_data[i]->extend.amulet_priority;
-            amulet_map[sd->inventory_data[i]->extend.amulet_group].push_back(std::make_shared<s_amulet_cal>(s_amulet_cal{priority, maxstack, sd->inventory.u.items_inventory[i].amount, i, sd->inventory_data[i]->script}));
+            uint32 group_maxstack = sd->inventory_data[i]->extend.amulet_group_max_stack;
+            auto it = amulet_map.find(sd->inventory_data[i]->extend.amulet_group);
+            if (it != amulet_map.end()) {
+                std::vector<std::shared_ptr<s_amulet_cal>> amulets = it->second; // 获取值
+                //如有就加数量，没有就新增
+                bool flag = false;
+                for (const auto &amulet: amulets) {
+                    if (amulet->nameid == nameid) {
+                        amulet->amount += sd->inventory.u.items_inventory[i].amount;
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    amulet_map[sd->inventory_data[i]->extend.amulet_group].push_back(std::make_shared<s_amulet_cal>(s_amulet_cal{nameid, priority, group_maxstack, maxstack, sd->inventory.u.items_inventory[i].amount, i, sd->inventory_data[i]->script}));
+                }
+            } else {
+                //key不存在
+                amulet_map[sd->inventory_data[i]->extend.amulet_group].push_back(std::make_shared<s_amulet_cal>(s_amulet_cal{nameid, priority, group_maxstack, maxstack, sd->inventory.u.items_inventory[i].amount, i, sd->inventory_data[i]->script}));
+            }
+
 		}
 	}
 
     for (const auto& pair : amulet_map) {
         std::vector<std::shared_ptr<s_amulet_cal>> amulets = pair.second;
-
-        uint32 maxstack = amulets.at(0)->maxstack;
-        short tmp = 0;
         std::sort(amulets.begin(), amulets.end(),
                   [](const std::shared_ptr<s_amulet_cal> & a, const std::shared_ptr<s_amulet_cal> & b) {
                       return a->priority < b->priority;
                   });
-
+        uint32 totalMax = amulets.at(0)->group_maxstack;
+        uint32 currentTotal = 0;
         for (const auto &amulet: amulets) {
-            if (tmp >= maxstack)
-                break;
-            short amount;
-            if ((tmp + amulet->amount) <= maxstack) {
-                amount = amulet->amount;
-            } else {
-                amount = maxstack - tmp;
-            }
-            tmp += amulet->amount;
+            uint32 effectiveCount = min(amulet->maxstack, amulet->amount);
             current_equip_item_index = amulet->index;
-            for (uint16 k = 0; k < amount; k++) {
+            if (currentTotal + effectiveCount > totalMax) {
+                effectiveCount = max(0, totalMax - currentTotal);
+            }
+            for (uint16 k = 0; k < effectiveCount; k++) {
                 run_script(amulet->script, 0, sd->bl.id, 0);
                 if (!sd->extend.amulet_calculating) {
                     current_equip_item_index = save_current_equip_item_index;
                     return;
                 }
             }
-
+            currentTotal += effectiveCount;
+            if (currentTotal >= totalMax) {
+                break;
+            }
         }
     }
 	current_equip_item_index = save_current_equip_item_index;
@@ -257,59 +273,70 @@ const std::string AmuletProperties::getDefaultLocation() {
 // Returns:     uint64
 //************************************
 uint64 AmuletProperties::parseBodyNode(const ryml::NodeRef& node) {
-    uint32 nameid = 0;
+    uint32 group;
 
-    if (!this->asUInt32(node, "ItemID", nameid)) {
+    if (!this->asUInt32(node, "Group", group)) {
         return 0;
     }
 
-    if (!item_db.exists(nameid)) {
-        this->invalidWarning(node, "Unknown item ID %hu in Amulet Properties Database.\n", nameid);
-        return 0;
-    }
-
-    auto properties_item = this->find(nameid);
-    bool exists = properties_item != nullptr;
-
-    if (!exists) {
-        properties_item = std::make_shared<s_amulet_properties>();
-        properties_item->nameid = nameid;
-    }
-
+    uint32 gruop_maxstack;
     if (this->nodeExists(node, "MaxStack")) {
-        uint32 maxstack;
-
-        if (!this->asUInt32(node, "MaxStack", maxstack)) {
-            this->invalidWarning(node["MaxStack"], "ItemId \"%d\" maxstack set default to 1\n", nameid);
-            properties_item->maxstack = 1;
-        } else {
-            properties_item->maxstack = maxstack;
+        if (!this->asUInt32(node, "MaxStack", gruop_maxstack)) {
+            this->invalidWarning(node["MaxStack"], "Group \"%d\" maxstack set default to 1\n", group);
+            gruop_maxstack = 1;
         }
     }
 
-    if (this->nodeExists(node, "Group")) {
-        uint32 group;
+    if (this->nodeExists(node, "Items")) {
+        const auto& subNode = node["Items"];
+        for (const auto& subit : subNode) {
+            uint32 nameid = 0;
 
-        if (!this->asUInt32(node, "Group", group)) {
-            this->invalidWarning(node["Group"], "ItemId \"%d\" group set default to 1\n", nameid);
-            properties_item->group = 1;
-        } else {
-            properties_item->group = group;
+            if (!this->asUInt32(subit, "ItemID", nameid)) {
+                return 0;
+            }
+
+            if (!item_db.exists(nameid)) {
+                this->invalidWarning(node, "Unknown item ID %hu in Amulet Properties Database.\n", nameid);
+                return 0;
+            }
+
+            auto properties_item = this->find(nameid);
+            bool exists = properties_item != nullptr;
+
+            if (!exists) {
+                properties_item = std::make_shared<s_amulet_properties>();
+                properties_item->nameid = nameid;
+                properties_item->group = group;
+                properties_item->group_maxstack = gruop_maxstack;
+            }
+
+            if (this->nodeExists(subit, "MaxStack")) {
+                uint32 maxstack;
+
+                if (!this->asUInt32(subit, "MaxStack", maxstack)) {
+                    this->invalidWarning(subit["MaxStack"], "ItemId \"%d\" maxstack set default to 1\n", nameid);
+                    properties_item->maxstack = 1;
+                } else {
+                    properties_item->maxstack = maxstack;
+                }
+            }
+
+            if (this->nodeExists(subit, "Priority")) {
+                uint32 priority;
+                if (!this->asUInt32(subit, "Priority", priority)) {
+                    this->invalidWarning(subit["Priority"], "ItemId \"%d\" priority set default to 1\n", nameid);
+                    properties_item->priority = 1;
+                } else {
+                    properties_item->priority = priority;
+                }
+            }
+
+            if (!exists) {
+                this->put(properties_item->nameid, properties_item);
+            }
+
         }
-    }
-
-    if (this->nodeExists(node, "Priority")) {
-        uint32 priority;
-        if (!this->asUInt32(node, "Priority", priority)) {
-            this->invalidWarning(node["Priority"], "ItemId \"%d\" priority set default to 1\n", nameid);
-            properties_item->priority = 1;
-        } else {
-            properties_item->priority = priority;
-        }
-    }
-
-    if (!exists) {
-        this->put(properties_item->nameid, properties_item);
     }
 
     return 1;
@@ -329,6 +356,7 @@ void AmuletProperties::parsePropertiesToItemDB(ItemDatabase& item_db) {
 
         if (value) {
             item->extend.amulet_group = value->group;
+            item->extend.amulet_group_max_stack = value->group_maxstack;
             item->extend.amulet_priority = value->priority;
             item->extend.amulet_max_stack = value->maxstack;
         }
