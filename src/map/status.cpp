@@ -59,6 +59,8 @@ short current_equip_opt_index; /// Contains random option index of an equipped i
 
 uint16 SCDisabled[SC_MAX]; ///< List of disabled SC on map zones. [Cydh]
 
+//增强：战力
+static int status_bonus_combat_power(map_session_data* sd);
 static unsigned short status_calc_str(struct block_list *,status_change *,int);
 static unsigned short status_calc_agi(struct block_list *,status_change *,int);
 static unsigned short status_calc_vit(struct block_list *,status_change *,int);
@@ -3771,6 +3773,10 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		if (sd->inventory.u.items_inventory[index].refine > MAX_REFINE)
 			sd->inventory.u.items_inventory[index].refine = MAX_REFINE;
 
+        //增强: 战力
+        int combat_power = sd->inventory_data[index]->extend.base_combat_power * (100 + sd->inventory.u.items_inventory[index].refine * sd->inventory_data[index]->extend.refine_combat_power) / 100;
+        base_status->extend.combat_power += combat_power;
+
 		std::shared_ptr<s_refine_level_info> info = refine_db.findCurrentLevelInfo( *sd->inventory_data[index], sd->inventory.u.items_inventory[index] );
 #ifdef RENEWAL
 		std::shared_ptr<s_enchantgradelevel> enchantgrade_info = nullptr;
@@ -3966,7 +3972,9 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 				if(!data)
 					continue;
 				if (opt&SCO_FIRST && data->equip_script && (pc_has_permission(sd,PC_PERM_USE_ALL_EQUIPMENT) || !itemdb_isNoEquip(data.get(), sd->bl.m))) {// Execute equip-script on login
-					run_script(data->equip_script,0,sd->bl.id,0);
+                    //增强: 战力
+                    base_status->extend.combat_power += data->extend.base_combat_power;
+                    run_script(data->equip_script,0,sd->bl.id,0);
 					if (!calculating)
 						return 1;
 				}
@@ -3976,10 +3984,14 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 					continue;
 				if(i == EQI_HAND_L && sd->inventory.u.items_inventory[index].equip == EQP_HAND_L) { // Left hand status.
 					sd->state.lr_flag = 1;
-					run_script(data->script,0,sd->bl.id,0);
+                    //增强: 战力 左手战力除以2
+                    base_status->extend.combat_power += data->extend.base_combat_power / 2;
+                    run_script(data->script,0,sd->bl.id,0);
 					sd->state.lr_flag = 0;
 				} else
-					run_script(data->script,0,sd->bl.id,0);
+                    //增强: 战力
+                    base_status->extend.combat_power += data->extend.base_combat_power;
+                    run_script(data->script,0,sd->bl.id,0);
 				if (!calculating) // Abort, run_script his function. [Skotlex]
 					return 1;
 			}
@@ -4016,11 +4028,18 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 					continue;
 				if (i == EQI_HAND_L && sd->inventory.u.items_inventory[index].equip == EQP_HAND_L) { // Left hand status.
 					sd->state.lr_flag = 1;
-					run_script(data->script, 0, sd->bl.id, 0);
+                    //增强: 战力
+                    int combat_power = sd->inventory_data[index]->extend.base_combat_power * sd->inventory_data[index]->extend.option_combat_power / 100;
+                    base_status->extend.combat_power += combat_power;
+                    run_script(data->script, 0, sd->bl.id, 0);
 					sd->state.lr_flag = 0;
 				}
-				else
-					run_script(data->script, 0, sd->bl.id, 0);
+				else {
+                    //增强: 战力
+                    int combat_power = sd->inventory_data[index]->extend.base_combat_power * sd->inventory_data[index]->extend.option_combat_power / 100;
+                    base_status->extend.combat_power += combat_power;
+                    run_script(data->script, 0, sd->bl.id, 0);
+                }
 				if (!calculating)
 					return 1;
 			}
@@ -4076,7 +4095,9 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		sd->left_weapon.atkmods[SZ_MEDIUM] = sd->left_weapon.atkmods[SZ_BIG];
 	}
 
-    amulet_status_calc(sd, opt); //增强
+    //增强
+    amulet_status_calc(sd, opt);
+    status_bonus_combat_power(sd);
 
 // ----- STATS CALCULATION -----
 
@@ -6347,6 +6368,12 @@ void status_calc_bl_(struct block_list* bl, std::bitset<SCB_MAX> flag, uint8 opt
 		if( b_status.sp != status->sp )
 			clif_mercenary_updatestatus(ed->master, SP_SP);
 	}
+}
+
+//增强
+static int status_bonus_combat_power(map_session_data* sd) {
+    sd->base_status.extend.combat_power += sd->bonus.extend.combat_power;
+    return sd->base_status.extend.combat_power;
 }
 
 /**

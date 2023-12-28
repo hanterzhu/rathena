@@ -4382,6 +4382,11 @@ void pc_bonus(map_session_data *sd,int type,int val)
 			if(sd->state.lr_flag != 2)
 				sd->bonus.itemsphealrate2 += val;
 			break;
+        //增强
+        case SP_COMBATPOWER:
+            if(sd->state.lr_flag != 2)
+                sd->bonus.extend.combat_power += val;
+            break;
 		default:
 			if (current_equip_combo_pos > 0) {
 				ShowWarning("pc_bonus: unknown bonus type %d %d in a combo with item #%u\n", type, val, sd->inventory_data[pc_checkequip( sd, current_equip_combo_pos )]->nameid);
@@ -10204,6 +10209,8 @@ int64 pc_readparam(map_session_data* sd,int64 type)
 #endif
 		case SP_CRIT_DEF_RATE: val = sd->bonus.crit_def_rate; break;
 		case SP_ADD_ITEM_SPHEAL_RATE: val = sd->bonus.itemsphealrate2; break;
+        //增强:
+        case SP_COMBATPOWER: val = sd->battle_status.extend.combat_power; break;
 		default:
 			ShowError("pc_readparam: Attempt to read unknown parameter '%lld'.\n", type);
 			return -1;

@@ -97,6 +97,7 @@ Body:
     Weight: 300
     Script: |
       bonus bAllStats,3;
+      bonus bCombatPower,100;
     EquipScript: |
       sc_start SC_BLESSING,1200000,10;
     UnEquipScript: |

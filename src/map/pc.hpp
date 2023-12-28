@@ -673,6 +673,11 @@ public:
 		uint8 absorb_dmg_maxhp2;
 		short critical_rangeatk;
 		short weapon_atk_rate, weapon_matk_rate;
+
+        //ÔöÇ¿
+        struct s_extend {
+            int combat_power;
+        } extend;
 	} bonus;
 	// zeroed vars end here.
 

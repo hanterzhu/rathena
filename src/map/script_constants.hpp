@@ -857,6 +857,9 @@
 	export_constant2("bAddItemGroupSPHealRate", SP_ADD_ITEMGROUP_SPHEAL_RATE);
 	export_constant2("bWeaponSubSize", SP_WEAPON_SUBSIZE);
 
+    //ÔöÇ¿
+    export_constant2("bCombatPower",SP_COMBATPOWER);
+
 	/* equip indices */
 	export_constant(EQI_COMPOUND_ON);
 	export_constant(EQI_HEAD_TOP);

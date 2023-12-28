@@ -1,3 +1,8 @@
+new_3-1,52,103,5	script	test1	100,{
+    dispbottom "当前战力[" + readparam(bCombatPower) + "]";
+}
+
+
 new_3-1,52,115,5	script	test	100,{
     mes "请在一分钟内做出选择:";
     mes "选项 A";

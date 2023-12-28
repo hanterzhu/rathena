@@ -263,7 +263,7 @@ void amulet_status_calc(map_session_data *sd, uint8 opt) {
 // Returns:     const std::string
 //************************************
 const std::string AmuletProperties::getDefaultLocation() {
-    return std::string(db_path) + "/amulet_properties.yml";
+    return std::string(db_path) + "/extend/amulet_properties.yml";
 }
 
 //************************************

@@ -2305,6 +2305,9 @@ struct item_data
         uint32 amulet_group_max_stack;
         uint32 amulet_priority;
         uint32 amulet_max_stack;
+        int base_combat_power;
+        int refine_combat_power;
+        int option_combat_power;
     } extend;
 
 	~item_data() {

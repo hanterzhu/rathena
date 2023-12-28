@@ -3172,6 +3172,11 @@ struct status_data {
 		class_; /// see enum e_classAE
 
 	struct weapon_atk rhw, lhw; //Right Hand/Left Hand Weapon.
+
+    //增强
+    struct s_extend {
+        int combat_power; //战力
+    } extend;
 };
 
 ///Additional regen data that only players have.

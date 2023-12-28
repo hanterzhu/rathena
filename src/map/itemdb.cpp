@@ -3578,6 +3578,29 @@ static bool itemdb_read_noequip(char* str[], int columns, int current) {
 	return true;
 }
 
+//增强：战力
+static bool itemdb_read_combat_power(char* str[], int columns, int current) {
+
+    t_itemid nameid = strtoul(str[0], nullptr, 10);
+    int equip_combat_power = atoi(str[1]);
+    int refine_combat_power = atoi(str[2]);
+    int option_combat_power = atoi(str[3]);
+
+    std::shared_ptr<item_data> id = item_db.find(nameid);
+
+    if( id == nullptr )
+    {
+        ShowWarning("itemdb_read_combat_power: Invalid item id %u.\n", nameid);
+        return false;
+    }
+
+    id->extend.base_combat_power = equip_combat_power;
+    id->extend.refine_combat_power = refine_combat_power;
+    id->extend.option_combat_power = option_combat_power;
+
+    return true;
+}
+
 const std::string ComboDatabase::getDefaultLocation() {
 	return std::string(db_path) + "/item_combos.yml";
 }
@@ -4696,6 +4719,7 @@ static void itemdb_read(void) {
 		}
 
 		sv_readdb(dbsubpath2, "item_noequip.txt",       ',', 2, 2, -1, &itemdb_read_noequip, i > 0);
+        sv_readdb((std::string(db_path) + "/extend").c_str(), "item_combat_power.txt",       ',', 4, 4, -1, &itemdb_read_combat_power, i > 0);//增强
 		aFree(dbsubpath1);
 		aFree(dbsubpath2);
 	}
