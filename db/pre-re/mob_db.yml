@@ -150,7 +150,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Jellopy
         Rate: 7000
@@ -197,7 +197,7 @@ Body:
     AttackDelay: 1292
     AttackMotion: 792
     DamageMotion: 216
-    Ai: 3
+    Ai: 03
     Modes:
       Detector: true
     Drops:
@@ -240,7 +240,7 @@ Body:
     AttackDelay: 1276
     AttackMotion: 576
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Tooth_Of_Bat
         Rate: 5500
@@ -283,7 +283,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Modes:
       Detector: true
     Drops:
@@ -369,7 +369,7 @@ Body:
     AttackDelay: 1148
     AttackMotion: 648
     DamageMotion: 480
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Talon
         Rate: 9000
@@ -415,7 +415,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 432
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Tree_Root
         Rate: 9000
@@ -460,7 +460,7 @@ Body:
     AttackDelay: 1076
     AttackMotion: 576
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Modes:
       Detector: true
     Drops:
@@ -507,7 +507,7 @@ Body:
     AttackDelay: 2016
     AttackMotion: 816
     DamageMotion: 288
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Sticky_Webfoot
         Rate: 9000
@@ -547,7 +547,7 @@ Body:
     AttackDelay: 1054
     AttackMotion: 504
     DamageMotion: 432
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Emveretarcon
         Rate: 20
@@ -592,7 +592,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 288
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Mushroom_Spore
         Rate: 9000
@@ -635,7 +635,7 @@ Body:
     AttackDelay: 2612
     AttackMotion: 912
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Decayed_Nail
         Rate: 9000
@@ -675,7 +675,7 @@ Body:
     AttackDelay: 2864
     AttackMotion: 864
     DamageMotion: 576
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Skel_Bone
         Rate: 4500
@@ -720,7 +720,7 @@ Body:
     AttackDelay: 1136
     AttackMotion: 720
     DamageMotion: 840
-    Ai: 1
+    Ai: 01
     Modes:
       Detector: true
     Drops:
@@ -766,7 +766,7 @@ Body:
     AttackDelay: 1564
     AttackMotion: 864
     DamageMotion: 576
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Bill_Of_Birds
         Rate: 9000
@@ -856,7 +856,7 @@ Body:
     AttackDelay: 1864
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Iron
         Rate: 210
@@ -946,7 +946,7 @@ Body:
     AttackDelay: 1576
     AttackMotion: 576
     DamageMotion: 576
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Scale_Of_Snakes
         Rate: 9000
@@ -990,7 +990,7 @@ Body:
     AttackDelay: 2468
     AttackMotion: 768
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Danggie
         Rate: 9000
@@ -1036,7 +1036,7 @@ Body:
     AttackDelay: 2276
     AttackMotion: 576
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Skel_Bone
         Rate: 5500
@@ -1173,7 +1173,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Sticky_Mucus
         Rate: 5500
@@ -1217,7 +1217,7 @@ Body:
     AttackDelay: 2468
     AttackMotion: 768
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Immortal_Heart
         Rate: 9000
@@ -1308,7 +1308,7 @@ Body:
     AttackDelay: 2016
     AttackMotion: 816
     DamageMotion: 288
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Emveretarcon
         Rate: 45
@@ -1353,7 +1353,7 @@ Body:
     AttackDelay: 676
     AttackMotion: 576
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -1400,7 +1400,7 @@ Body:
     AttackDelay: 2456
     AttackMotion: 912
     DamageMotion: 504
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Horrendous_Mouth
         Rate: 6000
@@ -1651,7 +1651,7 @@ Body:
     AttackDelay: 1772
     AttackMotion: 72
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Rotten_Bandage
         Rate: 9000
@@ -1696,7 +1696,7 @@ Body:
     AttackDelay: 1076
     AttackMotion: 576
     DamageMotion: 480
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -1789,7 +1789,7 @@ Body:
     AttackDelay: 1272
     AttackMotion: 72
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Mistic_Frozen
         Rate: 18
@@ -1973,7 +1973,7 @@ Body:
     AttackDelay: 988
     AttackMotion: 288
     DamageMotion: 168
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Feather_Of_Birds
         Rate: 9000
@@ -2016,7 +2016,7 @@ Body:
     AttackDelay: 988
     AttackMotion: 288
     DamageMotion: 168
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Feather_Of_Birds
         Rate: 9000
@@ -2059,7 +2059,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 768
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -2105,7 +2105,7 @@ Body:
     AttackDelay: 1864
     AttackMotion: 864
     DamageMotion: 540
-    Ai: 1
+    Ai: 01
     Modes:
       Detector: true
     Drops:
@@ -2153,7 +2153,7 @@ Body:
     AttackDelay: 988
     AttackMotion: 288
     DamageMotion: 768
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -2249,7 +2249,7 @@ Body:
     AttackDelay: 1960
     AttackMotion: 960
     DamageMotion: 384
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Yellow_Live
         Rate: 70
@@ -2338,7 +2338,7 @@ Body:
     AttackDelay: 1054
     AttackMotion: 54
     DamageMotion: 384
-    Ai: 7
+    Ai: 07
     Drops:
       - Item: Yoyo_Tail
         Rate: 9000
@@ -2384,7 +2384,7 @@ Body:
     AttackDelay: 1708
     AttackMotion: 1008
     DamageMotion: 540
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -2580,7 +2580,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Candy
         Rate: 2000
@@ -2623,7 +2623,7 @@ Body:
     AttackDelay: 1456
     AttackMotion: 456
     DamageMotion: 336
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Clover
         Rate: 6500
@@ -2667,7 +2667,7 @@ Body:
     AttackDelay: 2492
     AttackMotion: 792
     DamageMotion: 432
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Rotten_Scale
         Rate: 5500
@@ -2713,7 +2713,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Fin
         Rate: 5335
@@ -2891,7 +2891,7 @@ Body:
     AttackDelay: 1968
     AttackMotion: 768
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Mistic_Frozen
         Rate: 10
@@ -2936,7 +2936,7 @@ Body:
     AttackDelay: 1776
     AttackMotion: 576
     DamageMotion: 288
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Crystal_Blue
         Rate: 30
@@ -2983,7 +2983,7 @@ Body:
     AttackDelay: 1754
     AttackMotion: 554
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Skel_Bone
         Rate: 3000
@@ -3029,7 +3029,7 @@ Body:
     AttackDelay: 1700
     AttackMotion: 1000
     DamageMotion: 500
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -3076,7 +3076,7 @@ Body:
     AttackDelay: 992
     AttackMotion: 792
     DamageMotion: 360
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Crap_Shell
         Rate: 5500
@@ -3198,7 +3198,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Poison_Spore
         Rate: 9000
@@ -3591,7 +3591,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 768
     DamageMotion: 480
-    Ai: 7
+    Ai: 07
     Class: Boss
     Modes:
       Mvp: true
@@ -4025,7 +4025,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 384
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -4477,7 +4477,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 576
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -4570,7 +4570,7 @@ Body:
     AttackDelay: 1600
     AttackMotion: 900
     DamageMotion: 240
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Phracon
         Rate: 85
@@ -4853,7 +4853,7 @@ Body:
     AttackDelay: 1372
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Jellopy
         Rate: 7500
@@ -5137,7 +5137,7 @@ Body:
     AttackDelay: 1540
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Lizard_Scruff
         Rate: 5500
@@ -5516,7 +5516,7 @@ Body:
     AttackDelay: 1480
     AttackMotion: 480
     DamageMotion: 720
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Yellow_Live
         Rate: 120
@@ -5928,7 +5928,7 @@ Body:
     AttackDelay: 1560
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 2
+    Ai: 02
     Modes:
       Detector: true
     Drops:
@@ -6066,7 +6066,7 @@ Body:
     AttackDelay: 2280
     AttackMotion: 1080
     DamageMotion: 864
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Single_Cell
         Rate: 5000
@@ -6243,7 +6243,7 @@ Body:
     AttackDelay: 1480
     AttackMotion: 480
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Moustache_Of_Mole
         Rate: 9000
@@ -6587,7 +6587,7 @@ Body:
     AttackDelay: 2420
     AttackMotion: 720
     DamageMotion: 648
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Orcish_Cuspid
         Rate: 5500
@@ -6632,7 +6632,7 @@ Body:
     AttackDelay: 2852
     AttackMotion: 1152
     DamageMotion: 840
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Nail_Of_Orc
         Rate: 5500
@@ -6961,7 +6961,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 576
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -7006,7 +7006,7 @@ Body:
     AttackDelay: 2208
     AttackMotion: 1008
     DamageMotion: 324
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Single_Cell
         Rate: 9000
@@ -7051,7 +7051,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 528
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Root_Of_Maneater
         Rate: 5500
@@ -7143,7 +7143,7 @@ Body:
     AttackDelay: 1516
     AttackMotion: 816
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Blue_Box
         Rate: 35
@@ -7190,7 +7190,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 720
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Great_Nature
         Rate: 35
@@ -7280,7 +7280,7 @@ Body:
     AttackDelay: 1624
     AttackMotion: 624
     DamageMotion: 576
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Animal's_Skin
         Rate: 9000
@@ -7325,7 +7325,7 @@ Body:
     AttackDelay: 2420
     AttackMotion: 720
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Iron
         Rate: 400
@@ -7551,7 +7551,7 @@ Body:
     AttackDelay: 1180
     AttackMotion: 480
     DamageMotion: 360
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Tooth_Of_
         Rate: 5500
@@ -7593,7 +7593,7 @@ Body:
     AttackDelay: 1780
     AttackMotion: 1080
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Emveretarcon
         Rate: 55
@@ -7752,7 +7752,7 @@ Body:
     AttackDelay: 1076
     AttackMotion: 576
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -7793,7 +7793,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -9380,7 +9380,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Modes:
       Detector: true
     Drops:
@@ -9469,7 +9469,7 @@ Body:
     AttackDelay: 1220
     AttackMotion: 720
     DamageMotion: 288
-    Ai: 1
+    Ai: 01
     Modes:
       Detector: true
     Drops:
@@ -9553,7 +9553,7 @@ Body:
     AttackDelay: 1054
     AttackMotion: 54
     DamageMotion: 384
-    Ai: 7
+    Ai: 07
     Drops:
       - Item: Yoyo_Tail
         Rate: 6000
@@ -9681,7 +9681,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 576
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -9728,7 +9728,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 576
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -9775,7 +9775,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 576
-    Ai: 7
+    Ai: 07
     Modes:
       Detector: true
     Drops:
@@ -9820,7 +9820,7 @@ Body:
     AttackDelay: 988
     AttackMotion: 288
     DamageMotion: 168
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Feather_Of_Birds
         Rate: 6500
@@ -9862,7 +9862,7 @@ Body:
     AttackDelay: 988
     AttackMotion: 288
     DamageMotion: 168
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Feather_Of_Birds
         Rate: 6500
@@ -9905,7 +9905,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Garlet
         Rate: 3200
@@ -9997,7 +9997,7 @@ Body:
     AttackDelay: 1180
     AttackMotion: 480
     DamageMotion: 648
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Pumpkin_Head
         Rate: 5335
@@ -10043,7 +10043,7 @@ Body:
     AttackDelay: 1120
     AttackMotion: 620
     DamageMotion: 240
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Packing_Ribbon
         Rate: 550
@@ -10131,7 +10131,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 1
+    Ai: 01
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -10182,7 +10182,7 @@ Body:
     AttackDelay: 1296
     AttackMotion: 1296
     DamageMotion: 432
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Manacles
         Rate: 900
@@ -10437,7 +10437,7 @@ Body:
     AttackDelay: 1020
     AttackMotion: 720
     DamageMotion: 384
-    Ai: 5
+    Ai: 05
     Modes:
       Detector: true
     Drops:
@@ -10661,7 +10661,7 @@ Body:
     AttackDelay: 1172
     AttackMotion: 672
     DamageMotion: 420
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Goblini_Mask
         Rate: 3
@@ -10799,7 +10799,7 @@ Body:
     AttackDelay: 964
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Cyfar
         Rate: 5335
@@ -10987,7 +10987,7 @@ Body:
     AttackDelay: 1036
     AttackMotion: 936
     DamageMotion: 240
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Well_Baked_Cookie
         Rate: 1000
@@ -11496,7 +11496,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 1152
     DamageMotion: 480
-    Ai: 5
+    Ai: 05
     Modes:
       Detector: true
     Drops:
@@ -11777,7 +11777,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 1008
     DamageMotion: 384
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Zargon
         Rate: 250
@@ -11946,7 +11946,7 @@ Body:
     AttackDelay: 1288
     AttackMotion: 288
     DamageMotion: 384
-    Ai: 5
+    Ai: 05
     Class: Guardian
     Modes:
       Detector: true
@@ -13361,7 +13361,7 @@ Body:
     AttackDelay: 1612
     AttackMotion: 622
     DamageMotion: 583
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Zargon
         Rate: 4365
@@ -13599,7 +13599,7 @@ Body:
     AttackDelay: 1120
     AttackMotion: 552
     DamageMotion: 511
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Brigan
         Rate: 3500
@@ -13646,7 +13646,7 @@ Body:
     AttackDelay: 1132
     AttackMotion: 583
     DamageMotion: 532
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scarlet_Jewel
         Rate: 150
@@ -15100,7 +15100,7 @@ Body:
     AttackDelay: 1460
     AttackMotion: 960
     DamageMotion: 432
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Peco_Wing_Feather
         Rate: 4850
@@ -15191,7 +15191,7 @@ Body:
     AttackDelay: 920
     AttackMotion: 720
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Blue_Gemstone
         Rate: 1000
@@ -15233,7 +15233,7 @@ Body:
     AttackDelay: 1380
     AttackMotion: 1080
     DamageMotion: 336
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Goat's_Horn
         Rate: 4559
@@ -15385,7 +15385,7 @@ Body:
     AttackDelay: 1160
     AttackMotion: 960
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Smooth_Paper
         Rate: 4947
@@ -15427,7 +15427,7 @@ Body:
     AttackDelay: 972
     AttackMotion: 672
     DamageMotion: 470
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -15473,7 +15473,7 @@ Body:
     AttackDelay: 1552
     AttackMotion: 1152
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Magic_Circle
         Rate: 4000
@@ -15519,7 +15519,7 @@ Body:
     AttackDelay: 1260
     AttackMotion: 960
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -15561,7 +15561,7 @@ Body:
     AttackDelay: 1216
     AttackMotion: 816
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -15609,7 +15609,7 @@ Body:
     AttackDelay: 1300
     AttackMotion: 900
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Lizard_Scruff
         Rate: 7500
@@ -15647,7 +15647,7 @@ Body:
     AttackDelay: 1492
     AttackMotion: 1092
     DamageMotion: 192
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Bear's_Foot
         Rate: 5000
@@ -15685,7 +15685,7 @@ Body:
     AttackDelay: 1080
     AttackMotion: 780
     DamageMotion: 180
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -15729,7 +15729,7 @@ Body:
     AttackDelay: 1260
     AttackMotion: 960
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Wing_Of_Red_Bat
         Rate: 5500
@@ -15851,7 +15851,7 @@ Body:
     AttackDelay: 1350
     AttackMotion: 1200
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Sand_Lump
         Rate: 4947
@@ -15897,7 +15897,7 @@ Body:
     AttackDelay: 1264
     AttackMotion: 864
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scropion's_Nipper
         Rate: 4365
@@ -16042,7 +16042,7 @@ Body:
     AttackDelay: 1356
     AttackMotion: 1056
     DamageMotion: 540
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Golden_Hair
         Rate: 6305
@@ -16088,7 +16088,7 @@ Body:
     AttackDelay: 1430
     AttackMotion: 1080
     DamageMotion: 1080
-    Ai: 7
+    Ai: 07
     Drops:
       - Item: Cyfar
         Rate: 5335
@@ -16134,7 +16134,7 @@ Body:
     AttackDelay: 2416
     AttackMotion: 2016
     DamageMotion: 432
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Large_Jellopy
         Rate: 500
@@ -16177,7 +16177,7 @@ Body:
     AttackDelay: 1772
     AttackMotion: 72
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1394
     AegisName: G_ZOMBIE
     Name: ¸¯Ê¬
@@ -16200,7 +16200,7 @@ Body:
     AttackDelay: 2612
     AttackMotion: 912
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1395
     AegisName: CRYSTAL_1
     Name: ·çÔªËØ
@@ -16437,7 +16437,7 @@ Body:
     AttackDelay: 1638
     AttackMotion: 2016
     DamageMotion: 576
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Oil_Paper
         Rate: 5000
@@ -16533,7 +16533,7 @@ Body:
     AttackDelay: 1148
     AttackMotion: 1728
     DamageMotion: 864
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Poison_Toad's_Skin
         Rate: 5500
@@ -16581,7 +16581,7 @@ Body:
     AttackDelay: 1084
     AttackMotion: 2304
     DamageMotion: 576
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Iron
         Rate: 5500
@@ -16677,7 +16677,7 @@ Body:
     AttackDelay: 1439
     AttackMotion: 1920
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -16725,7 +16725,7 @@ Body:
     AttackDelay: 2012
     AttackMotion: 1728
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Yellow_Plate
         Rate: 6500
@@ -16864,7 +16864,7 @@ Body:
     AttackDelay: 400
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Hard_Peach
         Rate: 4365
@@ -16907,7 +16907,7 @@ Body:
     AttackDelay: 480
     AttackMotion: 840
     DamageMotion: 432
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Cloud_Piece
         Rate: 4656
@@ -17001,7 +17001,7 @@ Body:
     AttackDelay: 318
     AttackMotion: 528
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Leopard_Skin
         Rate: 5200
@@ -17190,7 +17190,7 @@ Body:
     AttackDelay: 1276
     AttackMotion: 576
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1420
     AegisName: G_ARCHER_SKELETON
     Name: Ð°º¡¹­¼ýÊÖ
@@ -17214,7 +17214,7 @@ Body:
     AttackDelay: 2864
     AttackMotion: 864
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
   - Id: 1421
     AegisName: G_ISIS
     Name: ÉßÅ®ÒÁË¿
@@ -17241,7 +17241,7 @@ Body:
     AttackDelay: 1384
     AttackMotion: 768
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1422
@@ -17270,7 +17270,7 @@ Body:
     AttackDelay: 676
     AttackMotion: 576
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1423
@@ -17297,7 +17297,7 @@ Body:
     AttackDelay: 2456
     AttackMotion: 912
     DamageMotion: 504
-    Ai: 4
+    Ai: 04
   - Id: 1424
     AegisName: G_SIDE_WINDER
     Name: ºÚÉß
@@ -17324,7 +17324,7 @@ Body:
     AttackDelay: 1576
     AttackMotion: 576
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
   - Id: 1425
     AegisName: G_OBEAUNE
     Name: ÈËÓã
@@ -17349,7 +17349,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1426
     AegisName: G_MARC
     Name: Âí¿Ë
@@ -17375,7 +17375,7 @@ Body:
     AttackDelay: 1272
     AttackMotion: 72
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
   - Id: 1427
     AegisName: G_NIGHTMARE
     Name: ÃÎ÷Ê
@@ -17400,7 +17400,7 @@ Body:
     AttackDelay: 1816
     AttackMotion: 816
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1428
@@ -17424,7 +17424,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1429
     AegisName: G_ARGIOPE
     Name: °¬¼ªÅ·òÚò¼
@@ -17449,7 +17449,7 @@ Body:
     AttackDelay: 1792
     AttackMotion: 792
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1430
@@ -17476,7 +17476,7 @@ Body:
     AttackDelay: 1468
     AttackMotion: 468
     DamageMotion: 768
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1431
@@ -17503,7 +17503,7 @@ Body:
     AttackDelay: 868
     AttackMotion: 480
     DamageMotion: 120
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1432
@@ -17531,7 +17531,7 @@ Body:
     AttackDelay: 1120
     AttackMotion: 420
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1433
     AegisName: G_DEVIRUCHI
     Name: Ð¡¶ñÄ§
@@ -17557,7 +17557,7 @@ Body:
     AttackDelay: 980
     AttackMotion: 600
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1434
@@ -17581,7 +17581,7 @@ Body:
     AttackDelay: 1276
     AttackMotion: 576
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1435
     AegisName: G_EVIL_DRUID
     Name: °µÉñ¹Ù
@@ -17607,7 +17607,7 @@ Body:
     AttackDelay: 2276
     AttackMotion: 576
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
   - Id: 1436
     AegisName: G_JAKK
     Name: ÄÏ¹ÏÏÈÉú
@@ -17633,7 +17633,7 @@ Body:
     AttackDelay: 1180
     AttackMotion: 480
     DamageMotion: 648
-    Ai: 4
+    Ai: 04
   - Id: 1437
     AegisName: G_JOKER
     Name: ôÃ¿¨
@@ -17659,7 +17659,7 @@ Body:
     AttackDelay: 1364
     AttackMotion: 864
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1438
     AegisName: G_KHALITZBURG
     Name: ¿¨ÀûË¹¸ñ
@@ -17686,7 +17686,7 @@ Body:
     AttackDelay: 528
     AttackMotion: 1000
     DamageMotion: 396
-    Ai: 4
+    Ai: 04
   - Id: 1439
     AegisName: G_HIGH_ORC
     Name: ÊÞÈËÕ½Ê¿³¤
@@ -17713,7 +17713,7 @@ Body:
     AttackDelay: 1500
     AttackMotion: 500
     DamageMotion: 1000
-    Ai: 4
+    Ai: 04
   - Id: 1440
     AegisName: G_STEM_WORM
     Name: »ÒÉ­Áé
@@ -17739,7 +17739,7 @@ Body:
     AttackDelay: 1500
     AttackMotion: 500
     DamageMotion: 1000
-    Ai: 4
+    Ai: 04
   - Id: 1441
     AegisName: G_PENOMENA
     Name: Ã·ÄÉº£¿û
@@ -17765,7 +17765,7 @@ Body:
     AttackDelay: 832
     AttackMotion: 500
     DamageMotion: 600
-    Ai: 4
+    Ai: 04
   - Id: 1442
     AegisName: G_SASQUATCH
     Name: Ñ©ÐÜ
@@ -17791,7 +17791,7 @@ Body:
     AttackDelay: 1260
     AttackMotion: 192
     DamageMotion: 192
-    Ai: 4
+    Ai: 04
   - Id: 1443
     AegisName: G_CRUISER
     Name: Íæ¾ßÊ¿±ø
@@ -17817,7 +17817,7 @@ Body:
     AttackDelay: 1296
     AttackMotion: 1296
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1444
     AegisName: G_CHEPET
     Name: Ä§ÁéÍÞÍÞ
@@ -17842,7 +17842,7 @@ Body:
     AttackDelay: 672
     AttackMotion: 672
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1445
     AegisName: G_RAGGLER
     Name: ÄÎ¼ªÄñ
@@ -17868,7 +17868,7 @@ Body:
     AttackDelay: 1000
     AttackMotion: 900
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1446
     AegisName: G_INJUSTICE
     Name: Ð°¶ñÊ¹Õß
@@ -17892,7 +17892,7 @@ Body:
     AttackDelay: 770
     AttackMotion: 720
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
   - Id: 1447
     AegisName: G_GRYPHON
     Name: Ê¨ðÕÊÞ
@@ -17919,7 +17919,7 @@ Body:
     AttackDelay: 704
     AttackMotion: 504
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1448
     AegisName: G_DARK_FRAME
@@ -17946,7 +17946,7 @@ Body:
     AttackDelay: 920
     AttackMotion: 720
     DamageMotion: 200
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1449
@@ -17976,7 +17976,7 @@ Body:
     AttackDelay: 1280
     AttackMotion: 1080
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1450
     AegisName: G_WIND_GHOST
@@ -18002,7 +18002,7 @@ Body:
     AttackDelay: 1056
     AttackMotion: 1056
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1451
@@ -18031,7 +18031,7 @@ Body:
     AttackDelay: 916
     AttackMotion: 816
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
   - Id: 1452
     AegisName: G_ORC_LADY
     Name: ÊÞÈËÅ®Õ½Ê¿
@@ -18058,7 +18058,7 @@ Body:
     AttackDelay: 1050
     AttackMotion: 900
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1453
     AegisName: G_RAYDRIC_ARCHER
     Name: ÓÄÁé¹­¼ýÊÖ
@@ -18085,7 +18085,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 1152
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1454
@@ -18113,7 +18113,7 @@ Body:
     AttackDelay: 860
     AttackMotion: 660
     DamageMotion: 624
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1455
@@ -18142,7 +18142,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 1008
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1456
     AegisName: G_CHIMERA
     Name: ¿­ÃÀÀ­
@@ -18168,7 +18168,7 @@ Body:
     AttackDelay: 772
     AttackMotion: 672
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1457
     AegisName: G_MANTIS
@@ -18194,7 +18194,7 @@ Body:
     AttackDelay: 1528
     AttackMotion: 660
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1458
@@ -18221,7 +18221,7 @@ Body:
     AttackDelay: 1540
     AttackMotion: 840
     DamageMotion: 504
-    Ai: 4
+    Ai: 04
   - Id: 1459
     AegisName: G_MARIONETTE
     Name: ¿þÀÜÍÞÍÞ
@@ -18246,7 +18246,7 @@ Body:
     AttackDelay: 1480
     AttackMotion: 480
     DamageMotion: 1056
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1460
@@ -18272,7 +18272,7 @@ Body:
     AttackDelay: 432
     AttackMotion: 432
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
   - Id: 1461
     AegisName: G_MINOROUS
     Name: Ã×ÂåË¹
@@ -18299,7 +18299,7 @@ Body:
     AttackDelay: 1360
     AttackMotion: 960
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1462
     AegisName: G_ORC_SKELETON
     Name: Ð°º¡ÊÞÈË
@@ -18324,7 +18324,7 @@ Body:
     AttackDelay: 2420
     AttackMotion: 720
     DamageMotion: 648
-    Ai: 4
+    Ai: 04
   - Id: 1463
     AegisName: G_ORC_ZOMBIE
     Name: ÊÞÈË¸¯Ê¬
@@ -18349,7 +18349,7 @@ Body:
     AttackDelay: 2852
     AttackMotion: 1152
     DamageMotion: 840
-    Ai: 4
+    Ai: 04
   - Id: 1464
     AegisName: G_PASANA
     Name: ÅÁÉ¯ÄÉ
@@ -18375,7 +18375,7 @@ Body:
     AttackDelay: 976
     AttackMotion: 576
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1465
     AegisName: G_PETIT
     Name: ±ÏµÛÌØµØÁú
@@ -18401,7 +18401,7 @@ Body:
     AttackDelay: 1624
     AttackMotion: 620
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1466
     AegisName: G_PETIT_
     Name: ±ÏµÛÌØ·ÉÁú
@@ -18427,7 +18427,7 @@ Body:
     AttackDelay: 1420
     AttackMotion: 1080
     DamageMotion: 528
-    Ai: 4
+    Ai: 04
   - Id: 1467
     AegisName: G_RAYDRIC
     Name: ÓÄÁé½£Ê¿
@@ -18454,7 +18454,7 @@ Body:
     AttackDelay: 824
     AttackMotion: 780
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
   - Id: 1468
     AegisName: G_REQUIEM
     Name: Åµ¿ÉÒÁ
@@ -18479,7 +18479,7 @@ Body:
     AttackDelay: 1516
     AttackMotion: 816
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1469
     AegisName: G_SKEL_WORKER
     Name: Ð°º¡¿ó¹¤
@@ -18504,7 +18504,7 @@ Body:
     AttackDelay: 2420
     AttackMotion: 720
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1470
     AegisName: G_ZEROM
     Name: ½ÜÂåÃ×
@@ -18528,7 +18528,7 @@ Body:
     AttackDelay: 1780
     AttackMotion: 1080
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1471
     AegisName: G_NINE_TAIL
     Name: ¾ÅÎ²ºü
@@ -18553,7 +18553,7 @@ Body:
     AttackDelay: 840
     AttackMotion: 540
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
   - Id: 1472
     AegisName: G_BON_GUN
     Name: ÑýµÀ
@@ -18578,7 +18578,7 @@ Body:
     AttackDelay: 1720
     AttackMotion: 500
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
   - Id: 1473
     AegisName: G_ORC_ARCHER
     Name: ÊÞÈË¹­¼ýÊÖ
@@ -18604,7 +18604,7 @@ Body:
     AttackDelay: 1960
     AttackMotion: 620
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
   - Id: 1474
     AegisName: G_MIMIC
     Name: Ð°¶ñÏä
@@ -18630,7 +18630,7 @@ Body:
     AttackDelay: 972
     AttackMotion: 500
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1475
     AegisName: G_WRAITH
     Name: ¶ñÁé
@@ -18656,7 +18656,7 @@ Body:
     AttackDelay: 1816
     AttackMotion: 576
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
   - Id: 1476
     AegisName: G_ALARM
     Name: ÖÓ¹Ö
@@ -18682,7 +18682,7 @@ Body:
     AttackDelay: 1020
     AttackMotion: 500
     DamageMotion: 768
-    Ai: 4
+    Ai: 04
   - Id: 1477
     AegisName: G_ARCLOUSE
     Name: ¾í¼×³æ
@@ -18709,7 +18709,7 @@ Body:
     AttackDelay: 960
     AttackMotion: 500
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1478
@@ -18738,7 +18738,7 @@ Body:
     AttackDelay: 864
     AttackMotion: 500
     DamageMotion: 192
-    Ai: 4
+    Ai: 04
   - Id: 1479
     AegisName: G_SKEL_PRISONER
     Name: Ð°º¡Õ½·ý
@@ -18764,7 +18764,7 @@ Body:
     AttackDelay: 1848
     AttackMotion: 500
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
   - Id: 1480
     AegisName: G_ZOMBIE_PRISONER
     Name: ¸¯Ê¬Õ½·ý
@@ -18789,7 +18789,7 @@ Body:
     AttackDelay: 1768
     AttackMotion: 500
     DamageMotion: 192
-    Ai: 4
+    Ai: 04
   - Id: 1481
     AegisName: G_PUNK
     Name: ÐàÄ§
@@ -18814,7 +18814,7 @@ Body:
     AttackDelay: 1500
     AttackMotion: 500
     DamageMotion: 1000
-    Ai: 4
+    Ai: 04
   - Id: 1482
     AegisName: G_ZHERLTHSH
     Name: °¬Ë¹¶÷Ä§Å®
@@ -18842,7 +18842,7 @@ Body:
     AttackDelay: 800
     AttackMotion: 792
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
   - Id: 1483
     AegisName: G_RYBIO
     Name: Èð±ÈÅ·
@@ -18868,7 +18868,7 @@ Body:
     AttackDelay: 1790
     AttackMotion: 1440
     DamageMotion: 540
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1484
@@ -18896,7 +18896,7 @@ Body:
     AttackDelay: 1744
     AttackMotion: 1344
     DamageMotion: 600
-    Ai: 4
+    Ai: 04
   - Id: 1485
     AegisName: G_MYSTELTAINN
     Name: ß±ÉñÕß
@@ -18923,7 +18923,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 500
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1486
     AegisName: G_TIRFING
@@ -18952,7 +18952,7 @@ Body:
     AttackDelay: 816
     AttackMotion: 500
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1487
     AegisName: G_EXECUTIONER
@@ -18980,7 +18980,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 500
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1488
     AegisName: G_ANOLIAN
@@ -19007,7 +19007,7 @@ Body:
     AttackDelay: 900
     AttackMotion: 500
     DamageMotion: 864
-    Ai: 4
+    Ai: 04
   - Id: 1489
     AegisName: G_STING
     Name: Ê·Í¡
@@ -19034,7 +19034,7 @@ Body:
     AttackDelay: 528
     AttackMotion: 500
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
   - Id: 1490
     AegisName: G_WANDER_MAN
     Name: Ð°º¡ÀËÈË
@@ -19061,7 +19061,7 @@ Body:
     AttackDelay: 672
     AttackMotion: 500
     DamageMotion: 192
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1491
@@ -19089,7 +19089,7 @@ Body:
     AttackDelay: 1156
     AttackMotion: 456
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1492
@@ -19177,7 +19177,7 @@ Body:
     AttackDelay: 950
     AttackMotion: 2520
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Tough_Vines
         Rate: 5335
@@ -19221,7 +19221,7 @@ Body:
     AttackDelay: 1247
     AttackMotion: 768
     DamageMotion: 576
-    Ai: 3
+    Ai: 03
     Modes:
       Detector: true
     Drops:
@@ -19265,7 +19265,7 @@ Body:
     AttackDelay: 2413
     AttackMotion: 1248
     DamageMotion: 768
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Solid_Twig
         Rate: 5000
@@ -19311,7 +19311,7 @@ Body:
     AttackDelay: 1543
     AttackMotion: 1632
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Heart_Of_Tree
         Rate: 4000
@@ -19358,7 +19358,7 @@ Body:
     AttackDelay: 857
     AttackMotion: 1056
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Air_Rifle
         Rate: 4500
@@ -19404,7 +19404,7 @@ Body:
     AttackDelay: 912
     AttackMotion: 1344
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Meat
         Rate: 4500
@@ -19498,7 +19498,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Class: Boss
     Modes:
       Mvp: true
@@ -19554,7 +19554,7 @@ Body:
     AttackDelay: 917
     AttackMotion: 1584
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -19600,7 +19600,7 @@ Body:
     AttackDelay: 847
     AttackMotion: 1152
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Dullahan's_Helm
         Rate: 3200
@@ -19642,7 +19642,7 @@ Body:
     AttackDelay: 747
     AttackMotion: 1632
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -19689,7 +19689,7 @@ Body:
     AttackDelay: 516
     AttackMotion: 768
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -19737,7 +19737,7 @@ Body:
     AttackDelay: 914
     AttackMotion: 1344
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Manteau
         Rate: 4171
@@ -19783,7 +19783,7 @@ Body:
     AttackDelay: 912
     AttackMotion: 1248
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Piece_Of_Black_Cloth
         Rate: 3200
@@ -19825,7 +19825,7 @@ Body:
     AttackDelay: 890
     AttackMotion: 960
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Pumpkin_Bucket
         Rate: 3200
@@ -19870,7 +19870,7 @@ Body:
     AttackDelay: 741
     AttackMotion: 1536
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -19976,7 +19976,7 @@ Body:
     AttackDelay: 890
     AttackMotion: 1320
     DamageMotion: 720
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Brigan
         Rate: 3880
@@ -20020,7 +20020,7 @@ Body:
     AttackDelay: 1257
     AttackMotion: 528
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Fan
         Rate: 4171
@@ -20064,7 +20064,7 @@ Body:
     AttackDelay: 600
     AttackMotion: 840
     DamageMotion: 504
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Dragon_Fang
         Rate: 4365
@@ -20108,7 +20108,7 @@ Body:
     AttackDelay: 879
     AttackMotion: 672
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Milk_Bottle
         Rate: 1500
@@ -20194,7 +20194,7 @@ Body:
     AttackDelay: 1120
     AttackMotion: 576
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -20326,7 +20326,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 672
     DamageMotion: 672
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Rice_Ball
         Rate: 5500
@@ -20417,7 +20417,7 @@ Body:
     AttackDelay: 1084
     AttackMotion: 2304
     DamageMotion: 576
-    Ai: 5
+    Ai: 05
   - Id: 1524
     AegisName: G_BABY_LEOPARD
     Name: Ð¡»¨±ª
@@ -20443,7 +20443,7 @@ Body:
     AttackDelay: 318
     AttackMotion: 528
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
   - Id: 1525
     AegisName: G_BATHORY
     Name: Î×ÆÅ
@@ -20631,7 +20631,7 @@ Body:
     AttackDelay: 480
     AttackMotion: 840
     DamageMotion: 432
-    Ai: 5
+    Ai: 05
   - Id: 1532
     AegisName: G_EXPLOSION
     Name: ±¬Ñ×òùòð
@@ -20657,7 +20657,7 @@ Body:
     AttackDelay: 1260
     AttackMotion: 960
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
   - Id: 1533
     AegisName: G_FUR_SEAL
     Name: º£±ª±¦±¦
@@ -20945,7 +20945,7 @@ Body:
     AttackDelay: 2012
     AttackMotion: 1728
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
   - Id: 1544
     AegisName: G_KARAKASA
     Name: É¡Ñý
@@ -20971,7 +20971,7 @@ Body:
     AttackDelay: 1638
     AttackMotion: 2016
     DamageMotion: 576
-    Ai: 1
+    Ai: 01
   - Id: 1545
     AegisName: G_KOBOLD_1
     Name: ´ó¸«È®Ñý
@@ -21130,7 +21130,7 @@ Body:
     AttackDelay: 400
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 5
+    Ai: 05
   - Id: 1551
     AegisName: G_MARSE
     Name: ÎÚÔô
@@ -21234,7 +21234,7 @@ Body:
     AttackDelay: 1216
     AttackMotion: 816
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1555
@@ -21290,7 +21290,7 @@ Body:
     AttackDelay: 1148
     AttackMotion: 1728
     DamageMotion: 864
-    Ai: 1
+    Ai: 01
   - Id: 1557
     AegisName: G_ROTAR_ZAIRO
     Name: Ö±Éý»ú¸ç²¼Áé
@@ -21316,7 +21316,7 @@ Body:
     AttackDelay: 2416
     AttackMotion: 2016
     DamageMotion: 432
-    Ai: 5
+    Ai: 05
   - Id: 1558
     AegisName: G_SAND_MAN
     Name: ÄàÈË
@@ -21343,7 +21343,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 720
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1559
     AegisName: G_SCORPION
     Name: Ð«×Ó
@@ -21450,7 +21450,7 @@ Body:
     AttackDelay: 2276
     AttackMotion: 576
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1563
     AegisName: G_TENGU
     Name: Ìì¹·
@@ -21477,7 +21477,7 @@ Body:
     AttackDelay: 1439
     AttackMotion: 1920
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1564
@@ -21719,7 +21719,7 @@ Body:
     AttackDelay: 1372
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
   - Id: 1573
     AegisName: G_ELDER
     Name: Ð°ÁéÄ§µ¼Ê¿
@@ -21745,7 +21745,7 @@ Body:
     AttackDelay: 1552
     AttackMotion: 1152
     DamageMotion: 336
-    Ai: 4
+    Ai: 04
   - Id: 1574
     AegisName: G_ELDER_WILOW
     Name: ³¤ÀÏÊ÷¾«
@@ -21849,7 +21849,7 @@ Body:
     AttackDelay: 1172
     AttackMotion: 672
     DamageMotion: 420
-    Ai: 5
+    Ai: 05
   - Id: 1578
     AegisName: G_HORONG
     Name: ¹í»ð
@@ -22132,7 +22132,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Jellopy
         Rate: 7000
@@ -22176,7 +22176,7 @@ Body:
     AttackDelay: 960
     AttackMotion: 864
     DamageMotion: 720
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Great_Leaf
         Rate: 4365
@@ -22268,7 +22268,7 @@ Body:
     AttackDelay: 1864
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Iron
         Rate: 210
@@ -22362,7 +22362,7 @@ Body:
     AttackDelay: 1456
     AttackMotion: 456
     DamageMotion: 336
-    Ai: 1
+    Ai: 01
     Class: Guardian
     Modes:
       KnockBackImmune: true
@@ -22394,7 +22394,7 @@ Body:
     AttackDelay: 1100
     AttackMotion: 560
     DamageMotion: 580
-    Ai: 3
+    Ai: 03
     Class: Boss
     Drops:
       - Item: Stone
@@ -22492,7 +22492,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
   - Id: 1596
     AegisName: G_TAMRUAN
     Name: Ëþàà°²
@@ -22548,7 +22548,7 @@ Body:
     AttackDelay: 1020
     AttackMotion: 720
     DamageMotion: 384
-    Ai: 5
+    Ai: 05
     Modes:
       Detector: true
   - Id: 1598
@@ -22794,7 +22794,7 @@ Body:
     AttackDelay: 879
     AttackMotion: 672
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
   - Id: 1607
     AegisName: G_GOBLINE_XMAS
     Name: Ê¥µ®¸ç²¼Áé
@@ -22877,7 +22877,7 @@ Body:
     AttackDelay: 600
     AttackMotion: 840
     DamageMotion: 504
-    Ai: 2
+    Ai: 02
     Class: Guardian
     Modes:
       KnockBackImmune: true
@@ -22918,7 +22918,7 @@ Body:
     AttackDelay: 2468
     AttackMotion: 768
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Class: Boss
     Drops:
       - Item: Orange_Potion
@@ -22989,7 +22989,7 @@ Body:
     AttackDelay: 890
     AttackMotion: 1320
     DamageMotion: 720
-    Ai: 4
+    Ai: 04
     Class: Boss
     Drops:
       - Item: Orange_Potion
@@ -23027,7 +23027,7 @@ Body:
     AttackDelay: 384
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Tube
         Rate: 4000
@@ -23121,7 +23121,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 864
     DamageMotion: 504
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Dark_Crystal_Fragment
         Rate: 3000
@@ -23213,7 +23213,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 528
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Battered_Kettle
         Rate: 1000
@@ -23307,7 +23307,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 2
+    Ai: 02
     Modes:
       Detector: true
     Drops:
@@ -23353,7 +23353,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 1440
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Poisonous_Gas
         Rate: 1000
@@ -23394,7 +23394,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 1440
     DamageMotion: 672
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Air_Pollutant
         Rate: 5000
@@ -23542,7 +23542,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 528
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
   - Id: 1625
     AegisName: G_PORCELLIO
     Name: ÈýÒ¶Ìú¼×³æ
@@ -23569,7 +23569,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1626
@@ -23640,7 +23640,7 @@ Body:
     AttackDelay: 140
     AttackMotion: 864
     DamageMotion: 430
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -23679,7 +23679,7 @@ Body:
     AttackDelay: 140
     AttackMotion: 960
     DamageMotion: 504
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Moustache_Of_Mole
         Rate: 5000
@@ -23720,7 +23720,7 @@ Body:
     AttackDelay: 336
     AttackMotion: 540
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Meat
         Rate: 1000
@@ -23759,7 +23759,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 960
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Class: Boss
     Modes:
       Mvp: true
@@ -23817,7 +23817,7 @@ Body:
     AttackDelay: 1728
     AttackMotion: 816
     DamageMotion: 1188
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Cyfar
         Rate: 4200
@@ -24796,7 +24796,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Lab_Staff_Record
         Rate: 1000
@@ -24843,7 +24843,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Armlet_Of_Prisoner
         Rate: 2000
@@ -24891,7 +24891,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Armlet_Of_Prisoner
         Rate: 1000
@@ -24938,7 +24938,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Armlet_Of_Prisoner
         Rate: 500
@@ -24986,7 +24986,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Lab_Staff_Record
         Rate: 2000
@@ -25033,7 +25033,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Mementos
         Rate: 1000
@@ -25137,7 +25137,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Gift_Box
         Rate: 10
@@ -25168,7 +25168,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Gift_Box
         Rate: 10
@@ -25198,7 +25198,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Gift_Box
         Rate: 10
@@ -25229,7 +25229,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Gift_Box
         Rate: 10
@@ -25259,7 +25259,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Gift_Box
         Rate: 10
@@ -25476,7 +25476,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Dimik_Card
         Rate: 1
@@ -25509,7 +25509,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Steel_Plate
         Rate: 2000
@@ -25556,7 +25556,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Steel_Plate
         Rate: 2000
@@ -25603,7 +25603,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Steel_Plate
         Rate: 2000
@@ -25650,7 +25650,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Steel_Plate
         Rate: 2000
@@ -25726,7 +25726,7 @@ Body:
     AttackDelay: 504
     AttackMotion: 1020
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Venatu_Card
         Rate: 1
@@ -25759,7 +25759,7 @@ Body:
     AttackDelay: 504
     AttackMotion: 1020
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Screw
         Rate: 2000
@@ -25806,7 +25806,7 @@ Body:
     AttackDelay: 504
     AttackMotion: 1020
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Screw
         Rate: 2000
@@ -25853,7 +25853,7 @@ Body:
     AttackDelay: 504
     AttackMotion: 1020
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Screw
         Rate: 2000
@@ -25900,7 +25900,7 @@ Body:
     AttackDelay: 504
     AttackMotion: 1020
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Screw
         Rate: 2000
@@ -25947,7 +25947,7 @@ Body:
     AttackDelay: 504
     AttackMotion: 480
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Harpy's_Feather
         Rate: 4000
@@ -25988,7 +25988,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 360
     DamageMotion: 864
-    Ai: 4
+    Ai: 04
     Class: Boss
     Drops:
       - Item: Skull
@@ -26036,7 +26036,7 @@ Body:
     AttackDelay: 1536
     AttackMotion: 1056
     DamageMotion: 1152
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Empty_Bottle
         Rate: 5000
@@ -26080,7 +26080,7 @@ Body:
     AttackDelay: 1536
     AttackMotion: 960
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
   - Id: 1684
     AegisName: G_ARCHDAM
     Name: °¢¿ËÌ¹
@@ -26107,7 +26107,7 @@ Body:
     AttackDelay: 1080
     AttackMotion: 288
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
   - Id: 1685
     AegisName: APOCALIPS_H
     Name: ±´Ë¼²¨
@@ -26194,7 +26194,7 @@ Body:
     AttackDelay: 672
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Large_Jellopy
         Rate: 1000
@@ -26238,7 +26238,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 528
     DamageMotion: 432
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Leaflet_Of_Aloe
         Rate: 1500
@@ -26363,7 +26363,7 @@ Body:
     AttackDelay: 1120
     AttackMotion: 552
     DamageMotion: 511
-    Ai: 2
+    Ai: 02
     Modes:
       IgnoreMagic: true
       IgnoreMelee: true
@@ -26403,7 +26403,7 @@ Body:
     AttackDelay: 1152
     AttackMotion: 1536
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Leaflet_Of_Aloe
         Rate: 1
@@ -26446,7 +26446,7 @@ Body:
     AttackDelay: 140
     AttackMotion: 384
     DamageMotion: 504
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Raccoon_Leaf
         Rate: 500
@@ -26491,7 +26491,7 @@ Body:
     AttackDelay: 608
     AttackMotion: 1440
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scell
         Rate: 100
@@ -26532,7 +26532,7 @@ Body:
     AttackDelay: 608
     AttackMotion: 1440
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scell
         Rate: 100
@@ -26573,7 +26573,7 @@ Body:
     AttackDelay: 608
     AttackMotion: 1440
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scell
         Rate: 100
@@ -26614,7 +26614,7 @@ Body:
     AttackDelay: 608
     AttackMotion: 1440
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scell
         Rate: 100
@@ -26655,7 +26655,7 @@ Body:
     AttackDelay: 608
     AttackMotion: 1440
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Scell
         Rate: 100
@@ -26746,7 +26746,7 @@ Body:
     AttackDelay: 168
     AttackMotion: 480
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Blue_Box
         Rate: 30
@@ -27477,7 +27477,7 @@ Body:
     AttackDelay: 151
     AttackMotion: 288
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Green_Herb
         Rate: 3000
@@ -27605,7 +27605,7 @@ Body:
     AttackDelay: 252
     AttackMotion: 816
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Yellow_Herb
         Rate: 2000
@@ -27791,7 +27791,7 @@ Body:
     AttackDelay: 1180
     AttackMotion: 480
     DamageMotion: 648
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Pumpkin_Bucket
         Rate: 1000
@@ -27876,7 +27876,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
   - Id: 1726
     AegisName: R_LUNATIC
     Name: ·èÍÃ
@@ -27901,7 +27901,7 @@ Body:
     AttackDelay: 1456
     AttackMotion: 456
     DamageMotion: 336
-    Ai: 2
+    Ai: 02
   - Id: 1727
     AegisName: R_SAVAGE_BABE
     Name: Ð¡Ò°Öí
@@ -27925,7 +27925,7 @@ Body:
     AttackDelay: 1624
     AttackMotion: 624
     DamageMotion: 576
-    Ai: 2
+    Ai: 02
   - Id: 1728
     AegisName: R_DESERT_WOLF_B
     Name: É³Ä®Ó×ÀÇ
@@ -27950,7 +27950,7 @@ Body:
     AttackDelay: 1600
     AttackMotion: 900
     DamageMotion: 240
-    Ai: 2
+    Ai: 02
   - Id: 1729
     AegisName: R_BAPHOMET_
     Name: Ð¡°Í·çÌØ
@@ -27975,7 +27975,7 @@ Body:
     AttackDelay: 868
     AttackMotion: 480
     DamageMotion: 120
-    Ai: 2
+    Ai: 02
     Modes:
       Detector: true
   - Id: 1730
@@ -28003,7 +28003,7 @@ Body:
     AttackDelay: 980
     AttackMotion: 600
     DamageMotion: 384
-    Ai: 2
+    Ai: 02
     Modes:
       Detector: true
   - Id: 1731
@@ -28314,7 +28314,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Burnt_Parts
         Rate: 100
@@ -28414,7 +28414,7 @@ Body:
     AttackDelay: 1248
     AttackMotion: 1248
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
   - Id: 1742
     AegisName: G_CARAT
     Name: ¿¨À­ÌØÐ¡³ó
@@ -28439,7 +28439,7 @@ Body:
     AttackDelay: 1078
     AttackMotion: 768
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1743
@@ -28468,7 +28468,7 @@ Body:
     AttackDelay: 1248
     AttackMotion: 1248
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1744
     AegisName: G_WILD_ROSE
     Name: ¿ñ±©Ò°Ã¨
@@ -28494,7 +28494,7 @@ Body:
     AttackDelay: 964
     AttackMotion: 864
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1745
     AegisName: G_CONSTANT
     Name: ºãÁ¿Ä§
@@ -28521,7 +28521,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 5
+    Ai: 05
     Modes:
       Detector: true
     Drops:
@@ -28553,7 +28553,7 @@ Body:
     AttackDelay: 1440
     AttackMotion: 576
     DamageMotion: 600
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Sturdy_Iron_Piece
         Rate: 500
@@ -28581,7 +28581,7 @@ Body:
     AttackDelay: 1576
     AttackMotion: 576
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
   - Id: 1748
     AegisName: G_ANACONDAQ
     Name: ¶¾Éß
@@ -28605,7 +28605,7 @@ Body:
     AttackDelay: 1576
     AttackMotion: 576
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
   - Id: 1749
     AegisName: G_MEDUSA
     Name: Ã×¶ÅÉ³
@@ -28631,7 +28631,7 @@ Body:
     AttackDelay: 1720
     AttackMotion: 1320
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1750
@@ -28932,7 +28932,7 @@ Body:
     AttackDelay: 140
     AttackMotion: 672
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Class: Boss
   - Id: 1757
     AegisName: G_ACIDUS
@@ -28959,7 +28959,7 @@ Body:
     AttackDelay: 168
     AttackMotion: 1008
     DamageMotion: 300
-    Ai: 4
+    Ai: 04
   - Id: 1758
     AegisName: G_FERUS
     Name: ºì±´ÀÕË¹
@@ -28985,7 +28985,7 @@ Body:
     AttackDelay: 108
     AttackMotion: 576
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1759
     AegisName: G_ACIDUS_
     Name: »Ò¶íÏ£ÍÐË¹
@@ -29011,7 +29011,7 @@ Body:
     AttackDelay: 168
     AttackMotion: 768
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
   - Id: 1760
     AegisName: G_FERUS_
     Name: ÂÌ±´ÀÕË¹
@@ -29037,7 +29037,7 @@ Body:
     AttackDelay: 108
     AttackMotion: 576
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
   - Id: 1761
     AegisName: G_SKOGUL
     Name: Æ¤Ó°Ä§
@@ -29063,7 +29063,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 384
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -29094,7 +29094,7 @@ Body:
     AttackDelay: 480
     AttackMotion: 576
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -29126,7 +29126,7 @@ Body:
     AttackDelay: 672
     AttackMotion: 780
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Class: Boss
     Drops:
       - Item: Rune_Of_Darkness
@@ -29157,7 +29157,7 @@ Body:
     AttackDelay: 672
     AttackMotion: 780
     DamageMotion: 480
-    Ai: 4
+    Ai: 04
     Class: Boss
     Drops:
       - Item: Rune_Of_Darkness
@@ -29450,7 +29450,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: White_Mask
         Rate: 2500
@@ -29494,7 +29494,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 360
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: White_Mask
         Rate: 2500
@@ -29539,7 +29539,7 @@ Body:
     AttackDelay: 960
     AttackMotion: 528
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -29633,7 +29633,7 @@ Body:
     AttackDelay: 936
     AttackMotion: 1020
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Ice_Heart
         Rate: 3000
@@ -29680,7 +29680,7 @@ Body:
     AttackDelay: 432
     AttackMotion: 648
     DamageMotion: 240
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Ice_Heart
         Rate: 1000
@@ -29721,7 +29721,7 @@ Body:
     AttackDelay: 861
     AttackMotion: 660
     DamageMotion: 144
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Ice_Heart
         Rate: 5000
@@ -29951,7 +29951,7 @@ Body:
     AttackDelay: 412
     AttackMotion: 840
     DamageMotion: 300
-    Ai: 7
+    Ai: 07
     Drops:
       - Item: Rotten_Meat
         Rate: 3000
@@ -29992,7 +29992,7 @@ Body:
     AttackDelay: 864
     AttackMotion: 624
     DamageMotion: 360
-    Ai: 7
+    Ai: 07
     Class: Boss
     Drops:
       - Item: Rotten_Meat
@@ -30033,7 +30033,7 @@ Body:
     AttackDelay: 936
     AttackMotion: 792
     DamageMotion: 432
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Jellopy
         Rate: 1000
@@ -30264,7 +30264,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 528
     DamageMotion: 240
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Golden_Jewel_
         Rate: 3000
@@ -30298,7 +30298,7 @@ Body:
     AttackDelay: 864
     AttackMotion: 624
     DamageMotion: 360
-    Ai: 7
+    Ai: 07
     Class: Boss
   - Id: 1792
     AegisName: SOCCER_BALL
@@ -31368,7 +31368,7 @@ Body:
     AttackDelay: 879
     AttackMotion: 672
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Wooden_Block_
         Rate: 5000
@@ -31819,7 +31819,7 @@ Body:
     AttackDelay: 1472
     AttackMotion: 384
     DamageMotion: 288
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Burning_Heart
         Rate: 3000
@@ -32050,7 +32050,7 @@ Body:
     AttackDelay: 1576
     AttackMotion: 576
     DamageMotion: 576
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Gold_Coin_US
         Rate: 2000
@@ -32448,7 +32448,7 @@ Body:
     AttackDelay: 1960
     AttackMotion: 960
     DamageMotion: 384
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Yellow_Live
         Rate: 70
@@ -32490,7 +32490,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Poison_Spore
         Rate: 9000
@@ -32535,7 +32535,7 @@ Body:
     AttackDelay: 1560
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 2
+    Ai: 02
     Modes:
       Detector: true
     Drops:
@@ -32582,7 +32582,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Garlet
         Rate: 3200
@@ -32625,7 +32625,7 @@ Body:
     AttackDelay: 2208
     AttackMotion: 1008
     DamageMotion: 324
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Single_Cell
         Rate: 9000
@@ -32807,7 +32807,7 @@ Body:
     AttackDelay: 1480
     AttackMotion: 480
     DamageMotion: 480
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Moustache_Of_Mole
         Rate: 9000
@@ -32852,7 +32852,7 @@ Body:
     AttackDelay: 1120
     AttackMotion: 552
     DamageMotion: 511
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Peeps
         Rate: 5000
@@ -33504,7 +33504,7 @@ Body:
     AttackDelay: 2304
     AttackMotion: 840
     DamageMotion: 360
-    Ai: 1
+    Ai: 01
     Drops:
       - Item: Iron_Wrist
         Rate: 5
@@ -33546,7 +33546,7 @@ Body:
     AttackDelay: 1728
     AttackMotion: 720
     DamageMotion: 576
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Sharp_Leaf
         Rate: 2000
@@ -33589,7 +33589,7 @@ Body:
     AttackDelay: 1536
     AttackMotion: 600
     DamageMotion: 420
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Old_Magic_Circle
         Rate: 1000
@@ -33632,7 +33632,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 672
     DamageMotion: 384
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Leaflet_Of_Hinal
         Rate: 900
@@ -33675,7 +33675,7 @@ Body:
     AttackDelay: 1536
     AttackMotion: 504
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Principles_Of_Magic
         Rate: 5
@@ -33771,7 +33771,7 @@ Body:
     AttackDelay: 1536
     AttackMotion: 504
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
   - Id: 1887
     AegisName: FREEZER_R
     Name: Ë®Áé¹ê
@@ -33833,7 +33833,7 @@ Body:
     AttackDelay: 879
     AttackMotion: 672
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Ice_Piece
         Rate: 2000
@@ -33954,7 +33954,7 @@ Body:
     AttackDelay: 747
     AttackMotion: 1632
     DamageMotion: 576
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
   - Id: 1893
@@ -34009,7 +34009,7 @@ Body:
     AttackDelay: 1672
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 7
+    Ai: 07
     Class: Boss
     Drops:
       - Item: Cold_Medicine
@@ -34115,7 +34115,7 @@ Body:
     AttackDelay: 2612
     AttackMotion: 912
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Jade_Plate
         Rate: 10000
@@ -34145,7 +34145,7 @@ Body:
     AttackDelay: 140
     AttackMotion: 384
     DamageMotion: 288
-    Ai: 5
+    Ai: 05
     Class: Guardian
     Modes:
       KnockBackImmune: true
@@ -34176,7 +34176,7 @@ Body:
     AttackDelay: 1148
     AttackMotion: 648
     DamageMotion: 480
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Heart_Box
         Rate: 5000
@@ -35098,7 +35098,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 768
     DamageMotion: 576
-    Ai: 1
+    Ai: 01
     Class: Guardian
     Modes:
       IgnoreMagic: true
@@ -35241,7 +35241,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 360
     DamageMotion: 360
-    Ai: 4
+    Ai: 04
   - Id: 1938
     AegisName: TREASURE_BOX41
     Name: ±¦ÎïÏä×Ó
@@ -35566,7 +35566,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 432
     DamageMotion: 288
-    Ai: 4
+    Ai: 04
   - Id: 1949
     AegisName: B_S_GUARDIAN
     Name: ÕóÓªÊØÎÀ
@@ -35593,7 +35593,7 @@ Body:
     AttackDelay: 140
     AttackMotion: 384
     DamageMotion: 288
-    Ai: 5
+    Ai: 05
   - Id: 1950
     AegisName: B_B_GUARDIAN
     Name: ÕóÓªÊØÎÀ
@@ -35620,7 +35620,7 @@ Body:
     AttackDelay: 76
     AttackMotion: 384
     DamageMotion: 288
-    Ai: 5
+    Ai: 05
   - Id: 1951
     AegisName: CRYSTAL_6
     Name: ÌìÊ¹²Êµ°
@@ -35774,7 +35774,7 @@ Body:
     Race: Formless
     Element: Neutral
     ElementLevel: 1
-    Ai: 2
+    Ai: 02
     Drops:
       - Item: Tresure_Box_WoE
         Rate: 3000
@@ -35997,7 +35997,7 @@ Body:
     AttackDelay: 720
     AttackMotion: 720
     DamageMotion: 432
-    Ai: 2
+    Ai: 02
   - Id: 1963
     AegisName: P_CHUNG_E
     Name: ÐÂÄêÍÞÍÞ
@@ -36804,7 +36804,7 @@ Body:
     AttackDelay: 2420
     AttackMotion: 720
     DamageMotion: 648
-    Ai: 4
+    Ai: 04
   - Id: 1984
     AegisName: I_ORC_LADY
     Name: ÊÞÈËÈøÂú
@@ -36889,7 +36889,7 @@ Body:
     AttackDelay: 1000
     AttackMotion: 768
     DamageMotion: 360
-    Ai: 7
+    Ai: 07
     Drops:
       - Item: Lunakaligo
         Rate: 20
@@ -37175,7 +37175,7 @@ Body:
     AttackDelay: 1000
     AttackMotion: 624
     DamageMotion: 300
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Sprint_Mail
         Rate: 10
@@ -37365,7 +37365,7 @@ Body:
     AttackDelay: 1000
     AttackMotion: 768
     DamageMotion: 360
-    Ai: 7
+    Ai: 07
   - Id: 1998
     AegisName: G_HILLSRION
     Name: Ï£Ë¹Àû°²
@@ -37561,7 +37561,7 @@ Body:
     AttackDelay: 576
     AttackMotion: 960
     DamageMotion: 504
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Dragon's_Mane
         Rate: 3000
@@ -37863,7 +37863,7 @@ Body:
     AttackDelay: 360
     AttackMotion: 780
     DamageMotion: 432
-    Ai: 5
+    Ai: 05
     Drops:
       - Item: Fluorescent_Liquid
         Rate: 5000
@@ -38346,7 +38346,7 @@ Body:
     AttackDelay: 1008
     AttackMotion: 1200
     DamageMotion: 540
-    Ai: 4
+    Ai: 04
     Modes:
       CastSensorIdle: true
     Drops:
@@ -38500,7 +38500,7 @@ Body:
     AttackDelay: 768
     AttackMotion: 480
     DamageMotion: 864
-    Ai: 4
+    Ai: 04
     Drops:
       - Item: Gill
         Rate: 600
@@ -38544,7 +38544,7 @@ Body:
     AttackDelay: 1216
     AttackMotion: 816
     DamageMotion: 432
-    Ai: 4
+    Ai: 04
     Modes:
       Detector: true
     Drops:
@@ -38630,7 +38630,7 @@ Body:
     AttackDelay: 960
     AttackMotion: 1440
     DamageMotion: 960
-    Ai: 3
+    Ai: 03
     Drops:
       - Item: Talon
         Rate: 3000
@@ -38670,7 +38670,7 @@ Body:
     AttackDelay: 528
     AttackMotion: 480
     DamageMotion: 384
-    Ai: 7
+    Ai: 07
     Drops:
       - Item: Meat
         Rate: 3000
@@ -38847,7 +38847,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
   - Id: 2159
     AegisName: S_GIANT_HORNET
     Name: ¿ñ±©·ä±ø_S
@@ -38873,7 +38873,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
   - Id: 2160
     AegisName: S_LUCIOLA_VESPA
     Name: ¶¾»Æ·ä_S
@@ -38899,7 +38899,7 @@ Body:
     AttackDelay: 1872
     AttackMotion: 672
     DamageMotion: 480
-    Ai: 2
+    Ai: 02
   - Id: 2308
     AegisName: KO_ZANZOU
     Name: ²ÐÏñ
