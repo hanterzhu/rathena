@@ -1505,6 +1505,9 @@ enum npce_event : uint8 {
 	NPCE_DIE,
 	NPCE_KILLPC,
 	NPCE_KILLNPC,
+    //ÔöÇ¿£ºevent
+    NPCE_EQUIP,
+    NPCE_UNEQUIP,
 	NPCE_MAX
 };
 

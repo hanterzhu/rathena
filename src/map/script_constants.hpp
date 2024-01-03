@@ -11,6 +11,9 @@
 	#define export_deprecated_constant(a) script_set_constant(#a,a,false,true)
 	#define export_deprecated_constant2(a,b) script_set_constant(a,b,false,true)
 	#define export_deprecated_constant3(a,b,c) script_set_constant_(a,b,c,false,true)
+    //ÔöÇ¿£ºevent
+    export_constant(NPCE_EQUIP);
+    export_constant(NPCE_UNEQUIP);
 
 	/* min and maximum variable value */
 	export_constant(INT_MIN);

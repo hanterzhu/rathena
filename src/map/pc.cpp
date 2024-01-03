@@ -10209,7 +10209,7 @@ int64 pc_readparam(map_session_data* sd,int64 type)
 #endif
 		case SP_CRIT_DEF_RATE: val = sd->bonus.crit_def_rate; break;
 		case SP_ADD_ITEM_SPHEAL_RATE: val = sd->bonus.itemsphealrate2; break;
-        //增强:
+        //增强：战力
         case SP_COMBATPOWER: val = sd->battle_status.extend.combat_power; break;
 		default:
 			ShowError("pc_readparam: Attempt to read unknown parameter '%lld'.\n", type);
@@ -12095,6 +12095,12 @@ bool pc_equipitem(map_session_data *sd,short n,int req_pos,bool equipswitch)
 	}
 	sd->npc_item_flag = iflag;
 
+    //增强：
+    if (!equipswitch) {
+        pc_setreg(sd, add_str("@equip_idx"), (int)n);
+        npc_script_event(sd, NPCE_EQUIP);
+    }
+
 	return true;
 }
 
@@ -12312,6 +12318,10 @@ bool pc_unequipitem(map_session_data *sd, int n, int flag) {
 		status_change_end(&sd->bl, SC_P_ALTER);
 
 	pc_unequipitem_sub(sd, n, flag);
+
+    //增强
+    pc_setreg(sd, add_str("@unequip_idx"), (int)n);
+    npc_script_event(sd, NPCE_UNEQUIP);
 
 	return true;
 }
