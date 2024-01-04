@@ -2644,4 +2644,7 @@ void itemdb_reload(void);
 void do_final_itemdb(void);
 void do_init_itemdb(void);
 
+//ÔöÇ¿
+int getitem_combat_power(struct item *item);
+
 #endif /* ITEMDB_HPP */

@@ -12321,6 +12321,7 @@ bool pc_unequipitem(map_session_data *sd, int n, int flag) {
 
     //ÔöÇ¿
     pc_setreg(sd, add_str("@unequip_idx"), (int)n);
+    pc_setreg(sd, add_str("@unequip_force"), (flag & 2 ? 1 : 0));
     npc_script_event(sd, NPCE_UNEQUIP);
 
 	return true;

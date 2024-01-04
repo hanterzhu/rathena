@@ -13,3 +13,5 @@
 BUILDIN_DEF(get_unique_id,""),
 BUILDIN_DEF(get_mob_location,"i"),
 BUILDIN_DEF(mob_name2id,"s"),
+BUILDIN_DEF(getinventoryinfo, "ii?"),
+BUILDIN_DEF(getitemcombatpower, "i?"),

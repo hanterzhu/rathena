@@ -3984,14 +3984,15 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 					continue;
 				if(i == EQI_HAND_L && sd->inventory.u.items_inventory[index].equip == EQP_HAND_L) { // Left hand status.
 					sd->state.lr_flag = 1;
-                    //增强: 战力 左手战力除以2
-                    base_status->extend.combat_power += data->extend.base_combat_power / 2;
-                    run_script(data->script,0,sd->bl.id,0);
-					sd->state.lr_flag = 0;
-				} else
                     //增强: 战力
                     base_status->extend.combat_power += data->extend.base_combat_power;
                     run_script(data->script,0,sd->bl.id,0);
+					sd->state.lr_flag = 0;
+				} else {
+                    //增强: 战力
+                    base_status->extend.combat_power += data->extend.base_combat_power;
+                    run_script(data->script, 0, sd->bl.id, 0);
+                }
 				if (!calculating) // Abort, run_script his function. [Skotlex]
 					return 1;
 			}

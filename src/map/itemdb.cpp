@@ -3601,6 +3601,36 @@ static bool itemdb_read_combat_power(char* str[], int columns, int current) {
     return true;
 }
 
+int getitem_combat_power(struct item *item) {
+    nullpo_retr(-1, item);
+    struct item_data *id = itemdb_search(item->nameid);
+    int base_combat_power = id->extend.base_combat_power;
+    int refine_combat_power = id->extend.refine_combat_power;
+    int option_combat_power = id->extend.option_combat_power;
+
+    int combat_power = base_combat_power * (100 + item->refine * refine_combat_power) / 100;
+
+    for (int i = 0; i < MAX_SLOTS; i++) {
+        int card_id = item->card[i];
+        if (!card_id)
+            continue;
+        std::shared_ptr<item_data> data = item_db.find(card_id);
+        if(!data)
+            continue;
+        combat_power += data->extend.base_combat_power;
+    }
+
+    for (int i = 0; i < MAX_ITEM_RDM_OPT; i++) {
+        short opt_id = item->option[i].id;
+        if (!opt_id)
+            continue;
+        combat_power += base_combat_power * option_combat_power / 100;
+    }
+
+    return combat_power;
+
+}
+
 const std::string ComboDatabase::getDefaultLocation() {
 	return std::string(db_path) + "/item_combos.yml";
 }
