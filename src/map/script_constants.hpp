@@ -14,6 +14,7 @@
     //ÔöÇ¿£ºevent
     export_constant(NPCE_EQUIP);
     export_constant(NPCE_UNEQUIP);
+    export_constant(NPCE_IDENTIFY);
 
 	/* min and maximum variable value */
 	export_constant(INT_MIN);

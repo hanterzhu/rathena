@@ -170,6 +170,7 @@ struct Script_Config {
     //ÔöÇ¿£ºevent
     const char* equip_event_name;
     const char* unequip_event_name;
+    const char* identify_event_name;
 
 	// NPC related
 	const char* ontouch_event_name;

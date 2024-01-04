@@ -5933,7 +5933,9 @@ const char *npc_get_script_event_name(int npce_index)
     case NPCE_EQUIP:
         return script_config.equip_event_name;
     case NPCE_UNEQUIP:
-        return script_config.unequip_event_name;        
+        return script_config.unequip_event_name;
+    case NPCE_IDENTIFY:
+        return script_config.identify_event_name;
 	default:
 		ShowError("npc_get_script_event_name: npce_index is outside the array limits: %d (max: %d).\n", npce_index, NPCE_MAX);
 		return NULL;

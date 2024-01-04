@@ -1508,6 +1508,7 @@ enum npce_event : uint8 {
     //ÔöÇ¿£ºevent
     NPCE_EQUIP,
     NPCE_UNEQUIP,
+    NPCE_IDENTIFY,
 	NPCE_MAX
 };
 

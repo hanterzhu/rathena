@@ -270,6 +270,7 @@ struct Script_Config script_config = {
     //ÔöÇ¿£ºevent
     "OnPCEquipEvent",
     "OnPCUnequipEvent",
+    "OnPCIdentifyEvent",
         // NPC related
 	"OnTouch_",	//ontouch_event_name (runs on first visible char to enter area, picks another char if the first char leaves)
 	"OnTouch",	//ontouch2_event_name (run whenever a char walks into the OnTouch area)
