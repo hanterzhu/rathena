@@ -20556,6 +20556,7 @@ void clif_parse_change_title(int fd, map_session_data *sd)
 
 	title_id = RFIFOL(fd, 2);
 
+    //ÔöÇ¿£º³ÆºÅ
     pc_setreg(sd, add_str("@title_id"), title_id);
     pc_setreg(sd, add_str("@title_id_pre"), sd->status.title_id);
     npc_script_event(sd, NPCE_TITLE);
@@ -20565,6 +20566,7 @@ void clif_parse_change_title(int fd, map_session_data *sd)
 		return;
 	}else if( title_id <= 0 ){
 		sd->status.title_id = 0;
+        status_calc_pc(sd, SCO_NONE);
 	}else{
 		if (std::find(sd->titles.begin(), sd->titles.end(), title_id) == sd->titles.end()) {
 			clif_change_title_ack(sd, 1, title_id);
@@ -20572,6 +20574,7 @@ void clif_parse_change_title(int fd, map_session_data *sd)
 		}
 
 		sd->status.title_id = title_id;
+        status_calc_pc(sd, SCO_NONE);
 	}
 	
 	clif_name_area(&sd->bl);

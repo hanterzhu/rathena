@@ -42,7 +42,7 @@ public:
 
     }
 
-    const std::string getDefaultLocation();
+    const std::string getDefaultLocation() override;
     uint64 parseBodyNode(const ryml::NodeRef& node) override;
 
     void parsePropertiesToItemDB(ItemDatabase& item_db);

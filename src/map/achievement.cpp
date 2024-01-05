@@ -32,6 +32,9 @@
 
 using namespace rathena;
 
+//增强：称号
+std::unordered_map<uint32, std::shared_ptr<struct s_title_db>> title_db;
+
 void AchievementDatabase::clear(){
 	TypesafeYamlDatabase::clear();
 	this->achievement_mobs.clear();
@@ -322,6 +325,28 @@ uint64 AchievementDatabase::parseBodyNode(const ryml::NodeRef& node){
 			}
 
 			achievement->rewards.title_id = title;
+
+            //增强：称号
+            if( this->nodeExists( rewardNode, "TitleScript" ) ){
+                std::string script;
+
+                if( !this->asString( rewardNode, "TitleScript", script ) ){
+                    return 0;
+                }
+
+                std::shared_ptr<struct s_title_db> tb = util::umap_find( title_db, title );
+
+                if (tb == nullptr) {
+                    tb = std::make_shared<s_title_db>();
+                    tb->title_id = title;
+                }
+                if (tb->script) {
+                    script_free_code( tb->script );
+                    tb->script = nullptr;
+                }
+                tb->script = parse_script( script.c_str(), this->getCurrentFile().c_str(), this->getLineNumber(rewardNode["TitleScript"]), SCRIPT_IGNORE_EXTERNAL_BRACKETS );
+                title_db[tb->title_id] = tb;
+            }
 		} else {
 			if (!exists)
 				achievement->rewards.title_id = 0;
@@ -1172,6 +1197,7 @@ void do_init_achievement(void)
 void do_final_achievement(void){
 	achievement_db.clear();
 	achievement_level_db.clear();
+    title_db.clear();
 }
 
 /**

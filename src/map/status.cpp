@@ -36,6 +36,7 @@
 #include "pet.hpp"
 #include "script.hpp"
 #include "itemamulet.hpp"
+#include "achievement.hpp"
 
 using namespace rathena;
 
@@ -4099,6 +4100,12 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
     //ÔöÇ¿
     amulet_status_calc(sd, opt);
     status_bonus_combat_power(sd);
+    //³ÆºÅ
+    if (sd->status.title_id) {
+        uint32 id = sd->status.title_id;
+        std::shared_ptr<struct s_title_db> tb = util::umap_find( title_db, id );
+        run_script(tb->script, 0, sd->bl.id, 0);
+    }
 
 // ----- STATS CALCULATION -----
 
