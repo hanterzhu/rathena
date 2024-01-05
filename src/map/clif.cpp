@@ -20556,6 +20556,10 @@ void clif_parse_change_title(int fd, map_session_data *sd)
 
 	title_id = RFIFOL(fd, 2);
 
+    pc_setreg(sd, add_str("@title_id"), title_id);
+    pc_setreg(sd, add_str("@title_id_pre"), sd->status.title_id);
+    npc_script_event(sd, NPCE_TITLE);
+
 	if( title_id == sd->status.title_id ){
 		// It is exactly the same as the old one
 		return;
