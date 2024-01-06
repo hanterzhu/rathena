@@ -1510,6 +1510,8 @@ enum npce_event : uint8 {
     NPCE_UNEQUIP,
     NPCE_IDENTIFY,
     NPCE_TITLE,
+    //增强：filter
+    NPCF_CLICK_NPC,
 	NPCE_MAX
 };
 
@@ -1604,5 +1606,17 @@ void npc_market_delfromsql_(const char *exname, t_itemid nameid, bool clear);
 int npc_do_atcmd_event(map_session_data* sd, const char* command, const char* message, const char* eventname);
 
 bool npc_unloadfile( const char* path );
+
+//增强：filter
+bool setProcessHalt(map_session_data *sd, enum npce_event event, bool halt = true);
+bool getProcessHalt(map_session_data *sd, enum npce_event event, bool autoreset = true);
+bool npc_script_filter(map_session_data* sd, enum npce_event type);
+bool npc_script_filter(map_session_data* sd, const char* eventname);
+bool npc_event_is_filter(enum npce_event eventtype);
+bool npc_event_is_realtime(enum npce_event eventtype);
+enum npce_event npc_get_script_event_type(const char* eventname);
+bool npc_event_exists(const char* eventname);
+bool npc_event_exists(struct npc_data *nd, const char* eventname);
+bool npc_event_rightnow(map_session_data* sd, struct event_data* ev, const char* eventname);
 
 #endif /* NPC_HPP */

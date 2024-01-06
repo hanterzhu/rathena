@@ -1750,7 +1750,11 @@ int npc_event_sub(map_session_data* sd, struct event_data* ev, const char* event
 			return 2;
 		}
 	}
-	run_script(ev->nd->u.scr.script,ev->pos,sd->bl.id,ev->nd->bl.id);
+    //增强：filter
+    enum npce_event workinevent_backup = sd->extend.workinevent;
+    sd->extend.workinevent = npc_get_script_event_type(eventname);
+    run_script(ev->nd->u.scr.script,ev->pos,sd->bl.id,ev->nd->bl.id);
+    sd->extend.workinevent = workinevent_backup;
 	return 0;
 }
 
@@ -2203,6 +2207,11 @@ int npc_click(map_session_data* sd, struct npc_data* nd)
 	if( nd->dynamicnpc.owner_char_id != 0 ){
 		nd->dynamicnpc.last_interaction = gettick();
 	}
+
+    //增强：点击npc
+    pc_setreg(sd, add_str("@npc_type"), nd->subtype);
+    if (npc_script_filter(sd, NPCF_CLICK_NPC))
+        return 1;
 
 	switch(nd->subtype) {
 		case NPCTYPE_SHOP:
@@ -5760,11 +5769,15 @@ int npc_script_event(map_session_data* sd, enum npce_event type){
 		ShowError("npc_script_event: NULL sd. Event Type %d\n", type);
 		return 0;
 	}
-
-	std::vector<struct script_event_s>& vector = script_event[type];
+    //增强：filter
+    // 这里不能取引用, 因为执行脚本事件的时候若触发 unloadnpc 指令,
+    // 那么 unloadnpc 内部会重置 script_event 的值, 导致引用指向的内容变得不可信任
+    std::vector<struct script_event_s> vector = script_event[type];
 
 	for( struct script_event_s& evt : vector ){
-		npc_event_sub( sd, evt.event, evt.event_name );
+        if (npc_event_rightnow(sd, evt.event, evt.event_name))
+            continue;
+        npc_event_sub( sd, evt.event, evt.event_name );
 	}
 
 	return vector.size();
@@ -5938,6 +5951,9 @@ const char *npc_get_script_event_name(int npce_index)
         return script_config.identify_event_name;
     case NPCE_TITLE:
         return script_config.title_event_name;
+    //增强：filter
+    case NPCF_CLICK_NPC:
+        return script_config.click_npc_filter_name;
 	default:
 		ShowError("npc_get_script_event_name: npce_index is outside the array limits: %d (max: %d).\n", npce_index, NPCE_MAX);
 		return NULL;
@@ -6246,3 +6262,184 @@ void do_init_npc(void){
 	map_addiddb(&fake_nd->bl);
 	// End of initialization
 }
+
+//增强：filter
+
+//************************************
+// Method:		npc_event_exists
+// Description:	判断一个<NPC名称::事件名称>格式的事件是否存在
+// Parameter:	const char * eventname
+// Returns:		bool 存在则返回 true, 不存在返回 false
+//************************************
+bool npc_event_exists(const char* eventname) {
+    struct event_data* ev = (struct event_data*)strdb_get(ev_db, eventname);
+    return !(ev == NULL);
+}
+
+//************************************
+// Method:		npc_event_exists
+// Description:	给定一个 npc_data 查询它是否拥有指定名称的事件
+// Parameter:	struct npc_data * nd
+// Parameter:	const char * eventname
+// Returns:		bool 存在则返回 true, 不存在返回 false
+//************************************
+bool npc_event_exists(struct npc_data *nd, const char* eventname) {
+    nullpo_retr(false, nd);
+    char name[EVENT_NAME_LENGTH] = { 0 };
+    snprintf(name, ARRAYLENGTH(name), "%s::%s", nd->exname, eventname);
+    struct event_data* ev = (struct event_data*)strdb_get(ev_db, name);
+    return !(ev == NULL);
+}
+
+//************************************
+// Method:      npc_event_rightnow
+// Description: 立刻执行给定的实时或者过滤器事件
+// Access:      public
+// Parameter:   map_session_data * sd
+// Parameter:   struct event_data * ev
+// Parameter:   const char * eventname
+// Returns:     bool
+//************************************
+bool npc_event_rightnow(map_session_data* sd, struct event_data* ev, const char* eventname) {
+    nullpo_retr(false, sd);
+    nullpo_retr(false, ev);
+
+    enum npce_event eventtype = npc_get_script_event_type(eventname);
+
+    if (eventtype == NPCE_MAX || !npc_event_exists(eventname))
+        return false;
+
+    if (!npc_event_is_realtime(eventtype))
+        return false;
+
+    enum npce_event workinevent_backup = sd->extend.workinevent;
+    sd->extend.workinevent = eventtype;
+    pc_setreg(sd, add_str("@interrupt_npcid"), sd->npc_id);
+    run_script(ev->nd->u.scr.script, ev->pos, sd->bl.id, ev->nd->bl.id);
+    pc_setreg(sd, add_str("@interrupt_npcid"), 0);
+    sd->extend.workinevent = workinevent_backup;
+    return true;
+}
+
+//************************************
+// Method:		setProcessHalt
+// Description:	设置一个事件的中断状态
+// Parameter:	map_session_data * sd
+// Parameter:	enum npce_event event
+// Parameter:	bool halt 该事件是否需要中断
+// Returns:		bool 设置成功与否
+//************************************
+bool setProcessHalt(map_session_data *sd, enum npce_event event, bool halt) {
+    nullpo_retr(false, sd);
+    try
+    {
+        sd->extend.eventhalt[event] = halt;
+        return true;
+    }
+    catch (const std::exception&)
+    {
+        return false;
+    }
+}
+
+//************************************
+// Method:		getProcessHalt
+// Description:	获取一个事件的中断状态
+// Parameter:	map_session_data * sd
+// Parameter:	enum npce_event event
+// Parameter:	bool autoreset 获取后是否重置中断状态
+// Returns:		bool 该事件是否需要中断
+//************************************
+bool getProcessHalt(map_session_data *sd, enum npce_event event, bool autoreset) {
+    nullpo_retr(false, sd);
+    try
+    {
+        bool current_val = sd->extend.eventhalt[event];
+        if (autoreset)
+            sd->extend.eventhalt[event] = false;
+        return current_val;
+    }
+    catch (const std::exception&)
+    {
+        return false;
+    }
+}
+
+//************************************
+// Method:		npc_script_filter
+// Description:	执行指定类型的所有过滤器事件, 并返回是否需要中断
+// Parameter:	map_session_data * sd
+// Parameter:	enum npce_event type
+// Returns:		bool 需要中断则返回 true, 无需中断返回 false
+//************************************
+bool npc_script_filter(map_session_data* sd, enum npce_event type) {
+    nullpo_retr(false, sd);
+    npc_script_event(sd, type);
+    return getProcessHalt(sd, type);
+}
+
+
+//************************************
+// Method:      npc_script_filter
+// Description: 执行一个精确指定的过滤器事件, 并返回是否需要中断
+// Access:      public
+// Parameter:   map_session_data * sd
+// Parameter:   const char * eventname
+// Returns:     bool
+//************************************
+bool npc_script_filter(map_session_data* sd, const char* eventname) {
+    nullpo_retr(false, sd);
+    enum npce_event type = npc_get_script_event_type(eventname);
+    struct event_data* ev = (struct event_data*)strdb_get(ev_db, eventname);
+    if (ev && !npc_event_rightnow(sd, ev, eventname))
+        return false;
+    return getProcessHalt(sd, type);
+}
+
+//************************************
+// Method:		npc_get_script_event_type
+// Description:	根据事件名称获取对应的 npce_event 枚举值
+// Parameter:	const char * eventname 包含 :: 的事件名称
+// Returns:		enum npce_event 查询到的枚举值, 无结果返回 NPCE_MAX
+//************************************
+enum npce_event npc_get_script_event_type(const char* eventname) {
+    std::string ename = std::string(eventname), lable;
+    if (ename.find(':') != std::string::npos) {
+        lable = ename.substr(ename.rfind(':') + 1);
+
+        int32 search_i = 0;
+        ARR_FIND(0, NPCE_MAX, search_i, !stricmp(lable.c_str(), npc_get_script_event_name(search_i)));
+        if (search_i != NPCE_MAX)
+            return (enum npce_event)search_i;
+    }
+    return NPCE_MAX;
+}
+
+//************************************
+// Method:      npc_event_is_filter
+// Description: 判断给定的事件类型是不是过滤器事件
+// Access:      public
+// Parameter:   enum npce_event eventtype
+// Returns:     bool
+//************************************
+bool npc_event_is_filter(enum npce_event eventtype) {
+    static std::vector<enum npce_event> filter_npce = {
+        NPCF_CLICK_NPC,
+    };
+
+    std::vector<enum npce_event>::iterator iter;
+    iter = std::find(filter_npce.begin(), filter_npce.end(), eventtype);
+    return (iter != filter_npce.end());
+}
+
+//************************************
+// Method:      npc_event_is_realtime
+// Description: 判断给定的事件是不是实时或者过滤器事件
+// Access:      public
+// Parameter:   enum npce_event eventtype
+// Returns:     bool
+//************************************
+bool npc_event_is_realtime(enum npce_event eventtype) {
+    return npc_event_is_filter(eventtype);
+}
+

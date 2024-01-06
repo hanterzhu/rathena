@@ -26,6 +26,7 @@
 #include "status.hpp" // unit_data
 #include "unit.hpp" // unit_data
 #include "vending.hpp" // struct s_vending
+#include "npc.hpp" // struct s_vending
 
 enum AtCommandType : uint8;
 enum e_instance_mode : uint8;
@@ -945,6 +946,8 @@ public:
 
     struct s_extend {
         bool amulet_calculating = false;	// 当前角色是否正在进行护身符能力计算
+        enum npce_event workinevent = NPCE_MAX; // 角色当前正在执行的事件
+        bool eventhalt[NPCE_MAX] = { false }; // 用于记录事件中断请求
     } extend;
 
 	s_macro_detect macro_detect;

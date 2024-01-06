@@ -272,6 +272,8 @@ struct Script_Config script_config = {
     "OnPCUnequipEvent",
     "OnPCIdentifyEvent",
     "OnPCTitleEvent",
+    //filter
+    "OnPCClickNpcFilter",
         // NPC related
 	"OnTouch_",	//ontouch_event_name (runs on first visible char to enter area, picks another char if the first char leaves)
 	"OnTouch",	//ontouch2_event_name (run whenever a char walks into the OnTouch area)
@@ -10358,6 +10360,12 @@ BUILDIN_FUNC(end)
 	sd = map_id2sd(st->rid);
 
 	st->state = END;
+
+    //增强
+    // 防止在穿透事件的脚本代码中使用 end 指令, 会导致角色正在执行的脚本或对话被强制中断,
+    // 或与 NPC 进行中的对话框直接显示出 [关闭] 按钮的问题
+    if (sd && npc_event_is_realtime(sd->extend.workinevent))
+        return SCRIPT_CMD_SUCCESS;
 
 	npc_data* nd = map_id2nd( st->oid );
 
