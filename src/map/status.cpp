@@ -4104,6 +4104,7 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
     if (sd->status.title_id) {
         uint32 id = sd->status.title_id;
         std::shared_ptr<struct s_title_db> tb = util::umap_find( title_db, id );
+        clif_status_change(&(sd)->bl,tb->icon,1,INFINITE_TICK,0,0,0);
         run_script(tb->script, 0, sd->bl.id, 0);
     }
 

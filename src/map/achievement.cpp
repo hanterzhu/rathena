@@ -327,6 +327,15 @@ uint64 AchievementDatabase::parseBodyNode(const ryml::NodeRef& node){
 			achievement->rewards.title_id = title;
 
             //ÔöÇ¿£º³ÆºÅ
+            std::shared_ptr<struct s_title_db> tb = util::umap_find( title_db, title );
+
+            if (tb == nullptr) {
+                tb = std::make_shared<s_title_db>();
+                tb->title_id = title;
+                tb->icon = EFST_BLANK;
+                title_db[tb->title_id] = tb;
+            }
+
             if( this->nodeExists( rewardNode, "TitleScript" ) ){
                 std::string script;
 
@@ -334,19 +343,34 @@ uint64 AchievementDatabase::parseBodyNode(const ryml::NodeRef& node){
                     return 0;
                 }
 
-                std::shared_ptr<struct s_title_db> tb = util::umap_find( title_db, title );
-
-                if (tb == nullptr) {
-                    tb = std::make_shared<s_title_db>();
-                    tb->title_id = title;
-                }
                 if (tb->script) {
                     script_free_code( tb->script );
                     tb->script = nullptr;
                 }
                 tb->script = parse_script( script.c_str(), this->getCurrentFile().c_str(), this->getLineNumber(rewardNode["TitleScript"]), SCRIPT_IGNORE_EXTERNAL_BRACKETS );
-                title_db[tb->title_id] = tb;
             }
+
+            if (this->nodeExists(rewardNode, "Icon")) {
+                std::string icon_name;
+
+                if (!this->asString(rewardNode, "Icon", icon_name))
+                    return 0;
+
+                int64 constant;
+
+                if (!script_get_constant(icon_name.c_str(), &constant)) {
+                    this->invalidWarning(rewardNode["Icon"], "Icon %s is invalid, defaulting to EFST_BLANK.\n", icon_name.c_str());
+                    constant = EFST_BLANK;
+                }
+
+                if (constant < EFST_BLANK || constant >= EFST_MAX) {
+                    this->invalidWarning(rewardNode["Icon"], "Icon %s is out of bounds, defaulting to EFST_BLANK.\n", icon_name.c_str());
+                    constant = EFST_BLANK;
+                }
+
+                tb->icon = static_cast<efst_type>(constant);
+            }
+
 		} else {
 			if (!exists)
 				achievement->rewards.title_id = 0;

@@ -15,6 +15,8 @@
 #include <common/database.hpp>
 #include <common/db.hpp>
 
+#include "status.hpp"
+
 class map_session_data;
 struct block_list;
 
@@ -155,7 +157,16 @@ void do_final_achievement(void);
 //ÔöÇ¿£º³ÆºÅ
 struct s_title_db {
     uint32 title_id;
+    efst_type icon;
     struct script_code *script;
+
+    ~s_title_db() {
+        if (this->script){
+            script_free_code(this->script);
+            this->script = nullptr;
+        }
+    }
+
 };
 
 extern std::unordered_map<uint32, std::shared_ptr<struct s_title_db>> title_db;

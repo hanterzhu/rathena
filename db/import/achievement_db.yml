@@ -44,3 +44,28 @@
 Header:
   Type: ACHIEVEMENT_DB
   Version: 2
+
+Body:
+  - Id: 110011
+    Name: Evolution Lv10
+    Score: 100
+    Rewards:
+      TitleId: 1011
+      Icon: EFST_SHOUT
+      TitleScript: |
+        bonus bDef,10;
+  - Id: 110012
+    Name: Evolution Lv20
+    Score: 100
+    Rewards:
+      TitleId: 1012
+      Icon: EFST_OVERTHRUST
+      TitleScript: |
+        bonus bDef,20;
+  - Id: 110013
+    Name: Evolution Lv30
+    Score: 100
+    Rewards:
+      TitleId: 1013
+      TitleScript: |
+        bonus bDef,30;

@@ -20561,11 +20561,17 @@ void clif_parse_change_title(int fd, map_session_data *sd)
     pc_setreg(sd, add_str("@title_id_pre"), sd->status.title_id);
     npc_script_event(sd, NPCE_TITLE);
 
+    uint32 pre_id = sd->status.title_id;
+    std::shared_ptr<struct s_title_db> pre_tb = util::umap_find( title_db, pre_id );
+
 	if( title_id == sd->status.title_id ){
 		// It is exactly the same as the old one
 		return;
 	}else if( title_id <= 0 ){
 		sd->status.title_id = 0;
+        if (pre_tb) {
+            clif_status_change(&(sd)->bl, pre_tb->icon, 0, 0, 0, 0, 0);
+        }
         status_calc_pc(sd, SCO_NONE);
 	}else{
 		if (std::find(sd->titles.begin(), sd->titles.end(), title_id) == sd->titles.end()) {
@@ -20574,6 +20580,9 @@ void clif_parse_change_title(int fd, map_session_data *sd)
 		}
 
 		sd->status.title_id = title_id;
+        if (pre_tb) {
+            clif_status_change(&(sd)->bl, pre_tb->icon, 0, 0, 0, 0, 0);
+        }
         status_calc_pc(sd, SCO_NONE);
 	}
 	
