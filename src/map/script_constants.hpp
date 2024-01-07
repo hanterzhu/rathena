@@ -546,6 +546,9 @@
 	export_constant(MF_NODYNAMICNPC);
 	export_constant(MF_NOBANK);
 
+    //ÔöÇ¿£ºmapflag
+    export_constant(MF_OFFLINE);
+
 	/* setcell types */
 	export_constant(CELL_WALKABLE);
 	export_constant(CELL_SHOOTABLE);

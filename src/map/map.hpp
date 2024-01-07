@@ -675,6 +675,9 @@ enum e_mapflag : int16 {
 	MF_NOBUYINGSTORE,
 	MF_NODYNAMICNPC,
 	MF_NOBANK,
+
+    //ÔöÇ¿£ºmapflag
+    MF_NOOFFLINE,
 	MF_MAX
 };
 
