@@ -547,7 +547,7 @@
 	export_constant(MF_NOBANK);
 
     //增强：mapflag
-    export_constant(MF_OFFLINE);
+    export_constant(MF_NOOFFLINE);
 
 	/* setcell types */
 	export_constant(CELL_WALKABLE);
@@ -10400,6 +10400,11 @@
 	export_constant(MER_SERA);
 	export_constant(MER_DIETER);
 	export_constant(MER_ELEANOR);
+
+    //增强：离线挂机
+    export_constant(SUSPEND_MODE_NONE);
+    export_constant(SUSPEND_MODE_OFFLINE);
+    export_constant(SUSPEND_MODE_NORMAL);
 
 	#undef export_constant
 	#undef export_constant2

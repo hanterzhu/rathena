@@ -54,6 +54,7 @@
 #include "storage.hpp"
 #include "trade.hpp"
 #include "vending.hpp"
+#include "offline.hpp"
 
 using namespace rathena;
 
@@ -6503,6 +6504,21 @@ ACMD_FUNC(autotrade) {
 	}
 
 	sd->state.autotrade = 1;
+
+    //增强：离线挂机
+    if (sd->vender_id)
+        sd->state.autotrade |= AUTOTRADE_VENDING;
+    else if (sd->buyer_id)
+        sd->state.autotrade |= AUTOTRADE_BUYINGSTORE;
+
+    // 这里需要立刻填充相关的备份信息, 避免在完成指令下线后,
+    // 服务器没还重启的情况下, 角色就被 recall 导致朝向等数据无法恢复
+    sd->extend.at_dir = sd->ud.dir;
+    sd->extend.at_head_dir = sd->head_dir;
+    sd->extend.at_sit = pc_issit(sd);
+
+    suspend_deactive(sd, false);
+
 	if (battle_config.autotrade_monsterignore)
 		sd->state.block_action |= PCBLOCK_IMMUNE;
 

@@ -32,6 +32,7 @@
 #include "pet.hpp"
 #include "script.hpp" // script_config
 #include "storage.hpp"
+#include "offline.hpp"
 
 static TIMER_FUNC(check_connect_char_server);
 
@@ -560,6 +561,7 @@ void chrif_on_ready(void) {
 	{
 		do_init_buyingstore_autotrade();
 		do_init_vending_autotrade();
+        suspend_recall_all(); //增强：离线挂机
 		char_init_done = true;
 	}
 }

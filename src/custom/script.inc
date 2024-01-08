@@ -284,3 +284,133 @@ BUILDIN_FUNC(processhalt) {
     }
     return SCRIPT_CMD_SUCCESS;
 }
+
+/* ===========================================================
+ * 指令: checksuspend
+ * 描述: 获取指定角色或指定账号当前在线角色的挂机模式
+ * 用法: checksuspend {<角色编号|账号编号|"角色名称">};
+ * 返回: 角色不存在返回 -1, 否则返回当前的挂机状态
+ * -----------------------------------------------------------*/
+BUILDIN_FUNC(checkoffline) {
+	TBL_PC* sd = nullptr;
+
+	if (script_hasdata(st, 2)) {
+		if (script_isstring(st, 2))
+			sd = map_nick2sd(script_getstr(st, 2), false);
+		else {
+			int id = script_getnum(st, 2);
+			sd = map_id2sd(id);
+			if (!sd)
+				sd = map_charid2sd(id);
+		}
+	}
+	else {
+		if (!script_rid2sd(sd)) {
+			script_pushint(st, -1);
+			return SCRIPT_CMD_SUCCESS;
+		}
+	}
+
+	if (!sd) {
+		script_pushint(st, -1);
+		return SCRIPT_CMD_SUCCESS;
+	}
+
+	if ((sd->state.autotrade & AUTOTRADE_OFFLINE) == AUTOTRADE_OFFLINE)
+		script_pushint(st, SUSPEND_MODE_OFFLINE);
+	else if ((sd->state.autotrade & AUTOTRADE_NORMAL) == AUTOTRADE_NORMAL)
+		script_pushint(st, SUSPEND_MODE_NORMAL);
+	else
+		script_pushint(st, SUSPEND_MODE_NONE);
+
+	return SCRIPT_CMD_SUCCESS;
+}
+
+/**
+login <角色编号>{,<默认是否坐下>{,<默认身体朝向>{,<默认脑袋朝向>{,<登录模式>}}}};
+
+将指定的角色以特定的登录模式拉上线
+
+角色编号:
+	指定一个想使之上线的角色编号
+
+默认是否坐下:
+	0 表示站立, 1 表示坐下
+	可选值, 默认值为: 0
+
+	此选项会被 suspend_{afk|normal|offline}_sitdown 战斗配置选项覆盖
+	具体被哪个选项影响取决于 <登录模式> 的值
+
+默认身体朝向:
+    1 = 西北      0 = 正北      7 = 东北
+              ↖     |     ↗
+    2 = 正西  <-     +     ->   6 = 正东
+              ↙     |     ↘
+    3 = 西南      4 = 正南      5 = 东南
+	可选值, 默认值为: 4 (正南)
+
+	此选项会被 suspend_{afk|normal|offline}_bodydirection 战斗配置选项覆盖
+	具体被哪个选项影响取决于 <登录模式> 的值
+
+默认脑袋朝向:
+	0 = 相对于身体朝向的正前方, 头部看向正前方
+	1 = 相对于身体朝向的正前方, 头部看向右看
+	2 = 相对于身体朝向的正前方, 头部看向左看
+	可选值, 默认值为: 0 (正前方)
+
+	此选项会被 suspend_{afk|normal|offline}_headdirection 战斗配置选项覆盖
+	具体被哪个选项影响取决于 <登录模式> 的值
+
+登录模式:
+	SUSPEND_MODE_OFFLINE	- 挂机模式
+	SUSPEND_MODE_AFK		- 离开模式 (AFK)
+	SUSPEND_MODE_NORMAL		- 普通模式
+	可选值, 默认值为: SUSPEND_MODE_NORMAL
+
+提示信息:
+	请不要在 OnInit / OnInterIfInit / OnInterIfInitOnce 事件中使用该指令,
+	因为在触发这几个事件的时候服务器并未就绪.
+
+	若必须要在这个时机使用本指令的话, 可以使用 addtimer 将延迟几秒再执行.
+
+返回值:
+	成功返回 1, 失败返回 0
+**/
+BUILDIN_FUNC(login) {
+	script_pushint(st, 0);
+
+	uint32 charid = 0;
+	charid = script_getnum(st, 2);
+
+	int sit = 0;
+	if (!script_get_optnum(st, 3, "Sitdown or not", sit, true, 0)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+	sit = cap_value(sit, 0, 1);
+
+	int body_dir = DIR_SOUTH;
+	if (!script_get_optnum(st, 4, "Body Direction", body_dir, true, DIR_SOUTH)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+	body_dir = cap_value(body_dir, 0, 7);
+
+	int head_dir = 0;
+	if (!script_get_optnum(st, 5, "Head Direction", head_dir, true, 0)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+	head_dir = cap_value(head_dir, 0, 2);
+
+	int mode = SUSPEND_MODE_NONE;
+	if (!script_get_optnum(st, 6, "Login Mode", mode, true, SUSPEND_MODE_NORMAL)) {
+		return SCRIPT_CMD_FAILURE;
+	}
+	if (!suspend_mode_valid(mode)) {
+		mode = SUSPEND_MODE_NORMAL;
+	}
+
+	if (suspend_recall(charid, (e_suspend_mode)mode, body_dir, head_dir, sit)) {
+		script_pushint(st, 1);
+	}
+
+	return SCRIPT_CMD_SUCCESS;
+}

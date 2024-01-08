@@ -32,4 +32,6 @@ bool vending_search(map_session_data* sd, t_itemid nameid);
 bool vending_searchall(map_session_data* sd, const struct s_search_store_search* s);
 void vending_update(map_session_data &sd);
 
+void vending_autotrader_cleardb(map_session_data* sd);
+
 #endif /* _VENDING_HPP_ */

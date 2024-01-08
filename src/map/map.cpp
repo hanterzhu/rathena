@@ -52,6 +52,7 @@
 #include "quest.hpp"
 #include "storage.hpp"
 #include "trade.hpp"
+#include "offline.hpp"
 
 using namespace rathena;
 using namespace rathena::server_map;
@@ -92,6 +93,9 @@ char market_table[32] = "market";
 char partybookings_table[32] = "party_bookings";
 char roulette_table[32] = "db_roulette";
 char guild_storage_log_table[32] = "guild_storage_log";
+
+//增强：offline
+char suspend_table[32] = "offline";
 
 // log database
 std::string log_db_ip = "127.0.0.1";
@@ -2059,6 +2063,9 @@ int map_quit(map_session_data *sd) {
 		else if (sd->state.buyingstore)
 			buyingstore_close(sd);
 	}
+
+    //增强：离线挂机
+    suspend_deactive(sd, sd->state.extend.keep_offline);
 
 	if(!sd->state.active) { //Removing a player that is not active.
 		struct auth_node *node = chrif_search(sd->status.account_id);
@@ -4158,6 +4165,9 @@ int inter_config_read(const char *cfgName)
 			safestrncpy(sales_table, w2, sizeof(sales_table));
 		else if (strcmpi(w1, "guild_storage_log") == 0)
 			safestrncpy(guild_storage_log_table, w2, sizeof(guild_storage_log_table));
+        //增强：offline
+        else if (strcmpi(w1, "suspend_table") == 0)
+            safestrncpy(suspend_table, w2, sizeof(suspend_table));
 		else
 		//Map Server SQL DB
 		if(strcmpi(w1,"map_server_ip")==0)
@@ -4893,6 +4903,9 @@ void MapServer::finalize(){
 	do_final_buyingstore();
 	do_final_path();
 
+    //增强：离线挂机
+    do_final_suspend();
+
 	map_db->destroy(map_db, map_db_final);
 
 	for (int i = 0; i < map_num; i++) {
@@ -5275,6 +5288,9 @@ bool MapServer::initialize( int argc, char *argv[] ){
 	do_init_duel();
 	do_init_vending();
 	do_init_buyingstore();
+
+    //增强：离线挂机
+    do_init_suspend();
 
 	npc_event_do_oninit();	// Init npcs (OnInit)
 

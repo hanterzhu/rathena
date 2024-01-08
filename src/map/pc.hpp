@@ -399,7 +399,8 @@ public:
 		unsigned int snovice_dead_flag : 1; //Explosion spirits on death: 0 off, 1 used.
 		unsigned int abra_flag : 2; // Abracadabra bugfix by Aru
 		unsigned int autocast : 1; // Autospell flag [Inkfish]
-		unsigned int autotrade : 3;	//By Fantik. &2 Requested by vending autotrade; &4 Requested by buyingstore autotrade
+		//增强：离线挂机
+        unsigned int autotrade;	//By Fantik. &2 Requested by vending autotrade; &4 Requested by buyingstore autotrade
 		unsigned int showdelay :1;
 		unsigned int showexp :1;
 		unsigned int showzeny :1;
@@ -456,6 +457,10 @@ public:
 		bool roulette_open;
 		t_itemid item_reform;
 		uint64 item_enchant_index;
+
+        struct s_extend {
+            bool keep_offline; // 是否保持挂起状态, 若保持下次地图服务器重启还能自动上线
+        } extend;
 	} state;
 	struct {
 		unsigned char no_weapon_damage, no_magic_damage, no_misc_damage;
@@ -944,16 +949,35 @@ public:
 		uint16 upload_size;
 	} captcha_upload;
 
+    //增强：
     struct s_extend {
         bool amulet_calculating = false;	// 当前角色是否正在进行护身符能力计算
         enum npce_event workinevent = NPCE_MAX; // 角色当前正在执行的事件
         bool eventhalt[NPCE_MAX] = { false }; // 用于记录事件中断请求
+
+        bool skip_loadendack_npc_event_dequeue = false;
+        unsigned char at_sex;				// 性别 (M 表示男性, F 表示女性)
+        unsigned char at_dir;				// 纸娃娃身体朝向
+        unsigned char at_head_dir;			// 纸娃娃头部朝向
+        unsigned char at_sit;				// 是否坐下
     } extend;
 
 	s_macro_detect macro_detect;
 
 	std::vector<uint32> party_booking_requests;
 };
+
+//增强：离线挂机
+enum e_autotrade_mode : uint32 {
+    AUTOTRADE_DISABLED    = 0x0000,
+    AUTOTRADE_ENABLED     = 0x0001,
+    AUTOTRADE_VENDING     = 0x0002,
+    AUTOTRADE_BUYINGSTORE = 0x0004,
+    AUTOTRADE_OFFLINE     = 0x0008,		// 离线挂机
+    AUTOTRADE_NORMAL      = 0x0010,		// 普通模式
+};
+
+bool pc_autotrade_suspend(map_session_data *sd);
 
 extern struct eri *pc_sc_display_ers; /// Player's SC display table
 

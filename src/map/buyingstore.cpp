@@ -233,8 +233,9 @@ int8 buyingstore_create( map_session_data* sd, int zenylimit, unsigned char resu
 
 	if( Sql_Query( mmysql_handle, "INSERT INTO `%s`(`id`, `account_id`, `char_id`, `sex`, `map`, `x`, `y`, `title`, `limit`, `autotrade`, `body_direction`, `head_direction`, `sit`) "
 		"VALUES( %d, %d, %d, '%c', '%s', %d, %d, '%s', %d, %d, '%d', '%d', '%d' );",
-		buyingstores_table, sd->buyer_id, sd->status.account_id, sd->status.char_id, sd->status.sex == 0 ? 'F' : 'M', map_getmapdata(sd->bl.m)->name, sd->bl.x, sd->bl.y, message_sql, sd->buyingstore.zenylimit, sd->state.autotrade, at ? at->dir : sd->ud.dir, at ? at->head_dir : sd->head_dir, at ? at->sit : pc_issit(sd) ) != SQL_SUCCESS ){
-		Sql_ShowDebug(mmysql_handle);
+        //增强：离线挂机
+        buyingstores_table, sd->buyer_id, sd->status.account_id, sd->status.char_id, sd->status.sex == 0 ? 'F' : 'M', map_getmapdata(sd->bl.m)->name, sd->bl.x, sd->bl.y, message_sql, sd->buyingstore.zenylimit, sd->state.autotrade &~ AUTOTRADE_BUYINGSTORE, at ? at->dir : sd->ud.dir, at ? at->head_dir : sd->head_dir, at ? at->sit : pc_issit(sd) ) != SQL_SUCCESS ){
+        Sql_ShowDebug(mmysql_handle);
 	}
 
 	StringBuf_Init(&buf);
@@ -616,6 +617,8 @@ void buyingstore_reopen( map_session_data* sd ){
 		}
 
 		sd->state.autotrade = 1;
+        //增强：离线挂机
+        sd->state.autotrade |= AUTOTRADE_BUYINGSTORE;
 
 		// Make sure abort all NPCs
 		npc_event_dequeue(sd);
@@ -663,7 +666,7 @@ void do_init_buyingstore_autotrade( void ) {
 		if (Sql_Query(mmysql_handle,
 			"SELECT `id`, `account_id`, `char_id`, `sex`, `title`, `limit`, `body_direction`, `head_direction`, `sit` "
 			"FROM `%s` "
-			"WHERE `autotrade` = 1 AND `limit` > 0 AND (SELECT COUNT(`buyingstore_id`) FROM `%s` WHERE `buyingstore_id` = `id`) > 0 "
+			"WHERE `autotrade` > 0 AND `limit` > 0 AND (SELECT COUNT(`buyingstore_id`) FROM `%s` WHERE `buyingstore_id` = `id`) > 0 "
 			"ORDER BY `id`;",
 			buyingstores_table, buyingstore_items_table ) != SQL_SUCCESS )
 		{
@@ -828,4 +831,24 @@ void do_init_buyingstore(void) {
 	buyingstore_db = idb_alloc(DB_OPT_BASE);
 	buyingstore_autotrader_db = uidb_alloc(DB_OPT_BASE);
 	buyingstore_nextid = 0;
+}
+
+//************************************
+// Method:      buyingstore_autotrader_cleardb
+// Description: 移除指定角色在数据库中的采购商店挂机记录
+// Access:      public
+// Parameter:   map_session_data * sd
+// Returns:     void
+//************************************
+void buyingstore_autotrader_cleardb(map_session_data* sd) {
+    nullpo_retv(sd);
+
+    // 清理 buyingstores_table 表中账号编号与 sd 一致的记录
+    // 此处无需清理 buyingstore_items_table 因为只要 buyingstores_table 的记录被移除,
+    // 那么下次地图服务器启动的时候 buyingstore_items_table 中的数据并不会对加载过程造成任何影响
+    if (sd && Sql_Query(mmysql_handle,
+                        "DELETE FROM `%s` WHERE `account_id` = %d;",
+                        buyingstores_table, sd->status.account_id) != SQL_SUCCESS) {
+        Sql_ShowDebug(mmysql_handle);
+    }
 }

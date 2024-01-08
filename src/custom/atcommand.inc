@@ -275,3 +275,27 @@ ACMD_FUNC(gepard_unblock_unique_id)
 	return 0;
 }
 
+ACMD_FUNC(offline) {
+	nullpo_retr(-1, sd);
+
+	if (pc_isdead(sd)) {
+		clif_displaymessage(fd, "死亡时无法离线挂机");
+		return -1;
+	}
+
+	if( map_getmapflag( sd->bl.m, MF_NOOFFLINE ) ){
+	    clif_displaymessage(fd, "此地图无法离线挂机");
+	    return -1;
+	}
+
+	if( sd->state.vending || sd->state.buyingstore ) { //check if player is vending or buying
+		clif_displaymessage(fd, "开店状态请使用@at");
+		return -1;
+	}
+
+	suspend_active(sd, SUSPEND_MODE_OFFLINE);
+	return 0;
+}
+
+
+

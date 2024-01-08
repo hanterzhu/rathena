@@ -9721,6 +9721,11 @@ void clif_GM_kick(map_session_data *sd, map_session_data *tsd)
 	if (sd == NULL)
 		tsd->state.keepshop = true;
 
+    //增强：离线挂机
+    // 若 sd 为 NULL 则表示是地图服务器在踢人
+    if (sd == NULL)
+        tsd->state.extend.keep_offline = true;
+
 	if (session_isActive(tsd->fd))
 		clif_authfail_fd(tsd->fd, 15);
 	else
@@ -12084,7 +12089,8 @@ void clif_parse_WisMessage(int fd, map_session_data* sd)
 	}
 
 	// if player is autotrading
-	if (dstsd->state.autotrade == 1){
+    //增强：离线挂机
+	if (dstsd->state.autotrade & AUTOTRADE_ENABLED){
 		safesnprintf(output,sizeof(output),"%s is in autotrade mode and cannot receive whispered messages.", dstsd->status.name);
 		clif_wis_message(sd, wisp_server_name, output, strlen(output) + 1, 0);
 		return;

@@ -70,4 +70,6 @@ void do_init_buyingstore_autotrade( void );
 void buyingstore_reopen( map_session_data* sd );
 void buyingstore_update(map_session_data &sd);
 
+void buyingstore_autotrader_cleardb(map_session_data* sd);
+
 #endif /* BUYINGSTORE_HPP */

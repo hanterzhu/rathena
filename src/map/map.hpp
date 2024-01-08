@@ -1285,6 +1285,9 @@ extern char partybookings_table[32];
 extern char roulette_table[32];
 extern char guild_storage_log_table[32];
 
+//增强：离线挂机
+extern char suspend_table[32];
+
 void do_shutdown(void);
 
 #endif /* MAP_HPP */

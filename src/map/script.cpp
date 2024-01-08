@@ -62,6 +62,7 @@
 #include "pet.hpp"
 #include "quest.hpp"
 #include "storage.hpp"
+#include "offline.hpp"
 
 using namespace rathena;
 
@@ -4748,6 +4749,50 @@ void script_generic_ui_array_expand (unsigned int plus)
 {
 	generic_ui_array_size += plus + 100;
 	RECREATE(generic_ui_array, unsigned int, generic_ui_array_size);
+}
+
+//增强：
+//************************************
+// Method:      script_get_optnum
+// Description: 获取 st 中指定 loc 位置的可选数值参数
+// Access:      public
+// Parameter:   struct script_state * st
+// Parameter:   int loc
+// Parameter:   const char * desc
+// Parameter:   int & ret
+// Parameter:   bool allow_notexists
+// Parameter:   int defval
+// Returns:     bool
+//************************************
+bool script_get_optnum(struct script_state *st, int loc, const char* desc, int &ret, bool allow_notexists = false, int defval = 0) {
+    if (!st) return false;
+
+    if (!script_hasdata(st, loc)) {
+        if (allow_notexists) {
+            ret = defval;
+            return true;
+        }
+        script_reportsrc(st);
+        script_reportfunc(st);
+        if (!desc)
+            ShowError("buildin_%s: the No.%d parameter can not be found.\n", script_getfuncname(st), loc - 1);
+        else
+            ShowError("buildin_%s: the No.%d parameter (%s) can not be found.\n", script_getfuncname(st), loc - 1, desc);
+        return false;
+    }
+
+    if (!script_isint(st, loc)) {
+        script_reportsrc(st);
+        script_reportfunc(st);
+        if (!desc)
+            ShowError("buildin_%s: the No.%d parameter must be integer type.\n", script_getfuncname(st), loc - 1);
+        else
+            ShowError("buildin_%s: the No.%d parameter (%s) must be integer type.\n", script_getfuncname(st), loc - 1, desc);
+        return false;
+    }
+
+    ret = script_getnum(st, loc);
+    return true;
 }
 
 /*==========================================
@@ -18432,8 +18477,13 @@ BUILDIN_FUNC(checkvending) {
 		else if (sd->state.buyingstore)
 			ret = 4;
 
-		if (sd->state.autotrade)
-			ret |= 2;
+        // 增强：离线挂机
+        // sd->state.autotrade 同时也包含了其他挂机模式的位值在其中
+        // 因此不能仅判断 sd->state.autotrade 是否非 0, 而应该进行明确指定的位运算判断
+        if ((sd->state.autotrade & AUTOTRADE_VENDING) == AUTOTRADE_VENDING ||
+            (sd->state.autotrade & AUTOTRADE_BUYINGSTORE) == AUTOTRADE_BUYINGSTORE) {
+            ret |= 2;
+        }
 		script_pushint(st, ret);
 	}
 	return SCRIPT_CMD_SUCCESS;

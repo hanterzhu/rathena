@@ -65,6 +65,7 @@
 #include "unit.hpp" // unit_stop_attack(), unit_stop_walking()
 #include "vending.hpp" // struct s_vending
 #include "itemamulet.hpp"
+#include "offline.hpp"
 
 using namespace rathena;
 
@@ -7014,6 +7015,28 @@ enum e_setpos pc_setpos(map_session_data* sd, unsigned short mapindex, int x, in
 		sd->ed->bl.y = sd->ed->ud.to_y = y;
 		sd->ed->ud.dir = sd->ud.dir;
 	}
+
+    //增强：离线挂机
+    if (!sd->state.connect_new && sd->state.autotrade) {
+        sd->extend.skip_loadendack_npc_event_dequeue = true;
+        clif_parse_LoadEndAck(sd->fd, sd);
+        sd->extend.skip_loadendack_npc_event_dequeue = false;
+
+        if (pc_autotrade_suspend(sd)) {
+            suspend_recall_postfix(sd);
+        } else {
+            pc_setdir(sd, sd->extend.at_dir, sd->extend.at_head_dir);
+            clif_changed_dir(&sd->bl, AREA_WOS);
+            if (sd->extend.at_sit) {
+                pc_setsit(sd);
+                skill_sit(sd, 1);
+                clif_sitting(&sd->bl);
+            }
+        }
+
+        // Immediate save
+        chrif_save(sd, CSAVE_AUTOTRADE);
+    }
 
 	pc_cell_basilica(sd);
 
@@ -14560,6 +14583,32 @@ void pc_scdata_received(map_session_data *sd) {
 
 	if (sd->sc.getSCE(SC_SOULENERGY))
 		sd->soulball = sd->sc.getSCE(SC_SOULENERGY)->val1;
+
+    //增强：离线挂机
+    if (sd->state.pc_loaded && sd->state.autotrade) {
+        // 走到这里说明已经完成了背包、仓库、手推车的道具信息以及 sc_data 数据的加载
+        // 应该在这里触发被召回的角色成功上线后需要做的后置处理工作
+        if (pc_autotrade_suspend(sd)) {
+            clif_parse_LoadEndAck(sd->fd, sd);
+            suspend_recall_postfix(sd);
+            return;
+        }
+    }
+
+    if (sd->state.pc_loaded && sd->state.autotrade) {
+        // 修正离线挂店的角色在服务器重启自动上线后, 头饰外观会暂时丢失的问题
+        // 将原先位于 intif.cpp -> intif_parse_StorageReceived 函数中自动开店的处理逻辑移动到这里来
+        if (sd->state.autotrade & AUTOTRADE_VENDING || sd->state.autotrade & AUTOTRADE_BUYINGSTORE) {
+            clif_parse_LoadEndAck(sd->fd, sd);
+            sd->autotrade_tid = add_timer(gettick() + battle_config.feature_autotrade_open_delay, pc_autotrade_timer, sd->bl.id, 0);
+        }
+    }
+
+    if (sd->state.pc_loaded && !sd->state.autotrade) {
+        vending_autotrader_cleardb(sd);
+        buyingstore_autotrader_cleardb(sd);
+    }
+
 }
 
 /**
@@ -15906,4 +15955,20 @@ void do_init_pc(void) {
 	ers_chunk_size(pc_sc_display_ers, 150);
 	ers_chunk_size(num_reg_ers, 300);
 	ers_chunk_size(str_reg_ers, 50);
+}
+
+//增强：离线挂机
+//************************************
+// Method:      pc_autotrade_suspend
+// Description: 判断角色当前是否处于离线挂机相关的状态
+// Parameter:   map_session_data * sd
+// Returns:     bool
+//************************************
+bool pc_autotrade_suspend(map_session_data* sd) {
+    if (!sd || !sd->state.autotrade)
+        return false;
+    return (
+            sd->state.autotrade & AUTOTRADE_OFFLINE ||
+            sd->state.autotrade & AUTOTRADE_NORMAL
+    );
 }
