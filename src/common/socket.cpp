@@ -54,6 +54,10 @@ using namespace rathena::server_core;
 #include "strlib.hpp"
 #include "timer.hpp"
 
+// Reuseable global packet buffer to prevent too many allocations
+// Take socket.cpp::socket_max_client_packet into consideration
+int8 packet_buffer[UINT16_MAX];
+
 /////////////////////////////////////////////////////////////////////
 #if defined(WIN32)
 /////////////////////////////////////////////////////////////////////
