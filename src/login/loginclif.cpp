@@ -334,7 +334,7 @@ int logclif_parse_reqauth_raw( int fd, login_session_data& sd, char* ip ){
 
 // (^~_~^) Gepard Shield Start
 
-    if (account_gepard_check_license_version(session[fd], fd, sd->group_id))
+    if (account_gepard_check_license_version(session[fd], fd, sd.group_id))
     {
         return 0;
     }

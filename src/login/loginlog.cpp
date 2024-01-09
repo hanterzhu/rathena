@@ -84,7 +84,7 @@ void login_gepard_log(int fd, uint32 ip, const char* username, int rcode, const 
 
     retcode = Sql_Query(sql_handle,
                         "INSERT INTO `%s`(`time`,`ip`,`user`,`rcode`, `unique_id`,`log`) VALUES (NOW(), '%s', '%s', '%d', '%u', '%s')",
-                        log_login_db, ip2str(ip,NULL), esc_username, rcode, unique_id, esc_message);
+                        log_login_db.c_str(), ip2str(ip,NULL), esc_username, rcode, unique_id, esc_message);
 
     if( retcode != SQL_SUCCESS )
         Sql_ShowDebug(sql_handle);
