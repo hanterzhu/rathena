@@ -7496,6 +7496,8 @@ int skill_castend_nodamage_id (struct block_list *src, struct block_list *bl, ui
 			{ // Reset Damage Logs
 				memset(dstmd->dmglog, 0, sizeof(dstmd->dmglog));
 				dstmd->tdmg = 0;
+                //ÔöÇ¿
+                log_damage_reset(&md->bl);
 			}
 		}
 		break;

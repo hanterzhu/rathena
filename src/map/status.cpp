@@ -37,6 +37,7 @@
 #include "script.hpp"
 #include "itemamulet.hpp"
 #include "achievement.hpp"
+#include "damagelog.hpp"
 
 using namespace rathena;
 
@@ -1555,6 +1556,12 @@ int status_damage(struct block_list *src,struct block_list *target,int64 dhp, in
 		case BL_MER: mercenary_heal((TBL_MER*)target,hp,sp); break;
 		case BL_ELEM: elemental_heal((TBL_ELEM*)target,hp,sp); break;
 	}
+
+    //ÔöÇ¿£º¼ÇÂ¼ÉËº¦
+    if (src && target) {
+        //log_damage_inflict(src, target, hp);
+        log_damage_receive(target, src, hp);
+    }
 
 	if( src && target->type == BL_PC && ((TBL_PC*)target)->disguise ) { // Stop walking when attacked in disguise to prevent walk-delay bug
 		unit_stop_walking( target, 1 );

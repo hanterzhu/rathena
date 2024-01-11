@@ -414,3 +414,143 @@ BUILDIN_FUNC(login) {
 
 	return SCRIPT_CMD_SUCCESS;
 }
+
+/* ===========================================================
+ * 指令: batrec_reset
+ * 描述: 清除指定单位的战斗记录
+ * 用法: batrec_reset <记录宿主的单位编号>;
+ * 返回: 该指令无论成功与否, 都不会有返回值
+ * -----------------------------------------------------------*/
+BUILDIN_FUNC(log_damage_reset) {
+    struct block_list* bl = map_id2bl(script_getnum(st, 2));
+    if (!bl) {
+        bl = &(map_charid2sd(script_getnum(st, 2)))->bl;
+    }
+
+    log_damage_reset(bl);
+    return SCRIPT_CMD_SUCCESS;
+}
+
+/* ===========================================================
+ * 指令: batrec_query
+ * 描述: 查询指定单位的战斗记录, 查看与交互目标单位产生的具体记录值
+ * 用法: batrec_query <记录宿主的单位编号>,<交互目标的单位编号>,<记录类型>{,<聚合规则>};
+ * 返回: 返回 0 表示查无记录
+ * -----------------------------------------------------------*/
+BUILDIN_FUNC(damage_log_query) {
+    struct block_list* bl = map_id2bl(script_getnum(st, 2));
+    if (!bl) {
+        bl = &(map_charid2sd(script_getnum(st, 2)))->bl;
+    }
+
+    if (!bl) {
+        script_pushint(st, 0);
+        return SCRIPT_CMD_SUCCESS;
+    }
+
+    int log_type = script_getnum(st, 4);
+    if (log_type != DMGLOG_RECEIVE && log_type != DMGLOG_INFLICT) {
+        ShowError("%s: The damage log type is not invalid.\n", __func__);
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    int aggregation = 1; //combine
+    if (!script_get_optnum(st, 5, "Aggregation strategy", aggregation, true, 1)) {
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    int64 damage = query_log_damage(bl, script_getnum(st, 3), (e_damage_log_type)log_type, (bool)aggregation);
+
+    script_pushint(st, damage);
+    return SCRIPT_CMD_SUCCESS;
+}
+
+/* ===========================================================
+ * 指令: damage_log_rank
+ * 描述: 查询指定单位的战斗记录并对记录的值进行排序, 返回排行榜单
+ * 用法: batrec_rank <记录宿主的单位编号>,<返回交互目标的单位编号数组>,<返回记录值数组>,<记录类型>{,<聚合规则>{,<排序规则>}};
+ * 返回: 失败返回 -1, 含 0 正整数表示数组中返回的榜单记录数
+ * -----------------------------------------------------------*/
+BUILDIN_FUNC(damage_log_rank) {
+    map_session_data* sd = nullptr;
+    sd = map_id2sd(st->rid);
+
+    struct block_list* bl = map_id2bl(script_getnum(st, 2));
+
+    if (!bl) {
+        bl = &(map_charid2sd(script_getnum(st, 2)))->bl;
+    }
+
+    if (!bl) {
+        script_pushint(st, -1);
+        return SCRIPT_CMD_SUCCESS;
+    }
+
+    int gid_array_varid = 0;
+    char* gid_array_varname = nullptr;
+    struct script_data* gid_array_vardata = nullptr;
+    if (!script_get_array(st, 3, gid_array_varid, gid_array_varname, gid_array_vardata)) {
+        script_pushint(st, -1);
+        return SCRIPT_CMD_FAILURE;
+    }
+    script_cleararray_st(st, 3);
+
+    int dmg_array_varid = 0;
+    char* dmg_array_varname = nullptr;
+    struct script_data* dmg_array_vardata = nullptr;
+    if (!script_get_array(st, 4, dmg_array_varid, dmg_array_varname, dmg_array_vardata)) {
+        script_pushint(st, -1);
+        return SCRIPT_CMD_FAILURE;
+    }
+    script_cleararray_st(st, 4);
+
+    int log_type = script_getnum(st, 5);
+    if (log_type != DMGLOG_INFLICT && log_type != DMGLOG_RECEIVE) {
+        ShowError("%s: The battle record type is not invalid.\n", __func__);
+        script_pushint(st, -1);
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    int aggregation = 1; //combine
+    if (!script_get_optnum(st, 6, "Aggregation strategy", aggregation, true, 1)) {
+        script_pushint(st, -1);
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    int sort_type = 1; //desc
+    if (!script_get_optnum(st, 7, "Sort Type", sort_type, true, 1)) {
+        script_pushint(st, -1);
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    damage_log_map* origin_map = nullptr;
+    if (!(origin_map = log_damage_getmap(bl, (e_damage_log_type)log_type))) {
+        ShowError("%s: The damage log is not invalid.\n", __func__);
+        script_pushint(st, -1);
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    damage_log_map* result_map = log_damage_aggregation(origin_map, (bool)aggregation);
+
+    std::vector<std::pair<int, s_damage_log_ptr>> rec_sorted;
+    for (auto& it : *result_map) {
+        rec_sorted.push_back(it);
+    }
+
+    if (sort_type == 1) {
+        std::sort(rec_sorted.begin(), rec_sorted.end(), log_damage_desc);
+    } else {
+        std::sort(rec_sorted.begin(), rec_sorted.end(), log_damage_asc);
+    }
+
+    for (int i = 0; i < rec_sorted.size(); i++) {
+        int64 uid = reference_uid(gid_array_varid, i);
+        set_reg_num(st, sd, uid, gid_array_varname, rec_sorted[i].first, reference_getref(gid_array_vardata));
+
+        uid = reference_uid(dmg_array_varid, i);
+        set_reg_num(st, sd, uid, dmg_array_varname, rec_sorted[i].second->damage, reference_getref(dmg_array_vardata));
+    }
+
+    script_pushint(st, rec_sorted.size());
+    return SCRIPT_CMD_SUCCESS;
+}

@@ -3454,6 +3454,9 @@ void npc_unload_duplicates(struct npc_data* nd)
 int npc_unload(struct npc_data* nd, bool single) {
 	nullpo_ret(nd);
 
+    //增强:
+    log_damage_free(&nd->bl);
+
 	status_change_clear(&nd->bl, 1);
 	npc_remove_map(nd);
 	map_deliddb(&nd->bl);
@@ -6025,6 +6028,10 @@ int npc_reload(void) {
 	npc_clear_pathlist();
 
 	db_clear(npc_path_db);
+
+    // 增强：即将清空 ev_db, 同时也得把 script_event 清空掉 [Sola丶小克]
+    // 因为 ev_db 清空后 script_event 的值已经无效了, 被其他环节利用会导致崩溃
+    script_event.clear();
 
 	db_clear(npcname_db);
 	db_clear(ev_db);

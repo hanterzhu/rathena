@@ -9,6 +9,7 @@
 
 #include "path.hpp" // struct walkpath_data
 #include "skill.hpp" // struct skill_timerskill, struct skill_unit_group, struct skill_unit_group_tickset
+#include "damagelog.hpp"
 
 enum sc_type : int16;
 struct block_list;
@@ -64,6 +65,12 @@ struct unit_data {
 	char title[NAME_LENGTH];
 	int32 group_id;
 
+    //ÔöÇ¿£º
+    struct s_extend {
+        bool log_flag;
+        damage_log_map* damage_map_receive;
+        damage_log_map* damage_map_inflict;
+    } extend;
 	std::vector<int> shadow_scar_timer;
 };
 

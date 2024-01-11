@@ -53,6 +53,9 @@
     <ClInclude Include="clif_shuffle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="damagelog.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="date.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -102,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="npc.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="offline.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="packets.hpp">
@@ -190,6 +196,9 @@
     <ClCompile Include="clif.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="damagelog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -242,6 +251,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="npc_chat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="offline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="party.cpp">

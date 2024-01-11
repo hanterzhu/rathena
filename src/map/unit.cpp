@@ -3088,6 +3088,9 @@ int unit_remove_map_(struct block_list *bl, clr_type clrtype, const char* file, 
 			status_change_end(bl, SC_PROVOKE); //End infinite provoke to prevent exploit
 	}
 
+    //增强:
+    log_damage_reset(bl);
+
 	switch( bl->type ) {
 		case BL_PC: {
 			map_session_data *sd = (map_session_data*)bl;
@@ -3391,7 +3394,10 @@ int unit_free(struct block_list *bl, clr_type clrtype)
 	if( bl->prev )	// Players are supposed to logout with a "warp" effect.
 		unit_remove_map(bl, clrtype);
 
-	switch( bl->type ) {
+	//增强：
+    log_damage_free(bl);
+
+    switch( bl->type ) {
 		case BL_PC: {
 			map_session_data *sd = (map_session_data*)bl;
 			int i;

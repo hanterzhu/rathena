@@ -4795,6 +4795,147 @@ bool script_get_optnum(struct script_state *st, int loc, const char* desc, int &
     return true;
 }
 
+//************************************
+// Method:      script_get_array
+// Description: 获取 st 中指定 loc 位置的数组参数
+// Access:      public
+// Parameter:   struct script_state * st
+// Parameter:   int loc
+// Parameter:   int & ret_varid
+// Parameter:   char * & ret_varname
+// Parameter:   struct script_data * ret_vardata
+// Parameter:   bool expected_str
+// Parameter:   const char * desc
+// Returns:     bool
+//************************************
+bool script_get_array(struct script_state* st, int loc, int& ret_varid, char*& ret_varname, struct script_data*& ret_vardata, bool expected_str = false, const char* desc = nullptr) {
+    if (!script_hasdata(st, loc)) {
+        script_reportsrc(st);
+        script_reportfunc(st);
+        if (!desc)
+            ShowError("buildin_%s: the No.%d parameter can not be found.\n", script_getfuncname(st), loc - 1);
+        else
+            ShowError("buildin_%s: the No.%d parameter (%s) can not be found.\n", script_getfuncname(st), loc - 1, desc);
+        return false;
+    }
+
+    map_session_data* sd = nullptr;
+    ret_vardata = script_getdata(st, loc);
+    ret_varid = reference_getid(ret_vardata);
+    ret_varname = reference_getname(ret_vardata);
+
+    if (!data_isreference(ret_vardata)) {
+        script_reportsrc(st);
+        script_reportfunc(st);
+        script_reportdata(ret_vardata);
+        ShowError("buildin_%s: variable '%s' is not a array.\n", script_getfuncname(st), ret_varname);
+        return false;
+    }
+
+    if (not_server_variable(*ret_varname)) {
+        if (!script_rid2sd(sd)) {
+            script_reportsrc(st);
+            script_reportfunc(st);
+            script_reportdata(ret_vardata);
+            ShowError("buildin_%s: '%s' is not server variable, please attach to a player.\n", script_getfuncname(st), ret_varname);
+            return false;
+        }
+    }
+
+    struct reg_db* src = nullptr;
+    if (!(src = script_array_src(st, sd, ret_varname, reference_getref(ret_vardata)))) {
+        script_reportsrc(st);
+        script_reportfunc(st);
+        script_reportdata(ret_vardata);
+        ShowError("buildin_%s: variable '%s' is not a array.\n", script_getfuncname(st), ret_varname);
+        return false;
+    }
+
+    if (expected_str && !is_string_variable(ret_varname)) {
+        script_reportsrc(st);
+        script_reportfunc(st);
+        script_reportdata(ret_vardata);
+        if (!desc)
+            ShowError("buildin_%s: the No.%d parameter '%s' must be string array type.\n", script_getfuncname(st), loc - 1, ret_varname);
+        else
+            ShowError("buildin_%s: the No.%d parameter '%s' (%s) must be string array type.\n", script_getfuncname(st), loc - 1, ret_varname, desc);
+        script_pushint(st, -1);
+        return false;
+    }
+
+    if (!expected_str && is_string_variable(ret_varname)) {
+        script_reportsrc(st);
+        script_reportfunc(st);
+        script_reportdata(ret_vardata);
+        if (!desc)
+            ShowError("buildin_%s: the No.%d parameter '%s' must be integer array type.\n", script_getfuncname(st), loc - 1, ret_varname);
+        else
+            ShowError("buildin_%s: the No.%d parameter '%s' (%s) must be integer array type.\n", script_getfuncname(st), loc - 1, ret_varname, desc);
+        script_pushint(st, -1);
+        return false;
+    }
+
+    return true;
+}
+
+//************************************
+// Method:      script_cleararray_st
+// Description: 清理 st 中指定 loc 数组变量的内容
+// Access:      public
+// Parameter:   struct script_state * st
+// Parameter:   int loc
+// Parameter:   bool bslient
+// Returns:     bool
+//************************************
+bool script_cleararray_st(struct script_state* st, int loc, bool bslient = true) {
+    map_session_data* sd = nullptr;
+    struct script_data* param_data = script_getdata(st, loc);
+    int varid = reference_getid(param_data);
+    const char* varname = reference_getname(param_data);
+
+    if (!data_isreference(param_data)) {
+        if (!bslient) {
+            script_reportsrc(st);
+            script_reportfunc(st);
+            script_reportdata(param_data);
+            ShowError("buildin_%s: variable '%s' is not a array.\n", script_getfuncname(st), varname);
+        }
+        return false;
+    }
+
+    if (not_server_variable(*varname)) {
+        if (!script_rid2sd(sd)) {
+            if (!bslient) {
+                ShowError("buildin_%s: '%s' is not server variable, please attach to a player.\n", script_getfuncname(st), varname);
+                script_reportsrc(st);
+                script_reportfunc(st);
+                script_reportdata(param_data);
+            }
+            return false;
+        }
+    }
+
+    struct reg_db* src = nullptr;
+    if (!(src = script_array_src(st, sd, varname, reference_getref(param_data))))
+        return false;
+
+    script_array_ensure_zero(st, sd, param_data->u.num, reference_getref(param_data));
+
+    struct script_array* sa = nullptr;
+    if (!(sa = static_cast<script_array*>(idb_get(src->arrays, varid))))
+        return false;
+
+    unsigned int len = 0;
+    len = script_array_highest_key(st, sd, varname, reference_getref(param_data));
+
+    unsigned int* list = script_array_cpy_list(sa);
+    unsigned int size = sa->size;
+    for (unsigned int i = 0; i < size; i++) {
+        clear_reg(st, sd, reference_uid(varid, list[i]), varname, reference_getref(param_data));
+    }
+    return true;
+}
+
 /*==========================================
  * Destructor
  *------------------------------------------*/
