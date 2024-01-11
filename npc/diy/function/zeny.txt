@@ -1,0 +1,28 @@
+function	script	validate_zeny	{
+	.@zeny = getarg(0);
+	.@bind_zeny = #BIND_ZENY;
+	if (.@zeny > .@bind_zeny + Zeny) {
+	    mes "[仙境助手]";
+	    mes "Zeny不足，缺少 " + (.@zeny - (.@bind_zeny + Zeny)) + " Zeny。";
+	    close;
+	}
+	return;
+}
+
+function	script	del_zeny	{
+	.@bind_zeny = #BIND_ZENY;
+	.@zeny = getarg(0);
+	callfunc("validate_zeny", .@zeny);
+	if (.@bind_zeny >= .@zeny) {
+	    set #BIND_ZENY, #BIND_ZENY - .@zeny;
+	    .@format$ = "减少 %d 绑定zeny, 当前绑定zeny: %d.";
+	    dispbottom sprintf(.@format$, .@zeny, #BIND_ZENY),0xFFFF63;
+	} else {
+	    set #BIND_ZENY, 0;
+	    set Zeny, Zeny - (.@zeny - .@bind_zeny);
+	    .@format$ = "减少 %d 绑定zeny, %d zeny, 当前绑定zeny: %d.";
+	    dispbottom sprintf(.@format$, .@bind_zeny, (.@zeny - .@bind_zeny), #BIND_ZENY),0xFFFF63;
+	}
+	return;
+}
+

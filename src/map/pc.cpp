@@ -5695,11 +5695,34 @@ char pc_payzeny(map_session_data *sd, int zeny, enum e_log_pick_type type, uint3
 		return 1;
 	}
 
-	if( sd->status.zeny < zeny )
-		return 1; //Not enough.
+    //增强：绑定zeny可以买npc商店
+    int bind_zeny = pc_readaccountreg(sd, add_str("#BIND_ZENY"));
 
-	sd->status.zeny -= zeny;
-	clif_updatestatus(sd,SP_ZENY);
+    if (type == LOG_TYPE_NPC && bind_zeny) {
+        if( (sd->status.zeny + bind_zeny) < zeny )
+            return 1; //Not enough.
+
+        if (bind_zeny >= zeny) {
+            pc_setaccountreg(sd, add_str("#BIND_ZENY"), bind_zeny - zeny);
+            char output[255];
+            sprintf(output, "减少 %d 绑定zeny, 当前绑定zeny: %d.", zeny, bind_zeny - zeny);
+            clif_messagecolor(&sd->bl, color_table[COLOR_LIGHT_YELLOW], output, false, SELF);
+        } else {
+            pc_setaccountreg(sd, add_str("#BIND_ZENY"), 0);
+            char output[255];
+            sprintf(output, "减少 %d 绑定zeny, %d zeny, 当前绑定zeny: %d.", bind_zeny, (zeny - bind_zeny), 0);
+            clif_messagecolor(&sd->bl, color_table[COLOR_LIGHT_YELLOW], output, false, SELF);
+            sd->status.zeny -= (zeny - bind_zeny);
+            clif_updatestatus(sd,SP_ZENY);
+        }
+
+    } else {
+        if( (sd->status.zeny) < zeny )
+            return 1; //Not enough.
+
+        sd->status.zeny -= zeny;
+        clif_updatestatus(sd,SP_ZENY);
+    }
 
 	log_zeny(*sd, type, log_charid, -zeny);
 	if( zeny > 0 && sd->state.showzeny ) {

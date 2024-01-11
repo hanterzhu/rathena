@@ -2858,7 +2858,10 @@ e_purchase_result npc_buylist( map_session_data* sd, std::vector<s_npc_buy_list>
 		return e_purchase_result::PURCHASE_SUCCEED;
 	}
 
-	if (z > (double)sd->status.zeny)
+    //增强：绑定zeny可以买npc商店
+    int bind_zeny = pc_readaccountreg(sd, add_str("#BIND_ZENY"));
+
+	if (z > (double)(sd->status.zeny + bind_zeny))
 		return e_purchase_result::PURCHASE_FAIL_MONEY;	// Not enough Zeny
 
 	if( w + sd->weight > sd->max_weight )
