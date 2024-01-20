@@ -3,7 +3,8 @@ function	script	validate_zeny	{
 	.@bind_zeny = #BIND_ZENY;
 	if (.@zeny > .@bind_zeny + Zeny) {
 	    mes "[仙境助手]";
-	    mes "Zeny不足，缺少 " + (.@zeny - (.@bind_zeny + Zeny)) + " Zeny。";
+	    .@format$ = "[ Zeny ]数量不足，缺少[ %d ].";
+	    mes sprintf(.@format$, .@zeny - (.@bind_zeny + Zeny));
 	    close;
 	}
 	return;

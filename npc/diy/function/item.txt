@@ -1,0 +1,27 @@
+function	script	validate_item	{
+	.@id = getarg(0);
+	.@num = getarg(1);
+	.@item_count = countitem(.@id);
+	if (.@item_count < .@num) {
+	    mes "[仙境助手]";
+	    .@format$ = "[ ^0066CC%s^000000 ]数量不足，缺少[ ^FF6600%d^000000 ].";
+	    mes sprintf(.@format$, getitemname(.@id), .@num - .@item_count);
+	    close;
+	}
+	return;
+}
+
+function	script	del_item	{
+	for (.@i = 0; ; .@i += 2) {
+	    .@id = getarg(.@i, 0);
+	    if (!.@id) break;
+	    .@num = getarg(.@i+1);
+	    callfunc("validate_item", .@id, .@num);
+	}
+	for (.@i = 0; ; .@i += 2) {
+	    if (!getarg(.@i, 0)) break;
+	    delitem getarg(.@i), getarg(.@i+1);
+	}
+	return;
+}
+
