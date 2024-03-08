@@ -18166,11 +18166,11 @@ void clif_mercenary_updatestatus(map_session_data *sd, int type)
 		case SP_ATK1:
 			{
 				int atk = rnd()%(status->rhw.atk2 - status->rhw.atk + 1) + status->batk + status->rhw.atk;
-				WFIFOL(fd,4) = cap_value(atk, 0, INT16_MAX);
+				WFIFOL(fd,4) = cap_value(atk, 0, INT32_MAX);
 			}
 			break;
 		case SP_MATK1:
-			WFIFOL(fd,4) = min(status->matk_max, UINT16_MAX);
+			WFIFOL(fd,4) = min(status->matk_max, UINT32_MAX);
 			break;
 		case SP_HIT:
 			WFIFOL(fd,4) = status->hit;
@@ -18236,8 +18236,8 @@ void clif_mercenary_info(map_session_data *sd)
 
 	// Mercenary shows ATK as a random value between ATK ~ ATK2
 	atk = rnd()%(status->rhw.atk2 - status->rhw.atk + 1) + status->batk + status->rhw.atk;
-	WFIFOW(fd,6) = cap_value(atk, 0, INT16_MAX);
-	WFIFOW(fd,8) = min(status->matk_max, UINT16_MAX);
+	WFIFOW(fd,6) = cap_value(atk, 0, INT32_MAX);
+	WFIFOW(fd,8) = min(status->matk_max, UINT32_MAX);
 	WFIFOW(fd,10) = status->hit;
 	WFIFOW(fd,12) = status->cri/10;
 	WFIFOW(fd,14) = status->def;

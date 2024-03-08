@@ -3579,7 +3579,7 @@ static bool itemdb_read_noequip( char* str[], size_t columns, size_t current ){
 }
 
 //增强：战力
-static bool itemdb_read_combat_power(char* str[], int columns, int current) {
+static bool itemdb_read_combat_power(char* str[], size_t columns, size_t current) {
 
     t_itemid nameid = strtoul(str[0], nullptr, 10);
     int equip_combat_power = atoi(str[1]);

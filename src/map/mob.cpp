@@ -4506,18 +4506,18 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 	}
 
 	if (this->nodeExists(node, "Attack")) {
-		uint16 atk;
+		uint32 atk;
 
-		if (!this->asUInt16(node, "Attack", atk))
+		if (!this->asUInt32(node, "Attack", atk))
 			return 0;
 
 		mob->status.rhw.atk = atk;
 	}
 	
 	if (this->nodeExists(node, "Attack2")) {
-		uint16 atk;
+		uint32 atk;
 
-		if (!this->asUInt16(node, "Attack2", atk))
+		if (!this->asUInt32(node, "Attack2", atk))
 			return 0;
 
 #ifdef RENEWAL

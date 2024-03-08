@@ -3678,31 +3678,31 @@ void pc_bonus(map_session_data *sd,int type,int val)
 		case SP_ATK1:
 			if(!sd->state.lr_flag) {
 				bonus = status->rhw.atk + val;
-				status->rhw.atk = cap_value(bonus, 0, USHRT_MAX);
+				status->rhw.atk = cap_value(bonus, 0, UINT_MAX);
 			}
 			else if(sd->state.lr_flag == 1) {
 				bonus = status->lhw.atk + val;
-				status->lhw.atk =  cap_value(bonus, 0, USHRT_MAX);
+				status->lhw.atk =  cap_value(bonus, 0, UINT_MAX);
 			}
 			break;
 		case SP_ATK2:
 			if(!sd->state.lr_flag) {
 				bonus = status->rhw.atk2 + val;
-				status->rhw.atk2 = cap_value(bonus, 0, USHRT_MAX);
+				status->rhw.atk2 = cap_value(bonus, 0, UINT_MAX);
 			}
 			else if(sd->state.lr_flag == 1) {
 				bonus = status->lhw.atk2 + val;
-				status->lhw.atk2 =  cap_value(bonus, 0, USHRT_MAX);
+				status->lhw.atk2 =  cap_value(bonus, 0, UINT_MAX);
 			}
 			break;
 		case SP_BASE_ATK:
 			if(sd->state.lr_flag != 2) {
 #ifdef RENEWAL
 				bonus = sd->bonus.eatk + val;
-				sd->bonus.eatk = cap_value(bonus, SHRT_MIN, SHRT_MAX);
+				sd->bonus.eatk = cap_value(bonus, SHRT_MIN, UINT_MAX);
 #else
 				bonus = status->batk + val;
-				status->batk = cap_value(bonus, 0, USHRT_MAX);
+				status->batk = cap_value(bonus, 0, UINT_MAX);
 #endif
 			}
 			break;

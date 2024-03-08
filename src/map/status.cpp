@@ -75,9 +75,9 @@ static unsigned short status_calc_wis(struct block_list *, status_change *, int)
 static unsigned short status_calc_spl(struct block_list *, status_change *, int);
 static unsigned short status_calc_con(struct block_list *, status_change *, int);
 static unsigned short status_calc_crt(struct block_list *, status_change *, int);
-static unsigned short status_calc_batk(struct block_list *,status_change *,int);
-static unsigned short status_calc_watk(struct block_list *,status_change *,int);
-static unsigned short status_calc_matk(struct block_list *,status_change *,int);
+static unsigned int status_calc_batk(struct block_list *,status_change *,int);
+static unsigned int status_calc_watk(struct block_list *,status_change *,int);
+static unsigned int status_calc_matk(struct block_list *,status_change *,int);
 static signed short status_calc_hit(struct block_list *,status_change *,int);
 static signed short status_calc_critical(struct block_list *,status_change *,int);
 static signed short status_calc_flee(struct block_list *,status_change *,int);
@@ -106,7 +106,7 @@ static unsigned char status_calc_element(struct block_list *bl, status_change *s
 static unsigned char status_calc_element_lv(struct block_list *bl, status_change *sc, int lv);
 static int status_calc_mode(struct block_list *bl, status_change *sc, int mode);
 #ifdef RENEWAL
-static unsigned short status_calc_ematk(struct block_list *,status_change *,int);
+static unsigned int status_calc_ematk(struct block_list *,status_change *,int);
 #endif
 static int status_get_hpbonus(struct block_list *bl, enum e_status_bonus type);
 static int status_get_spbonus(struct block_list *bl, enum e_status_bonus type);
@@ -2328,7 +2328,7 @@ int status_base_amotion_pc(map_session_data* sd, struct status_data* status)
  * @param status: Object status
  * @return base attack
  */
-unsigned short status_base_atk(const struct block_list *bl, const struct status_data *status, int level)
+unsigned int status_base_atk(const struct block_list *bl, const struct status_data *status, int level)
 {
 	int flag = 0, str, dex, dstr;
 
@@ -2399,7 +2399,7 @@ unsigned short status_base_atk(const struct block_list *bl, const struct status_
 			break;
 	}
 
-	return cap_value(str, 0, USHRT_MAX);
+	return cap_value(str, 0, UINT_MAX);
 }
 
 #ifdef RENEWAL
@@ -2416,14 +2416,14 @@ unsigned int status_weapon_atk(weapon_atk &wa)
 #endif
 
 #ifndef RENEWAL
-unsigned short status_base_matk_min(const struct status_data* status) { return status->int_ + (status->int_ / 7) * (status->int_ / 7); }
-unsigned short status_base_matk_max(const struct status_data* status) { return status->int_ + (status->int_ / 5) * (status->int_ / 5); }
+unsigned int status_base_matk_min(const struct status_data* status) { return status->int_ + (status->int_ / 7) * (status->int_ / 7); }
+unsigned int status_base_matk_max(const struct status_data* status) { return status->int_ + (status->int_ / 5) * (status->int_ / 5); }
 #else
 /*
 * Calculates minimum attack variance 80% from db's ATK1 for non BL_PC
 * status->batk (base attack) will be added in battle_calc_base_damage
 */
-unsigned short status_base_atk_min(struct block_list *bl, const struct status_data* status, int level)
+unsigned int status_base_atk_min(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
 		case BL_PET:
@@ -2442,7 +2442,7 @@ unsigned short status_base_atk_min(struct block_list *bl, const struct status_da
 * Calculates maximum attack variance 120% from db's ATK1 for non BL_PC
 * status->batk (base attack) will be added in battle_calc_base_damage
 */
-unsigned short status_base_atk_max(struct block_list *bl, const struct status_data* status, int level)
+unsigned int status_base_atk_max(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
 		case BL_PET:
@@ -2460,7 +2460,7 @@ unsigned short status_base_atk_max(struct block_list *bl, const struct status_da
 /*
 * Calculates minimum magic attack
 */
-unsigned short status_base_matk_min(struct block_list *bl, const struct status_data* status, int level)
+unsigned int status_base_matk_min(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
 		case BL_PET:
@@ -2479,7 +2479,7 @@ unsigned short status_base_matk_min(struct block_list *bl, const struct status_d
 /*
 * Calculates maximum magic attack
 */
-unsigned short status_base_matk_max(struct block_list *bl, const struct status_data* status, int level)
+unsigned int status_base_matk_max(struct block_list *bl, const struct status_data* status, int level)
 {
 	switch (bl->type) {
 		case BL_PET:
@@ -2645,7 +2645,7 @@ void status_calc_misc(struct block_list *bl, struct status_data *status, int lev
 
 	if (status->batk) {
 		int temp = status->batk + status_base_atk(bl, status, level);
-		status->batk = cap_value(temp, 0, USHRT_MAX);
+		status->batk = cap_value(temp, 0, UINT_MAX);
 	} else
 		status->batk = status_base_atk(bl, status, level);
 
@@ -5729,7 +5729,7 @@ void status_calc_bl_main(struct block_list *bl, std::bitset<SCB_MAX> flag)
 		temp = b_status->batk - status_base_atk(bl, b_status, lv);
 		if (temp) {
 			temp += status->batk;
-			status->batk = cap_value(temp, 0, USHRT_MAX);
+			status->batk = cap_value(temp, 0, UINT_MAX);
 		}
 		status->batk = status_calc_batk(bl, sc, status->batk);
 	}
@@ -7040,10 +7040,10 @@ static unsigned short status_calc_crt(struct block_list *bl, status_change *sc, 
  * @param batk: Initial batk
  * @return modified batk with cap_value(batk,0,USHRT_MAX)
  */
-static unsigned short status_calc_batk(struct block_list *bl, status_change *sc, int batk)
+static unsigned int status_calc_batk(struct block_list *bl, status_change *sc, int batk)
 {
 	if(!sc || !sc->count)
-		return cap_value(batk,0,USHRT_MAX);
+		return cap_value(batk,0,UINT_MAX);
 
 	if(sc->getSCE(SC_ATKPOTION))
 		batk += sc->getSCE(SC_ATKPOTION)->val1;
@@ -7117,7 +7117,7 @@ static unsigned short status_calc_batk(struct block_list *bl, status_change *sc,
 	if(sc->getSCE(SC_SKF_ATK))
 		batk += sc->getSCE(SC_SKF_ATK)->val1;
 
-	return (unsigned short)cap_value(batk,0,USHRT_MAX);
+	return (unsigned int)cap_value(batk,0,UINT_MAX);
 }
 
 /**
@@ -7127,10 +7127,10 @@ static unsigned short status_calc_batk(struct block_list *bl, status_change *sc,
  * @param watk: Initial watk
  * @return modified watk with cap_value(watk,0,USHRT_MAX)
  */
-static unsigned short status_calc_watk(struct block_list *bl, status_change *sc, int watk)
+static unsigned int status_calc_watk(struct block_list *bl, status_change *sc, int watk)
 {
 	if(!sc || !sc->count)
-		return cap_value(watk,0,USHRT_MAX);
+		return cap_value(watk,0,UINT_MAX);
 
 #ifndef RENEWAL
 	if(sc->getSCE(SC_DRUMBATTLE))
@@ -7225,7 +7225,7 @@ static unsigned short status_calc_watk(struct block_list *bl, status_change *sc,
 	if (sc->getSCE(SC_GUARD_STANCE))
 		watk -= sc->getSCE(SC_GUARD_STANCE)->val3;
 
-	return (unsigned short)cap_value(watk,0,USHRT_MAX);
+	return (unsigned int)cap_value(watk,0,UINT_MAX);
 }
 
 #ifdef RENEWAL
@@ -7236,10 +7236,10 @@ static unsigned short status_calc_watk(struct block_list *bl, status_change *sc,
  * @param matk: Initial matk
  * @return modified matk with cap_value(matk,0,USHRT_MAX)
  */
-static unsigned short status_calc_ematk(struct block_list *bl, status_change *sc, int matk)
+static unsigned int status_calc_ematk(struct block_list *bl, status_change *sc, int matk)
 {
 	if (!sc || !sc->count)
-		return cap_value(matk,0,USHRT_MAX);
+		return cap_value(matk,0,UINT_MAX);
 
 	if (sc->getSCE(SC_IMPOSITIO))
 		matk += sc->getSCE(SC_IMPOSITIO)->val2;
@@ -7300,7 +7300,7 @@ static unsigned short status_calc_ematk(struct block_list *bl, status_change *sc
 	if (sc->getSCE(SC_SKF_MATK))
 		matk += sc->getSCE(SC_SKF_MATK)->val1;
 
-	return (unsigned short)cap_value(matk,0,USHRT_MAX);
+	return (unsigned int)cap_value(matk,0,UINT_MAX);
 }
 #endif
 
@@ -7311,10 +7311,10 @@ static unsigned short status_calc_ematk(struct block_list *bl, status_change *sc
  * @param matk: Initial matk
  * @return modified matk with cap_value(matk,0,USHRT_MAX)
  */
-static unsigned short status_calc_matk(struct block_list *bl, status_change *sc, int matk)
+static unsigned int status_calc_matk(struct block_list *bl, status_change *sc, int matk)
 {
 	if(!sc || !sc->count)
-		return cap_value(matk,0,USHRT_MAX);
+		return cap_value(matk,0,UINT_MAX);
 #ifndef RENEWAL
 	/// Take note fixed value first before % modifiers [PRE-RENEWAL]
 	if (sc->getSCE(SC_MATKPOTION))
@@ -7385,7 +7385,7 @@ static unsigned short status_calc_matk(struct block_list *bl, status_change *sc,
 	if (sc->getSCE(SC_CLIMAX_DES_HU))
 		matk += 100;
 
-	return (unsigned short)cap_value(matk,0,USHRT_MAX);
+	return (unsigned int)cap_value(matk,0,UINT_MAX);
 }
 
 /**
