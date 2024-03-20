@@ -17,6 +17,7 @@
     export_constant(NPCE_IDENTIFY);
     export_constant(NPCE_TITLE);
     export_constant(NPCE_CATCH);
+    export_constant(NPCE_TRADE);
     //filter
     export_constant(NPCF_CLICK_NPC);
 

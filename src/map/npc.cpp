@@ -5957,6 +5957,8 @@ const char *npc_get_script_event_name(int npce_index)
         return script_config.title_event_name;
     case NPCE_CATCH:
         return script_config.catch_event_name;
+    case NPCE_TRADE:
+        return script_config.trade_event_name;
     //ÔöÇ¿£ºfilter
     case NPCF_CLICK_NPC:
         return script_config.click_npc_filter_name;

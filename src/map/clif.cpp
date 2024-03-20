@@ -4857,6 +4857,10 @@ void clif_tradeadditem( map_session_data* sd, map_session_data* tsd, int index, 
 		p.itemId = client_nameid( sd->inventory.u.items_inventory[index].nameid );
 #if PACKETVER >= 20100223
 		p.itemType = sd->inventory_data[index]->type;
+        pc_setreg(tsd, add_str("@index"), index);
+        pc_setreg(tsd, add_str("@char_id"), sd->status.char_id);
+        npc_script_event(tsd, NPCE_TRADE);
+
 #endif
 		p.identified = sd->inventory.u.items_inventory[index].identify;
 		p.damaged = sd->inventory.u.items_inventory[index].attribute;

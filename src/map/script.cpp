@@ -274,6 +274,7 @@ struct Script_Config script_config = {
     "OnPCIdentifyEvent",
     "OnPCTitleEvent",
     "OnPCCatchEvent",
+    "OnPCTradeEvent",
     //filter
     "OnPCClickNpcFilter",
         // NPC related
