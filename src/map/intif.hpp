@@ -74,7 +74,7 @@ void intif_itembound_guild_retrieve(uint32 char_id, uint32 account_id, int guild
 
 int intif_create_pet(uint32 account_id, uint32 char_id, short pet_type, short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip, short intimate, short hungry, char rename_flag, char incubate, const char *pet_name,
                      int str,int agi,int vit,int int_,int dex,int luk,short option_id0,short option_val0,char option_parm0,short option_id1,short option_val1,char option_parm1,
-                     short option_id2,short option_val2,char option_parm2,short option_id3,short option_val3,char option_parm3,short option_id4,short option_val4,char option_parm4);
+                     short option_id2,short option_val2,char option_parm2,short option_id3,short option_val3,char option_parm3,short option_id4,short option_val4,char option_parm4,int growth);
 int intif_request_petdata(uint32 account_id, uint32 char_id, int pet_id);
 int intif_save_petdata(uint32 account_id, struct s_pet *p);
 int intif_delete_petdata(int pet_id);

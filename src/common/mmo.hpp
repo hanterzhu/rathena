@@ -492,7 +492,7 @@ struct s_pet {
 
     //ÔöÇ¿£º³èÎï
     struct s_extend {
-        int str, agi, vit, int_, dex, luk;
+        int growth, str, agi, vit, int_, dex, luk;
         struct s_item_randomoption option[MAX_ITEM_RDM_OPT];
     } extend;
 };

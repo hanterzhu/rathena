@@ -677,7 +677,7 @@ bool pet_create_egg(map_session_data *sd, t_itemid item_id)
 		return false; // Inventory full
 
 	sd->catch_target_class = pet->class_;
-	intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+	intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 	return true;
 }
@@ -1326,6 +1326,7 @@ int pet_catch_process2(map_session_data* sd, int target_id)
         //ÔöÇ¿£º³èÎï
         npc_script_event(sd, NPCE_CATCH);
 
+        int growth = pc_readreg(sd, add_str("@pet_growth"));
         int str = pc_readreg(sd, add_str("@pet_str"));
         int agi = pc_readreg(sd, add_str("@pet_agi"));
         int vit = pc_readreg(sd, add_str("@pet_vit"));
@@ -1350,7 +1351,7 @@ int pet_catch_process2(map_session_data* sd, int target_id)
 
 		intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),
                          str,agi,vit,int_,dex,luk,option_id0,option_val0,option_parm0,option_id1,option_val1,option_parm1,option_id2,option_val2,option_parm2,
-                         option_id3,option_val3,option_parm3,option_id4,option_val4,option_parm4);
+                         option_id3,option_val3,option_parm3,option_id4,option_val4,option_parm4,growth);
 	} else {
 		clif_pet_roulette(sd,0);
 		sd->catch_target_class = PET_CATCH_FAIL;

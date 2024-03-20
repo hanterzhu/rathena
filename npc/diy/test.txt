@@ -145,6 +145,7 @@ OnPCCatchEvent:
     set @pet_option_id0, 7;
     set @pet_option_val0, 8;
     set @pet_option_parm0, 9;
+    set @pet_growth, 100;
     end;
 
 }
