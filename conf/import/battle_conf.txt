@@ -1,0 +1,9 @@
+pet_rename: yes
+pet_catch_rate: 500
+pet_equip_required: no
+pet_attack_support: yes
+pet_damage_support: yes
+pet_status_support: yes
+pet_disable_in_gvg: yes
+pet_ignore_infinite_def: no
+pet_attack_exp_to_master: yes

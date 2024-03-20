@@ -95,11 +95,13 @@ map_session_data *inter_search_sd(uint32 account_id, uint32 char_id)
  * @param pet_name
  * @return 
  */
-int intif_create_pet(uint32 account_id,uint32 char_id,short pet_class,short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip,short intimate,short hungry,char rename_flag,char incubate,const char *pet_name)
+int intif_create_pet(uint32 account_id,uint32 char_id,short pet_class,short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip,short intimate,short hungry,char rename_flag,char incubate,const char *pet_name,
+                     int str,int agi,int vit,int int_,int dex,int luk,short option_id0,short option_val0,char option_parm0,short option_id1,short option_val1,char option_parm1,
+                     short option_id2,short option_val2,char option_parm2,short option_id3,short option_val3,char option_parm3,short option_id4,short option_val4,char option_parm4)
 {
 	if (CheckForCharServer())
 		return 0;
-	WFIFOHEAD(inter_fd, 28 + NAME_LENGTH);
+	WFIFOHEAD(inter_fd, 77 + NAME_LENGTH);
 	WFIFOW(inter_fd, 0) = 0x3080;
 	WFIFOL(inter_fd, 2) = account_id;
 	WFIFOL(inter_fd, 6) = char_id;
@@ -111,8 +113,29 @@ int intif_create_pet(uint32 account_id,uint32 char_id,short pet_class,short pet_
 	WFIFOW(inter_fd, 24) = hungry;
 	WFIFOB(inter_fd, 26) = rename_flag;
 	WFIFOB(inter_fd, 27) = incubate;
-	safestrncpy(WFIFOCP(inter_fd, 28), pet_name, NAME_LENGTH);
-	WFIFOSET(inter_fd, 28 + NAME_LENGTH);
+    WFIFOL(inter_fd, 28) = str;
+    WFIFOL(inter_fd, 32) = agi;
+    WFIFOL(inter_fd, 36) = vit;
+    WFIFOL(inter_fd, 40) = int_;
+    WFIFOL(inter_fd, 44) = dex;
+    WFIFOL(inter_fd, 48) = luk;
+    WFIFOW(inter_fd, 52) = option_id0;
+    WFIFOW(inter_fd, 54) = option_val0;
+    WFIFOB(inter_fd, 56) = option_parm0;
+    WFIFOW(inter_fd, 57) = option_id1;
+    WFIFOW(inter_fd, 59) = option_val1;
+    WFIFOB(inter_fd, 61) = option_parm1;
+    WFIFOW(inter_fd, 62) = option_id2;
+    WFIFOW(inter_fd, 64) = option_val2;
+    WFIFOB(inter_fd, 66) = option_parm2;
+    WFIFOW(inter_fd, 67) = option_id3;
+    WFIFOW(inter_fd, 69) = option_val3;
+    WFIFOB(inter_fd, 71) = option_parm3;
+    WFIFOW(inter_fd, 72) = option_id4;
+    WFIFOW(inter_fd, 74) = option_val4;
+    WFIFOB(inter_fd, 76) = option_parm4;
+	safestrncpy(WFIFOCP(inter_fd, 77), pet_name, NAME_LENGTH);
+	WFIFOSET(inter_fd, 77 + NAME_LENGTH);
 
 	return 1;
 }

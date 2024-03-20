@@ -58,6 +58,8 @@ unsigned int current_equip_combo_pos; /// For combo items we need to save the po
 int current_equip_card_id; /// To prevent card-stacking (from jA) [Skotlex]
 // We need it for new cards 15 Feb 2005, to check if the combo cards are insrerted into the CURRENT weapon only to avoid cards exploits
 short current_equip_opt_index; /// Contains random option index of an equipped item. [Secret]
+//增强：宠物
+short current_pet_opt_index;
 
 uint16 SCDisabled[SC_MAX]; ///< List of disabled SC on map zones. [Cydh]
 
@@ -4081,6 +4083,26 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 
 	if( sd->pd ) { // Pet Bonus
 		struct pet_data *pd = sd->pd;
+
+        //增强：宠物
+        current_pet_opt_index = -1;
+
+        for (uint8 j = 0; j < MAX_ITEM_RDM_OPT; j++) {
+            short opt_id = pd->pet.extend.option[j].id;
+
+            if (!opt_id)
+                continue;
+
+            current_pet_opt_index = j;
+            std::shared_ptr<s_random_opt_data> data = random_option_db.find(opt_id);
+
+            if (!data || !data->script)
+                continue;
+            run_script(data->script, 0, sd->bl.id, 0);
+        }
+
+        current_pet_opt_index = -1;
+
 		std::shared_ptr<s_pet_db> pet_db_ptr = pd->get_pet_db();
 
 		if (pet_db_ptr != nullptr && pet_db_ptr->pet_bonus_script)

@@ -16,6 +16,7 @@
     export_constant(NPCE_UNEQUIP);
     export_constant(NPCE_IDENTIFY);
     export_constant(NPCE_TITLE);
+    export_constant(NPCE_CATCH);
     //filter
     export_constant(NPCF_CLICK_NPC);
 

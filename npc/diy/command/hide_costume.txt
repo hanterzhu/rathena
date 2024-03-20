@@ -1,0 +1,58 @@
+-	script	command_隐藏	-1,{
+OnInit:
+	bindatcmd("隐藏时装",strnpcinfo(0)+"::OnCommand_hide_costume",0,99);
+end;
+
+L_Help:
+	dispbottom "可以隐藏对应部位的时装";
+	dispbottom "注意中间有一个空格";
+	dispbottom "@隐藏时装 <头上|头中|头下>";
+	return;
+
+OnCommand_hide_costume:
+	if (getarraysize(.@atcmd_parameters$) < 1) {
+		message strcharinfo(0), "错误命令.";
+		callsub L_Help;
+		end;
+	}
+	if(compare(.@atcmd_parameters$[0],"头上")){
+		set hide_costume, hide_costume | 1024;
+		.@id = getequipid(EQI_HEAD_TOP);
+		if (!.@id) {
+		    changelook LOOK_HEAD_TOP,0;
+		} else {
+		    set .@view, getiteminfo(.@id,ITEMINFO_VIEW);
+		    changelook LOOK_HEAD_TOP, .@view;
+		}
+		message strcharinfo(0), "时装头上已隐藏.";
+	    end;
+	}
+	if(compare(.@atcmd_parameters$[0],"头中")){
+		set hide_costume, hide_costume | 2048;
+		.@id = getequipid(EQI_HEAD_MID);
+		if (!.@id) {
+		    changelook LOOK_HEAD_MID,0;
+		} else {
+		    set .@view, getiteminfo(.@id,ITEMINFO_VIEW);
+		    changelook LOOK_HEAD_MID, .@view;
+		}
+		message strcharinfo(0), "时装头中已隐藏.";
+	    end;
+	}
+	if(compare(.@atcmd_parameters$[0],"头下")){
+		set hide_costume, hide_costume | 4096;
+		.@id = getequipid(EQI_HEAD_LOW);
+		if (!.@id) {
+		    changelook LOOK_HEAD_BOTTOM,0;
+		} else {
+		    set .@view, getiteminfo(.@id,ITEMINFO_VIEW);
+		    changelook LOOK_HEAD_BOTTOM, .@view;
+		}
+		message strcharinfo(0), "时装头下已隐藏.";
+	    end;
+	}
+	message strcharinfo(0), "错误命令.";
+	callsub L_Help;
+end;
+
+}

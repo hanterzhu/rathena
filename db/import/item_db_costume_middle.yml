@@ -88,8 +88,31 @@ Header:
   Type: ITEM_DB
   Version: 3
 
-Footer:
-  Imports:
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml
+Body:
+  - Id: 102000
+    AegisName: C_Imperial_Feather
+    Name: Costume Imperial Feather
+    Type: Armor
+    Weight: 100
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    View: 935
+  - Id: 102001
+    AegisName: C_Minions_Of_Devil
+    Name: Costume Servant Deviling
+    Type: Armor
+    Weight: 100
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    View: 1036
+  - Id: 102002
+    AegisName: C_Anemos_Mask
+    Name: Costume Mask of Anemos
+    Type: Armor
+    Weight: 100
+    Locations:
+      Costume_Head_Mid: true
+    ArmorLevel: 1
+    View: 906

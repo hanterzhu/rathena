@@ -554,3 +554,32 @@ BUILDIN_FUNC(damage_log_rank) {
     script_pushint(st, rec_sorted.size());
     return SCRIPT_CMD_SUCCESS;
 }
+
+BUILDIN_FUNC(getpetoptinfo) {
+    map_session_data *sd;
+    int val;
+    if (script_rid2sd(sd) && current_pet_opt_index != -1 && sd->pd && sd->pd->pet.extend.option[current_pet_opt_index].id) {
+        int param = script_getnum(st, 2);
+
+        switch (param) {
+            case ROA_ID:
+                val = sd->pd->pet.extend.option[current_pet_opt_index].id;
+                break;
+            case ROA_VALUE:
+                val = sd->pd->pet.extend.option[current_pet_opt_index].value;
+                break;
+            case ROA_PARAM:
+                val = sd->pd->pet.extend.option[current_pet_opt_index].param;
+                break;
+            default:
+                ShowWarning("buildin_getpetoptinfo: Invalid attribute type %d (Max %d).\n", param, MAX_ITEM_RDM_OPT);
+                val = 0;
+                break;
+        }
+        script_pushint(st, val);
+    }
+    else {
+        script_pushint(st, 0);
+    }
+    return SCRIPT_CMD_SUCCESS;
+}

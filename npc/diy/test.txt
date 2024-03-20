@@ -1,7 +1,44 @@
 new_3-1,52,103,5	script	test1	100,{
-    dispbottom "当前战力[" + readparam(bCombatPower) + "]";
+    switch(select("top:mid:bottom")) {
+        input .@num;
+        case 1: changelook LOOK_HEAD_TOP,.@num; break;
+        case 2: changelook LOOK_HEAD_MID,.@num; break;
+        case 3: changelook LOOK_HEAD_BOTTOM,.@num; break;
+    }
+
+    //callfunc("del_zeny", 200);
+    //callfunc("del_item", 501, 1, 502, 1);
+    //dispbottom "当前战力[" + readparam(bCombatPower) + "]";
+    //deletearray $@mobid,getarraysize($@mobid);
+    //monster "new_3-1",52,105,"--ja--",1080,1;
+    //@mobid = $@mobid[0];
+    end;
 }
 
+//new_3-1,52,104	monster	波利	1002,1
+
+new_3-1,54,103,5	script	test3	100,{
+    .@name$ = getunitname(@mobid);
+    .@count = damage_log_rank(@mobid, .@id, .@damage, 0, 1, 1);
+    dispbottom "记录数: " + .@count;
+    for (.@i = 0; .@i < .@count; .@i++) {
+        dispbottom "第 " + (.@i + 1) + ": " + .@id[.@i] + " 伤害: " + .@damage[.@i];
+    }
+    //dispbottom strcharinfo(0, getcharid(0)) + " 受到 " + .@name$ + "伤害：" + damage_log_query(getcharid(0), @mobid, 0, 1);
+    //dispbottom .@name$ + " 受到 " + strcharinfo(0, getcharid(0)) + "伤害：" + damage_log_query(@mobid, getcharid(0), 0, 1);
+    //log_damage_reset(@mobid);
+    end;
+}
+
+new_3-1,55,108,5	script	chaika	100,{
+    input .@name$;
+    dispbottom "" + login(.@name$);
+    end;
+    //achievementcomplete 110013;
+    //callfunc "拆卡";
+}
+
+new_3-1	mapflag	norodex
 
 new_3-1,52,115,5	script	test	100,{
     mes "请在一分钟内做出选择:";
@@ -26,4 +63,88 @@ OnTimer5000:
    mes "你没有在一分钟内做出选择.";
    atcommand "@kick " + strcharinfo(0);
    end;
+}
+
+-	script	test2	-1,{
+OnPCEquipEvent:
+    set .@id, getinventoryinfo(@equip_idx,0);
+    set .@index, getiteminfo(.@id,ITEMINFO_LOCATIONS);
+    if (.@index & EQP_COSTUME_HEAD_TOP) {
+        set costume_top_view, getiteminfo(.@id,ITEMINFO_VIEW);
+    }
+    if (.@index & EQP_COSTUME_HEAD_MID) {
+        set costume_middle_view, getiteminfo(.@id,ITEMINFO_VIEW);
+    }
+    if (.@index & EQP_COSTUME_HEAD_LOW) {
+        set costume_bottom_view, getiteminfo(.@id,ITEMINFO_VIEW);
+    }
+    dispbottom "equip id: " + .@id;
+    dispbottom "增加战力 [" + getitemcombatpower(@equip_idx) + "]，当前战力[" + readparam(bCombatPower) + "]";
+    end;
+
+OnPCUnequipEvent:
+    set .@id, getinventoryinfo(@unequip_idx,0);
+    set .@index, getiteminfo(.@id,ITEMINFO_LOCATIONS);
+    if (.@index & EQP_COSTUME_HEAD_TOP) {
+        set costume_top_view, 0;
+    }
+    if (.@index & EQP_COSTUME_HEAD_MID) {
+        set costume_middle_view, 0;
+    }
+    if (.@index & EQP_COSTUME_HEAD_LOW) {
+        set costume_bottom_view, 0;
+    }
+    dispbottom "unequip id: " + .@id;
+    dispbottom "减少战力 [" + getitemcombatpower(@equip_idx) + "]，当前战力[" + readparam(bCombatPower) + "]";
+    end;
+
+OnPCIdentifyEvent:
+    dispbottom "@identify_idx: " + @identify_idx;
+    dispbottom "@identify_id: " + getinventoryinfo(@identify_idx,0);
+    end;
+
+OnPCTitleEvent:
+    dispbottom "@title_id_pre: " + @title_id_pre;
+    dispbottom "@title_id: " + @title_id;
+    end;
+
+OnPCClickNpcFilter:
+    dispbottom "@npc_type: " + @npc_type;
+    if (@npc_type == 2) {
+        if (!checkweight(2607,5)) {
+            dispbottom "确保背包剩余空间 > 5 且剩余负重 > 100",0xFFFF63;
+            processhalt;
+        }
+    }
+    end;
+
+OnNPCKillEvent:
+   dispbottom "" + killedgid;
+   end;
+
+OnPCLoginEvent:
+    if (costume_top_view > 0) {
+        changelook LOOK_HEAD_TOP, costume_top_view;
+    }
+    if (costume_middle_view > 0) {
+        changelook LOOK_HEAD_MID, costume_middle_view;
+    }
+    if (costume_bottom_view > 0) {
+        changelook LOOK_HEAD_BOTTOM, costume_bottom_view;
+    }
+    end;
+
+OnPCCatchEvent:
+    dispbottom "生成宠物蛋";
+    set @pet_str, 1;
+    set @pet_agi, 2;
+    set @pet_vit, 3;
+    set @pet_int, 4;
+    set @pet_dex, 5;
+    set @pet_luk, 6;
+    set @pet_option_id0, 7;
+    set @pet_option_val0, 8;
+    set @pet_option_parm0, 9;
+    end;
+
 }

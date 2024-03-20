@@ -1536,6 +1536,7 @@ enum npce_event : uint8 {
     NPCE_UNEQUIP,
     NPCE_IDENTIFY,
     NPCE_TITLE,
+    NPCE_CATCH,
     //ÔöÇ¿£ºfilter
     NPCF_CLICK_NPC,
 	NPCE_MAX

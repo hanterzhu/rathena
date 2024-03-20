@@ -677,7 +677,7 @@ bool pet_create_egg(map_session_data *sd, t_itemid item_id)
 		return false; // Inventory full
 
 	sd->catch_target_class = pet->class_;
-	intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str());
+	intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 	return true;
 }
@@ -1323,7 +1323,34 @@ int pet_catch_process2(map_session_data* sd, int target_id)
 
 		std::shared_ptr<s_mob_db> mdb = mob_db.find(pet->class_);
 
-		intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str());
+        //ÔöÇ¿£º³èÎï
+        npc_script_event(sd, NPCE_CATCH);
+
+        int str = pc_readreg(sd, add_str("@pet_str"));
+        int agi = pc_readreg(sd, add_str("@pet_agi"));
+        int vit = pc_readreg(sd, add_str("@pet_vit"));
+        int int_ = pc_readreg(sd, add_str("@pet_int"));
+        int dex = pc_readreg(sd, add_str("@pet_dex"));
+        int luk = pc_readreg(sd, add_str("@pet_luk"));
+        short option_id0 = pc_readreg(sd, add_str("@pet_option_id0"));;
+        short option_val0 = pc_readreg(sd, add_str("@pet_option_val0"));;
+        char option_parm0 = pc_readreg(sd, add_str("@pet_option_parm0"));;
+        short option_id1 = pc_readreg(sd, add_str("@pet_option_id1"));;
+        short option_val1 = pc_readreg(sd, add_str("@pet_option_val1"));;
+        char option_parm1 = pc_readreg(sd, add_str("@pet_option_parm1"));;
+        short option_id2 = pc_readreg(sd, add_str("@pet_option_id2"));;
+        short option_val2 = pc_readreg(sd, add_str("@pet_option_val2"));;
+        char option_parm2 = pc_readreg(sd, add_str("@pet_option_parm2"));;
+        short option_id3 = pc_readreg(sd, add_str("@pet_option_id3"));;
+        short option_val3 = pc_readreg(sd, add_str("@pet_option_val3"));;
+        char option_parm3 = pc_readreg(sd, add_str("@pet_option_parm3"));;
+        short option_id4 = pc_readreg(sd, add_str("@pet_option_id4"));;
+        short option_val4 = pc_readreg(sd, add_str("@pet_option_val4"));;
+        char option_parm4 = pc_readreg(sd, add_str("@pet_option_parm4"));;
+
+		intif_create_pet(sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),
+                         str,agi,vit,int_,dex,luk,option_id0,option_val0,option_parm0,option_id1,option_val1,option_parm1,option_id2,option_val2,option_parm2,
+                         option_id3,option_val3,option_parm3,option_id4,option_val4,option_parm4);
 	} else {
 		clif_pet_roulette(sd,0);
 		sd->catch_target_class = PET_CATCH_FAIL;

@@ -1,0 +1,373 @@
+-	shop	costume_box_shop	-1,501:-1
+new_3-1,52,105,5	script	costume_box	100,{
+    .@npc_name$ = "[时装收集箱]";
+    mes .@npc_name$;
+    next;
+    switch(select("改变外观:存入时装:查看未收藏的时装")){
+        case 1:
+            mes .@npc_name$;
+            next;
+            switch(select("头上:头中:头下")){
+                case 1:
+        			while(1) {
+                        if (costume_top_view > 0) {
+                            set .@original, costume_top_view;
+                        } else {
+                            set .@original, getlook(LOOK_HEAD_TOP);
+                        }
+                        mes .@npc_name$;
+                        if(getarraysize(costume_top_storage) == 0){
+                            mes "您目前没有收藏的时装.";
+                            close;
+                        }
+                        mes "^888888输入0为取消^000000";
+                        mes "您目前收藏的时装有";
+                        mes "-----------------------------------";
+                        freeloop(1);
+                        for(.@i=0; .@i<getarraysize(costume_top_storage); .@i++)
+                        {
+                            if(.@i>=100 && .@i%100 == 0)
+                            {
+                                switch(select(getarraysize(costume_top_storage)>=100?"下一页":"",.@pages?"上一页":"","输入编号"))
+                                {
+                                    case 1:
+                                        .@pages ++;
+                                        clear;
+                                        break;
+                                    case 2:
+                                        .@pages --;
+                                        if(.@pages == 0)
+                                            .@i = 0;
+                                        else
+                                            .@i = (100*.@pages);
+                                        clear;
+                                        break;
+                                    case 3:
+                                        .@input = 1;
+                                        break;
+                                }
+                            }
+                            if(.@input) break;
+                            mes "No."+(.@i+1)+" : "+getitemname(costume_top_storage[.@i]);
+                        }
+                        freeloop(0);
+                        input .@num;
+                        if(.@num <= 0 || .@num > getarraysize(costume_top_storage)) close;
+                        .@j = .@num-1;
+                        .@nameid = costume_top_storage[.@j];
+                        .@index = inarray(costume_top_storage,.@nameid);
+                        if(.@index == -1 || costume_top_storage[.@j] == 0)
+                        {
+                            dispbottom "输入错误",0xff0000;
+                            end;
+                        }
+                        set .@view, getiteminfo(.@nameid,ITEMINFO_VIEW);
+                        changelook LOOK_HEAD_TOP, .@view;
+                        next;
+                        mes .@npc_name$;
+                        mes "确认选择这个外观吗?";
+                        next;
+                        switch(select("确认:还原")){
+                            case 1:
+                                set costume_top_view, .@view;
+                                mes .@npc_name$;
+                                mes "感谢使用本服务。";
+                                close;
+                            case 2:
+                                changelook LOOK_HEAD_TOP, .@original;
+                        }
+					}
+					break;
+                case 2:
+        			while(1) {
+                        if (costume_middle_view > 0) {
+                            set .@original, costume_middle_view;
+                        } else {
+                            set .@original, getlook(LOOK_HEAD_MID);
+                        }
+                        mes .@npc_name$;
+                        if(getarraysize(costume_middle_storage) == 0){
+                            mes "您目前没有收藏的时装.";
+                            close;
+                        }
+                        mes "^888888输入0为取消^000000";
+                        mes "您目前收藏的时装有";
+                        mes "-----------------------------------";
+                        freeloop(1);
+                        for(.@i=0; .@i<getarraysize(costume_middle_storage); .@i++)
+                        {
+                            if(.@i>=100 && .@i%100 == 0)
+                            {
+                                switch(select(getarraysize(costume_middle_storage)>=100?"下一页":"",.@pages?"上一页":"","输入编号"))
+                                {
+                                    case 1:
+                                        .@pages ++;
+                                        clear;
+                                        break;
+                                    case 2:
+                                        .@pages --;
+                                        if(.@pages == 0)
+                                            .@i = 0;
+                                        else
+                                            .@i = (100*.@pages);
+                                        clear;
+                                        break;
+                                    case 3:
+                                        .@input = 1;
+                                        break;
+                                }
+                            }
+                            if(.@input) break;
+                            mes "No."+(.@i+1)+" : "+getitemname(costume_middle_storage[.@i]);
+                        }
+                        freeloop(0);
+                        input .@num;
+                        if(.@num <= 0 || .@num > getarraysize(costume_middle_storage)) close;
+                        .@j = .@num-1;
+                        .@nameid = costume_middle_storage[.@j];
+                        .@index = inarray(costume_middle_storage,.@nameid);
+                        if(.@index == -1 || costume_middle_storage[.@j] == 0)
+                        {
+                            dispbottom "输入错误",0xff0000;
+                            end;
+                        }
+                        set .@view, getiteminfo(.@nameid,ITEMINFO_VIEW);
+                        changelook LOOK_HEAD_MID, .@view;
+                        next;
+                        mes .@npc_name$;
+                        mes "确认选择这个外观吗?";
+                        next;
+                        switch(select("确认:还原")){
+                            case 1:
+                                set costume_middle_view, .@view;
+                                mes .@npc_name$;
+                                mes "感谢使用本服务。";
+                                close;
+                            case 2:
+                                changelook LOOK_HEAD_MID, .@original;
+                        }
+					}
+					break;
+                case 3:
+        			while(1) {
+                        if (costume_bottom_view > 0) {
+                            set .@original, costume_bottom_view;
+                        } else {
+                            set .@original, getlook(LOOK_HEAD_BOTTOM);
+                        }
+                        mes .@npc_name$;
+                        if(getarraysize(costume_bottom_storage) == 0){
+                            mes "您目前没有收藏的时装.";
+                            close;
+                        }
+                        mes "^888888输入0为取消^000000";
+                        mes "您目前收藏的时装有";
+                        mes "-----------------------------------";
+                        freeloop(1);
+                        for(.@i=0; .@i<getarraysize(costume_bottom_storage); .@i++)
+                        {
+                            if(.@i>=100 && .@i%100 == 0)
+                            {
+                                switch(select(getarraysize(costume_bottom_storage)>=100?"下一页":"",.@pages?"上一页":"","输入编号"))
+                                {
+                                    case 1:
+                                        .@pages ++;
+                                        clear;
+                                        break;
+                                    case 2:
+                                        .@pages --;
+                                        if(.@pages == 0)
+                                            .@i = 0;
+                                        else
+                                            .@i = (100*.@pages);
+                                        clear;
+                                        break;
+                                    case 3:
+                                        .@input = 1;
+                                        break;
+                                }
+                            }
+                            if(.@input) break;
+                            mes "No."+(.@i+1)+" : "+getitemname(costume_bottom_storage[.@i]);
+                        }
+                        freeloop(0);
+                        input .@num;
+                        if(.@num <= 0 || .@num > getarraysize(costume_bottom_storage)) close;
+                        .@j = .@num-1;
+                        .@nameid = costume_bottom_storage[.@j];
+                        .@index = inarray(costume_bottom_storage,.@nameid);
+                        if(.@index == -1 || costume_bottom_storage[.@j] == 0)
+                        {
+                            dispbottom "输入错误",0xff0000;
+                            end;
+                        }
+                        set .@view, getiteminfo(.@nameid,ITEMINFO_VIEW);
+                        changelook LOOK_HEAD_BOTTOM, .@view;
+                        next;
+                        mes .@npc_name$;
+                        mes "确认选择这个外观吗?";
+                        next;
+                        switch(select("确认:还原")){
+                            case 1:
+                                set costume_bottom_view, .@view;
+                                mes .@npc_name$;
+                                mes "感谢使用本服务。";
+                                close;
+                            case 2:
+                                changelook LOOK_HEAD_BOTTOM, .@original;
+                        }
+					}
+					break;
+            }
+            break;
+
+        case 2:
+        	callshop "costume_box_shop",2;
+        	npcshopattach "costume_box_shop";
+        	end;
+
+        case 3:
+            mes .@npc_name$;
+            next;
+            switch(select("头上:头中:头下")){
+                mes .@npc_name$;
+        	    mes "尚未收藏的头饰有";
+        		mes "-----------------------------------";
+                case 1:
+                    freeloop(1);
+                    for(.@i=0;.@i<getarraysize($@costume_top_index);.@i++){
+                        if(.@i>=100 && .@i%100 == 0) {
+                            switch(select(getarraysize($@costume_top_index)>=100?"下一页":"",.@pages?"上一页":"")) {
+                                case 1:
+                                    .@pages ++;
+                                    next;
+                                    break;
+                                case 2:
+                                    .@pages --;
+                                    if(.@pages == 0)
+                                        set .@i,0;
+                                    else
+                                    set .@i,100*.@pages;
+                                    next;
+                                    break;
+                            }
+                        }
+                        .@index = inarray(costume_top_storage[0],$@costume_top_index[.@i]);
+                        if (.@index == -1){
+                            mes "未收藏 : "+getitemname($@costume_top_index[.@i])+"";
+                        }
+                    }
+                    freeloop(0);
+                    break;
+                case 2:
+                    freeloop(1);
+                    for(.@i=0;.@i<getarraysize($@costume_middle_index);.@i++){
+                        if(.@i>=100 && .@i%100 == 0) {
+                            switch(select(getarraysize($@costume_middle_index)>=100?"下一页":"",.@pages?"上一页":"")) {
+                                case 1:
+                                    .@pages ++;
+                                    next;
+                                    break;
+                                case 2:
+                                    .@pages --;
+                                    if(.@pages == 0)
+                                        set .@i,0;
+                                    else
+                                    set .@i,100*.@pages;
+                                    next;
+                                    break;
+                            }
+                        }
+                        .@index = inarray(costume_middle_storage[0],$@costume_middle_index[.@i]);
+                        if (.@index == -1){
+                            mes "未收藏 : "+getitemname($@costume_middle_index[.@i])+"";
+                        }
+                    }
+                    freeloop(0);
+                    break;
+                case 3:
+                    freeloop(1);
+                    for(.@i=0;.@i<getarraysize($@costume_bottom_index);.@i++){
+                        if(.@i>=100 && .@i%100 == 0) {
+                            switch(select(getarraysize($@costume_bottom_index)>=100?"下一页":"",.@pages?"上一页":"")) {
+                                case 1:
+                                    .@pages ++;
+                                    next;
+                                    break;
+                                case 2:
+                                    .@pages --;
+                                    if(.@pages == 0)
+                                        set .@i,0;
+                                    else
+                                    set .@i,100*.@pages;
+                                    next;
+                                    break;
+                            }
+                        }
+                        .@index = inarray(costume_bottom_storage[0],$@costume_bottom_index[.@i]);
+                        if (.@index == -1){
+                            mes "未收藏 : "+getitemname($@costume_bottom_index[.@i])+"";
+                        }
+                    }
+                    freeloop(0);
+                    break;
+            }
+    }
+
+OnSellItem:
+    for(.@i = 0; .@i<getarraysize(@sold_nameid); .@i++){
+        if (inarray($@costume_top_index,@sold_nameid[.@i]) > -1) {
+            if(inarray(costume_top_storage,@sold_nameid[.@i]) > -1) {
+			    dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 已在仓库中无法重复存入.", 0xff0000;
+			    continue;
+            }
+            delitem @sold_nameid[.@i],1;
+            costume_top_storage[getarraysize(costume_top_storage)] = @sold_nameid[.@i];
+            dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 已存入.",0xff9900;
+        } else if (inarray($@costume_middle_index,@sold_nameid[.@i]) > -1) {
+            if(inarray(costume_middle_storage,@sold_nameid[.@i]) > -1) {
+			    dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 已在仓库中无法重复存入.", 0xff0000;
+			    continue;
+            }
+            delitem @sold_nameid[.@i],1;
+            costume_middle_storage[getarraysize(costume_middle_storage)] = @sold_nameid[.@i];
+            dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 已存入.",0xff9900;
+        } else if (inarray($@costume_bottom_index,@sold_nameid[.@i]) > -1) {
+            if(inarray(costume_bottom_storage,@sold_nameid[.@i]) > -1) {
+			    dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 已在仓库中无法重复存入.", 0xff0000;
+			    continue;
+            }
+            delitem @sold_nameid[.@i],1;
+            costume_bottom_storage[getarraysize(costume_bottom_storage)] = @sold_nameid[.@i];
+            dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 已存入.",0xff9900;
+        } else {
+            dispbottom "[时装收集箱] "+getitemname(@sold_nameid[.@i])+" 无法收集.", 0xff0000;
+        }
+    }
+	deletearray @sold_quantity, getarraysize(@sold_quantity);
+	deletearray @sold_nameid, getarraysize(@sold_nameid);
+	specialeffect2 417;
+	recalculatestat;
+	end;
+
+OnInit:
+    freeloop(1);
+    set .@top_start, 100000;
+    set .@top_end, 100002;
+    set .@middle_start, 102000;
+    set .@middle_end, 102002;
+    set .@bottom_start, 104000;
+    set .@bottom_end, 104002;
+
+    for(.@i = 0; .@i <= .@top_end - .@top_start; .@i++) {
+        setarray $@costume_top_index[.@i], .@top_start + .@i;
+    }
+    for(.@i = 0; .@i <= (.@middle_end - .@middle_start); .@i++) {
+        setarray $@costume_middle_index[.@i], .@middle_start + .@i;
+    }
+    for(.@i = 0; .@i <= (.@bottom_end - .@bottom_start); .@i++) {
+        setarray $@costume_bottom_index[.@i], .@bottom_start + .@i;
+    }
+    freeloop(0);
+    end;
+}

@@ -33,10 +33,13 @@ int inter_pet_tosql(int pet_id, struct s_pet* p)
 	if( pet_id == -1 )
 	{// New pet.
 		if( SQL_ERROR == Sql_Query(sql_handle, "INSERT INTO `%s` "
-			"(`class`,`name`,`account_id`,`char_id`,`level`,`egg_id`,`equip`,`intimate`,`hungry`,`rename_flag`,`incubate`,`autofeed`) "
-			"VALUES ('%d', '%s', '%d', '%d', '%d', '%u', '%u', '%d', '%d', '%d', '%d', '%d')",
+			"(`class`,`name`,`account_id`,`char_id`,`level`,`egg_id`,`equip`,`intimate`,`hungry`,`rename_flag`,`incubate`,`autofeed`,`str`,`agi`,`vit`,`int`,`dex`,`luk`,`option_id0`,`option_val0`,`option_parm0`,`option_id1`,`option_val1`,`option_parm1`,`option_id2`,`option_val2`,`option_parm2`,`option_id3`,`option_val3`,`option_parm3`,`option_id4`,`option_val4`,`option_parm4`) "
+			"VALUES ('%d', '%s', '%d', '%d', '%d', '%u', '%u', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d', '%d')",
 			schema_config.pet_db, p->class_, esc_name, p->account_id, p->char_id, p->level, p->egg_id,
-			p->equip, p->intimate, p->hungry, p->rename_flag, p->incubate, p->autofeed) )
+			p->equip, p->intimate, p->hungry, p->rename_flag, p->incubate, p->autofeed, p->extend.str, p->extend.agi, p->extend.vit, p->extend.int_, p->extend.dex,
+            p->extend.luk, p->extend.option[0].id, p->extend.option[0].value, p->extend.option[0].param, p->extend.option[1].id, p->extend.option[1].value, p->extend.option[1].param,
+            p->extend.option[2].id, p->extend.option[2].value, p->extend.option[2].param, p->extend.option[3].id, p->extend.option[3].value, p->extend.option[3].param,
+            p->extend.option[4].id, p->extend.option[4].value, p->extend.option[4].param) )
 		{
 			Sql_ShowDebug(sql_handle);
 			return 0;
@@ -70,8 +73,19 @@ int inter_pet_fromsql(int pet_id, struct s_pet* p)
 	memset(p, 0, sizeof(struct s_pet));
 
 	//`pet` (`pet_id`, `class`,`name`,`account_id`,`char_id`,`level`,`egg_id`,`equip`,`intimate`,`hungry`,`rename_flag`,`incubate`,`autofeed`)
+    //增强：宠物
+    StringBuf buf;
+    int i,j = 0;
+    StringBuf_Init(&buf);
+    StringBuf_AppendStr(&buf, "SELECT `pet_id`, `class`,`name`,`account_id`,`char_id`,`level`,`egg_id`,`equip`,`intimate`,`hungry`,`rename_flag`,`incubate`,`autofeed`,`str`,`agi`,`vit`,`int`,`dex`,`luk`");
+    for( j = 0; j < MAX_ITEM_RDM_OPT; ++j ) {
+        StringBuf_Printf(&buf, ", `option_id%d`", j);
+        StringBuf_Printf(&buf, ", `option_val%d`", j);
+        StringBuf_Printf(&buf, ", `option_parm%d`", j);
+    }
+    StringBuf_Printf(&buf, " FROM `%s` WHERE `pet_id`='%d'", schema_config.pet_db, pet_id );
 
-	if( SQL_ERROR == Sql_Query(sql_handle, "SELECT `pet_id`, `class`,`name`,`account_id`,`char_id`,`level`,`egg_id`,`equip`,`intimate`,`hungry`,`rename_flag`,`incubate`,`autofeed` FROM `%s` WHERE `pet_id`='%d'", schema_config.pet_db, pet_id) )
+	if( SQL_ERROR == Sql_Query(sql_handle, StringBuf_Value(&buf)) )
 	{
 		Sql_ShowDebug(sql_handle);
 		return 0;
@@ -92,8 +106,21 @@ int inter_pet_fromsql(int pet_id, struct s_pet* p)
 		Sql_GetData(sql_handle, 10, &data, NULL); p->rename_flag = atoi(data);
 		Sql_GetData(sql_handle, 11, &data, NULL); p->incubate = atoi(data);
 		Sql_GetData(sql_handle, 12, &data, NULL); p->autofeed = atoi(data) != 0;
+		Sql_GetData(sql_handle, 13, &data, NULL); p->extend.str = atoi(data);
+		Sql_GetData(sql_handle, 14, &data, NULL); p->extend.agi = atoi(data);
+		Sql_GetData(sql_handle, 15, &data, NULL); p->extend.vit = atoi(data);
+		Sql_GetData(sql_handle, 16, &data, NULL); p->extend.int_ = atoi(data);
+		Sql_GetData(sql_handle, 17, &data, NULL); p->extend.dex = atoi(data);
+		Sql_GetData(sql_handle, 18, &data, NULL); p->extend.luk = atoi(data);
+
+        for( i = 0; i < MAX_ITEM_RDM_OPT; ++i ) {
+            Sql_GetData(sql_handle, 19 + i * 3, &data, NULL); p->extend.option[i].id = atoi(data);
+            Sql_GetData(sql_handle, 20 + i * 3, &data, NULL); p->extend.option[i].value = atoi(data);
+            Sql_GetData(sql_handle, 21 + i * 3, &data, NULL); p->extend.option[i].param = atoi(data);
+        }
 
 		Sql_FreeResult(sql_handle);
+        StringBuf_Destroy(&buf);
 
 		p->hungry = cap_value(p->hungry, 0, 100);
 		p->intimate = cap_value(p->intimate, 0, 1000);
@@ -184,7 +211,9 @@ int mapif_delete_pet_ack(int fd, int flag){
 	return 0;
 }
 
-int mapif_create_pet(int fd, uint32 account_id, uint32 char_id, short pet_class, short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip, short intimate, short hungry, char rename_flag, char incubate, char *pet_name)
+int mapif_create_pet(int fd, uint32 account_id, uint32 char_id, short pet_class, short pet_lv, t_itemid pet_egg_id, t_itemid pet_equip, short intimate, short hungry, char rename_flag, char incubate,
+                     int str,int agi,int vit,int int_,int dex,int luk,short option_id0,short option_val0,char option_parm0,short option_id1,short option_val1,char option_parm1,
+                     short option_id2,short option_val2,char option_parm2,short option_id3,short option_val3,char option_parm3,short option_id4,short option_val4,char option_parm4,char *pet_name)
 {
 	memset(pet_pt, 0, sizeof(struct s_pet));
 	safestrncpy(pet_pt->name, pet_name, NAME_LENGTH);
@@ -203,6 +232,28 @@ int mapif_create_pet(int fd, uint32 account_id, uint32 char_id, short pet_class,
 	pet_pt->rename_flag = rename_flag;
 	pet_pt->incubate = incubate;
 	pet_pt->autofeed = 0;
+    //增强：宠物
+    pet_pt->extend.str = str;
+    pet_pt->extend.agi = agi;
+    pet_pt->extend.vit = vit;
+    pet_pt->extend.int_ = int_;
+    pet_pt->extend.dex = dex;
+    pet_pt->extend.luk = luk;
+    pet_pt->extend.option[0].id = option_id0;
+    pet_pt->extend.option[0].value = option_val0;
+    pet_pt->extend.option[0].param = option_parm0;
+    pet_pt->extend.option[1].id = option_id1;
+    pet_pt->extend.option[1].value = option_val1;
+    pet_pt->extend.option[1].param = option_parm1;
+    pet_pt->extend.option[2].id = option_id2;
+    pet_pt->extend.option[2].value = option_val2;
+    pet_pt->extend.option[2].param = option_parm2;
+    pet_pt->extend.option[3].id = option_id3;
+    pet_pt->extend.option[3].value = option_val3;
+    pet_pt->extend.option[3].param = option_parm3;
+    pet_pt->extend.option[4].id = option_id4;
+    pet_pt->extend.option[4].value = option_val4;
+    pet_pt->extend.option[4].param = option_parm4;
 
 	if(pet_pt->hungry < 0)
 		pet_pt->hungry = 0;
@@ -278,10 +329,13 @@ int mapif_delete_pet(int fd, int pet_id){
 	return 0;
 }
 
+//增强：宠物
 int mapif_parse_CreatePet(int fd){
 	RFIFOHEAD(fd);
 	mapif_create_pet(fd, RFIFOL(fd, 2), RFIFOL(fd, 6), RFIFOW(fd, 10), RFIFOW(fd, 12), RFIFOL(fd, 14), RFIFOL(fd, 18), RFIFOW(fd, 22),
-		RFIFOW(fd, 24), RFIFOB(fd, 26), RFIFOB(fd, 27), RFIFOCP(fd, 28));
+		RFIFOW(fd, 24), RFIFOB(fd, 26), RFIFOB(fd, 27), RFIFOB(fd, 28), RFIFOB(fd, 32), RFIFOB(fd, 36), RFIFOB(fd, 40), RFIFOB(fd, 44), RFIFOB(fd, 48),
+        RFIFOB(fd, 52), RFIFOB(fd, 54), RFIFOB(fd, 56), RFIFOB(fd, 57), RFIFOB(fd, 59), RFIFOB(fd, 61), RFIFOB(fd, 62), RFIFOB(fd, 64), RFIFOB(fd, 66),
+        RFIFOB(fd, 67), RFIFOB(fd, 69), RFIFOB(fd, 71), RFIFOB(fd, 72), RFIFOB(fd, 74), RFIFOB(fd, 76), RFIFOCP(fd, 77));
 	return 0;
 }
 

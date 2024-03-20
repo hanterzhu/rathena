@@ -489,6 +489,12 @@ struct s_pet {
 	char rename_flag;
 	char incubate;
 	bool autofeed;
+
+    //ÔöÇ¿£º³èÎï
+    struct s_extend {
+        int str, agi, vit, int_, dex, luk;
+        struct s_item_randomoption option[MAX_ITEM_RDM_OPT];
+    } extend;
 };
 
 struct s_homunculus {	//[orn]

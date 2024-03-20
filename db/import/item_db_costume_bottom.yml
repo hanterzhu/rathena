@@ -87,9 +87,3 @@
 Header:
   Type: ITEM_DB
   Version: 3
-
-Footer:
-  Imports:
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml

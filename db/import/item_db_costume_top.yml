@@ -88,8 +88,31 @@ Header:
   Type: ITEM_DB
   Version: 3
 
-Footer:
-  Imports:
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml
+Body:
+  - Id: 100000
+    AegisName: C_Valkyrie_Circlet
+    Name: 瓦尔基里羽翼发箍
+    Type: Armor
+    Weight: 100
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 940
+  - Id: 100001
+    AegisName: C_Angel_Veil
+    Name: 天使面纱
+    Type: Armor
+    Weight: 100
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 1379
+  - Id: 100002
+    AegisName: C_Classical_Fhat
+    Name: 精美羽毛帽
+    Type: Armor
+    Weight: 100
+    Locations:
+      Costume_Head_Top: true
+    ArmorLevel: 1
+    View: 1381

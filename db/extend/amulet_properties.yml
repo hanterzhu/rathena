@@ -4,14 +4,14 @@ Header:
 
 #MaxStack,PriorityÄ¬ÈÏÎª1
 
-Body:
-  - Group: 1
-    MaxStack: 10
-    Items:
-      - ItemID: 100001
-        MaxStack: 6
-        Priority: 1
-      - ItemID: 100003
-        MaxStack: 6
-        Priority: 2
+#Body:
+#  - Group: 1
+#    MaxStack: 10
+#    Items:
+#      - ItemID: 100001
+#        MaxStack: 6
+#        Priority: 1
+#      - ItemID: 100003
+#        MaxStack: 6
+#        Priority: 2
 
