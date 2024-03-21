@@ -1125,6 +1125,35 @@ int pet_birth_process(map_session_data *sd, struct s_pet *pet)
 	return 0;
 }
 
+//ÔöÇ¿£º³èÎï
+int pet_show_petinfo(uint32 char_id,struct s_pet *p,int flag) {
+    map_session_data *sd;
+
+    sd = map_charid2sd(char_id);
+
+    if(sd == NULL)
+        return 1;
+
+    script_cleararray_pc( sd, "@pet_extra_info" );
+
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 0), p->extend.growth);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 1), p->extend.str);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 2), p->extend.agi);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 3), p->extend.vit);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 4), p->extend.int_);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 5), p->extend.dex);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 6), p->extend.luk);
+
+    for (int i = 0; i < MAX_ITEM_RDM_OPT; i++) {
+        pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 7 + i * 3),p->extend.option[i].id);
+        pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 8 + i * 3),p->extend.option[i].value);
+        pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 9 + i * 3),p->extend.option[i].param);
+    }
+
+    return 1;
+
+}
+
 /**
  * Finalize hatching process and load pet to client.
  * @param account_id : account ID of owner

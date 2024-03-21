@@ -43,7 +43,7 @@ static const int packet_len_table[] = {
 	-1,-1, 7, 7,  7,11, 8,-1,  0, 0, 0, 0,  0, 0,  0, 0, //0x3850  Auctions [Zephyrus] itembound[Akinari]
 	-1, 7,-1, 7, 14, 0, 0, 0,  0, 0, 0, 0,  0, 0,  0, 0, //0x3860  Quests [Kevin] [Inkfish] / Achievements [Aleos]
 	-1, 3, 3, 0,  0, 0, 0, 0,  0, 0, 0, 0, -1, 3,  3, 0, //0x3870  Mercenaries [Zephyrus] / Elemental [pakpil]
-	12,-1, 7, 3,  0, 0, 0, 0,  0, 0,-1, 9, -1, 0,  0, 0, //0x3880  Pet System,  Storages
+	12,-1, 7, 3,  -1, 0, 0, 0,  0, 0,-1, 9, -1, 0,  0, 0, //0x3880  Pet System,  Storages
 	-1,-1, 7, 3,  0, 0, 0, 0,  0, 0, 0, 0,  0, 0,  0, 0, //0x3890  Homunculus [albator]
 	-1,-1, 8, 0,  0, 0, 0, 0,  0, 0, 0, 0,  0, 0,  0, 0, //0x38A0  Clans
 };
@@ -1930,6 +1930,22 @@ int intif_parse_RecvPetData(int fd)
 	}
 
 	return 1;
+}
+
+//增强：宠物
+int intif_parse_ShowInfo(int fd) {
+    struct s_pet p;
+    int len;
+    len=RFIFOW(fd,2);
+    if(sizeof(struct s_pet)!=len-9) {
+        if(battle_config.etc_log)
+            ShowError("intif: pet data: data size error %" PRIuPTR " %d\n",sizeof(struct s_pet),len-9);
+    }
+    else{
+        memcpy(&p,RFIFOP(fd,9),sizeof(struct s_pet));
+        pet_show_petinfo(RFIFOL(fd,4),&p,RFIFOB(fd,8));
+    }
+    return 1;
 }
 
 /**
@@ -3916,6 +3932,8 @@ int intif_parse(int fd)
 	case 0x3881:	intif_parse_RecvPetData(fd); break;
 	case 0x3882:	intif_parse_SavePetOk(fd); break;
 	case 0x3883:	intif_parse_DeletePetOk(fd); break;
+    //增强：宠物
+	case 0x3884:	intif_parse_ShowInfo(fd); break;
 
 	// Storage
 	case 0x388a:	intif_parse_StorageReceived(fd); break;

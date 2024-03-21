@@ -583,3 +583,48 @@ BUILDIN_FUNC(getpetoptinfo) {
     }
     return SCRIPT_CMD_SUCCESS;
 }
+
+BUILDIN_FUNC(getpetextrainfobyid) {
+    TBL_PC *sd;
+
+    int pet_id = script_getnum(st,2);
+
+    if (!pet_id || !script_charid2sd(3, sd)) {
+        return SCRIPT_CMD_SUCCESS;
+    }
+
+    intif_request_petdata(-1, sd->status.char_id, pet_id);
+
+    return SCRIPT_CMD_SUCCESS;
+
+}
+
+BUILDIN_FUNC(getpetextrainfo) {
+    TBL_PC *sd;
+    TBL_PET *pd;
+
+    if (!script_charid2sd(2, sd) || !(pd = sd->pd)) {
+        script_pushint(st,0);
+        return SCRIPT_CMD_SUCCESS;
+    }
+
+    script_cleararray_pc( sd, "@pet_extra_info" );
+
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 0), pd->pet.extend.growth);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 1), pd->pet.extend.str);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 2), pd->pet.extend.agi);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 3), pd->pet.extend.vit);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 4), pd->pet.extend.int_);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 5), pd->pet.extend.dex);
+    pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 6), pd->pet.extend.luk);
+
+    for (int i = 0; i < MAX_ITEM_RDM_OPT; i++) {
+        pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 7 + i * 3),pd->pet.extend.option[i].id);
+        pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 8 + i * 3),pd->pet.extend.option[i].value);
+        pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 9 + i * 3),pd->pet.extend.option[i].param);
+    }
+
+    script_pushint(st,1);
+    return SCRIPT_CMD_SUCCESS;
+
+}

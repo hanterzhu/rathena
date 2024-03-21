@@ -170,6 +170,20 @@ int mapif_pet_created(int fd, uint32 account_id, struct s_pet *p)
 	return 0;
 }
 
+//增强：宠物
+int mapif_pet_extra_info(int fd, uint32 char_id, struct s_pet *p){
+    WFIFOHEAD(fd, sizeof(struct s_pet) + 9);
+    WFIFOW(fd, 0) =0x3884;
+    WFIFOW(fd, 2) =sizeof(struct s_pet) + 9;
+    WFIFOL(fd, 4) =char_id;
+    WFIFOB(fd, 8)=0;
+    memcpy(WFIFOP(fd, 9), p, sizeof(struct s_pet));
+    WFIFOSET(fd, WFIFOW(fd, 2));
+
+    return 0;
+
+}
+
 int mapif_pet_info(int fd, uint32 account_id, struct s_pet *p){
 	WFIFOHEAD(fd, sizeof(struct s_pet) + 9);
 	WFIFOW(fd, 0) =0x3881;
@@ -286,7 +300,13 @@ int mapif_load_pet(int fd, uint32 account_id, uint32 char_id, int pet_id){
 	inter_pet_fromsql(pet_id, pet_pt);
 
 	if(pet_pt!=NULL) {
-		if(pet_pt->incubate == 1) {
+		//增强：宠物
+        if (account_id == -1) {
+            mapif_pet_extra_info(fd, char_id, pet_pt);
+            return 0;
+        }
+
+        if(pet_pt->incubate == 1) {
 			pet_pt->account_id = pet_pt->char_id = 0;
 			mapif_pet_info(fd, account_id, pet_pt);
 		}

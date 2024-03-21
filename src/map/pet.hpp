@@ -235,6 +235,8 @@ bool pet_data_init(map_session_data *sd, struct s_pet *pet);
 bool pet_return_egg( map_session_data *sd, struct pet_data *pd );
 int pet_birth_process(map_session_data *sd, struct s_pet *pet);
 int pet_recv_petdata(uint32 account_id,struct s_pet *p,int flag);
+//ÔöÇ¿£º³èÎï
+int pet_show_petinfo(uint32 char_id,struct s_pet *p,int flag);
 int pet_select_egg(map_session_data *sd,short egg_index);
 int pet_catch_process1(map_session_data *sd,int target_class);
 int pet_catch_process2(map_session_data *sd,int target_id);
