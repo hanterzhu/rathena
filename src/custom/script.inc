@@ -609,6 +609,14 @@ BUILDIN_FUNC(getpetextrainfo) {
     }
 
     script_cleararray_pc( sd, "@pet_extra_info" );
+    script_cleararray_pc( sd, "@pet_base_info" );
+
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 0), pd->pet.equip);
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 1), pd->pet.intimate);
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 2), pd->pet.hungry);
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 3), pd->pet.rename_flag);
+
+    pc_setregstr(sd, add_str("@pet_name_info$"), pd->pet.name);
 
     pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 0), pd->pet.extend.growth);
     pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 1), pd->pet.extend.str);

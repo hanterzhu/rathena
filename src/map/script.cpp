@@ -11199,11 +11199,45 @@ BUILDIN_FUNC(makepet)
 		return SCRIPT_CMD_FAILURE;
 	}
 
+    //ÔöÇ¿£º³èÎï
+    t_itemid pet_equip = script_getnum(st,3);
+    short intimate = script_getnum(st,4);
+    short hungry = script_getnum(st,5);
+    char rename_flag = script_getnum(st,6);
+    const char *pet_name = script_getstr(st,7);
+    int str = script_getnum(st,8);
+    int agi = script_getnum(st,9);
+    int vit = script_getnum(st,10);
+    int int_ = script_getnum(st,11);
+    int dex = script_getnum(st,12);
+    int luk = script_getnum(st,13);
+    short option_id0 = script_getnum(st,14);
+    short option_val0 = script_getnum(st,15);
+    char option_parm0 = script_getnum(st,16);
+    short option_id1 = script_getnum(st,17);
+    short option_val1 = script_getnum(st,18);
+    char option_parm1 = script_getnum(st,19);
+    short option_id2 = script_getnum(st,20);
+    short option_val2 = script_getnum(st,21);
+    char option_parm2 = script_getnum(st,22);
+    short option_id3 = script_getnum(st,23);
+    short option_val3 = script_getnum(st,24);
+    char option_parm3 = script_getnum(st,25);
+    short option_id4 = script_getnum(st,26);
+    short option_val4 = script_getnum(st,27);
+    char option_parm4 = script_getnum(st,28);
+    int growth = script_getnum(st,29);
+
 	sd->catch_target_class = mob_id;
 
 	std::shared_ptr<s_mob_db> mdb = mob_db.find(pet->class_);
 
-	intif_create_pet( sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    if (option_id0) {
+        intif_create_pet( sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, pet_equip, intimate, hungry, rename_flag, 1, pet_name,str,agi,vit,int_,dex,luk,
+                          option_id0,option_val0,option_parm0,option_id1,option_val1,option_parm1,option_id2,option_val2,option_parm2,option_id3,option_val3,option_parm3,option_id4,option_val4,option_parm4,growth);
+    } else {
+        intif_create_pet( sd->status.account_id, sd->status.char_id, pet->class_, mdb->lv, pet->EggID, 0, pet->intimate, 100, 0, 1, mdb->jname.c_str(),0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    }
 
 	return SCRIPT_CMD_SUCCESS;
 }
@@ -27744,7 +27778,7 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF(warppartner,"sii"),
 	BUILDIN_DEF(getitemname,"v"),
 	BUILDIN_DEF(getitemslots,"i"),
-	BUILDIN_DEF(makepet,"i"),
+	BUILDIN_DEF(makepet,"i???????????????????????????"),
 	BUILDIN_DEF(getexp,"ii?"),
 	BUILDIN_DEF(getinventorylist,"?"),
 	BUILDIN_DEF(getskilllist,"?"),

@@ -1135,6 +1135,14 @@ int pet_show_petinfo(uint32 char_id,struct s_pet *p,int flag) {
         return 1;
 
     script_cleararray_pc( sd, "@pet_extra_info" );
+    script_cleararray_pc( sd, "@pet_base_info" );
+
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 0), p->equip);
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 1), p->intimate);
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 2), p->hungry);
+    pc_setreg(sd, reference_uid(add_str("@pet_base_info"), 3), p->rename_flag);
+
+    pc_setregstr(sd, add_str("@pet_name_info$"), p->name);
 
     pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 0), p->extend.growth);
     pc_setreg(sd, reference_uid(add_str("@pet_extra_info"), 1), p->extend.str);
