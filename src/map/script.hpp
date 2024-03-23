@@ -175,6 +175,7 @@ struct Script_Config {
     const char* title_event_name;
     const char* catch_event_name;
     const char* trade_event_name;
+    const char* selllist_event_name;
 
     //ÔöÇ¿£ºfilter
     const char* click_npc_filter_name;

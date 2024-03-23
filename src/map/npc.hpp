@@ -1538,6 +1538,7 @@ enum npce_event : uint8 {
     NPCE_TITLE,
     NPCE_CATCH,
     NPCE_TRADE,
+    NPCE_SELLLIST,
     //ÔöÇ¿£ºfilter
     NPCF_CLICK_NPC,
 	NPCE_MAX

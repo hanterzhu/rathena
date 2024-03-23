@@ -2319,6 +2319,10 @@ void clif_selllist(map_session_data *sd)
 	if (!sd->npc_shopid || (nd = map_id2nd(sd->npc_shopid)) == NULL)
 		return;
 
+    pc_setregstr(sd, add_str("@npc_name$"), nd->name);
+    pc_setregstr(sd, add_str("@npc_unique_name$"), nd->exname);
+    npc_script_event(sd, NPCE_SELLLIST);
+
 	fd=sd->fd;
 	WFIFOHEAD(fd, MAX_INVENTORY * 10 + 4);
 	WFIFOW(fd,0)=0xc7;
@@ -2326,7 +2330,22 @@ void clif_selllist(map_session_data *sd)
 	{
 		if( sd->inventory.u.items_inventory[i].nameid > 0 && sd->inventory_data[i] )
 		{
-			if( !pc_can_sell_item(sd, &sd->inventory.u.items_inventory[i], nd->subtype))
+            int size = pc_readreg(sd, add_str("@size"));
+
+            if (size) {
+                std::vector<int> sell_list = {};
+
+                for(int i = 0; i < size; i++) {
+                    sell_list.push_back(pc_readreg(sd, reference_uid(add_str("@sell_list"), i)));
+                }
+
+                auto it = std::find(sell_list.begin(), sell_list.end(),sd->inventory.u.items_inventory[i].nameid);
+
+                if (it == sell_list.end())
+                    continue;
+            }
+
+            if( !pc_can_sell_item(sd, &sd->inventory.u.items_inventory[i], nd->subtype))
 				continue;
 
 			if (battle_config.rental_item_novalue && sd->inventory.u.items_inventory[i].expire_time)
