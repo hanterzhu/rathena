@@ -4903,6 +4903,19 @@ uint64 MobDatabase::parseBodyNode(const ryml::NodeRef& node) {
 			return 0;
 	}
 
+    if (this->nodeExists(node, "Money")) {
+        uint32 money;
+
+        if (!this->asUInt32(node, "Money", money))
+            return 0;
+
+        mob->status.extend.money = money;
+    }
+    else {
+        if (!exists)
+            mob->status.extend.money = 0;
+    }
+
 	if (!exists)
 		this->put(mob_id, mob);
 

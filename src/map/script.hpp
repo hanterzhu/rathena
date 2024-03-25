@@ -509,6 +509,7 @@ enum unitdata_mobtypes {
 	UMOB_RES,
 	UMOB_MRES,
 	UMOB_DAMAGETAKEN,
+	UMOB_MONEY,
 };
 
 enum unitdata_homuntypes {

@@ -4856,6 +4856,7 @@
 	export_constant(UMOB_RES);
 	export_constant(UMOB_MRES);
 	export_constant(UMOB_DAMAGETAKEN);
+	export_constant(UMOB_MONEY);
 
 	/* unit control - homunculus */
 	export_constant(UHOM_SIZE);
@@ -11025,6 +11026,7 @@
 	export_constant(SCB_MRES);
 	export_constant(SCB_HPLUS);
 	export_constant(SCB_CRATE);
+	export_constant(SCB_MONEY);
 
 	/* status change states */
 	export_constant(SCS_NONE);

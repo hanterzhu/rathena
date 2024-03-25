@@ -6215,6 +6215,13 @@ void status_calc_bl_main(struct block_list *bl, std::bitset<SCB_MAX> flag)
 	}
 #endif
 
+    //ÔöÇ¿£º
+    if (bl->type == BL_MOB) {
+        if (flag[SCB_MONEY]) {
+            status->extend.money = b_status->extend.money;
+        }
+    }
+
 	if((flag[SCB_VIT] || flag[SCB_MAXHP] || flag[SCB_INT] || flag[SCB_MAXSP]) && bl->type &BL_REGEN)
 		status_calc_regen(bl, status, status_get_regen_data(bl));
 

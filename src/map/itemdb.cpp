@@ -218,18 +218,17 @@ uint64 ItemDatabase::parseBodyNode(const ryml::NodeRef& node) {
 		}
 	}
 
-	if (this->nodeExists(node, "Sell")) {
+    has_sell = true;
+	if (this->nodeExists(node, "RealSell")) {
 		uint32 sell;
 
-		if (!this->asUInt32(node, "Sell", sell))
+		if (!this->asUInt32(node, "RealSell", sell))
 			return 0;
 
 		if( sell > MAX_ZENY ){
 			this->invalidWarning( node["Sell"], "Sell price exceeds MAX_ZENY. Capping...\n" );
 			sell = MAX_ZENY;
 		}
-
-		has_sell = true;
 		item->value_sell = sell;
 	} else {
 		if (!exists) {
@@ -1167,7 +1166,7 @@ void ItemDatabase::loadingFinished(){
 
 		if (item->value_buy / 124. < item->value_sell / 75.) {
 			ShowWarning("Buying/Selling [%d/%d] price of %s (%u) allows Zeny making exploit through buying/selling at discounted/overcharged prices! Defaulting Sell to 1 Zeny.\n", item->value_buy, item->value_sell, item->name.c_str(), item->nameid);
-			item->value_sell = 1;
+			item->value_sell = 0;
 		}
 
 		// Shields need to have a view ID to be able to be recognized by ST_SHIELD check in skill.cpp
@@ -1183,7 +1182,7 @@ void ItemDatabase::loadingFinished(){
 
 		dummy_item->nameid = ITEMID_DUMMY;
 		dummy_item->weight = 1;
-		dummy_item->value_sell = 1;
+		dummy_item->value_sell = 0;
 		dummy_item->type = IT_ETC;
 		dummy_item->name = "UNKNOWN_ITEM";
 		dummy_item->ename = "Unknown Item";

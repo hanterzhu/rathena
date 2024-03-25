@@ -2942,6 +2942,7 @@ enum e_scb_flag : uint8 {
 	SCB_MRES,
 	SCB_HPLUS,
 	SCB_CRATE,
+	SCB_MONEY,
 
 	// Extra Flags
 	SCB_DYE, // force cloth-dye change to 0 to avoid client crashes.
@@ -3198,6 +3199,7 @@ struct status_data {
     //增强
     struct s_extend {
         int combat_power; //战力
+        int money; //掉落zeny
     } extend;
 };
 

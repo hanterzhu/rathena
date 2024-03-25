@@ -116,7 +116,7 @@ void do_log_damage(struct block_list* src, struct block_list* target, e_damage_l
         if (pair.first == target_id) {
             pair.second->damage += (int64)damage;
             flag = true;
-            ShowInfo("%d 增加伤害类型: %d, id: %d, master id: %d, damage: %d\n", src_id, type, target_id, pair.second->master_id, pair.second->damage);
+            //ShowInfo("%d 增加伤害类型: %d, id: %d, master id: %d, damage: %d\n", src_id, type, target_id, pair.second->master_id, pair.second->damage);
             break;
         }
     }
@@ -193,7 +193,7 @@ void do_log_damage(struct block_list* src, struct block_list* target, e_damage_l
         }
         item->master_id = master_id;
         item->damage = (int64)damage;
-        ShowInfo("%d 首次伤害类型: %d, id: %d, master id: %d, damage: %d\n", src_id, type, target_id, item->master_id, item->damage);
+        //ShowInfo("%d 首次伤害类型: %d, id: %d, master id: %d, damage: %d\n", src_id, type, target_id, item->master_id, item->damage);
         map->insert(std::make_pair(target_id, item));
     }
 }

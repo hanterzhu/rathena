@@ -37,22 +37,22 @@ BUILDIN_FUNC(get_mob_location) {
 	struct map_session_data* sd;
 	if (!script_rid2sd(sd)) {
 		script_pushint(st, 0);
-		return SCRIPT_CMD_FAILURE;
+		return SCRIPT_CMD_SUCCESS;
 	}
 	int mob_id = script_getnum(st,2);
 	if (!mobdb_checkid(mob_id)) {
 		script_pushint(st, 0);
-		return SCRIPT_CMD_FAILURE;
+		return SCRIPT_CMD_SUCCESS;
 	}
     std::shared_ptr<s_mob_db> mob = mob_db.find(mob_id);
     if(!mob) {
 		script_pushint(st, 0);
-		return SCRIPT_CMD_FAILURE;
+		return SCRIPT_CMD_SUCCESS;
     }
     const std::vector<spawn_info> spawns = mob_get_spawns(mob_id);
     if (spawns.size() <= 0) {
         script_pushint(st, 0);
-        return SCRIPT_CMD_FAILURE;
+        return SCRIPT_CMD_SUCCESS;
     } else {
         script_cleararray_pc( sd, "@mob_location$" );
         script_cleararray_pc( sd, "@mob_location_num" );
@@ -72,7 +72,7 @@ BUILDIN_FUNC(mob_name2id) {
 	struct map_session_data* sd;
 	if (!script_rid2sd(sd)) {
 		script_pushint(st, 0);
-		return SCRIPT_CMD_FAILURE;
+		return SCRIPT_CMD_SUCCESS;
 	}
 	const char *str;
 	str = script_getstr(st,2);
