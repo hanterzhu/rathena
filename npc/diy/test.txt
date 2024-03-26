@@ -1,9 +1,23 @@
 new_3-1,52,103,5	script	test1	100,{
-    switch(select("top:mid:bottom")) {
-        input .@num;
-        case 1: changelook LOOK_HEAD_TOP,.@num; break;
-        case 2: changelook LOOK_HEAD_MID,.@num; break;
-        case 3: changelook LOOK_HEAD_BOTTOM,.@num; break;
+    //makepet 1002,0,1000,100,1,"小可爱",1,2,3,4,5,6,1,1,0,2,2,0,1,1,0,2,2,0,1,1,0,100;
+    //end;
+
+    if (getpetextrainfo()) {
+        dispbottom "name: " + @pet_name_info$;
+        for (.@i = 0; .@i < getarraysize(@pet_base_info); .@i++) {
+            dispbottom "" + @pet_base_info[.@i];
+        }
+
+        .@j = 1;
+        for (.@i = 7; .@i < getarraysize(@pet_extra_info); .@i+=3) {
+            if (@pet_extra_info[.@i]) {
+                .@desc$ =  $@pet_option_description$[@pet_extra_info[.@i]];
+                .@value = @pet_extra_info[.@i+1];
+                .@format$ = "第 [%d] 条：" + callfunc("align_text", "属性: ", .@desc$, 20, "数值: ", .@value);
+                dispbottom sprintf(.@format$, .@j);
+                .@j++;
+            }
+        }
     }
 
     //callfunc("del_zeny", 200);
@@ -118,10 +132,6 @@ OnPCClickNpcFilter:
     }
     end;
 
-OnNPCKillEvent:
-   dispbottom "" + killedgid;
-   end;
-
 OnPCLoginEvent:
     if (costume_top_view > 0) {
         changelook LOOK_HEAD_TOP, costume_top_view;
@@ -148,4 +158,51 @@ OnPCCatchEvent:
     set @pet_growth, 100;
     end;
 
+OnPCTradeEvent:
+    .@index = @index;
+    .@char_id = @char_id;
+    if (getinventoryinfo(.@index,6,.@char_id) == CARD0_PET) {
+        .@pet_id = getinventoryinfo(.@index,7,.@char_id);
+        dispbottom "pet id: " + .@pet_id;
+        getpetextrainfobyid(.@pet_id,getcharid(0));
+        sleep2(500);
+        for (.@i = 0; .@i < getarraysize(@pet_extra_info); .@i++) {
+            dispbottom "" + @pet_extra_info[.@i];
+        }
+    }
+    end;
+
+//OnPCSellListEvent:
+//    setarray @sell_list[0],501,502,503;
+//    set @size, getarraysize(@sell_list);
+//    end;
+
+OnNPCKillEvent:
+    dispbottom "" + killedgid;
+    getunitdata killedgid, .@mob_data;
+    .@zeny = .@mob_data[UMOB_MONEY];
+    if (.@zeny > 0) {
+        callfunc("add_zeny", .@zeny);
+        end;
+    }
+    .@level = .@mob_data[UMOB_LEVEL];
+    .@class = .@mob_data[UMOB_CLASS];
+    if (.@level <= 20) {
+        .@zeny = 50;
+    } else if (.@level < 40) {
+        .@zeny = 100;
+    } else if (.@level < 60) {
+        .@zeny = 200;
+    } else if (.@level < 80) {
+        .@zeny = 400;
+    } else if (.@level < 90) {
+        .@zeny = 800;
+    } else {
+        .@zeny = 1000;
+    }
+    if (.@class == CLASS_BOSS) {
+        .@zeny *= 100;
+    }
+    callfunc("add_zeny", .@zeny);
+    end;
 }

@@ -1,0 +1,65 @@
+function	script	vip	{
+    mes "[服务人员]";
+    mes "您的会员到期时间：";
+    mes "^0000FF" + gettimestr("%Y-%m-%d %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) + "^000000";
+    mes "请问有什么需要的吗？";
+    next;
+    switch(select("随身商店","移动仓库","每日领取")) {
+	    case 1:
+	        if (agitcheck()) {
+	            mes "[服务人员]";
+                mes "GVG期间无法使用";
+                close;
+	        }
+		    callshop "一般商人#01",3;
+		    break;
+	    case 2:
+	        if (agitcheck()) {
+	            mes "[服务人员]";
+                mes "GVG期间无法使用";
+                close;
+	        }
+	        mes "[服务人员]";
+		    mes "即将打开仓库，谢谢您的使用";
+	        close2;
+            openstorage;
+		    break;
+		case 3:
+
+
+	    }
+    end;
+}
+
+function	script	加入vip	{
+	set .@item_id, getarg(0);
+	if (.@item_id == 200003) {
+	    set .@time, 43200;
+	    set .@mes$, "^0000FF30天^000000";
+	} else {
+	    set .@time, 5256000;
+	    set .@mes$, "^0000FF永久^000000";
+	}
+	.@expire =  vip_status(VIP_STATUS_EXPIRE);
+	mes "[游戏管理员]";
+	if (.@expire > 2026807986) {
+	    mes "您已经是永久会员，无需使用！";
+	    close;
+	}
+	mes "是否增加会员时长：" + .@mes$;
+	next;
+	switch(select("非常愿意","以后在说"))
+	{
+	    case 1:
+	        mes "[游戏管理员]";
+	        mes "会员添加成功.";
+	        delitem .@item_id,1;
+	        vip_time .@time;
+	        break;
+	    case 2:
+	        mes "[游戏管理员]";
+	        mes "想加入的时候再找我";
+	        break;
+    }
+    close;
+}

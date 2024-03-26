@@ -1037,10 +1037,12 @@ Body:
     Type: Delayconsume
     Buy: 60
     Weight: 50
+    Delay:
+      Duration: 750
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "AL_TELEPORT",1;
+      warp "Random",0,0;
   - Id: 602
     AegisName: Wing_Of_Butterfly
     Name: ºûµû³á°ò
@@ -1050,7 +1052,7 @@ Body:
     Flags:
       BuyingStore: true
     Script: |
-      itemskill "AL_TELEPORT",3;
+      warp "SavePoint",0,0;
   - Id: 603
     AegisName: Old_Blue_Box
     Name: ÉñÃØÏä×Ó

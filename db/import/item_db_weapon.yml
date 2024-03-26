@@ -88,12 +88,131 @@ Header:
   Type: ITEM_DB
   Version: 3
 
-Footer:
-  Imports:
-    - Path: db/import/item_db_weapon.yml
-    - Path: db/import/item_db_armor.yml
-    - Path: db/import/item_db_usable.yml
-    - Path: db/import/item_db_etc.yml
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml
+Body:
+  - Id: 108000
+    AegisName: Upg_Twohand_Sword
+    Name: 强化巨剑
+    Type: Weapon
+    SubType: 1hSword
+    Buy: 20
+    Weight: 1000
+    Attack: 100
+    Range: 1
+    Jobs:
+      Crusader: true
+      Knight: true
+      Swordman: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 108001
+    AegisName: Upg_Two_Handed_Axe
+    Name: 强化巨斧
+    Type: Weapon
+    SubType: 1hAxe
+    Buy: 20
+    Weight: 1000
+    Attack: 100
+    Range: 1
+    Jobs:
+      Alchemist: true
+      Blacksmith: true
+      Merchant: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 108002
+    AegisName: Upg_Bow
+    Name: 强化长弓
+    Type: Weapon
+    SubType: Bow
+    Buy: 20
+    Weight: 600
+    Attack: 80
+    Range: 5
+    Jobs:
+      Archer: true
+      BardDancer: true
+      Hunter: true
+    Locations:
+      Both_Hand: true
+    WeaponLevel: 3
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 108003
+    AegisName: Upg_Dagger
+    Name: 强化短剑
+    Type: Weapon
+    SubType: Dagger
+    Buy: 20
+    Weight: 800
+    Attack: 100
+    Range: 1
+    Jobs:
+      Assassin: true
+      Rogue: true
+      Thief: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+  - Id: 108004
+    AegisName: Upg_Staff
+    Name: 强化魔杖
+    Type: Weapon
+    SubType: Staff
+    Buy: 20
+    Weight: 600
+    Attack: 50
+    Range: 1
+    Jobs:
+      Acolyte: true
+      Mage: true
+      Monk: true
+      Priest: true
+      Sage: true
+      SoulLinker: true
+      Wizard: true
+    Locations:
+      Right_Hand: true
+    WeaponLevel: 3
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bInt,3;
+      bonus bMatkrate,15;

@@ -1,0 +1,111 @@
+-	script	孙燕姿::Son_SeA	-1,{
+	mes "[孙燕姿]";
+	mes "请你跟我说需要什么样的服务呢？";
+	next;
+	switch(select(@temp_map$?"上次传送":"","指定传送","普通传送","职业服务")){
+	    case 1:
+	        warp @temp_map$,0,0;
+	        break;
+	    case 2:
+		    if (!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
+		        mes "[孙燕姿]";
+		        mes "抱歉！只有vip才能使用本服务！";
+		        close;
+		    }
+		    callfunc "指定传送";
+		    break;
+		case 3:
+		    callfunc "普通传送";
+		    break;
+        case 4:
+            mes "[孙燕姿]";
+            mes "请问你是来做什么的呢？";
+            next;
+            switch(select("转职","学习新技能","租用职业道具","点数重置")) {
+                case 1:
+                    callfunc "转职";
+                    break;
+                case 2:
+                    callfunc "新技能";
+                    break;
+                case 3:
+                    callfunc "租道具";
+                    break;
+                case 4:
+                    mes "[孙燕姿]";
+                    mes "我专门负责重置点数";
+                    mes "你想重置什么呢？";
+                    next;
+                    select("技能点(费用5000)","属性点(费用5000)","技能点和属性点(8000)");
+                    mes "[孙燕姿]";
+                    if(zeny >= set(.@i,(@menu==3?8000:5000))) {
+                        set Zeny,Zeny-.@i;
+                        if (@menu&1) {
+                            resetskill;
+                            sc_end SC_SPIRIT;
+                        }
+                        if (@menu&2) resetstatus;
+                        mes "已经重置好了";
+                    }
+                    else
+                        mes "你的钱不够";
+                    break;
+            }
+            break;
+    }
+
+OnTouch:
+	percentheal 100,0;
+	emotion 2;
+	end;
+}
+
+//"普隆德拉"
+prontera,152,182,5	duplicate(Son_SeA)	孙燕姿#1	756,15,15
+//"依斯鲁德岛"
+izlude,134,92,3	duplicate(Son_SeA)	孙燕姿#2	756,15,15
+//"艾尔帕兰"
+aldebaran,143,116,3	duplicate(Son_SeA)	孙燕姿#3	756,15,15
+//"吉芬"
+geffen,123,62,8	duplicate(Son_SeA)	孙燕姿#4	756,15,15
+//"梦罗克"
+morocc,160,97,3	duplicate(Son_SeA)	孙燕姿#5	756,15,15
+//"爱尔贝塔"
+alberta,25,238,3	duplicate(Son_SeA)	孙燕姿#6	756,15,15
+//"斐扬"
+payon,184,104,3	duplicate(Son_SeA)	孙燕姿#7	756,15,15
+//"尤诺"
+yuno,164,48,3	duplicate(Son_SeA)	孙燕姿#8	756,15,15
+//"天津"
+amatsu,192,81,5	duplicate(Son_SeA)	孙燕姿#9	756,15,15
+//"昆仑"
+gonryun,156,14,5	duplicate(Son_SeA)	孙燕姿#10	756,15,15
+//"姜饼城"
+xmas,149,135,5	duplicate(Son_SeA)	孙燕姿#11	756,15,15
+//"洛阳"
+louyang,224,60,5	duplicate(Son_SeA)	孙燕姿#12	756,15,15
+//"尼芙菲姆"
+niflheim,21,159,5	duplicate(Son_SeA)	孙燕姿#13	756,15,15
+//"夏威夷"
+jawaii,223,204,4	duplicate(Son_SeA)	孙燕姿#14	756,15,15
+//"莫斯科"
+moscovia,226,191,3	duplicate(Son_SeA)	孙燕姿#15	756,15,15
+//"伯仁斯"
+veins,215,123,5	duplicate(Son_SeA)	孙燕姿#16	756,15,15
+//"艾音贝赫"
+einbech,77,103,3	duplicate(Son_SeA)	孙燕姿#17	756,15,15
+//"拉赫"
+rachel,134,99,3	duplicate(Son_SeA)	孙燕姿#18	756,15,15
+//"修吉尔"
+hugel,99,168,3	duplicate(Son_SeA)	孙燕姿#19	756,15,15
+//"艾音布罗克"
+einbroch,69,203,3	duplicate(Son_SeA)	孙燕姿#20	756,15,15
+//"里希塔勒镇"
+lighthalzen,153,100,5	duplicate(Son_SeA)	孙燕姿#21	756,15,15
+//"克魔岛"
+comodo,194,156,3	duplicate(Son_SeA)	孙燕姿#22	756,15,15
+//"汶巴拉"
+umbala,90,159,5	duplicate(Son_SeA)	孙燕姿#23	756,15,15
+//"泰国"
+ayothaya,145,117,5	duplicate(Son_SeA)	孙燕姿#24	756,15,15
+

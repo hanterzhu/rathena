@@ -1,0 +1,5 @@
+-	script	pet_option_description	-1,{
+OnInit:
+    setarray $@pet_option_description$[1],"MaxHP","MaxSP","对草属性魔物伤害增加";
+    end;
+}

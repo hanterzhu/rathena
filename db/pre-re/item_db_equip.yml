@@ -17458,19 +17458,15 @@ Body:
     Refineable: true
   - Id: 2340
     AegisName: Novice_Breast
-    Name: 初心者胸铠
+    Name: 新手胸铠
     Type: Armor
     Buy: 89000
     Weight: 500
     Defense: 4
     Slots: 1
-    Jobs:
-      Novice: true
-      SuperNovice: true
     Locations:
       Armor: true
     ArmorLevel: 1
-    EquipLevelMin: 10
     Refineable: true
   - Id: 2341
     AegisName: Full_Plate_Armor
@@ -38145,44 +38141,15 @@ Body:
       bonus3 bAutoSpell,"NPC_CRITICALWOUND",1,30;
   - Id: 13040
     AegisName: N_Cutter
-    Name: 初心者用卡特短剑
+    Name: 新手小刀
     Type: Weapon
     SubType: Dagger
     Attack: 50
     Range: 1
     Slots: 3
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Hunter: true
-      Knight: true
-      Mage: true
-      Merchant: true
-      Ninja: true
-      Novice: true
-      Rogue: true
-      Sage: true
-      SoulLinker: true
-      SuperNovice: true
-      Swordman: true
-      Thief: true
-      Wizard: true
     Locations:
       Right_Hand: true
     WeaponLevel: 1
-    EquipLevelMin: 1
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
   - Id: 13041
     AegisName: N_Main_Gauche
     Name: 初心者用笨拙短剑

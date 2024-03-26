@@ -1,0 +1,177 @@
+function	script	id_card	{
+    .@name$ = "[服务人员]";
+    mes "在线人数: [ ^FF0000"+getusers(1)+"^000000 ]";
+    mes "商城积分: [ ^FF0000"+#CASHPOINTS+"^000000 ]";
+    next;
+    switch(select("^0088FF会员服务^000000","地图传送","每日狩猎","安全拆卡","装备修理")) {
+	    case 1:
+		    if (!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
+			    close;
+		    }
+		    callfunc "vip";
+		    break;
+	    case 2:
+		    callfunc "chuansong";
+		    break;
+	    case 3:
+            callfunc "每日狩猎";
+            break;
+	    case 4:
+		    callfunc "拆卡";
+		    break;
+	    case 5:
+	        if (agitcheck()) {
+	            mes .@name$;
+                mes "GVG期间无法使用";
+                close;
+	        }
+		    callfunc "装备修理";
+		    break;
+    }
+    close;
+    end;
+}
+
+function	script	装备修理	{
+    .@repairprice = 5000;
+	mes "那位旅客!";
+	mes "想要修理物品吗?";
+	mes "要修理的物品就交给我吧!!";
+	next;
+	switch(select("好的...:没有.")) {
+	case 1:
+		.@checkitem = 1;
+		while (1) {
+			if (getbrokenid(.@checkitem) == 0) {
+				break;
+			}
+			.@checkitem = .@checkitem+1;
+		}
+		.@checkitem = .@checkitem-1;
+		if (!.@checkitem) {
+			mes "你没有需要修理的装备!";
+			close;
+		}
+		.@totalcost = .@repairprice*.@checkitem;
+	    mes "你有" + .@checkitem + " 件装备坏了.";
+	    mes "修理这个项目我需要" + .@totalcost + "金币";
+	    mes "要继续吗?";
+		next;
+		switch(select("好的:不要了")) {
+		case 1:
+			if (Zeny < .@totalcost) {
+				mes "钱不够...";
+				close;
+			}
+			.@checkitem2 = 1;
+			while (1) {
+				if (getbrokenid(.@checkitem2) == 0) {
+					break;
+				}
+				.@checkitem2 = .@checkitem2+1;
+			}
+			.@checkitem2 = .@checkitem2-1;
+			if (.@checkitem == .@checkitem2) {
+				Zeny = Zeny-.@totalcost;
+				while (.@checkitem) {
+					repair(.@checkitem);
+					.@checkitem = .@checkitem-1;
+				}
+				mes "修理完毕.";
+				close;
+			}
+			else {
+				mes "系统出错.";
+				close;
+			}
+		case 2:
+			mes "再见";
+			close;
+		}
+	case 2:
+		mes "再见";
+		close;
+	}
+}
+
+function	script	chaika	{
+	.@percardcost = 50000;
+	mes "想我帮你卸除哪一件装备呢?";
+	mes "每张卡片收费" + .@percardcost + "金币.";
+	mes "VIP免费.";
+	next;
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R,
+	EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT;
+	for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
+		if(getequipisequiped(.@indices[.@i])) {
+			.@menu$ = .@menu$ + F_getpositionname(.@indices[.@i]) + "-[" + getequipname(.@indices[.@i]) + "]";
+		}
+		.@menu$ = .@menu$ + ":";
+	}
+	set .@part, .@indices[ select(.@menu$) ];
+	if(!getequipisequiped(.@part)) {
+		mes "光着膀子怎么拆.";
+		close;
+	}
+	if(getequipcardcnt(.@part) == 0) {
+    	mes "这件装备没有插上卡片.";
+	    close;
+	}
+	set .@cardcount,getequipcardcnt(.@part);
+
+	if (!checkweight(40913,1)) {
+   		mes "^3355FF等一下!";
+    	mes "你负重太高了";
+   		close;
+   	}
+   	if (.@part == EQI_HAND_R && !getequipisenableref(EQI_HAND_R) ) {
+		mes "租赁物品无法拆卡.";
+		close;
+   	}
+   	if (.@part == EQI_HAND_L && !getequipisenableref(EQI_HAND_L) ) {
+		mes "租赁物品无法拆卡.";
+		close;
+   	}
+	mes "这件装备的插槽上已经插上了" + .@cardcount + "张卡片.";
+	next;
+   	if(select("拆.:不拆.") == 2) {
+   		mes "欢迎下次再来.";
+   		close;
+  	}
+  	if(!vip_status(VIP_STATUS_ACTIVE)) {
+  	  	mes "这件装备插了 " + .@cardcount + " 张卡片. 需要 " + (.@cardcount * .@percardcost) + " 金币.";
+        next;
+    	if(zeny <= (.@cardcount * .@percardcost)) {
+    	    mes "金币不足.";
+    		close;
+    	} else {
+    		set zeny,zeny-(.@cardcount * .@percardcost);
+    	}
+  	}
+	successremovecards .@part;
+	mes "大功告成啦. 这是你的卡片和道具.再见.";
+	close;
+}
+
+function	script	全身拆卡	{
+  	if(!vip_status(VIP_STATUS_ACTIVE)) {
+   		mes "^3355FF等一下!";
+    	mes "非VIP无法使用";
+   		close;
+  	}
+	if (!checkweight(40913,1)) {
+   		mes "^3355FF等一下!";
+    	mes "你负重太高了";
+   		close;
+   	}
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R,
+	EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT;
+	for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
+	    set .@part, .@indices[.@i];
+	    if(!getequipisequiped(.@part) || getequipcardcnt(.@part) == 0 || (.@part == EQI_HAND_R && !getequipisenableref(EQI_HAND_R)) || (.@part == EQI_HAND_L && !getequipisenableref(EQI_HAND_L))) {
+	        continue;
+	    }
+	    successremovecards .@part;
+	}
+    close;
+}

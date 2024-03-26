@@ -1,0 +1,17 @@
+-	script	商店系统::shop_sys	-1,{
+	switch(select("购买物品","积分商城","出售物品")) {
+	    case 1:	callfunc "Npc_Item_A"; end;
+		case 2: callshop "pdjf",1; end;
+		case 3:	callshop "一般商人#01",2; end;
+	}
+}
+
+function	script	Npc_Item_A	{
+	switch(select("道具商人","杂货商人","锻造商人","炼金术士商人")) {
+		case 1:	callshop "一般商人#01",1; end;
+		case 2: callshop "一般商人#03",1; end;
+		case 3:	callshop "一般商人#09",1; end;
+    }
+}
+
+prontera.gat,159,182,4	duplicate(shop_sys)	商店系统#1	910

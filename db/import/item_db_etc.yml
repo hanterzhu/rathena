@@ -88,12 +88,11 @@ Header:
   Type: ITEM_DB
   Version: 3
 
-Footer:
-  Imports:
-    - Path: db/import/item_db_weapon.yml
-    - Path: db/import/item_db_armor.yml
-    - Path: db/import/item_db_usable.yml
-    - Path: db/import/item_db_etc.yml
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml
+Body:
+  - Id: 25793
+    AegisName: Inventory_Ex
+    Name: ±³°üÀ©³äÈ¯
+    Type: Etc
+    Trade:
+      NoDrop: true
+      NoSell: true

@@ -1,0 +1,28 @@
+function	script	align_text	{
+    // 初始化变量
+    .@final_string$ = "";
+    .@total_args = getargcount();
+
+    // 循环处理每对参数
+    for (.@i = 0; .@i < .@total_args; .@i += 3) {
+        // 获取当前参数
+        .@label$ = getarg(.@i);
+        .@value$ = getarg(.@i+1);
+        // 添加标签和值
+        .@final_string$ += .@label$ + .@value$;
+
+        // 如果不是最后一对参数，添加空格以对齐
+        if (.@i < .@total_args-3) {
+            .@max_length = getarg(.@i+2);
+            .@current_length = getstrlen(.@value$);
+            // 计算需要添加的空格数量
+            .@spaces_to_add = .@max_length - .@current_length;
+            for (.@j = 0; .@j < .@spaces_to_add; .@j++) {
+                .@final_string$ += " ";
+            }
+        }
+    }
+
+    // 显示或返回最终字符串
+    return .@final_string$;
+}

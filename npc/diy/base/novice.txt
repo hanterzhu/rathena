@@ -1,0 +1,60 @@
+-	script	novice	-1,{
+OnInit:
+    setarray $@NewPlayerItem[0],601,1,602,1,200000,30,200002,1;
+    setarray $@novice_weapon[1],108000,108004,108002,108004,108001,108003;
+    setarray $@novice_armor[0],106000,106001,106002,106003,2149;
+    end;
+
+OnPCLoginEvent:
+    if ( NewPlayer == 1 ) { end; }
+    for(set .@i,0; .@i<getarraysize($@NewPlayerItem); set .@i,.@i+2) {
+        getitem $@NewPlayerItem[.@i],$@NewPlayerItem[.@i+1];
+    }
+    set NewPlayer,1;
+    end;
+}
+
+
+new_1-1,66,114,4	script	看板	111,{
+	mes "^FF0000=================================^000000";
+	mes "^FF0000 ==^000000 ^E40CAA[欢迎] ^CC0000新^FF9000^7FFF00手^00FF00 修^00FFFF练^0000FF场^E40CAA [欢迎] ^FF0000==^000000";
+	mes "^FF0000=================================^000000";
+	close;
+	close;
+}
+
+new_1-1,53,114,4	script	西恩#1	727,{
+    .@name$ = "[" + strnpcinfo(1) + "]";
+    mes .@name$;
+    next;
+    switch(select("新手训练场:直接开始游戏")) {
+        case 1:
+            warp "new_1-3",96,21;
+            break;
+        case 2:
+            savepoint "prontera",156,180;
+            warp "prontera",156,180;
+            break;
+    }
+    close;
+}
+
+new_1-3,95,170,4	script	西恩#2	727,{
+    .@name$ = "[" + strnpcinfo(1) + "]";
+    mes .@name$;
+    mes "又见面了！";
+    mes "需要正式开始冒险吗？";
+    next;
+    if (select("开始冒险") == 1) {
+        savepoint "prontera",156,180;
+        warp "prontera",156,180;
+    }
+    close;
+}
+
+
+// Training Ground Mobs
+new_1-3,0,0	monster	Poring	1002,20
+new_1-3,0,0	monster	Drops	1113,20
+new_1-3,0,0	monster	Lunatic	1063,20
+new_1-3,0,0	monster	ChonChon	1011,20

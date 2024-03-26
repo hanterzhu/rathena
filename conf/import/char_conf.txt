@@ -1,1 +1,5 @@
+start_zeny: 100
+start_point_pre: new_1-1,53,111
+char_name_option: 2
+char_name_letters: \ /:*?#@!
 pincode_enabled: no

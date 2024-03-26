@@ -88,12 +88,104 @@ Header:
   Type: ITEM_DB
   Version: 3
 
-Footer:
-  Imports:
-    - Path: db/import/item_db_weapon.yml
-    - Path: db/import/item_db_armor.yml
-    - Path: db/import/item_db_usable.yml
-    - Path: db/import/item_db_etc.yml
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml
+Body:
+  - Id: 106000
+    AegisName: Grace_Snovice_Suit
+    Name: ¶÷µäÕ½ÅÛ
+    Type: Armor
+    Weight: 100
+    Buy: 20
+    Defense: 3
+    Locations:
+      Armor: true
+    ArmorLevel: 1
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bAllStats,1;
+      bonus2 bResEff,Eff_Freeze,10000;
+  - Id: 106001
+    AegisName: Grace_Attack_Boots
+    Name: ¶÷µäÕ½Ñ¥
+    Type: Armor
+    Weight: 100
+    Defense: 3
+    Locations:
+      Shoes: true
+    ArmorLevel: 1
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMaxHprate,5;
+      bonus bMaxSprate,5;
+  - Id: 106002
+    AegisName: Grace_Attack_Manteau
+    Name: ¶÷µä¶·Åñ
+    Type: Armor
+    Weight: 100
+    Defense: 3
+    Locations:
+      Garment: true
+    ArmorLevel: 1
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bLongAtkDef,5;
+      bonus2 bSubEle,Ele_Neutral,5;
+  - Id: 106003
+    AegisName: Grace_Attack_Ring
+    Name: ¶÷µäÕ½½ä
+    Type: Armor
+    Weight: 100
+    Locations:
+      Right_Accessory: true
+    ArmorLevel: 1
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bAllStats,1;
+  - Id: 2149
+    AegisName: Upg_Guard
+    Name: ¶÷µäÕ½¶Ü
+    Type: Armor
+    Buy: 20
+    Weight: 100
+    Defense: 3
+    Locations:
+      Left_Hand: true
+    ArmorLevel: 1
+    View: 1
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoStorage: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      bonus bMaxHPrate,10;

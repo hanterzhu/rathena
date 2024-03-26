@@ -10,6 +10,12 @@ function	script	validate_zeny	{
 	return;
 }
 
+function	script	add_zeny	{
+    .@zeny = getarg(0);
+    set Zeny, Zeny + .@zeny;
+    return;
+}
+
 function	script	del_zeny	{
 	.@bind_zeny = #BIND_ZENY;
 	.@zeny = getarg(0);

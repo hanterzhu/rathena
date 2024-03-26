@@ -88,12 +88,77 @@ Header:
   Type: ITEM_DB
   Version: 3
 
-Footer:
-  Imports:
-    - Path: db/import/item_db_weapon.yml
-    - Path: db/import/item_db_armor.yml
-    - Path: db/import/item_db_usable.yml
-    - Path: db/import/item_db_etc.yml
-    - Path: db/import/item_db_costume_top.yml
-    - Path: db/import/item_db_costume_middle.yml
-    - Path: db/import/item_db_costume_bottom.yml
+Body:
+  - Id: 200000
+    AegisName: Novice_Potion1
+    Name: 初学者专用药水
+    Type: Healing
+    Weight: 1
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      percentheal 10,5;
+  - Id: 200001
+    AegisName: zhuangtaijuanzhou
+    Name: 状态卷轴
+    Type: Delayconsume
+    Weight: 10
+    Delay:
+      Duration: 3000
+    Trade:
+      NoSell: true
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      if (!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
+        dispbottom "非vip无法使用！";
+      } else {
+        sc_start SC_BLESSING,600000,10;
+        sc_start SC_INCREASEAGI,600000,10;
+      }
+  - Id: 200002
+    AegisName: suishencaidan
+    Name: 随身菜单
+    Type: Delayconsume
+    Weight: 10
+    Delay:
+      Duration: 3000
+    Trade:
+      NoSell: true
+      NoDrop: true
+      NoTrade: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      callfunc "id_card";
+  - Id: 200003
+    AegisName: vip30
+    Name: VIP会员卡(30天)
+    Type: Delayconsume
+    Trade:
+      NoDrop: true
+      NoSell: true
+    Script: |
+      callfunc ("加入vip",200003);
+  - Id: 200004
+    AegisName: vip
+    Name: VIP会员卡(永久)
+    Type: Delayconsume
+    Trade:
+      NoDrop: true
+      NoSell: true
+    Script: |
+      callfunc ("加入vip",200004);

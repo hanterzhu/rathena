@@ -1,3 +1,37 @@
+//client
+min_chat_delay: 50
+display_version: no
+wedding_ignorepalette: yes
+xmas_ignorepalette: yes
+summer_ignorepalette: yes
+hanbok_ignorepalette: yes
+oktoberfest_ignorepalette: yes
+
+//drops
+item_drop_common_max: 9000
+item_drop_heal_max: 9000
+item_drop_use_max: 9000
+item_drop_equip_max: 9000
+item_drop_card_max: 9000
+item_drop_mvp_max: 9000
+item_drop_treasure_max: 9000
+
+item_first_get_time: 10000
+item_second_get_time: 10000
+item_third_get_time: 2000
+
+//exp
+base_exp_rate: 10000
+job_exp_rate: 10000
+
+//feature
+feature.autotrade_direction: -1
+feature.autotrade_head_direction: -1
+feature.autotrade_sit: -1
+feature.privateairship: off
+feature.attendance: off
+feature.roulette: off
+
 pet_rename: yes
 pet_catch_rate: 500
 pet_equip_required: no
@@ -7,3 +41,18 @@ pet_status_support: yes
 pet_disable_in_gvg: yes
 pet_ignore_infinite_def: no
 pet_attack_exp_to_master: yes
+
+//item
+cardfix_monster_physical: no
+
+//monster
+override_mob_names: 1
+
+//vip
+vip_storage_increase: 0
+vip_base_exp_increase: 10
+vip_job_exp_increase: 10
+vip_bm_increase: 0
+vip_drop_increase: 5
+vip_gemstone: 0
+vip_disp_rate: no
