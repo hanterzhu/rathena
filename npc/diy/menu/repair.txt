@@ -1,0 +1,53 @@
+function	script	装备修理	{
+    .@repairprice = 5000;
+	mes "[服务人员]";
+	mes "那位旅客!";
+	mes "想要修理物品吗?";
+	mes "要修理的物品就交给我吧!!";
+	next;
+	if (select("好的")) {
+		.@checkitem = 1;
+		while (1) {
+			if (getbrokenid(.@checkitem) == 0) {
+				break;
+			}
+			.@checkitem = .@checkitem+1;
+		}
+		.@checkitem = .@checkitem-1;
+		if (!.@checkitem) {
+			mes "[服务人员]";
+			mes "你没有需要修理的装备!";
+			close;
+		}
+		.@totalcost = .@repairprice*.@checkitem;
+	    mes "[服务人员]";
+	    mes "你有 " + .@checkitem + " 件装备坏了.";
+	    mes "修理这个项目我需要" + .@totalcost + "金币";
+	    mes "要继续吗?";
+		next;
+		if (select("好的")) {
+		    .@checkitem2 = 1;
+			while (1) {
+				if (getbrokenid(.@checkitem2) == 0) {
+					break;
+				}
+				.@checkitem2 = .@checkitem2+1;
+			}
+			.@checkitem2 = .@checkitem2-1;
+			if (.@checkitem == .@checkitem2) {
+                callfunc("del_zeny", .@totalcost);
+				while (.@checkitem) {
+					repair(.@checkitem);
+					.@checkitem = .@checkitem-1;
+				}
+				mes "[服务人员]";
+				mes "修理完毕.";
+				close;
+			} else {
+				mes "[服务人员]";
+				mes "系统出错.";
+				close;
+			}
+		}
+	}
+}

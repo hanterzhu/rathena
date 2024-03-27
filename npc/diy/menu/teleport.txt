@@ -1,7 +1,31 @@
+function	script	传送服务	{
+    mes "[传送专员]";
+    mes "请选择需要的传送服务：";
+    next;
+	switch(select(@temp_map$?"^0000ff上次传送^000000":"","指定传送(VIP)","普通传送")){
+	    case 1:
+	        warp @temp_map$,0,0;
+	        break;
+	    case 2:
+		    if (!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
+		        mes "[传送专员]";
+		        mes "抱歉！只有vip才能使用本服务！";
+		        close;
+		    }
+		    callfunc "指定传送";
+		    break;
+		case 3:
+		    callfunc "普通传送";
+		    break;
+	}
+}
+
+
 function	script	指定传送	{
-    .@name$ = "[孙燕姿]";
+    .@name$ = "[传送专员]";
     mes .@name$;
     mes "输入魔物名称或ID进行传送。";
+    mes "^0000FF建议输入ID进行查询。^000000";
     next;
     input .@str$;
     if (preg_match("[0-9]", .@str$)) {
@@ -40,12 +64,12 @@ function	script	指定传送	{
 }
 
 function	script	普通传送	{
-        mes "[孙燕姿]";
+        mes "[传送专员]";
 		mes "请问你想要去那里呢？";
 		next;
 		switch(select("城市传送","野外传送","练级区传送")){
 			case 1:
-				mes "[孙燕姿]";
+				mes "[传送专员]";
 				mes "请问你想要去那里呢？";
 				next;
 				switch( select("普隆德拉","依斯鲁德","吉芬","梦罗克","斐扬","爱尔贝塔","艾尔帕兰","克魔岛","克雷斯特汉姆古城","朱诺",
@@ -89,7 +113,7 @@ function	script	普通传送	{
 				}
 				break;
 			case 2:
-				mes "[孙燕姿]";
+				mes "[传送专员]";
 				mes "请问你想要去那里呢？";
 				next;
 				switch(select("迷藏森林","普隆德拉地下水道","海底洞窟","史芬克斯密穴","金字塔迷宫","蚂蚁地狱密穴","吉芬塔地下密穴",
@@ -264,7 +288,7 @@ function	script	普通传送	{
 				warp .@mapname$[.@menu],0,0;
 				break;
 			case 3:
-            	mes "[孙燕姿]";
+            	mes "[传送专员]";
             	mes "请选择你要传送的区域。";
             	next;
             	set @w,select("蝗虫区","波利岛","狂暴野猫区","犬妖森林","蜈蚣区","噬人花区","曼陀罗魔花区","兽人部落西","哥不灵森林","野猪区","长老树精区","将军魔碑区","九尾区","虎蜥人区","海豹区","草区","邪恶向日葵区","红蛙岛")-1;

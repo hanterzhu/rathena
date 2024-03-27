@@ -113,6 +113,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bUnbreakableWeapon;
   - Id: 108001
     AegisName: Upg_Two_Handed_Axe
     Name: 强化巨斧
@@ -137,6 +139,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bUnbreakableWeapon;
   - Id: 108002
     AegisName: Upg_Bow
     Name: 强化长弓
@@ -161,6 +165,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bUnbreakableWeapon;
   - Id: 108003
     AegisName: Upg_Dagger
     Name: 强化短剑
@@ -185,6 +191,8 @@ Body:
       NoGuildStorage: true
       NoMail: true
       NoAuction: true
+    Script: |
+      bonus bUnbreakableWeapon;
   - Id: 108004
     AegisName: Upg_Staff
     Name: 强化魔杖
@@ -216,3 +224,4 @@ Body:
     Script: |
       bonus bInt,3;
       bonus bMatkrate,15;
+      bonus bUnbreakableWeapon;

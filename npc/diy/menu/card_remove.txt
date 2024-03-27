@@ -48,3 +48,26 @@ function	script	拆卡	{
 	mes "大功告成啦. 这是你的卡片和道具.再见.";
 	close;
 }
+
+function	script	全身拆卡	{
+  	if(!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
+   		mes "^3355FF等一下!";
+    	mes "非VIP无法使用";
+   		close;
+  	}
+	if (!checkweight(40913,1)) {
+   		mes "^3355FF等一下!";
+    	mes "你负重太高了";
+   		close;
+   	}
+	setarray .@indices[1], EQI_HEAD_TOP, EQI_HEAD_MID, EQI_HEAD_LOW, EQI_ARMOR, EQI_HAND_L, EQI_HAND_R,
+	EQI_GARMENT, EQI_SHOES, EQI_ACC_L, EQI_ACC_R, EQI_COSTUME_HEAD_TOP, EQI_COSTUME_HEAD_MID, EQI_COSTUME_HEAD_LOW, EQI_COSTUME_GARMENT;
+	for(.@i = 1; .@i<getarraysize(.@indices); ++.@i) {
+	    set .@part, .@indices[.@i];
+	    if(!getequipisequiped(.@part) || getequipcardcnt(.@part) == 0 || (.@part == EQI_HAND_R && !getequipisenableref(EQI_HAND_R)) || (.@part == EQI_HAND_L && !getequipisenableref(EQI_HAND_L))) {
+	        continue;
+	    }
+	    successremovecards .@part;
+	}
+    close;
+}

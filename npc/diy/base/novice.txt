@@ -12,6 +12,42 @@ OnPCLoginEvent:
     }
     set NewPlayer,1;
     end;
+
+OnPCBaseLvUpEvent:
+    .@charid = getcharid(0);
+    .@sender$ = "系统邮件";
+    .@title$ = "升级奖励";
+    .@body$ = "升级奖励";
+    if (BaseLevel == 10) {
+        .@zeny = Upper ? 50000 : 2000;
+        setarray .@item_id[0], 200000;
+        setarray .@item_num[0], 50;
+    } else if (BaseLevel == 30) {
+        .@zeny = Upper ? 50000 : 8000;
+        setarray .@item_id[0], 200000;
+        setarray .@item_num[0], 100;
+    } else if (BaseLevel == 50) {
+        .@zeny = Upper ? 50000 : 20000;
+        setarray .@item_id[0], 200000;
+        setarray .@item_num[0], 100;
+    } else if (BaseLevel == 70) {
+        .@zeny = Upper ? 50000 : 20000;
+        setarray .@item_id[0], 200000;
+        setarray .@item_num[0], 100;
+    } else if (BaseLevel == 90) {
+        .@zeny = Upper ? 50000 : 50000;
+        setarray .@item_id[0], 200000;
+        setarray .@item_num[0], 100;
+    } else if (BaseLevel == 98) {
+        .@zeny = 100000;
+        setarray .@item_id[0], 200000;
+        setarray .@item_num[0], 100;
+    }
+    if (.@zeny) {
+        dispbottom "[系统提示]：升级奖励已发送至邮箱，点击右上角邮箱领取，有效期15天！";
+        mail .@charid, .@sender$, .@title$, .@body$, .@zeny, .@item_id, .@item_num;
+    }
+    end;
 }
 
 

@@ -4,14 +4,14 @@ function	script	vip	{
     mes "^0000FF" + gettimestr("%Y-%m-%d %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) + "^000000";
     mes "请问有什么需要的吗？";
     next;
-    switch(select("随身商店","移动仓库","每日领取")) {
+    switch(select("随身商店","移动仓库","装备修理","每日补给")) {
 	    case 1:
 	        if (agitcheck()) {
 	            mes "[服务人员]";
                 mes "GVG期间无法使用";
                 close;
 	        }
-		    callshop "一般商人#01",3;
+		    callshop "一般商人#01",1;
 		    break;
 	    case 2:
 	        if (agitcheck()) {
@@ -25,10 +25,35 @@ function	script	vip	{
             openstorage;
 		    break;
 		case 3:
-
-
+		    callfunc "装备修理";
+		    break;
+		case 4:
+            callfunc "每日补给";
+            break;
 	    }
     end;
+}
+
+function	script	每日补给	{
+	mes "[服务人员]";
+    if (#vip_daily == 1) {
+        mes "今天已领取！";
+        close;
+    }
+	mes "每天可以领取一种料理*3，";
+	mes "请选择；";
+	next;
+	switch(select("力量料理:敏捷料理:智力料理:灵巧料理:幸运料理:体力料理")){
+	    case 1: set .@item_id,12202; break;
+	    case 2: set .@item_id,12203; break;
+	    case 3: set .@item_id,12204; break;
+	    case 4: set .@item_id,12205; break;
+	    case 5: set .@item_id,12206; break;
+	    case 6: set .@item_id,12207; break;
+	}
+    set #vip_daily,1;
+    getitem .@item_id,3;
+    close;
 }
 
 function	script	加入vip	{
@@ -54,6 +79,7 @@ function	script	加入vip	{
 	        mes "[游戏管理员]";
 	        mes "会员添加成功.";
 	        delitem .@item_id,1;
+	        getitem 200001,1;
 	        vip_time .@time;
 	        break;
 	    case 2:

@@ -162,3 +162,30 @@ Body:
       NoSell: true
     Script: |
       callfunc ("加入vip",200004);
+  - Id: 200005
+    AegisName: exp100_1
+    Name: 经验值倍增书(活动)
+    Type: Usable
+    Buy: 2
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoTrade: true
+      NoSell: true
+      NoCart: true
+      NoGuildStorage: true
+      NoMail: true
+      NoAuction: true
+    Script: |
+      sc_start SC_EXPBOOST,1800000,100;
+  - Id: 200006
+    AegisName: exp100
+    Name: 经验值倍增书
+    Type: Usable
+    Buy: 2
+    Weight: 10
+    Trade:
+      NoDrop: true
+      NoSell: true
+    Script: |
+      sc_start SC_EXPBOOST,1800000,100;

@@ -51,10 +51,10 @@ function	script	转职	{
 						if (!BaseJob) {
 							jobchange set(.@i,select("剑士","法师","弓箭手","服侍","商人","盗贼",!Upper?"跆拳道":""))<7?.@i:4046,Upper;
                             if (.@i < 7) {
-                                getitem $@novice_weapon[.@i],1;
+                                rentitem $@novice_weapon[.@i],432000;
                             }
                             for (.@i = 0; .@i < getarraysize($@novice_armor); .@i++) {
-                                getitem $@novice_armor[.@i],1;
+                                rentitem $@novice_armor[.@i],432000;
                             }
                         } else {
 							switch (BaseJob)
@@ -77,5 +77,34 @@ function	script	转职	{
 					}
 					close;
 				}
+}
 
+function	script	转生	{
+    mes "[孙燕姿]";
+	mes "基本等级不可以低于^FF000099级^000000.";
+	mes "职业等级不可以低于^FF000050级^000000.";
+	mes "转生需要^FF0000150000^000000 Zeny!";
+    next;
+    if (select("我要转生")) {
+        if ( Upper ) {
+		    mes "[孙燕姿]";
+		    mes "你的身躯已经到了极限了!";
+		} else if (class < 7 || class > 21 ) {
+			mes "[孙燕姿]";
+			mes "您的职业无法转生!";
+		} else if ( Baselevel < 99 || JobLevel < 50) {
+			mes "[孙燕姿]";
+			mes "你尚未符合转生条件！";
+		} else {
+		    callfunc("del_zeny", 150000);
+		    if(checkcart()) setcart 0;
+			if(checkfalcon()) setfalcon 0;
+			if(checkriding()) setriding 0;
+			jobchange 0,1;
+			resetlvl 1;
+			mes "[孙燕姿]";
+			mes "恭喜你!!转生成功!!";
+		}
+        close;
+    }
 }

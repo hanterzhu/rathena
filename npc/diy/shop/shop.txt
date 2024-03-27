@@ -7,11 +7,37 @@
 }
 
 function	script	Npc_Item_A	{
-	switch(select("道具商人","杂货商人","锻造商人","炼金术士商人")) {
+	switch(select("道具商人","防具商人","武器商人","锻造商人","炼金术士商人")) {
 		case 1:	callshop "一般商人#01",1; end;
-		case 2: callshop "一般商人#03",1; end;
-		case 3:	callshop "一般商人#09",1; end;
+		case 2:	callfunc "Npc_Item_B";	end;
+		case 3:	callfunc "Npc_Item_C";	end;
     }
 }
 
-prontera.gat,159,182,4	duplicate(shop_sys)	商店系统#1	910
+function	script	Npc_Item_B	{
+	switch(select("头饰商人","铠甲商人","盾牌商人","鞋子商人","披肩商人","饰品商人")){
+	    case 1:	callshop "防具商人#01",1;	end;
+		case 2:	callshop "防具商人#02",1;	end;
+		case 3:	callshop "防具商人#03",1;	end;
+		case 4:	callshop "防具商人#04",1;	end;
+		case 5:	callshop "防具商人#05",1;	end;
+		case 6:	callshop "防具商人#06",1;	end;
+	}
+}
+
+function	script	Npc_Item_C	{
+	switch(select("长剑商人","短剑&拳刃商人","斧头商人","矛戟商人","锤子商人","法杖商人","弓箭商人","拳套商人","乐器商人","鞭子商人")){
+		case 1:	callshop "武器商人#01",1;	end;
+		case 2:	callshop "武器商人#02",1;	end;
+		case 3:	callshop "武器商人#03",1;	end;
+		case 4:	callshop "武器商人#04",1;	end;
+		case 5:	callshop "武器商人#05",1;	end;
+		case 6:	callshop "武器商人#06",1;	end;
+		case 7:	callshop "武器商人#07",1;	end;
+		case 8:	callshop "武器商人#08",1;	end;
+		case 9:	callshop "武器商人#09",1;	end;
+		case 10:	callshop "武器商人#10",1;	end;
+	}
+}
+
+prontera.gat,159,182,4	duplicate(shop_sys)	商店系统#1	726
