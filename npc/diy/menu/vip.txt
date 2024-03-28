@@ -4,7 +4,7 @@ function	script	vip	{
     mes "^0000FF" + gettimestr("%Y-%m-%d %H:%M:%S",21,vip_status(VIP_STATUS_EXPIRE)) + "^000000";
     mes "请问有什么需要的吗？";
     next;
-    switch(select("随身商店","移动仓库","装备修理","每日补给")) {
+    switch(select("随身商店","移动仓库","装备修理","每日补给","每日拆卡")) {
 	    case 1:
 	        if (agitcheck()) {
 	            mes "[服务人员]";
@@ -29,6 +29,16 @@ function	script	vip	{
 		    break;
 		case 4:
             callfunc "每日补给";
+            break;
+        case 5:
+            if (#vip_removed == 1) {
+                mes "[服务人员]";
+                mes "每天只能拆卡1次。";
+                close;
+            }
+            if (callfunc("拆卡")) {
+                #vip_removed++;
+            }
             break;
 	    }
     end;
@@ -65,12 +75,12 @@ function	script	加入vip	{
 	    set .@time, 5256000;
 	    set .@mes$, "^0000FF永久^000000";
 	}
-	.@expire =  vip_status(VIP_STATUS_EXPIRE);
 	mes "[游戏管理员]";
-	if (.@expire > 2026807986) {
+	if (vip_status(VIP_STATUS_EXPIRE) > 2026807986) {
 	    mes "您已经是永久会员，无需使用！";
 	    close;
 	}
+	mes "再使用 ^0000FF" + (3 - #vip_count) + " ^000000次月卡就能成为永久会员！";
 	mes "是否增加会员时长：" + .@mes$;
 	next;
 	switch(select("非常愿意","以后在说"))
@@ -79,7 +89,11 @@ function	script	加入vip	{
 	        mes "[游戏管理员]";
 	        mes "会员添加成功.";
 	        delitem .@item_id,1;
+	        set #vip_count, #vip_count + 1;
 	        getitem 200001,1;
+	        if (#vip_count == 3) {
+	            set .@time, 5256000;
+	        }
 	        vip_time .@time;
 	        break;
 	    case 2:

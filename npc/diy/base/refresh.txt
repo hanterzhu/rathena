@@ -2,11 +2,10 @@
 OnPCLoginEvent:
 	if (gettime(7) > #time7 || gettime(6) > #time6 || gettime(5) > #time5) {
 		set #vip_daily, 0;
+		set #vip_removed, 0;
 	}
-	if (!#vip_daily) {
-		set #time7,gettime(7);
-		set #time6,gettime(6);
-		set #time5,gettime(5);
-	}
+    set #time7,gettime(7);
+	set #time6,gettime(6);
+	set #time5,gettime(5);
     end;
 }

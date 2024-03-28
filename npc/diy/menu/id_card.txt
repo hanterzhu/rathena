@@ -3,7 +3,7 @@ function	script	id_card	{
     mes "在线人数: [ ^FF0000"+getusers(1)+"^000000 ]";
     mes "商城积分: [ ^FF0000"+#CASHPOINTS+"^000000 ]";
     next;
-    switch(select("^0088FF会员服务^000000","传送服务","每日狩猎","安全拆卡")) {
+    switch(select("^0088FF会员服务^000000","传送服务","每日狩猎")) {
 	    case 1:
 		    if (!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
 			    close;
@@ -16,9 +16,6 @@ function	script	id_card	{
 	    case 3:
             callfunc "每日狩猎";
             break;
-	    case 4:
-		    callfunc "拆卡";
-		    break;
     }
     close;
 }

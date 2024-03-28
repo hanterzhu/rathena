@@ -1,0 +1,31 @@
+-	script	´ò¹Ö×¬Ç®	-1,{
+OnNPCKillEvent:
+    getunitdata killedgid, .@mob_data;
+    .@zeny = .@mob_data[UMOB_MONEY];
+    if (.@zeny > 0) {
+        callfunc("add_zeny", .@zeny);
+        end;
+    }
+    .@level = .@mob_data[UMOB_LEVEL];
+    .@master_id = .@mob_data[UMOB_MASTERAID];
+    .@mvp = .@mob_data[UMOB_MODE];
+    if (.@master_id) end;
+    if (.@level <= 20) {
+        .@zeny = 50;
+    } else if (.@level < 40) {
+        .@zeny = 100;
+    } else if (.@level < 60) {
+        .@zeny = 200;
+    } else if (.@level < 80) {
+        .@zeny = 400;
+    } else if (.@level < 90) {
+        .@zeny = 800;
+    } else {
+        .@zeny = 1000;
+    }
+    if (.@mvp & MD_MVP) {
+        .@zeny *= 200;
+    }
+    callfunc("add_zeny", .@zeny);
+    end;
+}

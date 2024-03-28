@@ -124,6 +124,11 @@ Body:
       if (!vip_status(VIP_STATUS_ACTIVE) && getgmlevel() < 90) {
         dispbottom "非vip无法使用！";
       } else {
+        if (vip_status(VIP_STATUS_EXPIRE) > 2026807986 || getgmlevel() > 90) {
+          sc_start SC_INCALLSTATUS,INFINITE_TICK,2;
+        } else {
+          sc_start SC_INCALLSTATUS,INFINITE_TICK,1;
+        }
         sc_start SC_BLESSING,600000,10;
         sc_start SC_INCREASEAGI,600000,10;
       }
