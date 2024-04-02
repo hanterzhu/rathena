@@ -6667,7 +6667,8 @@ void clif_status_change(struct block_list *bl, int type, int flag, t_tick tick, 
 
 	sd = BL_CAST(BL_PC, bl);
 
-	if (!(status_efst_get_bl_type((efst_type)type)&bl->type)) // only send status changes that actually matter to the client
+	// Check if current bl type is in the returned bitmask and only send status changes that actually matter to the client
+	if (!(status_efst_get_bl_type(static_cast<efst_type>(type)) & bl->type))
 		return;
 
 	clif_status_change_sub(bl, bl->id, type, flag, tick, val1, val2, val3, ((sd ? (pc_isinvisible(sd) ? SELF : AREA) : AREA_WOS)));
@@ -8135,7 +8136,7 @@ void clif_partyinvitationstate( map_session_data& sd ){
 	struct PACKET_ZC_PARTY_CONFIG p = {};
 
 	p.packetType = HEADER_ZC_PARTY_CONFIG;
-	p.denyPartyInvites = 0; // TODO: not implemented
+	p.denyPartyInvites = sd.status.disable_partyinvite;
 
 	clif_send( &p, sizeof( p ), &sd.bl, SELF );
 #endif
@@ -17731,13 +17732,14 @@ void clif_parse_configuration( int fd, map_session_data* sd ){
 
 /// Request to change party invitation tick.
 /// value:
-///	 0 = disabled
-///	 1 = enabled
-void clif_parse_PartyTick(int fd, map_session_data* sd)
-{
-	bool flag = RFIFOB(fd,6) ? true : false;
-	sd->status.allow_party = flag;
-	clif_partytickack(sd, flag);
+///	 0 = disabled (triggered by /accept)
+///	 1 = enabled (triggered by /refuse)
+void clif_parse_PartyTick( int fd, map_session_data* sd ){
+	PACKET_CZ_PARTY_CONFIG* p = (PACKET_CZ_PARTY_CONFIG*)RFIFOP( fd, 0 );
+
+	sd->status.disable_partyinvite = p->refuseInvite;
+
+	clif_partyinvitationstate( *sd );
 }
 
 /// Questlog System [Kevin] [Inkfish]
@@ -19916,13 +19918,6 @@ void clif_monster_hp_bar( struct mob_data* md, int fd ) {
 /* [Ind] placeholder for unsupported incoming packets (avoids server disconnecting client) */
 void __attribute__ ((unused)) clif_parse_dull(int fd, map_session_data *sd) {
 	return;
-}
-
-void clif_partytickack(map_session_data* sd, bool flag) {
-	WFIFOHEAD(sd->fd, packet_len(0x2c9));
-	WFIFOW(sd->fd,0) = 0x2c9; 
-	WFIFOB(sd->fd,2) = flag;
-	WFIFOSET(sd->fd, packet_len(0x2c9)); 
 }
 
 /// Ack world info (ZC_ACK_BEFORE_WORLD_INFO)

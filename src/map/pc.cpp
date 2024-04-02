@@ -1260,7 +1260,7 @@ bool pc_can_sell_item(map_session_data *sd, struct item *item, enum npc_subtype 
  */
 bool pc_can_give_items(map_session_data *sd)
 {
-	return pc_has_permission(sd, PC_PERM_TRADE);
+	return (pc_has_permission(sd, PC_PERM_TRADE) || pc_has_permission(sd, PC_PERM_TRADE_UNCONDITIONAL));
 }
 
 /**
@@ -1268,7 +1268,7 @@ bool pc_can_give_items(map_session_data *sd)
  */
 bool pc_can_give_bounded_items(map_session_data *sd)
 {
-	return pc_has_permission(sd, PC_PERM_TRADE_BOUNDED);
+	return (pc_has_permission(sd, PC_PERM_TRADE_BOUNDED) || pc_has_permission(sd, PC_PERM_TRADE_UNCONDITIONAL));
 }
 
 /**
@@ -8182,7 +8182,7 @@ int pc_checkbaselevelup(map_session_data *sd) {
 	if ((sd->class_&MAPID_UPPERMASK) == MAPID_SUPER_NOVICE) {
 		for (const auto &status : status_db) {
 			if (status.second->flag[SCF_SUPERNOVICEANGEL])
-				sc_start(&sd->bl, &sd->bl, status.second->type, 100, 1, skill_get_time(status.second->skill_id, 1));
+				sc_start(&sd->bl, &sd->bl, status.second->type, 100, 1, 120000); //All buffs with super novice flag for 2 minutes
 		}
 		if (sd->state.snovice_dead_flag)
 			sd->state.snovice_dead_flag = 0; //Reenable steelbody resurrection on dead.
@@ -11228,14 +11228,20 @@ void pc_setmadogear(map_session_data *sd, bool flag, e_mado_type type)
 	}
 }
 
-/*==========================================
+/*==========================================git checkout master
  * Check if player can drop an item
  *------------------------------------------*/
 bool pc_candrop(map_session_data *sd, struct item *item)
 {
-	if( item && (((item->expire_time && pc_get_group_id(sd) < 90) || (item->bound && !pc_can_give_bounded_items(sd))) || (itemdb_ishatched_egg(item))) ) //增强：GM无视
+	if (sd->sc.cant.drop) //增强：todo: GM无视
 		return false;
-	if( !pc_can_give_items(sd) || sd->sc.cant.drop) //check if this GM level can drop items
+	if( item && itemdb_ishatched_egg(item) )
+		return false;
+	if (pc_has_permission(sd, PC_PERM_TRADE_UNCONDITIONAL))	// no restriction
+		return true;
+	if( !pc_can_give_items(sd) )
+		return false;
+	if( item && (item->expire_time || (item->bound && !pc_can_give_bounded_items(sd))) )
 		return false;
 	return (itemdb_isdropable(item, pc_get_group_level(sd)));
 }
