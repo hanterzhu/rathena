@@ -5031,6 +5031,19 @@ void pc_bonus2(map_session_data *sd,int type,int type2,int val)
 
 		pc_bonus_itembonus( sd->itemgroupsphealrate, type2, val, false );
 		break;
+    //ÔöÇ¿£º
+    case SP_SUBDEF_RACE:
+        PC_BONUS_CHK_RACE(type2, SP_SUBDEF_RACE);
+        sd->indexed_bonus.extend.subdefrace[type2] += val;
+        break;
+    case SP_MAGIC_SUBDEF_RACE:
+        PC_BONUS_CHK_RACE(type2, SP_SUBDEF_RACE);
+        sd->indexed_bonus.extend.magic_subdefrace[type2] += val;
+        break;
+    case SP_MISC_ADDCLASS:
+        PC_BONUS_CHK_CLASS(type2, SP_MISC_ADDCLASS);
+        sd->indexed_bonus.extend.misc_addclass[type2] += val;
+        break;
 	default:
 		if (current_equip_combo_pos > 0) {
 			ShowWarning("pc_bonus2: unknown bonus type %d %d %d in a combo with item #%u\n", type, type2, val, sd->inventory_data[pc_checkequip( sd, current_equip_combo_pos )]->nameid);

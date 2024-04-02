@@ -872,6 +872,10 @@
 
     //ÔöÇ¿
     export_constant2("bCombatPower",SP_COMBATPOWER);
+    export_constant2("bSubDefRace",SP_SUBDEF_RACE);
+    export_constant2("bMagicSubDefRace",SP_MAGIC_SUBDEF_RACE);
+    export_constant2("bMiscAddClass",SP_MISC_ADDCLASS);
+
 
 	/* equip indices */
 	export_constant(EQI_COMPOUND_ON);

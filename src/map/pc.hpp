@@ -604,6 +604,14 @@ public:
 		int magic_subdefele[ELE_MAX];
 		int ignore_res_by_race[RC_MAX];
 		int ignore_mres_by_race[RC_MAX];
+
+        //ÔöÇ¿
+        struct s_extend {
+            int subdefrace[RC_MAX];
+            int magic_subdefrace[RC_MAX];
+            int misc_addclass[CLASS_MAX];
+        } extend;
+
 	} indexed_bonus;
 	// zeroed arrays end here.
 

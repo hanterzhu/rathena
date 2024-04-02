@@ -1,0 +1,71 @@
+bonus2 bSubDefRace,r,x;  减少受到种族的物理伤害
+bonus2 bMagicSubDefRace,r,x; 减少受到种族的魔法伤害
+bonus2 bMiscAddClass,c,x;
+
+
+
+
+* Status effect (eff)
+	Eff_Bleeding, Eff_Blind, Eff_Burning, Eff_Confusion, Eff_Crystalize, Eff_Curse, Eff_DPoison,
+	Eff_Fear, Eff_Freeze, Eff_Poison, Eff_Silence, Eff_Sleep, Eff_Stone, Eff_Stun, Eff_Freezing,
+	Eff_Heat, Eff_Deepsleep, Eff_WhiteImprison, Eff_Hallucination
+
+* Element (e)
+	Ele_Dark, Ele_Earth, Ele_Fire, Ele_Ghost, Ele_Holy, Ele_Neutral, Ele_Poison,
+	Ele_Undead, Ele_Water, Ele_Wind, Ele_All
+
+* Race (r)
+	RC_Angel, RC_Brute, RC_DemiHuman, RC_Demon, RC_Dragon, RC_Fish, RC_Formless,
+	RC_Insect, RC_Plant, RC_Player_Human (RC_Player deprecated), RC_Player_Doram, RC_Undead, RC_All
+
+* Monster Race (mr)
+	RC2_Goblin, RC2_Kobold, RC2_Orc, RC2_Golem, RC2_Guardian, RC2_Ninja, RC2_GVG, RC2_Battlefield,
+	RC2_Treasure, RC2_BioLab, RC2_Manuk, RC2_Splendide, RC2_Scaraba, RC2_OGH_ATK_DEF, RC2_OGH_Hidden,
+	RC2_Bio5_Swordman_Thief, RC2_Bio5_Acolyte_Merchant, RC2_Bio5_Mage_Archer, RC2_Bio5_MVP,
+	RC2_Clocktower, RC2_Thanatos, RC2_Faceworm, RC2_Hearthunter, RC2_Rockridge, RC2_Werner_Lab,
+	RC2_Temple_Demon, RC2_Illusion_Vampire, RC2_Malangdo, RC2_EP172ALPHA, RC2_EP172BETA, RC2_EP172BATH,
+	RC2_Illusion_Turtle, RC2_Rachel_Sanctuary, RC2_Illusion_Luanda
+
+* Class (c)
+	Class_Normal, Class_Boss, Class_Guardian, Class_All
+
+* Size (s)
+	Size_Small, Size_Medium, Size_Large, Size_All
+
+* Trigger criteria (bf)
+	BF_SHORT	= Trigger on melee attacks
+	BF_LONG		= Trigger on ranged attacks
+	(Default: BF_SHORT+BF_LONG)
+   
+	BF_WEAPON	= Trigger on weapon skills 
+	BF_MAGIC	= Trigger on magic skills 
+	BF_MISC		= Trigger on misc skills
+	(Default: BF_WEAPON)
+   
+	BF_NORMAL	= Trigger on normal attacks
+	BF_SKILL	= Trigger on skills
+	(Default: BF_SKILL if type is BF_MISC or BF_MAGIC, BF_NORMAL if type is BF_WEAPON)
+
+* Trigger criteria (atf)
+	Effect target: (Default: Attacked target)
+	ATF_SELF	= Trigger effect on self
+	ATF_TARGET	= Trigger effect on target
+	
+	Attack range criteria: (Default: All attacks)
+	ATF_SHORT	= Trigger on melee attacks
+	ATF_LONG	= Trigger on ranged attacks
+	
+	Skill/attack type criteria: (Default: Physical/weapon)
+	ATF_SKILL	= Trigger on magic/misc skills
+	ATF_WEAPON	= Trigger on weapon skill / physical attacks
+	ATF_MAGIC	= Trigger on magic skills
+	ATF_MISC	= Trigger on misc skills
+
+* Other values:
+	Skill (sk): see 'db/(pre-)re/skill_db.yml' (NOTE: Both skill IDs and names, in quotes, are supported.)
+	Monster id (mid): see 'db/(pre-)re/mob_db.yml'
+	Item id (iid): see 'db/item_db.yml'
+	Item group (ig): see 'db/(pre-)re/item_group_db.yml' and the constants in 'src/map/script_constants.hpp', prefixed with IG_*
+	Weapon type (w): see 'doc/item_db.txt' -> SubType
+
+

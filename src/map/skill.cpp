@@ -19604,7 +19604,8 @@ void skill_identify(map_session_data *sd, int idx)
 	}
 	clif_item_identified(sd,idx,flag);
     //ÔöÇ¿£ºevet
-    pc_setreg(sd, add_str("@identify_idx"), idx);
+    pc_setreg(sd, add_str("@identify_index"), idx);
+    pc_setreg(sd, add_str("@identify_id"), sd->inventory.u.items_inventory[idx].nameid);
     npc_script_event(sd, NPCE_IDENTIFY);
 }
 

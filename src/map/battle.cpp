@@ -753,6 +753,8 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 					race_fix += tsd->indexed_bonus.subrace2[raceit];
 				cardfix = cardfix * (100 - race_fix) / 100;
 				race_fix = tsd->indexed_bonus.subrace[sstatus->race] + tsd->indexed_bonus.subrace[RC_ALL];
+                //增强
+				race_fix = tsd->indexed_bonus.extend.magic_subdefrace[sstatus->race] + tsd->indexed_bonus.extend.magic_subdefrace[RC_ALL];
 				for (const auto &it : tsd->subrace3) {
 					if (it.race != RC_ALL && it.race != sstatus->race)
 						continue;
@@ -978,6 +980,8 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 					race_fix += tsd->indexed_bonus.subrace2[raceit];
 				cardfix = cardfix * (100 - race_fix) / 100;
 				race_fix = tsd->indexed_bonus.subrace[sstatus->race] + tsd->indexed_bonus.subrace[RC_ALL];
+                //增强
+                race_fix = tsd->indexed_bonus.extend.subdefrace[sstatus->race] + tsd->indexed_bonus.extend.subdefrace[RC_ALL];
 				for (const auto &it : tsd->subrace3) {
 					if (it.race != RC_ALL && it.race != sstatus->race)
 						continue;
@@ -1006,7 +1010,12 @@ int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_li
 			break;
 
 		case BF_MISC:
-			// Affected by target DEF bonuses
+            //增强
+            if( sd && !nk[NK_IGNOREATKCARD] ) {
+                cardfix = cardfix * (100 + sd->indexed_bonus.extend.misc_addclass[tstatus->class_] + sd->indexed_bonus.extend.misc_addclass[CLASS_ALL]) / 100;
+                APPLY_CARDFIX(damage, cardfix);
+            }
+            // Affected by target DEF bonuses
 			if( tsd && !nk[NK_IGNOREDEFCARD] ) {
 				if( !nk[NK_IGNOREELEMENT] ) { // Affected by Element modifier bonuses
 					int ele_fix = tsd->indexed_bonus.subele[rh_ele] + tsd->indexed_bonus.subele[ELE_ALL] + tsd->indexed_bonus.subele_script[rh_ele] + tsd->indexed_bonus.subele_script[ELE_ALL];

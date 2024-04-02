@@ -2388,6 +2388,8 @@ unsigned int status_base_atk(const struct block_list *bl, const struct status_da
 			dstr = str / 10;
 			str += dstr*dstr;
 			str += dex / 5 + status->luk / 5;
+            //增强:
+            str += str * ((TBL_PC*)bl)->bonus.atk_rate / 100;
 #endif
 			break;
 		default:// Others
@@ -9410,6 +9412,13 @@ void status_set_viewdata(struct block_list *bl, int class_)
 						if (!pd->vd.head_bottom)
 							pd->vd.head_bottom = pd->pet.equip;
 					}
+                    //增强：宠物
+                    if (pd->master) {
+                        int class_id = pc_readglobalreg(pd->master, add_str("pet_class"));
+                        if (mob_db.find(class_id)) {
+                            pd->vd.class_ = class_id;
+                        }
+                    }
 				}
 			} else
 				ShowError("status_set_viewdata (PET): No view data for class %d\n", class_);
