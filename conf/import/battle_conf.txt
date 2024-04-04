@@ -8,11 +8,21 @@ hanbok_ignorepalette: yes
 oktoberfest_ignorepalette: yes
 
 //drops
+item_rate_common: 300
 item_drop_common_max: 9000
+
+item_rate_heal: 300
 item_drop_heal_max: 9000
+
+item_rate_use: 300
 item_drop_use_max: 9000
+
+item_rate_equip: 300
 item_drop_equip_max: 9000
+
+item_rate_card: 1000
 item_drop_card_max: 9000
+
 item_drop_mvp_max: 9000
 item_drop_treasure_max: 9000
 item_first_get_time: 10000
@@ -20,8 +30,8 @@ item_second_get_time: 10000
 item_third_get_time: 2000
 
 //exp
-base_exp_rate: 10000
-job_exp_rate: 10000
+base_exp_rate: 20000
+job_exp_rate: 20000
 
 //feature
 feature.autotrade_direction: -1

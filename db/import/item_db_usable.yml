@@ -137,8 +137,6 @@ Body:
     Name: 随身菜单
     Type: Delayconsume
     Weight: 10
-    Delay:
-      Duration: 3000
     Trade:
       NoSell: true
       NoDrop: true
@@ -153,6 +151,8 @@ Body:
     AegisName: vip30
     Name: VIP会员卡(30天)
     Type: Delayconsume
+    Flags:
+      BuyingStore: true
     Trade:
       NoDrop: true
       NoSell: true
@@ -162,6 +162,8 @@ Body:
     AegisName: vip
     Name: VIP会员卡(永久)
     Type: Delayconsume
+    Flags:
+      BuyingStore: true
     Trade:
       NoDrop: true
       NoSell: true
@@ -189,8 +191,52 @@ Body:
     Type: Usable
     Buy: 2
     Weight: 10
+    Flags:
+      BuyingStore: true
     Trade:
       NoDrop: true
       NoSell: true
     Script: |
       sc_start SC_EXPBOOST,1800000,100;
+  - Id: 200007
+    AegisName: Spectacles_II
+    Name: 放大镜Lv2
+    Type: Delayconsume
+    Buy: 40
+    Weight: 50
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoSell: true
+    Script: |
+      set @identify_level,1;
+      itemskill "MC_IDENTIFY",1;
+  - Id: 200008
+    AegisName: Spectacles_III
+    Name: 放大镜Lv3
+    Type: Delayconsume
+    Buy: 40
+    Weight: 50
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoSell: true
+    Script: |
+      set @identify_level,2;
+      itemskill "MC_IDENTIFY",1;
+  - Id: 200009
+    AegisName: Spectacles_IV
+    Name: 放大镜Lv4
+    Type: Delayconsume
+    Buy: 40
+    Weight: 50
+    Flags:
+      BuyingStore: true
+    Trade:
+      NoDrop: true
+      NoSell: true
+    Script: |
+      set @identify_level,3;
+      itemskill "MC_IDENTIFY",1;

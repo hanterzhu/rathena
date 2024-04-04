@@ -1,0 +1,31 @@
+function	script	获取随机属性	{
+    set .@location, getarg(0);
+    if (.@location & EQP_HEAD_TOP) .@location = EQP_HEAD_TOP;
+    if (.@location & EQP_HAND_R) .@location = EQP_HAND_R;
+    switch(.@location) {
+        case EQP_HAND_R: randomoptgroupslot(1,0); break;
+        case EQP_HEAD_TOP: randomoptgroupslot(2,0); break;
+        case EQP_HEAD_MID:
+        case EQP_HEAD_LOW: randomoptgroupslot(3,0); break;
+        case EQP_ARMOR: randomoptgroupslot(4,0); break;
+        case EQP_GARMENT: randomoptgroupslot(5,0); break;
+        case EQP_HAND_L: randomoptgroupslot(6,0); break;
+        case EQP_SHOES: randomoptgroupslot(7,0); break;
+        case EQP_ACC_R:
+        case EQP_ACC_L:
+        case EQP_ACC_RL: randomoptgroupslot(8,0); break;
+    }
+    return callfunc("random_combine", .@opt_id, .@opt_value);
+}
+
+function	script	random_combine	{
+    return getarg(0) * 1000 + getarg(1);
+}
+
+function	script	random_decompose_id	{
+    return getarg(0) / 1000;
+}
+
+function	script	random_decompose_value	{
+    return getarg(0) % 1000;
+}

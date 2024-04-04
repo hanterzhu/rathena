@@ -99,7 +99,7 @@ Body:
   - Id: 17
     Option: VAR_ATTPOWER
     Script: |
-      bonus bAtk,getrandomoptinfo(ROA_VALUE);
+      bonus bBaseAtk,getrandomoptinfo(ROA_VALUE);
   - Id: 18
     Option: VAR_HITSUCCESSVALUE
     Script: |
@@ -1029,3 +1029,159 @@ Body:
     Option: VAR_CRITICAL_RATE
     Script: |
       bonus bCRate,getrandomoptinfo(ROA_VALUE);
+  - Id: 255
+    Option: RACE_IGNORE_DEF_PERCENT_ALL
+    Script: |
+      bonus2 bIgnoreDefRaceRate,RC_All,getrandomoptinfo(ROA_VALUE);
+  - Id: 256
+    Option: RACE_IGNORE_MDEF_PERCENT_ALL
+    Script: |
+      bonus2 bIgnoreMdefRaceRate,RC_All,getrandomoptinfo(ROA_VALUE);
+  - Id: 257
+    Option: DAMAGE_RACE_TOLERACE_NOTHING
+    Script: |
+      bonus2 bSubDefRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+  - Id: 258
+    Option: DAMAGE_RACE_TOLERACE_UNDEAD
+    Script: |
+      bonus2 bSubDefRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+  - Id: 259
+    Option: DAMAGE_RACE_TOLERACE_ANIMAL
+    Script: |
+      bonus2 bSubDefRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+  - Id: 260
+    Option: DAMAGE_RACE_TOLERACE_PLANT
+    Script: |
+      bonus2 bSubDefRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+  - Id: 261
+    Option: DAMAGE_RACE_TOLERACE_INSECT
+    Script: |
+      bonus2 bSubDefRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+  - Id: 262
+    Option: DAMAGE_RACE_TOLERACE_FISHS
+    Script: |
+      bonus2 bSubDefRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+  - Id: 263
+    Option: DAMAGE_RACE_TOLERACE_DEVIL
+    Script: |
+      bonus2 bSubDefRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+  - Id: 264
+    Option: DAMAGE_RACE_TOLERACE_HUMAN
+    Script: |
+      bonus2 bSubDefRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+  - Id: 265
+    Option: DAMAGE_RACE_TOLERACE_ANGEL
+    Script: |
+      bonus2 bSubDefRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+  - Id: 266
+    Option: DAMAGE_RACE_TOLERACE_DRAGON
+    Script: |
+      bonus2 bSubDefRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+  - Id: 267
+    Option: DAMAGE_RACE_TOLERACE_PLAYER
+    Script: |
+      bonus2 bSubDefRace,RC_PLAYER_HUMAN,getrandomoptinfo(ROA_VALUE);
+  - Id: 268
+    Option: DAMAGE_RACE_TOLERACE_ALL
+    Script: |
+      bonus2 bSubDefRace,RC_ALL,getrandomoptinfo(ROA_VALUE);
+  - Id: 269
+    Option: MDAMAGE_RACE_TOLERACE_NOTHING
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+  - Id: 270
+    Option: MDAMAGE_RACE_TOLERACE_UNDEAD
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+  - Id: 271
+    Option: MDAMAGE_RACE_TOLERACE_ANIMAL
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+  - Id: 272
+    Option: MDAMAGE_RACE_TOLERACE_PLANT
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+  - Id: 273
+    Option: MDAMAGE_RACE_TOLERACE_INSECT
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+  - Id: 274
+    Option: MDAMAGE_RACE_TOLERACE_FISHS
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+  - Id: 275
+    Option: MDAMAGE_RACE_TOLERACE_DEVIL
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+  - Id: 276
+    Option: MDAMAGE_RACE_TOLERACE_HUMAN
+    Script: |
+      bonus2 bMagicSubDefRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+  - Id: 277
+    Option: MDAMAGE_RACE_TOLERACE_ANGEL
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+  - Id: 278
+    Option: MDAMAGE_RACE_TOLERACE_DRAGON
+    Script: |
+      bonus2 bMagicSubDefRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+  - Id: 279
+    Option: MDAMAGE_RACE_TOLERACE_PLAYER
+    Script: |
+      bonus2 bMagicSubDefRace,RC_PLAYER_HUMAN,getrandomoptinfo(ROA_VALUE);
+  - Id: 280
+    Option: MDAMAGE_RACE_TOLERACE_ALL
+    Script: |
+      bonus2 bMagicSubDefRace,RC_ALL,getrandomoptinfo(ROA_VALUE);
+  - Id: 281
+    Option: DROP_RACE_NOTHING
+    Script: |
+      bonus2 bDropAddRace,RC_Formless,getrandomoptinfo(ROA_VALUE);
+  - Id: 282
+    Option: DROP_RACE_UNDEAD
+    Script: |
+      bonus2 bDropAddRace,RC_Undead,getrandomoptinfo(ROA_VALUE);
+  - Id: 283
+    Option: DROP_RACE_ANIMAL
+    Script: |
+      bonus2 bDropAddRace,RC_Brute,getrandomoptinfo(ROA_VALUE);
+  - Id: 284
+    Option: DROP_RACE_PLANT
+    Script: |
+      bonus2 bDropAddRace,RC_Plant,getrandomoptinfo(ROA_VALUE);
+  - Id: 285
+    Option: DROP_RACE_INSECT
+    Script: |
+      bonus2 bDropAddRace,RC_Insect,getrandomoptinfo(ROA_VALUE);
+  - Id: 286
+    Option: DROP_RACE_FISHS
+    Script: |
+      bonus2 bDropAddRace,RC_Fish,getrandomoptinfo(ROA_VALUE);
+  - Id: 287
+    Option: DROP_RACE_DEVIL
+    Script: |
+      bonus2 bDropAddRace,RC_Demon,getrandomoptinfo(ROA_VALUE);
+  - Id: 288
+    Option: DROP_RACE_HUMAN
+    Script: |
+      bonus2 bDropAddRace,RC_DemiHuman,getrandomoptinfo(ROA_VALUE);
+  - Id: 289
+    Option: DROP_RACE_ANGEL
+    Script: |
+      bonus2 bDropAddRace,RC_Angel,getrandomoptinfo(ROA_VALUE);
+  - Id: 290
+    Option: DROP_RACE_DRAGON
+    Script: |
+      bonus2 bDropAddRace,RC_Dragon,getrandomoptinfo(ROA_VALUE);
+  - Id: 291
+    Option: DROP_RACE_ALL
+    Script: |
+      bonus2 bDropAddRace,RC_All,getrandomoptinfo(ROA_VALUE);
+  - Id: 292
+    Option: CLASS_MISCDAMAGE_NORMAL
+    Script: |
+      bonus2 bMiscAddClass,Class_Normal,getrandomoptinfo(ROA_VALUE);
+  - Id: 293
+    Option: CLASS_MISCDAMAGE_BOSS
+    Script: |
+      bonus2 bMiscAddClass,Class_Boss,getrandomoptinfo(ROA_VALUE);      

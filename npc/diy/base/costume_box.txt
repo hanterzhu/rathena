@@ -371,3 +371,48 @@ OnInit:
     freeloop(0);
     end;
 }
+
+-	script	自定义时装外观	-1,{
+
+OnPCLoginEvent:
+    if (costume_top_view > 0) {
+        changelook LOOK_HEAD_TOP, costume_top_view;
+    }
+    if (costume_middle_view > 0) {
+        changelook LOOK_HEAD_MID, costume_middle_view;
+    }
+    if (costume_bottom_view > 0) {
+        changelook LOOK_HEAD_BOTTOM, costume_bottom_view;
+    }
+    end;
+
+OnPCEquipEvent:
+    set .@index, getiteminfo(@equip_id,ITEMINFO_LOCATIONS);
+    if (.@index & EQP_COSTUME_HEAD_TOP) {
+        set costume_top_view, getiteminfo(@equip_id,ITEMINFO_VIEW);
+    }
+    if (.@index & EQP_COSTUME_HEAD_MID) {
+        set costume_middle_view, getiteminfo(@equip_id,ITEMINFO_VIEW);
+    }
+    if (.@index & EQP_COSTUME_HEAD_LOW) {
+        set costume_bottom_view, getiteminfo(@equip_id,ITEMINFO_VIEW);
+    }
+    dispbottom "增加战力 [" + getitemcombatpower(@equip_index) + "]，当前战力[" + readparam(bCombatPower) + "]";
+    end;
+
+OnPCUnequipEvent:
+    set .@index, getiteminfo(@unequip_id,ITEMINFO_LOCATIONS);
+    if (.@index & EQP_COSTUME_HEAD_TOP) {
+        set costume_top_view, 0;
+    }
+    if (.@index & EQP_COSTUME_HEAD_MID) {
+        set costume_middle_view, 0;
+    }
+    if (.@index & EQP_COSTUME_HEAD_LOW) {
+        set costume_bottom_view, 0;
+    }
+    dispbottom "减少战力 [" + getitemcombatpower(@unequip_index) + "]，当前战力[" + readparam(bCombatPower) + "]";
+    end;
+
+}
+

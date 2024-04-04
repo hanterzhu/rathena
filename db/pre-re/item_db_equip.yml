@@ -1579,7 +1579,7 @@ Body:
     Refineable: true
   - Id: 1164
     AegisName: Muramasa
-    Name: 名刀·不知火
+    Name: 名刀 不知火
     Type: Weapon
     SubType: 2hSword
     Buy: 20
@@ -1601,7 +1601,7 @@ Body:
       bonus2 bAddEff2,Eff_Curse,10;
   - Id: 1165
     AegisName: Masamune
-    Name: 秘刀·十六夜月
+    Name: 秘刀 十六夜月
     Type: Weapon
     SubType: 2hSword
     Buy: 20
@@ -1850,7 +1850,7 @@ Body:
          bonus bBreakArmorRate,500;
   - Id: 1176
     AegisName: Muscle_Cutter
-    Name: 肌肉切断器
+    Name: 割肉刀
     Type: Weapon
     SubType: 2hSword
     Buy: 20
@@ -2000,7 +2000,7 @@ Body:
       }
   - Id: 1182
     AegisName: Bloody_Eater
-    Name: 血灵魔剑
+    Name: 嗜血者
     Type: Weapon
     SubType: 2hSword
     Buy: 20
@@ -2086,7 +2086,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1185
     AegisName: Violet_Fear
-    Name: 湛紫魔剑
+    Name: 纳户特基格的双剑
     Type: Weapon
     SubType: 2hSword
     Buy: 20
@@ -2183,7 +2183,7 @@ Body:
       }
   - Id: 1188
     AegisName: Veteran_Sword
-    Name: 熟练者之剑
+    Name: 老兵之剑
     Type: Weapon
     SubType: 2hSword
     Buy: 10000
@@ -2211,7 +2211,7 @@ Body:
       bonus bDex,1;
   - Id: 1189
     AegisName: Krasnaya
-    Name: 克拉斯拿雅剑
+    Name: 红云长剑
     Type: Weapon
     SubType: 2hSword
     Buy: 20
@@ -3335,7 +3335,7 @@ Body:
       bonus bMatkRate,10;
   - Id: 1232
     AegisName: Assasin_Dagger
-    Name: 妖短剑·泣神怨
+    Name: 妖短剑 泣神怨
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -3482,7 +3482,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1237
     AegisName: Grimtooth_
-    Name: 魔短剑·暗噬
+    Name: 魔短剑 暗噬
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -3918,7 +3918,7 @@ Body:
       bonus bDex,1;
   - Id: 1254
     AegisName: Jamadhar
-    Name: 秘刃·暗啸
+    Name: 秘刃 暗啸
     Type: Weapon
     SubType: Katar
     Buy: 37200
@@ -3934,7 +3934,7 @@ Body:
     Refineable: true
   - Id: 1255
     AegisName: Jamadhar_
-    Name: 秘刃·暗啸
+    Name: 秘刃 暗啸
     Type: Weapon
     SubType: Katar
     Buy: 37200
@@ -4200,7 +4200,7 @@ Body:
       bonus bAspdRate,5;
   - Id: 1268
     AegisName: Wild_Beast_Claw
-    Name: 野兽的指甲
+    Name: 巨魔指甲
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -4224,7 +4224,7 @@ Body:
          bonus3 bAutoSpell,"NPC_CRITICALWOUND",1,100;
   - Id: 1269
     AegisName: Inverse_Scale
-    Name: 茵博斯拳刃
+    Name: 龙之咆哮
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -4245,7 +4245,7 @@ Body:
       bonus3 bAutoSpell,"NPC_DRAGONFEAR",1,30;
   - Id: 1270
     AegisName: Drill_Katar
-    Name: 钻孔机拳刃
+    Name: 钻孔拳刃
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -4267,7 +4267,7 @@ Body:
       bonus3 bAutoSpell,"ST_FULLSTRIP",1,150;
   - Id: 1271
     AegisName: Blood_Tears
-    Name: 血泪拳刃
+    Name: 血之泪
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -4590,7 +4590,7 @@ Body:
       bonus bAspdRate,3;
   - Id: 1284
     AegisName: Krishna
-    Name: 克里希纳拳刃
+    Name: 奎师那之刃
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -4617,7 +4617,7 @@ Body:
       }
   - Id: 1285
     AegisName: Cakram
-    Name: 恰克兰拳刃
+    Name: 脉轮之刃
     Type: Weapon
     SubType: Katar
     Buy: 20
@@ -4935,7 +4935,7 @@ Body:
       }
   - Id: 1311
     AegisName: Vecer_Axe
-    Name: 贝伽勒巨斧
+    Name: 贝克战斧
     Type: Weapon
     SubType: 1hAxe
     Buy: 20
@@ -5652,7 +5652,7 @@ Body:
       skill "ITM_TOMAHAWK",1;
   - Id: 1375
     AegisName: Berdysz
-    Name: 肉搏斧
+    Name: 强袭战斧
     Type: Weapon
     SubType: 2hAxe
     Buy: 20
@@ -5679,7 +5679,7 @@ Body:
       bonus2 bSubSize,Size_Large,15;
   - Id: 1376
     AegisName: Heart_Breaker
-    Name: 心破坏斧
+    Name: 碎心斧
     Type: Weapon
     SubType: 2hAxe
     Buy: 20
@@ -5708,7 +5708,7 @@ Body:
          bonus3 bAutoSpell,"BS_HAMMERFALL",3,30;
   - Id: 1377
     AegisName: Hurricane_Fury
-    Name: 狂暴飓风斧
+    Name: 狂怒飓风
     Type: Weapon
     SubType: 2hAxe
     Buy: 20
@@ -5931,7 +5931,7 @@ Body:
       bonus3 bAutoSpell,"AL_BLESSING",5,50;
   - Id: 1384
     AegisName: Veteran_Axe
-    Name: 熟练者之斧
+    Name: 老兵之斧
     Type: Weapon
     SubType: 2hAxe
     Buy: 10000
@@ -6035,12 +6035,12 @@ Body:
       }
   - Id: 1387
     AegisName: Giant_Axe
-    Name: 巨人斧
+    Name: 巨人战斧
     Type: Weapon
-    SubType: 2hAxe
+    SubType: 1hAxe
     Buy: 20
     Weight: 4000
-    Attack: 330
+    Attack: 140
     Range: 1
     Slots: 1
     Jobs:
@@ -6546,7 +6546,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1421
     AegisName: Battle_Hook
-    Name: 战斗钩枪
+    Name: 强袭战矛
     Type: Weapon
     SubType: 1hSpear
     Buy: 20
@@ -7402,7 +7402,7 @@ Body:
       bonus bHit,10;
   - Id: 1477
     AegisName: Spectral_Spear
-    Name: 妖怪的枪
+    Name: 幻影长矛
     Type: Weapon
     SubType: 2hSpear
     Buy: 20
@@ -7429,7 +7429,7 @@ Body:
       bonus bHPGainValue,50;
   - Id: 1478
     AegisName: Ahlspiess
-    Name: 尔休披斯枪
+    Name: 锥骑长枪
     Type: Weapon
     SubType: 2hSpear
     Buy: 20
@@ -7582,7 +7582,7 @@ Body:
       skill "KN_SPEARSTAB",5;
   - Id: 1484
     AegisName: Cardo
-    Name: 枢机长枪
+    Name: 柱枪
     Type: Weapon
     SubType: 2hSpear
     Buy: 20
@@ -8693,7 +8693,7 @@ Body:
       bonus2 bSPGainRace,RC_Undead,3;
   - Id: 1541
     AegisName: Nemesis
-    Name: 纳米西斯锤
+    Name: 复仇女神
     Type: Weapon
     SubType: Mace
     Buy: 20
@@ -8940,7 +8940,7 @@ Body:
       bonus bStr,2;
   - Id: 1548
     AegisName: Veteran_Hammer
-    Name: 熟练者之锤
+    Name: 老兵之锤
     Type: Weapon
     SubType: Mace
     Buy: 10000
@@ -9308,7 +9308,7 @@ Body:
       bonus bCritical,20+((readparam(bLuk)*2)/10);
   - Id: 1565
     AegisName: Death_Note
-    Name: 死神的名簿
+    Name: 死亡笔记
     Type: Weapon
     SubType: Book
     Buy: 20
@@ -9465,7 +9465,7 @@ Body:
       bonus bAtkEle,Ele_Wind;
   - Id: 1572
     AegisName: Principles_Of_Magic
-    Name: 魔法经典
+    Name: 魔法策略
     Type: Weapon
     SubType: Book
     Buy: 20
@@ -9488,7 +9488,7 @@ Body:
       bonus bSPrecovRate,5;
   - Id: 1573
     AegisName: Ancient_Magic
-    Name: 古老魔法书
+    Name: 远古魔法
     Type: Weapon
     SubType: Book
     Buy: 20
@@ -10405,7 +10405,7 @@ Body:
       bonus bSPDrainValue,-1;
   - Id: 1624
     AegisName: Lich_Bone_Wand
-    Name: 里奇的骷髅魔杖
+    Name: 巫妖之骨杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -10440,7 +10440,7 @@ Body:
       }
   - Id: 1625
     AegisName: Healing_Staff
-    Name: 治愈之杖
+    Name: 恢复之杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -10462,7 +10462,7 @@ Body:
       bonus bHealPower,(getrefine()*3/2);
   - Id: 1626
     AegisName: Piercing_Staff
-    Name: 锐利波之杖
+    Name: 洞察之杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -10544,7 +10544,7 @@ Body:
       bonus bMaxHP,500;
   - Id: 1629
     AegisName: Walking_Stick
-    Name: 绅士的权杖
+    Name: 绅士的手杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -10570,7 +10570,7 @@ Body:
       bonus bDex,1;
   - Id: 1630
     AegisName: Release_Of_Wish
-    Name: 水晶魔杖
+    Name: 许愿之杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -10594,7 +10594,7 @@ Body:
       autobonus "{ bonus2 bSPRegenRate,100,2000; bonus2 bHPRegenRate,50,2000; }",10,10000,BF_MAGIC,"{ specialeffect2 EF_HEAL; }";
   - Id: 1631
     AegisName: Holy_Stick
-    Name: 驱魔圣杖
+    Name: 神圣权杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -10758,7 +10758,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1636
     AegisName: Thorn_Staff
-    Name: 黑暗的荆棘骷髅杖
+    Name: 诅咒魔杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -11002,7 +11002,7 @@ Body:
       bonus bInt,2;
   - Id: 1643
     AegisName: Dead_Tree_Cane
-    Name: 枯木魔杖
+    Name: 古树之杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -11113,7 +11113,7 @@ Body:
       }
   - Id: 1646
     AegisName: La'cryma_Stick
-    Name: 暴风雪法杖
+    Name: 拉格利玛之杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -11142,7 +11142,7 @@ Body:
          bonus2 bCastrate,"WZ_STORMGUST",-8;
   - Id: 1647
     AegisName: Croce_Staff
-    Name: 克罗琪圣杖
+    Name: 红十字杖
     Type: Weapon
     SubType: Staff
     Buy: 20
@@ -11788,7 +11788,7 @@ Body:
       skill "AL_HEAL",1;
   - Id: 1730
     AegisName: Burning_Bow
-    Name: 燃烧之弓
+    Name: 灼热之弓
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -11810,7 +11810,7 @@ Body:
       bonus2 bSubEle,Ele_Fire,10;
   - Id: 1731
     AegisName: Frozen_Bow
-    Name: 冰冻之弓
+    Name: 冰霜之弓
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -11852,7 +11852,7 @@ Body:
     Refineable: true
   - Id: 1733
     AegisName: Gust_Bow
-    Name: 疾风之弓
+    Name: 飓风之弓
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -11921,7 +11921,7 @@ Body:
       bonus2 bAddClass,Class_All,50;
   - Id: 1736
     AegisName: Double_Bound
-    Name: 双发神弓
+    Name: 连发弓
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -11942,7 +11942,7 @@ Body:
       bonus3 bAutoSpell,"AC_DOUBLE",GetSkillLv("AC_DOUBLE"),10;
   - Id: 1737
     AegisName: Ixion_Wing
-    Name: 伊克希恩的羽翼
+    Name: 伊克西翁之翼
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -12027,7 +12027,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1740
     AegisName: Nepenthes_Bow
-    Name: 猪笼草之精弓
+    Name: 猪笼草之弓
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -12048,7 +12048,7 @@ Body:
       bonus4 bAutoSpellOnSkill,"AC_DOUBLE","AC_CHARGEARROW",1,20;
   - Id: 1741
     AegisName: Cursed_Lyre
-    Name: 诅咒琴弓
+    Name: 诅咒之弓
     Type: Weapon
     SubType: Bow
     Buy: 20
@@ -12169,7 +12169,7 @@ Body:
       bonus bDex,2;
   - Id: 1745
     AegisName: Falken_Blitz
-    Name: 猎鹰闪电弓
+    Name: 红色闪电
     Type: Weapon
     SubType: Bow
     Weight: 1000
@@ -12694,7 +12694,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1825
     AegisName: Horn_Of_Hilthrion
-    Name: 三角幼狮兽之角拳套
+    Name: 希斯利安之魂
     Type: Weapon
     SubType: Knuckle
     Buy: 20
@@ -13186,7 +13186,7 @@ Body:
       bonus2 bSkillAtk,"BA_MUSICALSTRIKE",10;
   - Id: 1919
     AegisName: Base_Guitar
-    Name: 低音吉他
+    Name: 贝思
     Type: Weapon
     SubType: Musical
     Buy: 20
@@ -13210,7 +13210,7 @@ Body:
       bonus3 bAutoSpell,"NPC_WIDECONFUSE",2,100;
   - Id: 1920
     AegisName: Berserk_Guitar
-    Name: 狂暴吉他
+    Name: 英勇吉他
     Type: Weapon
     SubType: Musical
     Buy: 20
@@ -13363,7 +13363,7 @@ Body:
       bonus2 bAddSkillBlow,"CG_ARROWVULCAN",3;
   - Id: 1926
     AegisName: Harp_Of_Nepenthes
-    Name: 猪笼草之竖琴
+    Name: 猪笼草竖琴
     Type: Weapon
     SubType: Musical
     Buy: 20
@@ -14074,7 +14074,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 1979
     AegisName: Stem_Of_Nepenthes
-    Name: 猪笼草之茎鞭
+    Name: 猪笼草的茎
     Type: Weapon
     SubType: Whip
     Buy: 20
@@ -14216,7 +14216,7 @@ Body:
       bonus2 bAddSize,Size_All,40;
   - Id: 2000
     AegisName: Destruction_Rod
-    Name: 破坏之杖
+    Name: 毁灭之杖
     Type: Weapon
     SubType: 2hStaff
     Buy: 20
@@ -14243,7 +14243,7 @@ Body:
       bonus2 bCastrate,"HW_MAGICPOWER",-50;
   - Id: 2001
     AegisName: Divine_Cross
-    Name: 神圣十字之杖
+    Name: 圣十字之杖
     Type: Weapon
     SubType: 2hStaff
     Buy: 20
@@ -14348,7 +14348,7 @@ Body:
       bonus2 bCastrate,"HW_MAGICPOWER",-50;
   - Id: 2004
     AegisName: Kronos
-    Name: 克罗纳斯魔杖
+    Name: 克罗诺斯之杖
     Type: Weapon
     SubType: 2hStaff
     Buy: 20
@@ -14374,7 +14374,7 @@ Body:
       autobonus "{ bonus bMatkRate,12; bonus buseSPRate,20; }",1,5000,BF_MAGIC,"{ specialeffect2 EF_ENHANCE; }";
   - Id: 2005
     AegisName: Dea_Staff
-    Name: 女神之杖
+    Name: 黛雅之杖
     Type: Weapon
     SubType: 2hStaff
     Buy: 20
@@ -37734,7 +37734,7 @@ Body:
       bonus2 bAddEff,Eff_Bleeding,500;
   - Id: 13028
     AegisName: Tooth_Blade
-    Name: 牙科刀
+    Name: 牙科手术刀
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -37921,7 +37921,7 @@ Body:
       bonus bBreakArmorRate,500;
   - Id: 13033
     AegisName: Assasin_Dagger_
-    Name: 妖短剑·泣神怨
+    Name: 妖短剑 泣神怨
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -37943,7 +37943,7 @@ Body:
       bonus bAtkEle,Ele_Dark;
   - Id: 13034
     AegisName: Twilight_Desert
-    Name: 沙漠的黄昏
+    Name: 沙漠之暮
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -37962,7 +37962,7 @@ Body:
     Refineable: true
   - Id: 13035
     AegisName: Sandstorm
-    Name: 沙漠风暴
+    Name: 沙漠之风
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -38378,7 +38378,7 @@ Body:
       NoAuction: true
   - Id: 13046
     AegisName: Krieg
-    Name: 刺针短剑
+    Name: 战争短剑
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -38402,7 +38402,7 @@ Body:
       bonus2 bSkillAtk,"RG_BACKSTAP",15;
   - Id: 13047
     AegisName: Weihna
-    Name: 毒锯短剑
+    Name: 威娜短剑
     Type: Weapon
     SubType: Dagger
     Buy: 20
@@ -39834,7 +39834,7 @@ Body:
       bonus2 bSPLossRate,15,10000;
   - Id: 13404
     AegisName: Platinum_Shotel
-    Name: 白金半月剑
+    Name: 铂金弯刀
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -39861,7 +39861,7 @@ Body:
       bonus bCritical,50;
   - Id: 13405
     AegisName: Curved_Sword
-    Name: 弯曲剑
+    Name: 细刃
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -40077,7 +40077,7 @@ Body:
       bonus bUnbreakableWeapon;
   - Id: 13412
     AegisName: Twin_Edge_B
-    Name: 夜胜魔的双子锐剑(蓝)
+    Name: 纳户特基格的寒冰剑
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -40108,7 +40108,7 @@ Body:
       autobonus "{ bonus bIgnoreDefClass,Class_Normal; }",50,5000;
   - Id: 13413
     AegisName: Twin_Edge_R
-    Name: 夜胜魔的双子锐剑(红)
+    Name: 纳户特基格的火焰剑
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -40139,7 +40139,7 @@ Body:
       autobonus "{ bonus bIgnoreDefClass,Class_Normal; }",50,5000;
   - Id: 13414
     AegisName: Elemental_Sword
-    Name: 四大属性魔剑
+    Name: 元素之剑
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -40403,7 +40403,7 @@ Body:
       bonus bInt,2;
   - Id: 13421
     AegisName: Ruber
-    Name: 红宝石剑
+    Name: 火红单手剑
     Type: Weapon
     SubType: 1hSword
     Buy: 20
@@ -40509,7 +40509,7 @@ Body:
       NoAuction: true
   - Id: 16000
     AegisName: Erde
-    Name: 智慧之锤
+    Name: 艾尔德之锤
     Type: Weapon
     SubType: Mace
     Buy: 20
@@ -40541,7 +40541,7 @@ Body:
       bonus bHealPower,10;
   - Id: 16001
     AegisName: Red_Square_Bag
-    Name: 红手提包
+    Name: 红色手提包
     Type: Weapon
     SubType: Mace
     Buy: 20

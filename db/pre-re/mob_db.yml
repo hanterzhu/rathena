@@ -923,7 +923,7 @@ Body:
   - Id: 1025
     AegisName: SNAKE
     Name: 青蛇
-    JapaneseName: Snake
+    #JapaneseName: Snake
     Level: 15
     Hp: 471
     BaseExp: 72
@@ -1005,7 +1005,7 @@ Body:
       - Item: Adventure_Suit
         Rate: 100
       - Item: Girl's_Diary
-        Rate: 5
+        Rate: 10
       - Item: Munak_Card
         Rate: 1
         StealProtected: true
@@ -1370,7 +1370,7 @@ Body:
       - Item: Mini_Propeller
         Rate: 1
       - Item: Damascus_
-        Rate: 2
+        Rate: 10
       - Item: Hunter_Fly_Card
         Rate: 1
         StealProtected: true
@@ -1415,7 +1415,7 @@ Body:
       - Item: Mementos
         Rate: 150
       - Item: Ghoul_Leg
-        Rate: 1
+        Rate: 10
       - Item: Ghoul_Card
         Rate: 1
         StealProtected: true
@@ -1519,7 +1519,7 @@ Body:
       - Item: Spinx_Helm
         Rate: 150
       - Item: Cakram
-        Rate: 100
+        Rate: 200
       - Item: Osiris_Card
         Rate: 1
         StealProtected: true
@@ -1568,7 +1568,7 @@ Body:
       - Item: Magestic_Goat
         Rate: 300
       - Item: Crescent_Scythe_
-        Rate: 50
+        Rate: 200
       - Item: Emperium
         Rate: 500
       - Item: Magestic_Goat_
@@ -1861,6 +1861,8 @@ Body:
         Rate: 3686
       - Item: Oridecon
         Rate: 2700
+      - Item: Ruber
+        Rate: 200
       - Item: Doppelganger_Card
         Rate: 1
         StealProtected: true
@@ -2459,7 +2461,7 @@ Body:
       - Item: Elunium
         Rate: 4268
       - Item: Red_Square_Bag
-        Rate: 100
+        Rate: 200
       - Item: Mistress_Card
         Rate: 1
         StealProtected: true
@@ -2549,7 +2551,7 @@ Body:
       - Item: Blue_Potion
         Rate: 100
       - Item: Infiltrator
-        Rate: 1
+        Rate: 10
       - Item: Oridecon
         Rate: 60
       - Item: Nightmare_Card
@@ -3603,8 +3605,8 @@ Body:
     Drops:
       - Item: Gold
         Rate: 1000
-      - Item: Golden_Mace
-        Rate: 150
+      - Item: Golden_Mace_
+        Rate: 200
       - Item: Golden_Gear
         Rate: 250
       - Item: Golden_Bell
@@ -3667,11 +3669,11 @@ Body:
       - Item: Shield_
         Rate: 250
       - Item: Orcish_Sword
-        Rate: 1000
+        Rate: 200
       - Item: Elunium
         Rate: 4559
       - Item: Giant_Axe
-        Rate: 100
+        Rate: 200
       - Item: Orc_Hero_Card
         Rate: 1
         StealProtected: true
@@ -4173,7 +4175,7 @@ Body:
       - Item: Mitten_Of_Presbyter
         Rate: 1
       - Item: Blessed_Wand
-        Rate: 3
+        Rate: 10
       - Item: Anubis_Card
         Rate: 1
         StealProtected: true
@@ -4304,7 +4306,7 @@ Body:
       - Item: Oridecon
         Rate: 63
       - Item: Halberd_
-        Rate: 2
+        Rate: 10
       - Item: Yggdrasilberry
         Rate: 50
       - Item: Leaf_Of_Yggdrasil
@@ -4547,7 +4549,7 @@ Body:
   - Id: 1107
     AegisName: DESERT_WOLF_B
     Name: 沙漠幼狼
-    JapaneseName: Desert Wolf Baby
+    #JapaneseName: Desert Wolf Baby
     Level: 9
     Hp: 164
     BaseExp: 20
@@ -4629,7 +4631,7 @@ Body:
       - Item: Detrimindexta
         Rate: 200
       - Item: Katar_Of_Cold_Icicle
-        Rate: 3
+        Rate: 10
       - Item: Oridecon_Stone
         Rate: 161
       - Item: Deviace_Card
@@ -4825,7 +4827,7 @@ Body:
       - Item: Elunium
         Rate: 3200
       - Item: Krasnaya
-        Rate: 100
+        Rate: 200
       - Item: Drake_Card
         Rate: 1
         StealProtected: true
@@ -4970,7 +4972,7 @@ Body:
       - Item: Elunium
         Rate: 2300
       - Item: Krieg
-        Rate: 100
+        Rate: 200
       - Item: Eddga_Card
         Rate: 1
         StealProtected: true
@@ -5707,7 +5709,7 @@ Body:
       - Item: Yellow_Herb
         Rate: 1000
       - Item: Katar_Of_Piercing_Wind
-        Rate: 1
+        Rate: 10
       - Item: Oridecon
         Rate: 100
       - Item: Ghost_Scroll_1_5
@@ -5758,7 +5760,7 @@ Body:
       - Item: White_Herb
         Rate: 2000
       - Item: Saber_
-        Rate: 2
+        Rate: 10
       - Item: Khalitzburg_Card
         Rate: 1
         StealProtected: true
@@ -6033,7 +6035,7 @@ Body:
       - Item: Mitten_Of_Presbyter
         Rate: 1
       - Item: Blessed_Wand
-        Rate: 3
+        Rate: 10
       - Item: Fire_Scroll_1_5
         Rate: 100
       - Item: Book_Of_Devil
@@ -6358,7 +6360,7 @@ Body:
       - Item: Elunium
         Rate: 3500
       - Item: Dea_Staff
-        Rate: 100
+        Rate: 200
       - Item: Maya_Card
         Rate: 1
         StealProtected: true
@@ -6396,7 +6398,7 @@ Body:
       - Item: Slender_Snake
         Rate: 5335
       - Item: Whip_Of_Red_Flame
-        Rate: 250
+        Rate: 10
       - Item: Animal_Blood
         Rate: 200
       - Item: Sea_Witch_Foot
@@ -6499,7 +6501,7 @@ Body:
         Rate: 500
     Drops:
       - Item: Spectral_Spear
-        Rate: 500
+        Rate: 200
       - Item: Moonlight_Sword
         Rate: 100
       - Item: Long_Mace
@@ -6511,7 +6513,7 @@ Body:
       - Item: Elunium
         Rate: 2600
       - Item: Staff_Of_Bordeaux
-        Rate: 100
+        Rate: 200
       - Item: Moonlight_Flower_Card
         Rate: 1
         StealProtected: true
@@ -6832,7 +6834,7 @@ Body:
       - Item: Tablet
         Rate: 300
       - Item: Bazerald
-        Rate: 80
+        Rate: 200
       - Item: Pharaoh_Card
         Rate: 1
         StealProtected: true
@@ -6921,7 +6923,7 @@ Body:
       - Item: Thin_N'_Long_Tongue
         Rate: 9700
       - Item: Forturn_Sword
-        Rate: 500
+        Rate: 200
       - Item: Sucsamad
         Rate: 150
       - Item: Jaws_Of_Ant
@@ -6931,7 +6933,7 @@ Body:
       - Item: Elunium
         Rate: 2900
       - Item: Weihna
-        Rate: 100
+        Rate: 200
       - Item: Phreeoni_Card
         Rate: 1
         StealProtected: true
@@ -7203,7 +7205,7 @@ Body:
       - Item: Sparkling_Dust
         Rate: 200
       - Item: Katar_Of_Thornbush
-        Rate: 1
+        Rate: 10
       - Item: Hypnotist's_Staff_
         Rate: 5
       - Item: Sand_Man_Card
@@ -7986,7 +7988,7 @@ Body:
       - Item: Arrow_Of_Wind
         Rate: 2500
       - Item: Orc_Archer_Bow
-        Rate: 2
+        Rate: 10
       - Item: Red_Herb
         Rate: 1400
       - Item: White_Herb
@@ -8034,7 +8036,7 @@ Body:
         Rate: 2000
     Drops:
       - Item: Brood_Axe
-        Rate: 400
+        Rate: 300
       - Item: Ring_
         Rate: 400
       - Item: Loard_Circlet
@@ -8046,7 +8048,7 @@ Body:
       - Item: Elunium
         Rate: 4268
       - Item: Erde
-        Rate: 3100
+        Rate: 200
       - Item: Orc_Load_Card
         Rate: 1
         StealProtected: true
@@ -8192,7 +8194,7 @@ Body:
   - Id: 1194
     AegisName: ARCLOUSE
     Name: 卷甲虫
-    JapaneseName: Arclouse
+    #JapaneseName: Arclouse
     Level: 59
     Hp: 6075
     BaseExp: 860
@@ -8472,7 +8474,7 @@ Body:
   - Id: 1200
     AegisName: ZHERLTHSH
     Name: 艾斯恩魔女
-    JapaneseName: Zherlthsh
+    #JapaneseName: Zherlthsh
     Level: 63
     Hp: 18300
     BaseExp: 3608
@@ -8658,7 +8660,7 @@ Body:
   - Id: 1204
     AegisName: TIRFING
     Name: 兽牙怪
-    JapaneseName: Tirfing
+    #JapaneseName: Tirfing
     Level: 71
     Hp: 29900
     BaseExp: 5412
@@ -8848,7 +8850,7 @@ Body:
   - Id: 1208
     AegisName: WANDER_MAN
     Name: 邪骸浪人
-    JapaneseName: Wander Man
+    #JapaneseName: Wander Man
     Level: 74
     Hp: 8170
     BaseExp: 5786
@@ -8890,7 +8892,7 @@ Body:
       - Item: Oridecon
         Rate: 217
       - Item: Muramasa
-        Rate: 1
+        Rate: 10
       - Item: Wander_Man_Card
         Rate: 1
         StealProtected: true
@@ -9215,7 +9217,7 @@ Body:
       - Item: Violet_Jewel
         Rate: 15
       - Item: Katar_Of_Raging_Blaze
-        Rate: 1
+        Rate: 10
       - Item: Red_Gemstone
         Rate: 550
       - Item: Penomena_Card
@@ -9224,7 +9226,7 @@ Body:
   - Id: 1219
     AegisName: KNIGHT_OF_ABYSS
     Name: 深渊骑士
-    JapaneseName: Knight of Abyss
+    #JapaneseName: Knight of Abyss
     Level: 79
     Hp: 36140
     BaseExp: 8469
@@ -9259,7 +9261,7 @@ Body:
       - Item: Clothes_Of_The_Lord
         Rate: 1
       - Item: Battle_Hook
-        Rate: 25
+        Rate: 10
       - Item: Broad_Sword_
         Rate: 1
       - Item: Elunium
@@ -10296,7 +10298,7 @@ Body:
   - Id: 1251
     AegisName: KNIGHT_OF_WINDSTORM
     Name: 冰暴骑士
-    JapaneseName: Knight of Windstorm
+    #JapaneseName: Knight of Windstorm
     Level: 77
     Hp: 240000
     BaseExp: 64350
@@ -10355,7 +10357,7 @@ Body:
   - Id: 1252
     AegisName: GARM
     Name: 卡仑
-    JapaneseName: Garm
+    #JapaneseName: Garm
     Level: 73
     Hp: 197000
     BaseExp: 50050
@@ -10401,7 +10403,7 @@ Body:
       - Item: Katar_Of_Cold_Icicle
         Rate: 500
       - Item: Claw_Of_Garm
-        Rate: 500
+        Rate: 200
       - Item: Elunium
         Rate: 3977
       - Item: Oridecon
@@ -10503,7 +10505,7 @@ Body:
   - Id: 1255
     AegisName: NERAID
     Name: 奈利虫
-    JapaneseName: Neraid
+    #JapaneseName: Neraid
     Level: 40
     Hp: 4120
     BaseExp: 1126
@@ -10629,7 +10631,7 @@ Body:
       - Item: Prohibition_Red_Candle
         Rate: 2
       - Item: Jamadhar_
-        Rate: 2
+        Rate: 10
       - Item: Injustice_Card
         Rate: 1
         StealProtected: true
@@ -10720,7 +10722,7 @@ Body:
       - Item: Guisarme_
         Rate: 1500
       - Item: Pole_Axe
-        Rate: 1
+        Rate: 3
       - Item: Oridecon
         Rate: 185
       - Item: Rough_Wind
@@ -10821,7 +10823,7 @@ Body:
   - Id: 1262
     AegisName: MUTANT_DRAGON
     Name: 半龙人
-    JapaneseName: Mutant Dragon
+    #JapaneseName: Mutant Dragon
     Level: 65
     Hp: 62600
     BaseExp: 4730
@@ -11130,7 +11132,7 @@ Body:
       - Item: Strong_Shield
         Rate: 62
       - Item: Katzbalger
-        Rate: 1
+        Rate: 10
       - Item: Pole_Axe
         Rate: 2
       - Item: Elunium
@@ -11315,7 +11317,7 @@ Body:
       - Item: Bone_Wand
         Rate: 800
       - Item: Kronos
-        Rate: 100
+        Rate: 200
       - Item: Grimtooth_
         Rate: 300
       - Item: Mage_Coat
@@ -11657,7 +11659,7 @@ Body:
   - Id: 1280
     AegisName: STEAM_GOBLIN
     Name: 喷射哥布灵
-    JapaneseName: Steam Goblin
+    #JapaneseName: Steam Goblin
     Level: 35
     Hp: 2490
     BaseExp: 864
@@ -11833,11 +11835,11 @@ Body:
       - Item: Lemon
         Rate: 1000
       - Item: War_Axe
-        Rate: 1
+        Rate: 5
       - Item: Citrine
         Rate: 1500
       - Item: Great_Axe
-        Rate: 1
+        Rate: 10
       - Item: Oridecon
         Rate: 160
       - Item: Chimera_Card
@@ -12068,7 +12070,7 @@ Body:
       - Item: Gladius
         Rate: 80
       - Item: Sandstorm
-        Rate: 15
+        Rate: 10
       - Item: Ghost_Bandana
         Rate: 1
       - Item: Skeleton_General_Card
@@ -12166,7 +12168,7 @@ Body:
       - Item: Sacred_Marks
         Rate: 10
       - Item: Ahlspiess
-        Rate: 5
+        Rate: 10
       - Item: Mini_Demon_Card
         Rate: 1
         StealProtected: true
@@ -12262,7 +12264,7 @@ Body:
       - Item: Grape
         Rate: 25
       - Item: Nail_Of_Loki
-        Rate: 1
+        Rate: 3
       - Item: Mirror_Shield_
         Rate: 1
       - Item: Killer_Mantis_Card
@@ -12306,9 +12308,9 @@ Body:
       - Item: Kakkung_
         Rate: 2
       - Item: Staff_Of_Soul
-        Rate: 1
+        Rate: 30
       - Item: Walking_Stick
-        Rate: 2
+        Rate: 30
       - Item: Wind_Scroll_1_5
         Rate: 100
       - Item: Magician_Hat
@@ -12453,7 +12455,7 @@ Body:
       - Item: White_Jewel
         Rate: 100
       - Item: Ghoul_Leg
-        Rate: 1
+        Rate: 10
       - Item: Scapulare_
         Rate: 2
       - Item: Zombie_Master_Card
@@ -12545,7 +12547,7 @@ Body:
       - Item: Brigan
         Rate: 5335
       - Item: Twilight_Desert
-        Rate: 20
+        Rate: 10
       - Item: Star_Crumb
         Rate: 100
       - Item: Great_Nature
@@ -12699,7 +12701,7 @@ Body:
       - Item: Scarlet_Jewel
         Rate: 20
       - Item: Double_Bound
-        Rate: 15
+        Rate: 10
       - Item: Giant_Honet_Card
         Rate: 1
         StealProtected: true
@@ -13126,17 +13128,17 @@ Body:
         Rate: 2000
     Drops:
       - Item: Iron_Driver
-        Rate: 8
+        Rate: 200
       - Item: War_Axe
-        Rate: 5
+        Rate: 100
       - Item: Cookbook09
         Rate: 200
       - Item: Pole_Axe
-        Rate: 9
+        Rate: 200
       - Item: Broken_Shell
         Rate: 5335
       - Item: Immaterial_Sword
-        Rate: 80
+        Rate: 150
       - Item: Union_Of_Tribe
         Rate: 1
       - Item: Turtle_General_Card
@@ -13335,7 +13337,7 @@ Body:
   - Id: 1317
     AegisName: FUR_SEAL
     Name: 海豹宝宝
-    JapaneseName: Fur Seal
+    #JapaneseName: Fur Seal
     Level: 63
     Hp: 9114
     BaseExp: 3765
@@ -15157,7 +15159,7 @@ Body:
       - Item: Horn_Of_Succubus
         Rate: 1
       - Item: Staff_Of_Soul
-        Rate: 1
+        Rate: 10
       - Item: Blue_Potion
         Rate: 1000
       - Item: Succubus_Card
@@ -15166,7 +15168,7 @@ Body:
   - Id: 1371
     AegisName: FAKE_ANGEL
     Name: 伪天使
-    JapaneseName: Fake Angel
+    #JapaneseName: Fake Angel
     Level: 65
     Hp: 16845
     BaseExp: 3371
@@ -15255,7 +15257,7 @@ Body:
   - Id: 1373
     AegisName: LORD_OF_DEATH
     Name: 死灵骑士
-    JapaneseName: Lord of Death
+    #JapaneseName: Lord of Death
     Level: 94
     Hp: 603383
     BaseExp: 131343
@@ -15296,17 +15298,17 @@ Body:
       - Item: Boroken_Shiled_Piece
         Rate: 5335
       - Item: Pole_Axe
-        Rate: 5
+        Rate: 200
       - Item: House_Auger
-        Rate: 10
+        Rate: 30
       - Item: Ring_
         Rate: 2
       - Item: Shine_Spear_Blade
         Rate: 10
       - Item: War_Axe
-        Rate: 1
+        Rate: 100
       - Item: Iron_Driver
-        Rate: 2
+        Rate: 200
       - Item: Lord_Of_Death_Card
         Rate: 1
         StealProtected: true
@@ -15484,7 +15486,7 @@ Body:
       - Item: Encyclopedia
         Rate: 10
       - Item: Wizardy_Staff
-        Rate: 1
+        Rate: 3
       - Item: Old_Card_Album
         Rate: 1
       - Item: Underground_Key
@@ -15578,7 +15580,7 @@ Body:
       - Item: Ghost_Scroll_1_5
         Rate: 100
       - Item: Infiltrator
-        Rate: 1
+        Rate: 10
       - Item: Nightmare_Terror_Card
         Rate: 1
         StealProtected: true
@@ -15862,7 +15864,7 @@ Body:
       - Item: Oridecon_Stone
         Rate: 300
       - Item: Damascus_
-        Rate: 5
+        Rate: 10
       - Item: Hypnotist's_Staff_
         Rate: 5
       - Item: Fine_Sand
@@ -15915,7 +15917,7 @@ Body:
   - Id: 1388
     AegisName: ARCHANGELING
     Name: 圣天使波利
-    JapaneseName: Archangeling
+    #JapaneseName: Archangeling
     Level: 60
     Hp: 79523
     BaseExp: 4152
@@ -16003,15 +16005,15 @@ Body:
       - Item: Yggdrasilberry
         Rate: 4700
       - Item: Wizardy_Staff
-        Rate: 5
+        Rate: 200
       - Item: Balistar
-        Rate: 5
+        Rate: 20
       - Item: Cape_Of_Ancient_Lord
         Rate: 15
       - Item: Ring_
         Rate: 4
       - Item: Book_Of_The_Apocalypse
-        Rate: 4
+        Rate: 200
       - Item: Dracula_Card
         Rate: 1
         StealProtected: true
@@ -16051,7 +16053,7 @@ Body:
       - Item: Stuffed_Doll
         Rate: 1200
       - Item: Base_Guitar
-        Rate: 50
+        Rate: 10
       - Item: Royal_Jelly
         Rate: 1400
       - Item: Water_Of_Darkness
@@ -16555,7 +16557,7 @@ Body:
   - Id: 1403
     AegisName: ANTIQUE_FIRELOCK
     Name: 武士火枪兵
-    JapaneseName: Antique Firelock
+    #JapaneseName: Antique Firelock
     Level: 47
     Hp: 3852
     BaseExp: 1293
@@ -16603,7 +16605,7 @@ Body:
   - Id: 1404
     AegisName: MIYABI_NINGYO
     Name: 米雅毕
-    JapaneseName: Miyabi Ningyo
+    #JapaneseName: Miyabi Ningyo
     Level: 33
     Hp: 6300
     BaseExp: 795
@@ -16793,7 +16795,7 @@ Body:
   - Id: 1409
     AegisName: RICE_CAKE_BOY
     Name: 元宵童子
-    JapaneseName: Rice Cake Boy
+    #JapaneseName: Rice Cake Boy
     Level: 27
     Hp: 2098
     BaseExp: 231
@@ -16838,7 +16840,7 @@ Body:
   - Id: 1410
     AegisName: LIVE_PEACH_TREE
     Name: 猴桃木
-    JapaneseName: Live Peach Tree
+    #JapaneseName: Live Peach Tree
     Level: 53
     Hp: 8905
     BaseExp: 2591
@@ -16882,7 +16884,7 @@ Body:
   - Id: 1412
     AegisName: EVIL_CLOUD_HERMIT
     Name: 恶云仙人
-    JapaneseName: Evil Cloud Hermit
+    #JapaneseName: Evil Cloud Hermit
     Level: 56
     Hp: 10392
     BaseExp: 3304
@@ -16929,7 +16931,7 @@ Body:
   - Id: 1413
     AegisName: WILD_GINSENG
     Name: 人参精
-    JapaneseName: Wild Ginseng
+    #JapaneseName: Wild Ginseng
     Level: 46
     Hp: 6900
     BaseExp: 1038
@@ -17021,7 +17023,7 @@ Body:
   - Id: 1416
     AegisName: WICKED_NYMPH
     Name: 妖仙女
-    JapaneseName: Wicked Nymph
+    #JapaneseName: Wicked Nymph
     Level: 63
     Hp: 16029
     BaseExp: 3945
@@ -17156,15 +17158,17 @@ Body:
       - Item: Sword_Of_Grave_Keeper
         Rate: 5100
       - Item: Hell_Fire
-        Rate: 80
+        Rate: 200
       - Item: Ph.D_Hat
         Rate: 80
       - Item: Gae_Bolg
-        Rate: 500
+        Rate: 200
       - Item: Pill
         Rate: 900
       - Item: Sway_Apron
         Rate: 2000
+      - Item: Guh_Moon_Goh_
+        Rate: 200
       - Item: Dark_Snake_Lord_Card
         Rate: 1
         StealProtected: true
@@ -17952,7 +17956,7 @@ Body:
   - Id: 1449
     AegisName: G_MUTANT_DRAGON
     Name: 半龙人
-    JapaneseName: Mutant Dragon
+    #JapaneseName: Mutant Dragon
     Level: 65
     Hp: 62600
     Attack: 2400
@@ -18686,7 +18690,7 @@ Body:
   - Id: 1477
     AegisName: G_ARCLOUSE
     Name: 卷甲虫
-    JapaneseName: Arclouse
+    #JapaneseName: Arclouse
     Level: 59
     Hp: 6075
     Attack: 570
@@ -18818,7 +18822,7 @@ Body:
   - Id: 1482
     AegisName: G_ZHERLTHSH
     Name: 艾斯恩魔女
-    JapaneseName: Zherlthsh
+    #JapaneseName: Zherlthsh
     Level: 63
     Hp: 18300
     Attack: 700
@@ -18928,7 +18932,7 @@ Body:
   - Id: 1486
     AegisName: G_TIRFING
     Name: 兽牙怪
-    JapaneseName: Tirfing
+    #JapaneseName: Tirfing
     Level: 71
     Hp: 29900
     Attack: 950
@@ -19038,7 +19042,7 @@ Body:
   - Id: 1490
     AegisName: G_WANDER_MAN
     Name: 邪骸浪人
-    JapaneseName: Wander Man
+    #JapaneseName: Wander Man
     Level: 74
     Hp: 8170
     Attack: 450
@@ -19095,7 +19099,7 @@ Body:
   - Id: 1492
     AegisName: INCANTATION_SAMURAI
     Name: 元灵武士
-    JapaneseName: Incantation Samurai
+    #JapaneseName: Incantation Samurai
     Level: 71
     Hp: 218652
     BaseExp: 33095
@@ -19135,7 +19139,7 @@ Body:
         Rate: 5500
     Drops:
       - Item: Masamune
-        Rate: 2
+        Rate: 20
       - Item: Elunium
         Rate: 3500
       - Item: Assassin_Mask_
@@ -19147,7 +19151,7 @@ Body:
       - Item: Huuma_Blaze
         Rate: 7500
       - Item: Azoth
-        Rate: 80
+        Rate: 200
       - Item: Incant_Samurai_Card
         Rate: 1
         StealProtected: true
@@ -19188,7 +19192,7 @@ Body:
       - Item: Rope_
         Rate: 80
       - Item: Chemeti
-        Rate: 1
+        Rate: 10
       - Item: Centimental_Leaf
         Rate: 10
       - Item: Sharp_Leaf
@@ -19472,7 +19476,7 @@ Body:
   - Id: 1502
     AegisName: PORING_V
     Name: 魔王波利
-    JapaneseName: Pori Pori
+    #JapaneseName: Pori Pori
     Level: 99
     Hp: 95000000
     BaseExp: 87250
@@ -19750,7 +19754,7 @@ Body:
       - Item: Oridecon
         Rate: 100
       - Item: Mama's_Knife
-        Rate: 3
+        Rate: 10
       - Item: Ginnungagap
         Rate: 1
       - Item: Bloody_Murderer_Card
@@ -19845,7 +19849,7 @@ Body:
   - Id: 1510
     AegisName: HYLOZOIST
     Name: 兔斯拉
-    JapaneseName: Hylozoist
+    #JapaneseName: Hylozoist
     Level: 51
     Hp: 7186
     BaseExp: 2314
@@ -19950,7 +19954,7 @@ Body:
   - Id: 1512
     AegisName: HYEGUN
     Name: 妖君
-    JapaneseName: Hyegun
+    #JapaneseName: Hyegun
     Level: 56
     Hp: 9981
     BaseExp: 2199
@@ -19994,7 +19998,7 @@ Body:
   - Id: 1513
     AegisName: CIVIL_SERVANT
     Name: 狐仙
-    JapaneseName: Civil Servant
+    #JapaneseName: Civil Servant
     Level: 62
     Hp: 14390
     BaseExp: 4023
@@ -20038,7 +20042,7 @@ Body:
   - Id: 1514
     AegisName: DANCING_DRAGON
     Name: 舞狮
-    JapaneseName: Dancing Dragon
+    #JapaneseName: Dancing Dragon
     Level: 54
     Hp: 9136
     BaseExp: 3030
@@ -20082,7 +20086,7 @@ Body:
   - Id: 1515
     AegisName: GARM_BABY
     Name: 卡仑宝宝
-    JapaneseName: Garm Baby
+    #JapaneseName: Garm Baby
     Level: 61
     Hp: 20199
     BaseExp: 1022
@@ -20126,7 +20130,7 @@ Body:
   - Id: 1516
     AegisName: INCREASE_SOIL
     Name: 米糕
-    JapaneseName: Increase Soil
+    #JapaneseName: Increase Soil
     Level: 51
     Hp: 8230
     BaseExp: 2760
@@ -20168,7 +20172,7 @@ Body:
   - Id: 1517
     AegisName: LI_ME_MANG_RYANG
     Name: 豹皮怪
-    JapaneseName: Li Me Mang Ryang
+    #JapaneseName: Li Me Mang Ryang
     Level: 48
     Hp: 5920
     BaseExp: 1643
@@ -20205,14 +20209,14 @@ Body:
       - Item: Club
         Rate: 10
       - Item: Spike
-        Rate: 1
+        Rate: 10
       - Item: Li_Me_Mang_Ryang_Card
         Rate: 1
         StealProtected: true
   - Id: 1518
     AegisName: BACSOJIN
     Name: 白素贞
-    JapaneseName: Bacsojin
+    #JapaneseName: Bacsojin
     Level: 72
     Hp: 56380
     BaseExp: 5590
@@ -20258,7 +20262,7 @@ Body:
   - Id: 1519
     AegisName: CHUNG_E
     Name: 小青
-    JapaneseName: Chung E
+    #JapaneseName: Chung E
     Level: 49
     Hp: 23900
     BaseExp: 2396
@@ -20393,7 +20397,7 @@ Body:
   - Id: 1523
     AegisName: G_ANTIQUE_FIRELOCK
     Name: 武士火枪兵
-    JapaneseName: Antique Firelock
+    #JapaneseName: Antique Firelock
     Level: 47
     Hp: 3852
     Attack: 289
@@ -20552,7 +20556,7 @@ Body:
   - Id: 1529
     AegisName: G_DARK_SNAKE_LORD
     Name: 墨蛇君
-    JapaneseName: Dark Snake Lord
+    #JapaneseName: Dark Snake Lord
     Level: 73
     Hp: 254993
     Attack: 1433
@@ -20608,7 +20612,7 @@ Body:
   - Id: 1531
     AegisName: G_EVIL_CLOUD_HERMIT
     Name: 恶云仙人
-    JapaneseName: Evil Cloud Hermit
+    #JapaneseName: Evil Cloud Hermit
     Level: 56
     Hp: 10392
     Attack: 311
@@ -20661,7 +20665,7 @@ Body:
   - Id: 1533
     AegisName: G_FUR_SEAL
     Name: 海豹宝宝
-    JapaneseName: Fur Seal
+    #JapaneseName: Fur Seal
     Level: 63
     Hp: 9114
     Attack: 845
@@ -21106,7 +21110,7 @@ Body:
   - Id: 1550
     AegisName: G_LIVE_PEACH_TREE
     Name: 猴桃木
-    JapaneseName: Live Peach Tree
+    #JapaneseName: Live Peach Tree
     Level: 53
     Hp: 8905
     Attack: 301
@@ -21159,7 +21163,7 @@ Body:
   - Id: 1552
     AegisName: G_MIYABI_NINGYO
     Name: 米雅毕
-    JapaneseName: Miyabi Ningyo
+    #JapaneseName: Miyabi Ningyo
     Level: 33
     Hp: 6300
     Attack: 250
@@ -21266,7 +21270,7 @@ Body:
   - Id: 1556
     AegisName: G_POISON_TOAD
     Name: 牛蛙
-    JapaneseName: Poison Toad
+    #JapaneseName: Poison Toad
     Level: 46
     Hp: 6629
     Attack: 288
@@ -21483,7 +21487,7 @@ Body:
   - Id: 1564
     AegisName: G_WICKED_NYMPH
     Name: 妖仙女
-    JapaneseName: Wicked Nymph
+    #JapaneseName: Wicked Nymph
     Level: 63
     Hp: 16029
     Attack: 399
@@ -21512,7 +21516,7 @@ Body:
   - Id: 1565
     AegisName: G_WILD_GINSENG
     Name: 人参精
-    JapaneseName: Wild Ginseng
+    #JapaneseName: Wild Ginseng
     Level: 46
     Hp: 6900
     Attack: 220
@@ -22770,7 +22774,7 @@ Body:
   - Id: 1606
     AegisName: G_GARM_BABY
     Name: 卡仑宝宝
-    JapaneseName: Garm Baby
+    #JapaneseName: Garm Baby
     Level: 61
     Hp: 20199
     Attack: 680
@@ -22851,7 +22855,7 @@ Body:
   - Id: 1609
     AegisName: G_DANCING_DRAGON
     Name: 年兽
-    JapaneseName: Dancing Dragon
+    #JapaneseName: Dancing Dragon
     Level: 54
     Hp: 9136
     BaseExp: 3030
@@ -22965,7 +22969,7 @@ Body:
   - Id: 1612
     AegisName: A_HYEGUN
     Name: 妖君
-    JapaneseName: Hyegun
+    #JapaneseName: Hyegun
     Level: 56
     Hp: 9981
     Attack: 710
@@ -23187,7 +23191,7 @@ Body:
   - Id: 1617
     AegisName: WASTE_STOVE
     Name: 废铁暖炉
-    JapaneseName: Waste Stove
+    #JapaneseName: Waste Stove
     Level: 68
     Hp: 15895
     BaseExp: 4412
@@ -23459,7 +23463,7 @@ Body:
   - Id: 1623
     AegisName: RSX_0806
     Name: RSX-0806
-    JapaneseName: RSX 0806
+    #JapaneseName: RSX 0806
     Level: 86
     Hp: 560733
     BaseExp: 31010
@@ -23501,24 +23505,24 @@ Body:
       - Item: Wheel
         Rate: 6000
       - Item: House_Auger
-        Rate: 10
+        Rate: 30
       - Item: House_Auger_
-        Rate: 1
+        Rate: 10
       - Item: Old_Violet_Box
         Rate: 1000
       - Item: Headlamp
         Rate: 5000
       - Item: Counter_Dagger
-        Rate: 50
+        Rate: 200
       - Item: Spanner
-        Rate: 20
+        Rate: 200
       - Item: Rsx_0806_Card
         Rate: 1
         StealProtected: true
   - Id: 1624
     AegisName: G_WASTE_STOVE
     Name: 废铁暖炉
-    JapaneseName: Waste Stove
+    #JapaneseName: Waste Stove
     Level: 68
     Hp: 15895
     Attack: 500
@@ -23654,7 +23658,7 @@ Body:
   - Id: 1628
     AegisName: MOLE
     Name: 摩尔
-    JapaneseName: Mole
+    #JapaneseName: Mole
     Level: 36
     Hp: 2209
     BaseExp: 268
@@ -23732,7 +23736,7 @@ Body:
   - Id: 1630
     AegisName: BACSOJIN_
     Name: 白素贞
-    JapaneseName: Bacsojin
+    #JapaneseName: Bacsojin
     Level: 85
     Hp: 253221
     BaseExp: 45250
@@ -23785,13 +23789,15 @@ Body:
         Rate: 100
       - Item: Tiara
         Rate: 10
+      - Item: Rapture_Rose
+        Rate: 200
       - Item: Bacsojin_Card
         Rate: 1
         StealProtected: true
   - Id: 1631
     AegisName: CHUNG_E_
     Name: 小青
-    JapaneseName: Chung E
+    #JapaneseName: Chung E
     Level: 59
     Hp: 23900
     BaseExp: 4256
@@ -23927,7 +23933,7 @@ Body:
   - Id: 1634
     AegisName: SEYREN
     Name: 暗●骑士领主
-    JapaneseName: Seyren
+    #JapaneseName: Seyren
     Level: 91
     Hp: 88402
     BaseExp: 100000
@@ -23960,7 +23966,7 @@ Body:
       - Item: Armlet_Of_Prisoner
         Rate: 3000
       - Item: Dragon_Killer
-        Rate: 2
+        Rate: 10
       - Item: Claymore
         Rate: 200
       - Item: Old_Blue_Box
@@ -23969,15 +23975,13 @@ Body:
         Rate: 12
       - Item: Plate_Armor_
         Rate: 1
-      - Item: Ruber
-        Rate: 1
       - Item: Seyren_Card
         Rate: 1
         StealProtected: true
   - Id: 1635
     AegisName: EREMES
     Name: 暗●十字刺客
-    JapaneseName: Eremes
+    #JapaneseName: Eremes
     Level: 87
     Hp: 60199
     BaseExp: 100000
@@ -24014,9 +24018,9 @@ Body:
       - Item: Pauldron
         Rate: 1
       - Item: Nail_Of_Loki
-        Rate: 3
+        Rate: 5
       - Item: Various_Jur
-        Rate: 30
+        Rate: 10
       - Item: Poison_Bottle
         Rate: 110
       - Item: Thief_Clothes_
@@ -24027,7 +24031,7 @@ Body:
   - Id: 1636
     AegisName: HARWORD
     Name: 暗●神工匠
-    JapaneseName: Harword
+    #JapaneseName: Harword
     Level: 83
     Hp: 78690
     BaseExp: 100000
@@ -24060,7 +24064,7 @@ Body:
       - Item: Pauldron
         Rate: 1
       - Item: Vecer_Axe
-        Rate: 1
+        Rate: 5
       - Item: Two_Handed_Axe_
         Rate: 110
       - Item: Buckler_
@@ -24075,7 +24079,7 @@ Body:
   - Id: 1637
     AegisName: MAGALETA
     Name: 暗●神官
-    JapaneseName: Magaleta
+    #JapaneseName: Magaleta
     Level: 90
     Hp: 61282
     BaseExp: 100000
@@ -24105,7 +24109,7 @@ Body:
       - Item: Lab_Staff_Record
         Rate: 2000
       - Item: Croce_Staff
-        Rate: 2
+        Rate: 5
       - Item: Rod_
         Rate: 200
       - Item: Hardback
@@ -24122,7 +24126,7 @@ Body:
   - Id: 1638
     AegisName: SHECIL
     Name: 暗●神射手
-    JapaneseName: Shecil
+    #JapaneseName: Shecil
     Level: 82
     Hp: 58900
     BaseExp: 100000
@@ -24162,14 +24166,14 @@ Body:
       - Item: Old_Blue_Box
         Rate: 50
       - Item: Falken_Blitz
-        Rate: 1
+        Rate: 5
       - Item: Shecil_Card
         Rate: 1
         StealProtected: true
   - Id: 1639
     AegisName: KATRINN
     Name: 暗●超魔导师
-    JapaneseName: Katrinn
+    #JapaneseName: Katrinn
     Level: 92
     Hp: 47280
     BaseExp: 100000
@@ -24201,7 +24205,7 @@ Body:
       - Item: Old_Blue_Box
         Rate: 50
       - Item: La'cryma_Stick
-        Rate: 1
+        Rate: 5
       - Item: Survival_Rod2_
         Rate: 5
       - Item: Guard_
@@ -24284,7 +24288,7 @@ Body:
   - Id: 1642
     AegisName: G_HARWORD
     Name: 神工匠 哈沃得
-    JapaneseName: Whitesmith Harword
+    #JapaneseName: Whitesmith Harword
     Level: 99
     Hp: 310000
     BaseExp: 18000
@@ -24319,7 +24323,7 @@ Body:
   - Id: 1643
     AegisName: G_MAGALETA
     Name: 神官 玛嘉雷特
-    JapaneseName: High Priest Magaleta
+    #JapaneseName: High Priest Magaleta
     Level: 99
     Hp: 182910
     BaseExp: 18000
@@ -24353,7 +24357,7 @@ Body:
   - Id: 1644
     AegisName: G_SHECIL
     Name: 神射手 迪文
-    JapaneseName: Sniper Shecil
+    #JapaneseName: Sniper Shecil
     Level: 99
     Hp: 209000
     BaseExp: 18000
@@ -24387,7 +24391,7 @@ Body:
   - Id: 1645
     AegisName: G_KATRINN
     Name: 超魔导师 凯特莉娜
-    JapaneseName: High Wizard Katrinn
+    #JapaneseName: High Wizard Katrinn
     Level: 99
     Hp: 189920
     BaseExp: 18000
@@ -24460,19 +24464,19 @@ Body:
         Rate: 2000
     Drops:
       - Item: Edge
-        Rate: 2500
+        Rate: 500
       - Item: Full_Plate_Armor_
         Rate: 3500
       - Item: Grave_
         Rate: 9000
       - Item: Brionac
-        Rate: 3500
+        Rate: 500
       - Item: Longinus's_Spear
-        Rate: 3000
+        Rate: 500
       - Item: Dragon_Slayer
-        Rate: 2500
+        Rate: 500
       - Item: Skewer
-        Rate: 1500
+        Rate: 300
       - Item: B_Seyren_Card
         Rate: 1
         StealProtected: true
@@ -24518,26 +24522,26 @@ Body:
         Rate: 2000
     Drops:
       - Item: Moonlight_Sword
-        Rate: 1500
+        Rate: 800
       - Item: House_Auger
-        Rate: 1500
+        Rate: 300
       - Item: Glittering_Clothes
         Rate: 9000
       - Item: Exercise
-        Rate: 3500
+        Rate: 500
       - Item: Assasin_Dagger
-        Rate: 3500
+        Rate: 800
       - Item: Bloody_Roar
-        Rate: 3500
+        Rate: 800
       - Item: Ginnungagap
-        Rate: 3500
+        Rate: 800
       - Item: B_Eremes_Card
         Rate: 1
         StealProtected: true
   - Id: 1648
     AegisName: B_HARWORD
     Name: 暗●神工匠 哈沃德
-    JapaneseName: Whitesmith Harword
+    #JapaneseName: Whitesmith Harword
     Level: 99
     Hp: 1460000
     BaseExp: 4002340
@@ -24577,26 +24581,26 @@ Body:
         Rate: 2000
     Drops:
       - Item: Mysteltainn_
-        Rate: 3500
+        Rate: 500
       - Item: Byeorrun_Gum
-        Rate: 2500
+        Rate: 500
       - Item: Clothes_Of_The_Lord
         Rate: 9000
       - Item: Sabbath
-        Rate: 3500
+        Rate: 500
       - Item: Great_Axe
-        Rate: 3500
+        Rate: 800
       - Item: Guillotine
-        Rate: 2500
+        Rate: 600
       - Item: Tomahawk
-        Rate: 3500
+        Rate: 600
       - Item: B_Harword_Card
         Rate: 1
         StealProtected: true
   - Id: 1649
     AegisName: B_MAGALETA
     Name: 暗●神官 玛嘉雷特
-    JapaneseName: High Priest Magaleta
+    #JapaneseName: High Priest Magaleta
     Level: 99
     Hp: 1092910
     BaseExp: 4257000
@@ -24635,26 +24639,26 @@ Body:
         Rate: 2000
     Drops:
       - Item: Berserk
-        Rate: 3500
+        Rate: 500
       - Item: Safety_Ring
         Rate: 2500
       - Item: Celestial_Robe
         Rate: 9000
       - Item: Book_Of_The_Apocalypse
-        Rate: 3500
+        Rate: 800
       - Item: Quadrille
-        Rate: 3500
+        Rate: 800
       - Item: Grand_Cross
-        Rate: 2500
+        Rate: 800
       - Item: Diary_Of_Great_Sage
-        Rate: 3500
+        Rate: 500
       - Item: B_Magaleta_Card
         Rate: 1
         StealProtected: true
   - Id: 1650
     AegisName: B_SHECIL
     Name: 暗●神射手 迪文
-    JapaneseName: Sniper Shecil
+    #JapaneseName: Sniper Shecil
     Level: 99
     Hp: 1349000
     BaseExp: 4093000
@@ -24693,26 +24697,26 @@ Body:
         Rate: 2000
     Drops:
       - Item: Combat_Knife
-        Rate: 3500
+        Rate: 500
       - Item: Sucsamad
-        Rate: 3500
+        Rate: 800
       - Item: Old_Violet_Box
         Rate: 9000
       - Item: Moonlight_Sword
-        Rate: 1500
+        Rate: 800
       - Item: Grimtooth_
-        Rate: 3500
+        Rate: 800
       - Item: Bow_Of_Rudra
-        Rate: 1500
+        Rate: 500
       - Item: Dragon_Wing
-        Rate: 2500
+        Rate: 800
       - Item: B_Shecil_Card
         Rate: 1
         StealProtected: true
   - Id: 1651
     AegisName: B_KATRINN
     Name: 暗●超魔导师 凯特莉娜
-    JapaneseName: High Wizard Katrinn
+    #JapaneseName: High Wizard Katrinn
     Level: 99
     Hp: 1069920
     BaseExp: 4008200
@@ -24751,9 +24755,9 @@ Body:
         Rate: 2000
     Drops:
       - Item: Cursed_Dagger
-        Rate: 3500
+        Rate: 800
       - Item: Counter_Dagger
-        Rate: 3500
+        Rate: 800
       - Item: Critical_Ring
         Rate: 9000
       - Item: Robe_Of_Casting
@@ -24761,7 +24765,7 @@ Body:
       - Item: Celestial_Robe
         Rate: 2500
       - Item: Survival_Rod_
-        Rate: 3000
+        Rate: 1800
       - Item: Glittering_Clothes
         Rate: 3500
       - Item: B_Katrinn_Card
@@ -24770,7 +24774,7 @@ Body:
   - Id: 1652
     AegisName: YGNIZEM
     Name: 暗●剑士
-    JapaneseName: Ygnizem
+    #JapaneseName: Ygnizem
     Level: 58
     Hp: 11200
     BaseExp: 4870
@@ -24800,12 +24804,10 @@ Body:
     Drops:
       - Item: Lab_Staff_Record
         Rate: 1000
-      - Item: Katzbalger
-        Rate: 1
       - Item: Two_Hand_Sword_
         Rate: 20
       - Item: Saber_
-        Rate: 20
+        Rate: 10
       - Item: Padded_Armor_
         Rate: 10
       - Item: Slayer_
@@ -24818,7 +24820,7 @@ Body:
   - Id: 1653
     AegisName: WHIKEBAIN
     Name: 暗●盗贼
-    JapaneseName: Whikebain
+    #JapaneseName: Whikebain
     Level: 62
     Hp: 7320
     BaseExp: 4204
@@ -24847,8 +24849,6 @@ Body:
     Drops:
       - Item: Armlet_Of_Prisoner
         Rate: 2000
-      - Item: Forturn_Sword
-        Rate: 1
       - Item: Adventurere's_Suit_
         Rate: 40
       - Item: Gladius_
@@ -24865,7 +24865,7 @@ Body:
   - Id: 1654
     AegisName: ARMAIA
     Name: 暗●商人
-    JapaneseName: Armaia
+    #JapaneseName: Armaia
     Level: 66
     Hp: 7110
     BaseExp: 4008
@@ -24913,7 +24913,7 @@ Body:
   - Id: 1655
     AegisName: EREND
     Name: 暗●服事
-    JapaneseName: Erend
+    #JapaneseName: Erend
     Level: 59
     Hp: 6980
     BaseExp: 4501
@@ -24953,14 +24953,14 @@ Body:
       - Item: Scapulare_
         Rate: 10
       - Item: Spike
-        Rate: 1
+        Rate: 10
       - Item: Erend_Card
         Rate: 1
         StealProtected: true
   - Id: 1656
     AegisName: KAVAC
     Name: 暗●弓箭手
-    JapaneseName: Kavac
+    #JapaneseName: Kavac
     Level: 60
     Hp: 7899
     BaseExp: 4090
@@ -25008,7 +25008,7 @@ Body:
   - Id: 1657
     AegisName: RAWREL
     Name: 暗●魔法师
-    JapaneseName: Rawrel
+    #JapaneseName: Rawrel
     Level: 61
     Hp: 6168
     BaseExp: 4620
@@ -25038,7 +25038,7 @@ Body:
       - Item: Mementos
         Rate: 1000
       - Item: Staff_Of_Wing
-        Rate: 1
+        Rate: 10
       - Item: Guard_
         Rate: 5
       - Item: Staff_
@@ -25055,7 +25055,7 @@ Body:
   - Id: 1658
     AegisName: B_YGNIZEM
     Name: 暗●剑士 赛尼亚
-    JapaneseName: Ygnizem
+    #JapaneseName: Ygnizem
     Level: 79
     Hp: 214200
     BaseExp: 258760
@@ -25101,20 +25101,20 @@ Body:
       - Item: Old_Blue_Box
         Rate: 5000
       - Item: Schweizersabel
-        Rate: 1000
+        Rate: 200
       - Item: Formal_Suit
         Rate: 1000
       - Item: Boots_
         Rate: 1000
       - Item: Nagan
-        Rate: 1000
+        Rate: 200
       - Item: B_Ygnizem_Card
         Rate: 1
         StealProtected: true
   - Id: 1659
     AegisName: G_WHIKEBAIN
     Name: 盗贼 特丽丝
-    JapaneseName: Whikebain
+    #JapaneseName: Whikebain
     Level: 62
     Hp: 7320
     Attack: 593
@@ -25144,7 +25144,7 @@ Body:
   - Id: 1660
     AegisName: G_ARMAIA
     Name: 商人 娣洁
-    JapaneseName: Armaia
+    #JapaneseName: Armaia
     Level: 66
     Hp: 7110
     Attack: 650
@@ -25175,7 +25175,7 @@ Body:
   - Id: 1661
     AegisName: G_EREND
     Name: 服事 艾贝西
-    JapaneseName: Erend
+    #JapaneseName: Erend
     Level: 59
     Hp: 6980
     Attack: 796
@@ -25205,7 +25205,7 @@ Body:
   - Id: 1662
     AegisName: G_KAVAC
     Name: 弓箭手 伊卡勒斯
-    JapaneseName: Kavac
+    #JapaneseName: Kavac
     Level: 60
     Hp: 7899
     Attack: 584
@@ -25236,7 +25236,7 @@ Body:
   - Id: 1663
     AegisName: G_RAWREL
     Name: 魔法师 庞德
-    JapaneseName: Rawrel
+    #JapaneseName: Rawrel
     Level: 61
     Hp: 6168
     Attack: 330
@@ -26011,7 +26011,7 @@ Body:
   - Id: 1682
     AegisName: REMOVAL
     Name: 消防魔
-    JapaneseName: Removal
+    #JapaneseName: Removal
     Level: 55
     Hp: 10289
     BaseExp: 3831
@@ -26163,6 +26163,8 @@ Body:
         Rate: 100
       - Item: Vesper_Core04
         Rate: 100
+      - Item: Bow_Of_Rudra
+        Rate: 200
       - Item: Apocalips_H_Card
         Rate: 1
         StealProtected: true
@@ -26214,7 +26216,7 @@ Body:
   - Id: 1687
     AegisName: GREEN_IGUANA
     Name: 绿变色龙
-    JapaneseName: Green Iguana
+    #JapaneseName: Green Iguana
     Level: 54
     Hp: 6444
     BaseExp: 2400
@@ -26311,13 +26313,15 @@ Body:
         Rate: 2000
       - Item: Kakkung_
         Rate: 6000
+      - Item: Nemesis
+        Rate: 200
       - Item: Lady_Tanee_Card
         Rate: 1
         StealProtected: true
   - Id: 1689
     AegisName: G_BACSOJIN
     Name: 嫦娥
-    JapaneseName: Bacsojin
+    #JapaneseName: Bacsojin
     Level: 85
     Hp: 253221
     BaseExp: 45250
@@ -26673,7 +26677,7 @@ Body:
   - Id: 1698
     AegisName: DEATHWORD
     Name: 死亡魔书
-    JapaneseName: Deathword
+    #JapaneseName: Deathword
     Level: 65
     Hp: 18990
     BaseExp: 2986
@@ -26768,7 +26772,7 @@ Body:
   - Id: 1700
     AegisName: OBSERVATION
     Name: 监视者
-    JapaneseName: Observation
+    #JapaneseName: Observation
     Level: 81
     Hp: 65111
     BaseExp: 39872
@@ -26817,7 +26821,7 @@ Body:
   - Id: 1701
     AegisName: SHELTER
     Name: 安息者
-    JapaneseName: Shelter
+    #JapaneseName: Shelter
     Level: 80
     Hp: 38000
     BaseExp: 29010
@@ -26864,7 +26868,7 @@ Body:
   - Id: 1702
     AegisName: RETRIBUTION
     Name: 代行刑者
-    JapaneseName: Retribution
+    #JapaneseName: Retribution
     Level: 79
     Hp: 46666
     BaseExp: 28332
@@ -26913,7 +26917,7 @@ Body:
   - Id: 1703
     AegisName: SOLACE
     Name: 慰劳者
-    JapaneseName: Solace
+    #JapaneseName: Solace
     Level: 77
     Hp: 25252
     BaseExp: 21000
@@ -26962,7 +26966,7 @@ Body:
   - Id: 1704
     AegisName: THA_ODIUM
     Name: 达纳托斯的憎恨
-    JapaneseName: Thanatos Odium
+    #JapaneseName: Thanatos Odium
     Level: 92
     Hp: 72389
     BaseExp: 88420
@@ -27009,7 +27013,7 @@ Body:
   - Id: 1705
     AegisName: THA_DESPERO
     Name: 达纳托斯的绝望
-    JapaneseName: Thanatos Despero
+    #JapaneseName: Thanatos Despero
     Level: 88
     Hp: 86666
     BaseExp: 62001
@@ -27056,7 +27060,7 @@ Body:
   - Id: 1706
     AegisName: THA_MAERO
     Name: 达纳托斯的悲哀
-    JapaneseName: Thanatos Maero
+    #JapaneseName: Thanatos Maero
     Level: 83
     Hp: 62000
     BaseExp: 56699
@@ -27103,7 +27107,7 @@ Body:
   - Id: 1707
     AegisName: THA_DOLOR
     Name: 达纳托斯的苦恼
-    JapaneseName: Thanatos Dolor
+    #JapaneseName: Thanatos Dolor
     Level: 83
     Hp: 59922
     BaseExp: 43200
@@ -27150,7 +27154,7 @@ Body:
   - Id: 1708
     AegisName: THANATOS
     Name: 魔剑士达纳托斯的记忆
-    JapaneseName: Thanatos
+    #JapaneseName: Thanatos
     Level: 99
     Hp: 445660
     BaseExp: 3666000
@@ -27209,7 +27213,7 @@ Body:
   - Id: 1709
     AegisName: G_THA_ODIUM
     Name: 达纳托斯的憎恨
-    JapaneseName: Thanatos Odium
+    #JapaneseName: Thanatos Odium
     Level: 92
     Hp: 72389
     BaseExp: 10000
@@ -27247,7 +27251,7 @@ Body:
   - Id: 1710
     AegisName: G_THA_DESPERO
     Name: 达纳托斯的绝望
-    JapaneseName: Thanatos Despero
+    #JapaneseName: Thanatos Despero
     Level: 88
     Hp: 86666
     BaseExp: 10000
@@ -27285,7 +27289,7 @@ Body:
   - Id: 1711
     AegisName: G_THA_MAERO
     Name: 达纳托斯的悲哀
-    JapaneseName: Thanatos Maero
+    #JapaneseName: Thanatos Maero
     Level: 83
     Hp: 62000
     BaseExp: 10000
@@ -27323,7 +27327,7 @@ Body:
   - Id: 1712
     AegisName: G_THA_DOLOR
     Name: 达纳托斯的苦恼
-    JapaneseName: Thanatos Dolor
+    #JapaneseName: Thanatos Dolor
     Level: 83
     Hp: 59922
     BaseExp: 10000
@@ -27619,7 +27623,7 @@ Body:
   - Id: 1719
     AegisName: DETALE
     Name: 迪塔勒泰晤勒斯
-    JapaneseName: Detale
+    #JapaneseName: Detale
     Level: 90
     Hp: 960000
     BaseExp: 291850
@@ -27669,7 +27673,7 @@ Body:
       - Item: Int_Dish10
         Rate: 1000
       - Item: Pole_Axe
-        Rate: 100
+        Rate: 200
       - Item: Gemmed_Crown
         Rate: 500
       - Item: Detale_Card
@@ -27678,7 +27682,7 @@ Body:
   - Id: 1720
     AegisName: HYDRO
     Name: 三头龙
-    JapaneseName: Hydro
+    #JapaneseName: Hydro
     Level: 89
     Hp: 308230
     BaseExp: 83450
@@ -27805,7 +27809,7 @@ Body:
   - Id: 1723
     AegisName: A_SHECIL
     Name: 神射手迪文
-    JapaneseName: Shecil Damon
+    #JapaneseName: Shecil Damon
     Level: 82
     Hp: 30000
     Attack: 600
@@ -27929,7 +27933,7 @@ Body:
   - Id: 1728
     AegisName: R_DESERT_WOLF_B
     Name: 沙漠幼狼
-    JapaneseName: Desert Wolf Baby
+    #JapaneseName: Desert Wolf Baby
     Level: 9
     Hp: 164
     Attack: 30
@@ -28055,7 +28059,7 @@ Body:
   - Id: 1733
     AegisName: KIEL
     Name: 基尔
-    JapaneseName: Kiel
+    #JapaneseName: Kiel
     Level: 90
     Hp: 523000
     BaseExp: 36500
@@ -28182,7 +28186,7 @@ Body:
       - Item: Screw
         Rate: 500
       - Item: Drill_Katar
-        Rate: 5
+        Rate: 10
       - Item: Elunium
         Rate: 10
       - Item: Vali's_Manteau
@@ -28235,7 +28239,7 @@ Body:
       - Item: Elunium
         Rate: 10
       - Item: Curved_Sword
-        Rate: 15
+        Rate: 10
       - Item: Aliot_Card
         Rate: 1
         StealProtected: true
@@ -28560,7 +28564,7 @@ Body:
   - Id: 1747
     AegisName: G_SNAKE
     Name: 青蛇
-    JapaneseName: Snake
+    #JapaneseName: Snake
     Level: 15
     Hp: 471
     Attack: 46
@@ -28760,7 +28764,7 @@ Body:
       - Item: Elunium_Stone
         Rate: 500
       - Item: Blood_Tears
-        Rate: 5
+        Rate: 10
       - Item: Skogul_Card
         Rate: 1
         StealProtected: true
@@ -28848,7 +28852,7 @@ Body:
       - Item: Soft_Feather
         Rate: 1000
       - Item: Divine_Cross
-        Rate: 25
+        Rate: 20
       - Item: Rune_Of_Darkness
         Rate: 1000
       - Item: Silk_Robe_
@@ -28896,7 +28900,7 @@ Body:
       - Item: Soft_Feather
         Rate: 1000
       - Item: Divine_Cross
-        Rate: 25
+        Rate: 20
       - Item: Rune_Of_Darkness
         Rate: 1000
       - Item: Silk_Robe_
@@ -28909,7 +28913,7 @@ Body:
   - Id: 1756
     AegisName: G_HYDRO
     Name: 三头龙
-    JapaneseName: Hydro
+    #JapaneseName: Hydro
     Level: 89
     Hp: 308230
     Attack: 2554
@@ -29327,7 +29331,7 @@ Body:
       - Item: Celestial_Robe
         Rate: 1000
       - Item: Hurricane_Fury
-        Rate: 100
+        Rate: 200
       - Item: Gloom_Under_Night_Card
         Rate: 1
         StealProtected: true
@@ -29601,7 +29605,7 @@ Body:
       - Item: Bloody_Rune
         Rate: 1000
       - Item: Berdysz
-        Rate: 20
+        Rate: 10
       - Item: Seeker_Card
         Rate: 1
         StealProtected: true
@@ -29776,7 +29780,7 @@ Body:
       - Item: Elunium
         Rate: 20
       - Item: Frozen_Bow
-        Rate: 1
+        Rate: 10
       - Item: Gazeti_Card
         Rate: 1
         StealProtected: true
@@ -30105,6 +30109,8 @@ Body:
         Rate: 100
       - Item: Altas_Weapon
         Rate: 100
+      - Item: Krishna
+        Rate: 200
       - Item: Atroce_Card
         Rate: 1
         StealProtected: true
@@ -30588,7 +30594,7 @@ Body:
   - Id: 1801
     AegisName: G_HARWORD_
     Name: 神工匠 哈沃得(G)
-    JapaneseName: Whitesmith Harword
+    #JapaneseName: Whitesmith Harword
     Level: 99
     Hp: 310000
     BaseExp: 18000
@@ -30622,7 +30628,7 @@ Body:
   - Id: 1802
     AegisName: G_MAGALETA_
     Name: 神官 玛嘉雷特(G)
-    JapaneseName: High Priest Magaleta
+    #JapaneseName: High Priest Magaleta
     Level: 99
     Hp: 182910
     BaseExp: 18000
@@ -30655,7 +30661,7 @@ Body:
   - Id: 1803
     AegisName: G_SHECIL_
     Name: 神射手 迪文(G)
-    JapaneseName: Sniper Shecil
+    #JapaneseName: Sniper Shecil
     Level: 99
     Hp: 209000
     BaseExp: 18000
@@ -30688,7 +30694,7 @@ Body:
   - Id: 1804
     AegisName: G_KATRINN_
     Name: 超魔导师 凯特莉娜(G)
-    JapaneseName: High Wizard Katrinn
+    #JapaneseName: High Wizard Katrinn
     Level: 99
     Hp: 189920
     BaseExp: 18000
@@ -30787,7 +30793,7 @@ Body:
   - Id: 1807
     AegisName: B_HARWORD_
     Name: 暗●神工匠 哈沃得
-    JapaneseName: Whitesmith Harword
+    #JapaneseName: Whitesmith Harword
     Level: 99
     Hp: 1460000
     BaseExp: 4002340
@@ -30821,7 +30827,7 @@ Body:
   - Id: 1808
     AegisName: B_MAGALETA_
     Name: 暗●神官 玛嘉雷特
-    JapaneseName: High Priest Magaleta
+    #JapaneseName: High Priest Magaleta
     Level: 99
     Hp: 1092910
     BaseExp: 4257000
@@ -30854,7 +30860,7 @@ Body:
   - Id: 1809
     AegisName: B_SHECIL_
     Name: 暗●神射手 迪文
-    JapaneseName: Sniper Shecil
+    #JapaneseName: Sniper Shecil
     Level: 99
     Hp: 1349000
     BaseExp: 4093000
@@ -30887,7 +30893,7 @@ Body:
   - Id: 1810
     AegisName: B_KATRINN_
     Name: 暗●超魔导师 凯特莉娜
-    JapaneseName: High Wizard Katrinn
+    #JapaneseName: High Wizard Katrinn
     Level: 99
     Hp: 1069920
     BaseExp: 4008200
@@ -30920,7 +30926,7 @@ Body:
   - Id: 1811
     AegisName: G_SMOKIE_
     Name: 狸猫
-    JapaneseName: Smokie
+    #JapaneseName: Smokie
     Level: 18
     Hp: 641
     Attack: 61
@@ -30957,7 +30963,7 @@ Body:
   - Id: 1812
     AegisName: EVENT_LUDE
     Name: 南瓜魂
-    JapaneseName: Lude
+    #JapaneseName: Lude
     Level: 99
     Hp: 15
     Defense: 100
@@ -30988,7 +30994,7 @@ Body:
   - Id: 1813
     AegisName: EVENT_HYDRO
     Name: 三头龙
-    JapaneseName: Hydro
+    #JapaneseName: Hydro
     Level: 99
     Hp: 1880000
     BaseExp: 4000000
@@ -31126,7 +31132,7 @@ Body:
   - Id: 1817
     AegisName: EVENT_DETALE
     Name: 迪塔勒泰晤勒斯
-    JapaneseName: Detale
+    #JapaneseName: Detale
     Level: 99
     Hp: 8880000
     BaseExp: 4500000
@@ -31159,7 +31165,7 @@ Body:
       - Item: Dragon_Wing
         Rate: 500
       - Item: Wizardy_Staff
-        Rate: 500
+        Rate: 200
       - Item: Bloody_Roar
         Rate: 500
       - Item: Int_Dish10
@@ -31344,7 +31350,7 @@ Body:
   - Id: 1824
     AegisName: EVENT_GARM_BABY
     Name: 卡仑宝宝
-    JapaneseName: Garm Baby
+    #JapaneseName: Garm Baby
     Level: 61
     Hp: 20199
     Attack: 680
@@ -31492,7 +31498,7 @@ Body:
   - Id: 1829
     AegisName: SWORD_GUARDIAN
     Name: 机械剑士
-    JapaneseName: Sword Guardian
+    #JapaneseName: Sword Guardian
     Level: 86
     Hp: 152533
     BaseExp: 155013
@@ -31532,14 +31538,14 @@ Body:
       - Item: Platinum_Shield
         Rate: 10
       - Item: Muscle_Cutter
-        Rate: 50
+        Rate: 30
       - Item: Sword_Guardian_Card
         Rate: 1
         StealProtected: true
   - Id: 1830
     AegisName: BOW_GUARDIAN
     Name: 机械狙击手
-    JapaneseName: Bow Guardian
+    #JapaneseName: Bow Guardian
     Level: 80
     Hp: 80404
     BaseExp: 50149
@@ -31679,9 +31685,9 @@ Body:
       - Item: Ring_Of_Resonance
         Rate: 200
       - Item: Hell_Fire
-        Rate: 2000
+        Rate: 1000
       - Item: Fire_Brand
-        Rate: 2000
+        Rate: 500
       - Item: Flame_Sprits_Armor_
         Rate: 100
       - Item: Ifrit_Card
@@ -31729,9 +31735,9 @@ Body:
       - Item: Flame_Sprits_Armor
         Rate: 10
       - Item: Burning_Bow
-        Rate: 10
+        Rate: 30
       - Item: Piercing_Staff
-        Rate: 10
+        Rate: 30
       - Item: Kasa_Card
         Rate: 1
         StealProtected: true
@@ -31831,7 +31837,7 @@ Body:
   - Id: 1837
     AegisName: IMP
     Name: 熔岩魔
-    JapaneseName: Imp
+    #JapaneseName: Imp
     Level: 76
     Hp: 46430
     BaseExp: 25200
@@ -31921,7 +31927,7 @@ Body:
       - Item: Thorny_Buckler
         Rate: 3
       - Item: Earth_Bow
-        Rate: 5
+        Rate: 10
       - Item: Knocker_Card
         Rate: 1
         StealProtected: true
@@ -31957,7 +31963,7 @@ Body:
     Class: Boss
     Drops:
       - Item: Drill_Katar
-        Rate: 50
+        Rate: 10
       - Item: Assassin_Mask_
         Rate: 3
       - Item: Scalpel
@@ -33157,7 +33163,7 @@ Body:
   - Id: 1871
     AegisName: FALLINGBISHOP
     Name: 堕落的大神官希巴姆
-    JapaneseName: Fallen Bishop
+    #JapaneseName: Fallen Bishop
     Level: 80
     Hp: 3333333
     BaseExp: 1111111
@@ -33201,7 +33207,7 @@ Body:
       - Item: Spiritual_Ring
         Rate: 500
       - Item: Hunting_Spear
-        Rate: 1000
+        Rate: 500
       - Item: Elunium
         Rate: 5432
       - Item: Blessed_Wand
@@ -33311,9 +33317,9 @@ Body:
       - Item: Variant_Shoes
         Rate: 2000
       - Item: Death_Note
-        Rate: 2000
+        Rate: 800
       - Item: Destruction_Rod
-        Rate: 2000
+        Rate: 1000
       - Item: Bison_Horn
         Rate: 2000
       - Item: Elunium
@@ -33326,7 +33332,7 @@ Body:
   - Id: 1875
     AegisName: TRISTAN_3RD
     Name: 特里斯坦三世
-    JapaneseName: Tristan III
+    #JapaneseName: Tristan III
     Level: 80
     Hp: 43000
     BaseExp: 1
@@ -33454,7 +33460,7 @@ Body:
   - Id: 1879
     AegisName: ECLIPSE_P
     Name: 可爱小玉兔
-    JapaneseName: Eclipse Pet
+    #JapaneseName: Eclipse Pet
     Level: 6
     Hp: 1800
     Attack: 20
@@ -33678,7 +33684,7 @@ Body:
     Ai: 04
     Drops:
       - Item: Principles_Of_Magic
-        Rate: 5
+        Rate: 10
       - Item: Singing_Flower
         Rate: 300
       - Item: Singing_Plant
@@ -33739,9 +33745,9 @@ Body:
       - Item: Int_Dish10
         Rate: 1000
       - Item: Ixion_Wing
-        Rate: 100
+        Rate: 200
       - Item: Pole_Axe
-        Rate: 5
+        Rate: 200
       - Item: Treasure_Box
         Rate: 5000
       - Item: Loard_Circlet
@@ -33807,7 +33813,7 @@ Body:
   - Id: 1888
     AegisName: GARM_BABY_R
     Name: 卡仑宝宝
-    JapaneseName: Garm Baby
+    #JapaneseName: Garm Baby
     Level: 61
     Hp: 15199
     BaseExp: 100
@@ -33960,7 +33966,7 @@ Body:
   - Id: 1893
     AegisName: G_KNIGHT_OF_ABYSS
     Name: 深渊骑士
-    JapaneseName: Knight of the Abyss
+    #JapaneseName: Knight of the Abyss
     Level: 79
     Hp: 36140
     Attack: 1600
@@ -34017,7 +34023,7 @@ Body:
   - Id: 1895
     AegisName: EVENT_SEYREN
     Name: 骑士领主赛依连
-    JapaneseName: Seyren
+    #JapaneseName: Seyren
     Level: 91
     Hp: 88402
     Attack: 2100
@@ -34045,7 +34051,7 @@ Body:
   - Id: 1896
     AegisName: EVENT_KATRINN
     Name: 超魔导师凯特莉娜
-    JapaneseName: Katrinn
+    #JapaneseName: Katrinn
     Level: 92
     Hp: 47280
     Attack: 497
@@ -34631,8 +34637,6 @@ Body:
         Rate: 4850
       - Item: Diabolus_Manteau
         Rate: 3
-      - Item: Nemesis
-        Rate: 20
   - Id: 1919
     AegisName: MOROCC_2
     Name: 梦罗克门徒之泥怪
@@ -35542,7 +35546,7 @@ Body:
   - Id: 1948
     AegisName: G_YGNIZEM
     Name: 暗●剑士
-    JapaneseName: Ygnizem
+    #JapaneseName: Ygnizem
     Level: 58
     Hp: 11200
     Attack: 823
@@ -35811,9 +35815,9 @@ Body:
     Class: Boss
     Drops:
       - Item: Twin_Edge_B
-        Rate: 9000
+        Rate: 3000
       - Item: Twin_Edge_R
-        Rate: 9000
+        Rate: 3000
       - Item: Flame_Manteau
         Rate: 9000
       - Item: Bone_Helm
@@ -36114,7 +36118,7 @@ Body:
   - Id: 1967
     AegisName: M_YGNIZEM
     Name: 暗●剑士赛尼亚
-    JapaneseName: Ygnizem
+    #JapaneseName: Ygnizem
     Level: 79
     Hp: 7800
     Sp: 200
@@ -36448,7 +36452,7 @@ Body:
   - Id: 1975
     AegisName: BEHOLDER_MASTER
     Name: 大眼怪首领
-    JapaneseName: Beholder Master
+    #JapaneseName: Beholder Master
     Level: 70
     Hp: 24150
     BaseExp: 9000
@@ -36525,7 +36529,7 @@ Body:
       - Item: Golden_Jewel
         Rate: 500
       - Item: Elemental_Sword
-        Rate: 5
+        Rate: 10
       - Item: Oridecon
         Rate: 80
       - Item: Emveretarcon
@@ -36584,7 +36588,7 @@ Body:
   - Id: 1978
     AegisName: HELL_APOCALIPS
     Name: 地狱机械战士
-    JapaneseName: Hell Apocalips
+    #JapaneseName: Hell Apocalips
     Level: 86
     Hp: 65433
     BaseExp: 46666
@@ -36626,12 +36630,12 @@ Body:
       - Item: Life_Link
         Rate: 1
       - Item: Cardo
-        Rate: 1
+        Rate: 10
         StealProtected: true
   - Id: 1979
     AegisName: ZAKUDAM
     Name: 扎库坦
-    JapaneseName: Zukadam
+    #JapaneseName: Zukadam
     Level: 82
     Hp: 43699
     BaseExp: 27213
@@ -36676,7 +36680,7 @@ Body:
   - Id: 1980
     AegisName: KUBLIN
     Name: 库布灵
-    JapaneseName: Kubkin
+    #JapaneseName: Kubkin
     Level: 85
     Hp: 1176000
     BaseExp: 100000
@@ -36992,11 +36996,11 @@ Body:
       - Item: Mandragora_Cap
         Rate: 1
       - Item: Stem_Of_Nepenthes
-        Rate: 1
+        Rate: 5
       - Item: Harp_Of_Nepenthes
-        Rate: 1
+        Rate: 5
       - Item: Nepenthes_Bow
-        Rate: 1
+        Rate: 5
       - Item: Strong_Bine
         Rate: 3000
       - Item: Yellow_Live
@@ -37038,7 +37042,7 @@ Body:
       - Item: Sprint_Shoes
         Rate: 10
       - Item: Horn_Of_Hilthrion
-        Rate: 20
+        Rate: 10
       - Item: Horn_Of_Hilsrion
         Rate: 3000
       - Item: Fur
@@ -37089,9 +37093,9 @@ Body:
       - Item: Tournament_Shield
         Rate: 200
       - Item: Ivory_Lance
-        Rate: 500
+        Rate: 100
       - Item: Ivory_Knife
-        Rate: 400
+        Rate: 200
       - Item: Hard_Skin
         Rate: 9000
       - Item: Snowy_Horn
@@ -37101,7 +37105,7 @@ Body:
   - Id: 1991
     AegisName: TENDRILRION
     Name: 三角兽
-    JapaneseName: Tendrillion
+    #JapaneseName: Tendrillion
     Level: 113
     Hp: 3657330
     BaseExp: 731466
@@ -37190,7 +37194,7 @@ Body:
       - Item: Snowy_Horn
         Rate: 2
       - Item: Long_Horn
-        Rate: 1
+        Rate: 5
       - Item: Cornus_Card
         Rate: 1
         StealProtected: true
@@ -37759,7 +37763,7 @@ Body:
       - Item: Eyes_Stone_Ring
         Rate: 1
       - Item: Veteran_Sword
-        Rate: 10
+        Rate: 100
       - Item: Veteran_Axe
         Rate: 100
   - Id: 2019
@@ -38418,9 +38422,9 @@ Body:
       - Item: Treasure_Box
         Rate: 5000
       - Item: Hurricane_Fury
-        Rate: 100
+        Rate: 200
       - Item: Hunting_Spear
-        Rate: 100
+        Rate: 200
       - Item: Yggdrasilberry
         Rate: 500
       - Item: Elunium
@@ -38428,7 +38432,7 @@ Body:
       - Item: Oridecon
         Rate: 1000
       - Item: Hell_Fire
-        Rate: 100
+        Rate: 200
   - Id: 2069
     AegisName: IARA
     Name: 亚拉
@@ -38557,11 +38561,11 @@ Body:
       - Item: Hot_Hair
         Rate: 1000
       - Item: Inverse_Scale
-        Rate: 1
+        Rate: 10
       - Item: Plate_Armor_
         Rate: 1
       - Item: Jamadhar_
-        Rate: 2
+        Rate: 10
   - Id: 2072
     AegisName: JAGUAR
     Name: 美洲豹
@@ -38772,7 +38776,7 @@ Body:
   - Id: 2081
     AegisName: E_HYDRA
     Name: 变异海葵
-    JapaneseName: Suspicious Hydra
+    #JapaneseName: Suspicious Hydra
     Level: 14
     Hp: 660
     Attack: 22

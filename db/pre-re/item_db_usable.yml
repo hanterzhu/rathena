@@ -1143,7 +1143,7 @@ Body:
       itemskill "ALL_RESURRECTION",1;
   - Id: 611
     AegisName: Spectacles
-    Name: 放大镜
+    Name: 放大镜Lv1
     Type: Delayconsume
     Buy: 40
     Weight: 50

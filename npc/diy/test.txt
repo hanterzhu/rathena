@@ -80,42 +80,6 @@ OnTimer5000:
 }
 
 -	script	test2	-1,{
-OnPCEquipEvent:
-    set .@id, getinventoryinfo(@equip_idx,0);
-    set .@index, getiteminfo(.@id,ITEMINFO_LOCATIONS);
-    if (.@index & EQP_COSTUME_HEAD_TOP) {
-        set costume_top_view, getiteminfo(.@id,ITEMINFO_VIEW);
-    }
-    if (.@index & EQP_COSTUME_HEAD_MID) {
-        set costume_middle_view, getiteminfo(.@id,ITEMINFO_VIEW);
-    }
-    if (.@index & EQP_COSTUME_HEAD_LOW) {
-        set costume_bottom_view, getiteminfo(.@id,ITEMINFO_VIEW);
-    }
-    dispbottom "equip id: " + .@id;
-    dispbottom "增加战力 [" + getitemcombatpower(@equip_idx) + "]，当前战力[" + readparam(bCombatPower) + "]";
-    end;
-
-OnPCUnequipEvent:
-    set .@id, getinventoryinfo(@unequip_idx,0);
-    set .@index, getiteminfo(.@id,ITEMINFO_LOCATIONS);
-    if (.@index & EQP_COSTUME_HEAD_TOP) {
-        set costume_top_view, 0;
-    }
-    if (.@index & EQP_COSTUME_HEAD_MID) {
-        set costume_middle_view, 0;
-    }
-    if (.@index & EQP_COSTUME_HEAD_LOW) {
-        set costume_bottom_view, 0;
-    }
-    dispbottom "unequip id: " + .@id;
-    dispbottom "减少战力 [" + getitemcombatpower(@equip_idx) + "]，当前战力[" + readparam(bCombatPower) + "]";
-    end;
-
-OnPCIdentifyEvent:
-    dispbottom "@identify_idx: " + @identify_idx;
-    dispbottom "@identify_id: " + getinventoryinfo(@identify_idx,0);
-    end;
 
 OnPCTitleEvent:
     dispbottom "@title_id_pre: " + @title_id_pre;
@@ -129,18 +93,6 @@ OnPCClickNpcFilter:
             dispbottom "确保背包剩余空间 > 5 且剩余负重 > 100",0xFFFF63;
             processhalt;
         }
-    }
-    end;
-
-OnPCLoginEvent:
-    if (costume_top_view > 0) {
-        changelook LOOK_HEAD_TOP, costume_top_view;
-    }
-    if (costume_middle_view > 0) {
-        changelook LOOK_HEAD_MID, costume_middle_view;
-    }
-    if (costume_bottom_view > 0) {
-        changelook LOOK_HEAD_BOTTOM, costume_bottom_view;
     }
     end;
 

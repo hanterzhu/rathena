@@ -1,0 +1,66 @@
+-	script	鉴定事件	-1,{
+OnPCIdentifyEvent:
+    .@rand = rand(1,1000);
+    if(@identify_level == 1) {
+        if (.@rand <= 730) {
+            .@rank = 1;
+        } else if (.@rand <= 930) {
+            .@rank = 2;
+        } else if (.@rand <= 980) {
+            .@rank = 3;
+        } else if (.@rand <= 997) {
+            .@rank = 4;
+        } else {
+            .@rank = 5;
+        }
+    } else if (@identify_level == 2) {
+        if (.@rand <= 735) {
+            .@rank = 2;
+        } else if (.@rand <= 935) {
+            .@rank = 3;
+        } else if (.@rand <= 985) {
+            .@rank = 4;
+        } else {
+            .@rank = 5;
+        }
+    } else if (@identify_level == 3) {
+        if (.@rand <= 750) {
+            .@rank = 3;
+        } else if (.@rand <= 950) {
+            .@rank = 4;
+        } else {
+            .@rank = 5;
+        }
+    } else {
+        if (.@rand <= 560) {
+            .@rank = 0;
+        } else if (.@rand <= 860) {
+            .@rank = 1;
+        } else if (.@rand <= 960) {
+            .@rank = 2;
+        } else if (.@rand <= 990) {
+            .@rank = 3;
+        } else if (.@rand <= 999) {
+            .@rank = 4;
+        } else {
+            .@rank = 5;
+        }
+    }
+    set @identify_level,0;
+    dispbottom "@identify_idx: " + @identify_index + "rank: " + .@rank;
+    .@location = getiteminfo(@identify_id,ITEMINFO_LOCATIONS);
+    dispbottom "location: " + .@location;
+    for (.@i = 0; .@i < .@rank; .@i++) {
+        .@compose = callfunc("获取随机属性", .@location);
+        .@id = callfunc("random_decompose_id", .@compose);
+        .@value = callfunc("random_decompose_value", .@compose);
+        setarray .@RandomIDArray[.@i],.@id;
+        setarray .@RandomValueArray[.@i],.@value;
+        setarray .@RandomParamArray[.@i],0;
+    }
+    delitemidx @identify_index,1;
+    getitem3 @identify_id,1,1,0,0,0,0,0,0,.@RandomIDArray,.@RandomValueArray,.@RandomParamArray;
+    end;
+
+}
+
