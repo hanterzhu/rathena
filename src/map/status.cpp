@@ -4042,6 +4042,7 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 		if (sd->inventory_data[index]) {
 			for (uint8 j = 0; j < MAX_ITEM_RDM_OPT; j++) {
 				short opt_id = sd->inventory.u.items_inventory[index].option[j].id;
+				short opt_value = sd->inventory.u.items_inventory[index].option[j].value;
 
 				if (!opt_id)
 					continue;
@@ -4056,15 +4057,13 @@ int status_calc_pc_sub(map_session_data* sd, uint8 opt)
 				if (i == EQI_HAND_L && sd->inventory.u.items_inventory[index].equip == EQP_HAND_L) { // Left hand status.
 					sd->state.lr_flag = 1;
                     //增强: 战力
-                    int combat_power = sd->inventory_data[index]->extend.base_combat_power * sd->inventory_data[index]->extend.option_combat_power / 100;
-                    base_status->extend.combat_power += combat_power;
+                    base_status->extend.combat_power = get_random_option_combat_power(sd->inventory_data[index], opt_id, opt_value, base_status->extend.combat_power, j);
                     run_script(data->script, 0, sd->bl.id, 0);
 					sd->state.lr_flag = 0;
 				}
 				else {
                     //增强: 战力
-                    int combat_power = sd->inventory_data[index]->extend.base_combat_power * sd->inventory_data[index]->extend.option_combat_power / 100;
-                    base_status->extend.combat_power += combat_power;
+                    base_status->extend.combat_power = get_random_option_combat_power(sd->inventory_data[index], opt_id, opt_value, base_status->extend.combat_power, j);
                     run_script(data->script, 0, sd->bl.id, 0);
                 }
 				if (!calculating)

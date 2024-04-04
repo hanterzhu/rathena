@@ -14884,6 +14884,9 @@ BUILDIN_FUNC(getiteminfo)
 		case ITEMINFO_ID: script_pushint(st, i_data->nameid); break;
 		case ITEMINFO_AEGISNAME: script_pushstrcopy(st, i_data->name.c_str()); break;
 		case ITEMINFO_SUBTYPE: script_pushint(st, i_data->subtype); break;
+		case ITEMINFO_BASE_COMBAT_POWER: script_pushint(st, i_data->extend.base_combat_power); break;
+		case ITEMINFO_REFINE_COMBAT_POWER: script_pushint(st, i_data->extend.refine_combat_power); break;
+		case ITEMINFO_OPTION_COMBAT_POWER: script_pushint(st, i_data->extend.option_combat_power); break;
 		default:
 			script_pushint(st, -1);
 			break;
@@ -14971,6 +14974,9 @@ BUILDIN_FUNC(setiteminfo)
 			break;
 		}
 		case ITEMINFO_SUBTYPE: i_data->subtype = static_cast<uint8>(value); break;
+		case ITEMINFO_BASE_COMBAT_POWER: i_data->extend.base_combat_power = static_cast<int>(value); break;
+		case ITEMINFO_REFINE_COMBAT_POWER: i_data->extend.refine_combat_power = static_cast<int>(value); break;
+		case ITEMINFO_OPTION_COMBAT_POWER: i_data->extend.option_combat_power = static_cast<int>(value); break;
 		default:
 			script_pushint(st, -1);
 			break;

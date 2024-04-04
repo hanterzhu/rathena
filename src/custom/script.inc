@@ -636,3 +636,29 @@ BUILDIN_FUNC(getpetextrainfo) {
     return SCRIPT_CMD_SUCCESS;
 
 }
+
+BUILDIN_FUNC(randomoptgroupslot) {
+    int id = script_getnum(st,2);
+
+    auto group = random_option_group.find(id);
+
+    if (group == nullptr) {
+        ShowError("buildin_randomoptgroupslot: Invalid random option group id (%d)!\n", id);
+        return SCRIPT_CMD_FAILURE;
+    }
+
+    int slot = script_getnum(st,3);
+
+    struct item item_tmp = {};
+
+    if (group->apply( item_tmp, slot)) {
+        set_reg_num( st, nullptr, add_str( ".@opt_id" ), ".@opt_id", item_tmp.option[slot].id, nullptr );
+        set_reg_num( st, nullptr, add_str( ".@opt_value" ), ".@opt_value", item_tmp.option[slot].value, nullptr );
+        set_reg_num( st, nullptr, add_str( ".@opt_param" ), ".@opt_param", item_tmp.option[slot].param, nullptr );
+        return SCRIPT_CMD_SUCCESS;
+    }
+
+    ShowError("buildin_randomoptgroupslot: slot = %d 不合法，注意slot从0开始!\n", slot);
+
+    return SCRIPT_CMD_FAILURE;
+}

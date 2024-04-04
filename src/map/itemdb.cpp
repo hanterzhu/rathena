@@ -3621,14 +3621,96 @@ int getitem_combat_power(struct item *item) {
 
     for (int i = 0; i < MAX_ITEM_RDM_OPT; i++) {
         short opt_id = item->option[i].id;
+        short opt_value = item->option[i].value;
         if (!opt_id)
             continue;
-        combat_power += base_combat_power * option_combat_power / 100;
+
+        combat_power = get_random_option_combat_power(id, opt_id, opt_value, combat_power, i);
     }
 
     return combat_power;
-
 }
+
+int get_random_option_combat_power(struct item_data *id, short opt_id, short opt_value, int combat_power, int slot) {
+
+    int group_id;
+
+    int location = id->equip;
+
+    if (location & EQP_HEAD_TOP)
+        location = EQP_HEAD_TOP;
+    if (location & EQP_HAND_R)
+        location = EQP_HAND_R;
+
+    switch (location) {
+        case EQP_HAND_R:
+            group_id = 1;
+            break;
+        case EQP_HEAD_TOP:
+            group_id = 2;
+            break;
+        case EQP_HEAD_MID:
+        case EQP_HEAD_LOW:
+            group_id = 3;
+            break;
+        case EQP_ARMOR:
+            group_id = 4;
+            break;
+        case EQP_GARMENT:
+            group_id = 5;
+            break;
+        case EQP_HAND_L:
+            group_id = 6;
+            break;
+        case EQP_SHOES:
+            group_id = 7;
+            break;
+        case EQP_ACC_R:
+        case EQP_ACC_L:
+        case EQP_ACC_RL:
+            group_id = 8;
+            break;
+        default:
+            group_id = 0;
+    }
+
+    auto group = random_option_group.find(group_id);
+
+    if (group == nullptr)
+        return 0;
+
+    std::map<uint16, std::vector<std::shared_ptr<s_random_opt_group_entry>>> slots = group->slots;
+
+    auto it = slots.find(slot);
+
+    if (it == slots.end()) {
+        it = slots.find(0);
+        if (it == slots.end()) {
+            return 0;
+        }
+    }
+
+    std::vector<std::shared_ptr<s_random_opt_group_entry>> vec = it->second;
+
+    for (auto it = vec.begin(); it != vec.end(); ++it) {
+        if (it->get()->id == opt_id) {
+            short min = it->get()->min_value;
+            short max = it->get()->max_value;
+
+            short percentage = (opt_value - min + 1) * 100 / (max - min + 1);
+
+            int base_combat_power = id->extend.base_combat_power;
+            int option_combat_power = id->extend.option_combat_power;
+
+            combat_power += base_combat_power * option_combat_power * percentage / 10000;
+
+            break;
+        }
+    }
+
+    return combat_power;
+}
+
 
 const std::string ComboDatabase::getDefaultLocation() {
 	return std::string(db_path) + "/item_combos.yml";
@@ -4488,6 +4570,45 @@ bool RandomOptionGroupDatabase::add_option(const ryml::NodeRef& node, std::share
 	}
 
 	return true;
+}
+
+//ÔöÇ¿
+bool s_random_opt_group::apply( struct item& item, int slot ){
+    auto apply_sub = []( s_item_randomoption& item_option, const std::shared_ptr<s_random_opt_group_entry>& option ){
+        item_option.id = option->id;
+        item_option.value = rnd_value( option->min_value, option->max_value );
+        item_option.param = option->param;
+    };
+
+    // (Re)initialize all the options
+    for( size_t i = 0; i < MAX_ITEM_RDM_OPT; i++ ){
+        item.option[i].id = 0;
+        item.option[i].value = 0;
+        item.option[i].param = 0;
+    };
+
+    auto it = this->slots.find(slot);
+
+    if (it == this->slots.end()) {
+        return false;
+    }
+
+    for( size_t j = 0, max = this->slots[static_cast<uint16>(slot)].size() * 3; j < max; j++ ){
+        std::shared_ptr<s_random_opt_group_entry> option = util::vector_random( this->slots[static_cast<uint16>(slot)] );
+
+        if ( rnd_chance<uint16>(option->chance, 10000) ) {
+            apply_sub( item.option[slot], option );
+            break;
+        }
+    }
+
+    if( item.option[slot].id == 0 ){
+        std::shared_ptr<s_random_opt_group_entry> option = util::vector_random( this->slots[static_cast<uint16>(slot)] );
+
+        apply_sub( item.option[slot], option );
+    }
+
+    return true;
 }
 
 void s_random_opt_group::apply( struct item& item ){

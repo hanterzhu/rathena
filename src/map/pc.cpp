@@ -6095,7 +6095,7 @@ bool pc_dropitem(map_session_data *sd,int n,int amount)
 	if( sd->inventory.u.items_inventory[n].equipSwitch )
 		return false;
 
-    if( map_getmapflag(sd->bl.m, MF_NODROP) && pc_get_group_id(sd) < 90) {//增强：GM无视
+    if( map_getmapflag(sd->bl.m, MF_NODROP) && !pc_has_permission(sd, PC_PERM_TRADE_UNCONDITIONAL)) {//增强：GM无视
         clif_displaymessage (sd->fd, msg_txt(sd,271));
         return false; //Can't drop items in nodrop mapflag maps.
     }
@@ -11233,7 +11233,7 @@ void pc_setmadogear(map_session_data *sd, bool flag, e_mado_type type)
  *------------------------------------------*/
 bool pc_candrop(map_session_data *sd, struct item *item)
 {
-	if (sd->sc.cant.drop) //增强：todo: GM无视
+	if (sd->sc.cant.drop)
 		return false;
 	if( item && itemdb_ishatched_egg(item) )
 		return false;
@@ -12167,7 +12167,8 @@ bool pc_equipitem(map_session_data *sd,short n,int req_pos,bool equipswitch)
 
     //增强：
     if (!equipswitch) {
-        pc_setreg(sd, add_str("@equip_idx"), (int)n);
+        pc_setreg(sd, add_str("@equip_index"), (int)n);
+        pc_setreg(sd, add_str("@equip_id"), sd->inventory.u.items_inventory[n].nameid);
         npc_script_event(sd, NPCE_EQUIP);
     }
 
@@ -12390,7 +12391,8 @@ bool pc_unequipitem(map_session_data *sd, int n, int flag) {
 	pc_unequipitem_sub(sd, n, flag);
 
     //增强
-    pc_setreg(sd, add_str("@unequip_idx"), (int)n);
+    pc_setreg(sd, add_str("@unequip_index"), (int)n);
+    pc_setreg(sd, add_str("@unequip_id"), sd->inventory.u.items_inventory[n].nameid);
     pc_setreg(sd, add_str("@unequip_force"), (flag & 2 ? 1 : 0));
     npc_script_event(sd, NPCE_UNEQUIP);
 

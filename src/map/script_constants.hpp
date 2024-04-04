@@ -11005,6 +11005,9 @@
 	export_constant(ITEMINFO_AEGISNAME);
 	export_constant(ITEMINFO_ARMORLEVEL);
 	export_constant(ITEMINFO_SUBTYPE);
+	export_constant(ITEMINFO_BASE_COMBAT_POWER);
+	export_constant(ITEMINFO_REFINE_COMBAT_POWER);
+	export_constant(ITEMINFO_OPTION_COMBAT_POWER);
 
 	/* geteleminfo script command */
 	export_constant(ELEMINFO_ID);

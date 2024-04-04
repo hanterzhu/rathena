@@ -2937,6 +2937,7 @@ struct s_random_opt_group {
 
 public:
 	void apply( struct item& item );
+	bool apply( struct item& item, int slot );
 };
 
 class RandomOptionDatabase : public TypesafeYamlDatabase<uint16, s_random_opt_data> {
@@ -3434,5 +3435,6 @@ void do_init_itemdb(void);
 
 //ÔöÇ¿
 int getitem_combat_power(struct item *item);
+int get_random_option_combat_power(struct item_data *id, short opt_id, short opt_value, int combat_power, int slot);
 
 #endif /* ITEMDB_HPP */
