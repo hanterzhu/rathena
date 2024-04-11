@@ -1037,12 +1037,10 @@ Body:
     Type: Delayconsume
     Buy: 60
     Weight: 50
-    Delay:
-      Duration: 750
     Flags:
       BuyingStore: true
     Script: |
-      warp "Random",0,0;
+      callfunc "wing_of_fly";
   - Id: 602
     AegisName: Wing_Of_Butterfly
     Name: ºûµû³á°ò

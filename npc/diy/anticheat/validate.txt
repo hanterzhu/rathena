@@ -1,0 +1,31 @@
+
+-	script	打怪验证	-1,{
+//OnPCLoginEvent:
+    mes "请在一分钟内做出选择:";
+    mes "选项 A";
+    mes "选项 B";
+    attachnpctimer;
+    initnpctimer;
+    next;
+    switch(select("选项 A:选项 B")) {
+    case 1:
+        mes "你选择了选项 A.";
+        set .@status, 1;
+        query_logsql("INSERT INTO `validatelog` (`time`,`account_id`,`char_id`,`status`) VALUES (NOW()," + getcharid(3) + "," + getcharid(0) + "," + .@status + ")");
+        stopnpctimer;
+        close;
+    case 2:
+        mes "你选择了选项 B.";
+        stopnpctimer;
+        close;
+    }
+    end;
+
+OnTimer5000:
+   stopnpctimer;
+   announce "你没有在一分钟内做出选择.",bc_self,0xFFF618,FW_NORMAL,20;
+   //atcommand "@kick " + strcharinfo(0);
+   set .@status, 0;
+   query_logsql("INSERT INTO `validatelog` (`time`,`account_id`,`char_id`,`status`) VALUES (NOW()," + getcharid(3) + "," + getcharid(0) + "," + .@status + ")");
+   end;
+}

@@ -1,0 +1,36 @@
+function	script	wing_of_fly	{
+    if ($@ban_fly) {
+        if (fly_count++ >= 10) {
+            atcommand "@jail " + strcharinfo(0);
+        }
+    } else {
+        warp "Random",0,0;
+    }
+}
+
+-	script	随机禁苍蝇	-1,{
+//OnInit:
+    freeloop(1);
+    while (1) {
+        for (.i = 0; .i < 3; .i++) {
+            .delay = rand(15,25);
+            sleep(.delay * 1000);
+            debugmes "执行任务: " + gettimestr("%Y年%m月%d日 %H:%M:%S",50);
+
+            set .size,getarraysize($@online_cid);
+            deletearray $@online_cid[0],.size;
+            getonlinecid();
+            for (.j = 0; .j < .size; .j++) {
+                if ($@online_cid[.j]) {
+                    set fly_count,0,$@online_cid[.j];
+                }
+            }
+            set $@ban_fly,1;
+            sleep(5*1000);
+            announce "现在可以使用苍蝇翅膀了！",bc_all,0xFFF618,FW_NORMAL,30;
+            set $@ban_fly,0;
+        }
+    }
+    freeloop(0);
+    end;
+}

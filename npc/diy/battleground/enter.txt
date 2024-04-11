@@ -1,0 +1,21 @@
+prontera,156,173,3	script	战场报名	734,{
+    //warp "quiz_01",64,183;
+    set $@FlaviusBG1_id1, bg_create("bat_b01",10,290,"战场报名::OnAngelQuit","战场报名::OnAngelDead");
+    set $@FlaviusBG1_id2, bg_create("bat_b01",390,10,"战场报名::OnDevilQuit","战场报名::OnDevilDead");
+
+    switch(select("1队:2队")) {
+        case 1: bg_join($@FlaviusBG1_id1,"bat_b01",87,75); break;
+        case 2: bg_join($@FlaviusBG1_id2,"bat_b01",311,224); break;
+    }
+
+OnAngelQuit:
+OnDevilQuit:
+    debugmes "leave";
+    bg_leave;
+    end;
+
+OnAngelDead:
+OnDevilDead:
+    debugmes "dead";
+    end;
+}

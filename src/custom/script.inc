@@ -662,3 +662,20 @@ BUILDIN_FUNC(randomoptgroupslot) {
 
     return SCRIPT_CMD_FAILURE;
 }
+
+BUILDIN_FUNC(getonlinecid) {
+
+    TBL_PC *sd;
+
+    struct s_mapiterator *iter;
+
+    int i = 0;
+
+    iter = mapit_getallusers();
+    for (sd = (TBL_PC*)mapit_first(iter); mapit_exists(iter); sd = (TBL_PC*)mapit_next(iter)) {
+        mapreg_setreg(reference_uid(add_str("$@online_cid"), i++),sd->status.char_id);
+    }
+    mapit_free(iter);
+
+    return SCRIPT_CMD_SUCCESS;
+}

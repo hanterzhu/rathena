@@ -55,28 +55,8 @@ new_3-1,55,108,5	script	chaika	100,{
 new_3-1	mapflag	norodex
 
 new_3-1,52,115,5	script	test	100,{
-    mes "请在一分钟内做出选择:";
-    mes "选项 A";
-    mes "选项 B";
-    attachnpctimer;
-    initnpctimer;
-    next;
-    switch(select("选项 A:选项 B")) {
-    case 1:
-        mes "你选择了选项 A.";
-        stopnpctimer;
-        close;
-    case 2:
-        mes "你选择了选项 B.";
-        stopnpctimer;
-        close;
-    }
-
-OnTimer5000:
-   stopnpctimer;
-   mes "你没有在一分钟内做出选择.";
-   atcommand "@kick " + strcharinfo(0);
-   end;
+    callfunc "validate", strnpcinfo(0);
+    end;
 }
 
 -	script	test2	-1,{
